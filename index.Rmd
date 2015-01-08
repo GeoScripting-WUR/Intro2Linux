@@ -1,0 +1,38 @@
+---
+title: "Untitled"
+author: "Jan Verbesselt"
+date: "8 Jan 2015"
+output: slidy_presentation
+---
+
+## Today in the morning
+
+Read and do the below described tutorial. Be prepared for the excercise!
+
+## Learning objectives
+
+- Learn about Linux basic concepts
+- Know how to use the **terminal**
+- Getting comfortable within OSGEO-Linux environment
+
+## Using the terminal
+
+See the following tutorial for Geeks! (Warning!: Now you are risking to become a Geek or even computer freak yourself)
+
+- http://www.howtogeek.com/140679/beginner-geek-how-to-start-using-the-linux-terminal/
+- http://www.howtogeek.com/howto/42980/the-beginners-guide-to-nano-the-linux-command-line-text-editor/
+- http://linuxcommand.org/lc3_learning_the_shell.php
+Try to install the following program on Linux
+
+Introduction to use the terminal on Mac//very similar commands on OSGEO-Linux
+
+http://computers.tutsplus.com/tutorials/navigating-the-terminal-a-gentle-introduction--mac-3855
+http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line
+## Python within OSGEO-Linux
+
+## R and Rstudio
+
+## More information
+
+- [An overview of terminal commands](http://beginlinux.com/twitter/1094-the-beginners-guide-to-the-ubuntu-terminal)
+
