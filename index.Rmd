@@ -1,21 +1,31 @@
 ---
-title: "Untitled"
-author: "Jan Verbesselt"
-date: "8 Jan 2015"
-output: slidy_presentation
+title: "Getting started with Linux (OS-GEOLive)"
+subtitle: "The terminal, R, and Python"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  html_document:
+    theme: united
+    toc: yes
+    toc_depth: 4
+    number_sections: true
 ---
 
-## Today in the morning
+# Today in the morning
 
-Read and do the below described tutorial. Be prepared for the excercise!
+Read and do the below described tutorial
 
-## Learning objectives
+# Today's Learning objectives
 
-- Learn about Linux basic concepts
-- Know how to use the **terminal**
+- Knowing what Linux is (presentation by Allard De Wit)
+- Know how to use the **terminal**!!!
 - Getting comfortable within OSGEO-Linux environment
+    - Launching Rstudio and using Git
+    - Running and writing Python script from the QGIS Python Console
 
-## Using the terminal
+
+# Using the terminal within Linux
+
+## Open the terminal
 
 See the following tutorial for Geeks! (Warning!: Now you are risking to become a Geek or even computer freak yourself)
 
@@ -26,11 +36,18 @@ Try to install the following program on Linux
 
 Introduction to use the terminal on Mac//very similar commands on OSGEO-Linux
 
-http://computers.tutsplus.com/tutorials/navigating-the-terminal-a-gentle-introduction--mac-3855
-http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line
-## Python within OSGEO-Linux
+- http://computers.tutsplus.com/tutorials/navigating-the-terminal-a-gentle-introduction--mac-3855
+- http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line
 
-## R and Rstudio
+# R and Rstudio within Linux
+
+# Python within Linux
+
+- Via QGIS -> Plug-inns -> Python Console
+- Choose you own preferred editor for Python scripts
+    - Gedit as simple but good text editor
+    - Eric
+    - Spyder
 
 ## More information
 
