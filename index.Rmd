@@ -22,8 +22,9 @@ Read and do the below described tutorial
     - Launching Rstudio and using Git
     - Running and writing Python script from the QGIS Python Console
 
-
 # Using the terminal within Linux
+
+[Is the terminal in Mac and Linux the same](https://stackoverflow.com/questions/8051145/is-the-terminal-in-mac-and-linux-the-same)
 
 ## Open the terminal
 
