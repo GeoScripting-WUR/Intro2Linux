@@ -33,8 +33,19 @@ Is not the "Terminator" but something really powerfull. The terminal is the engi
 
 [Is the terminal in Mac and Linux the same](https://stackoverflow.com/questions/8051145/is-the-terminal-in-mac-and-linux-the-same)
 
-## Getting started with the terminal
+## Getting started with Bash in the terminal
 
+See the following tutorial - try it out.
+https://help.ubuntu.com/community/Beginners/BashScripting
+http://www.wikihow.com/Write-a-Shell-Script-Using-Bash-Shell-in-Ubuntu
+http://linuxconfig.org/bash-scripting-tutorial
+
+On Mac:
+http://www.hackmac.org/articles/bash/bash-101-hello-world-and-a-little-further/
+http://www.hackmac.org/articles/bash/bash-101-history-of-bash-and-terminal/
+On Mac customizing your Bash environment:
+http://computers.tutsplus.com/tutorials/navigating-the-terminal-a-gentle-introduction--mac-3855
+http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line
 ### Command: cd, pwd, ls
 
 ```{r, engine='bash', results='hide'}
@@ -163,5 +174,8 @@ Introduction to use the terminal on Mac//very similar commands on OSGEO-Linux
 
 ## More information
 
+- More information
+    * http://www.cyberciti.biz/faq/pwd-linux-unix-command-examples/
+    * 
 - [An overview of terminal commands](http://beginlinux.com/twitter/1094-the-beginners-guide-to-the-ubuntu-terminal)
 

@@ -74,12 +74,11 @@ img {
 <li><a href="#bash"><span class="toc-section-number">3.1.1</span> Bash?</a></li>
 <li><a href="#the-terminal-on-linux-mac-or-windows"><span class="toc-section-number">3.1.2</span> The terminal on Linux, Mac, or Windows</a></li>
 </ul></li>
-<li><a href="#getting-started-with-the-terminal"><span class="toc-section-number">3.2</span> Getting started with the terminal</a><ul>
-<li><a href="#command-cd-pwd-ls"><span class="toc-section-number">3.2.1</span> Command: cd, pwd, ls</a></li>
-<li><a href="#cp"><span class="toc-section-number">3.2.2</span> cp</a></li>
-<li><a href="#writing-a-shell-script"><span class="toc-section-number">3.2.3</span> writing a shell script?!</a></li>
-<li><a href="#gdal"><span class="toc-section-number">3.2.4</span> GDAL</a></li>
-<li><a href="#excercise"><span class="toc-section-number">3.2.5</span> Excercise</a></li>
+<li><a href="#getting-started-with-bash-in-the-terminal"><span class="toc-section-number">3.2</span> Getting started with Bash in the terminal</a><ul>
+<li><a href="#cp"><span class="toc-section-number">3.2.1</span> cp</a></li>
+<li><a href="#writing-a-shell-script"><span class="toc-section-number">3.2.2</span> writing a shell script?!</a></li>
+<li><a href="#gdal"><span class="toc-section-number">3.2.3</span> GDAL</a></li>
+<li><a href="#excercise"><span class="toc-section-number">3.2.4</span> Excercise</a></li>
 </ul></li>
 </ul></li>
 <li><a href="#r-and-rstudio-within-linux"><span class="toc-section-number">4</span> R and Rstudio within Linux</a></li>
@@ -118,10 +117,10 @@ img {
 <p><a href="https://stackoverflow.com/questions/8051145/is-the-terminal-in-mac-and-linux-the-same">Is the terminal in Mac and Linux the same</a></p>
 </div>
 </div>
-<div id="getting-started-with-the-terminal" class="section level2">
-<h2><span class="header-section-number">3.2</span> Getting started with the terminal</h2>
-<div id="command-cd-pwd-ls" class="section level3">
-<h3><span class="header-section-number">3.2.1</span> Command: cd, pwd, ls</h3>
+<div id="getting-started-with-bash-in-the-terminal" class="section level2">
+<h2><span class="header-section-number">3.2</span> Getting started with Bash in the terminal</h2>
+<p>See the following tutorial - try it out. <a href="https://help.ubuntu.com/community/Beginners/BashScripting" class="uri">https://help.ubuntu.com/community/Beginners/BashScripting</a> <a href="http://www.wikihow.com/Write-a-Shell-Script-Using-Bash-Shell-in-Ubuntu" class="uri">http://www.wikihow.com/Write-a-Shell-Script-Using-Bash-Shell-in-Ubuntu</a> <a href="http://linuxconfig.org/bash-scripting-tutorial" class="uri">http://linuxconfig.org/bash-scripting-tutorial</a></p>
+<p>On Mac: <a href="http://www.hackmac.org/articles/bash/bash-101-hello-world-and-a-little-further/" class="uri">http://www.hackmac.org/articles/bash/bash-101-hello-world-and-a-little-further/</a> <a href="http://www.hackmac.org/articles/bash/bash-101-history-of-bash-and-terminal/" class="uri">http://www.hackmac.org/articles/bash/bash-101-history-of-bash-and-terminal/</a> On Mac customizing your Bash environment: <a href="http://computers.tutsplus.com/tutorials/navigating-the-terminal-a-gentle-introduction" class="uri">http://computers.tutsplus.com/tutorials/navigating-the-terminal-a-gentle-introduction</a>–mac-3855 <a href="http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line" class="uri">http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line</a> ### Command: cd, pwd, ls</p>
 <pre class="bash"><code>cd</code></pre>
 <pre class="bash"><code>pwd</code></pre>
 <p>List files</p>
@@ -136,11 +135,11 @@ img {
 ## index.Rmd
 ## index.html</code></pre>
 <pre class="bash"><code>ls -lht</code></pre>
-<pre><code>## total 1880
-## -rw-r--r--  1 verbe039  staff   4.3K Jan 12 23:09 index.Rmd
+<pre><code>## total 1872
+## -rw-r--r--  1 verbe039  staff   4.9K Jan 12 23:25 index.Rmd
+## -rw-r--r--  1 verbe039  staff   179B Jan 12 23:15 README.md
+## -rw-r--r--  1 verbe039  staff   746K Jan 12 23:09 index.html
 ## drwxr-xr-x  7 verbe039  staff   238B Jan 12 23:09 data
-## -rw-r--r--  1 verbe039  staff   749K Jan 12 23:09 index.html
-## -rw-r--r--  1 verbe039  staff    69B Jan 12 23:05 README.md
 ## drwxr-xr-x  3 verbe039  staff   102B Jan 12 22:40 backup
 ## drwxr-xr-x  3 verbe039  staff   102B Jan 12 21:42 figures
 ## -rw-r--r--  1 verbe039  staff   115B Jan 12 12:33 Slides.Rmd
@@ -157,15 +156,14 @@ ls -l
 # Change the current directory to Videos
 cd Videos
 pwd</code></pre>
-</div>
 <div id="cp" class="section level3">
-<h3><span class="header-section-number">3.2.2</span> cp</h3>
+<h3><span class="header-section-number">3.2.1</span> cp</h3>
 </div>
 <div id="writing-a-shell-script" class="section level3">
-<h3><span class="header-section-number">3.2.3</span> writing a shell script?!</h3>
+<h3><span class="header-section-number">3.2.2</span> writing a shell script?!</h3>
 </div>
 <div id="gdal" class="section level3">
-<h3><span class="header-section-number">3.2.4</span> GDAL</h3>
+<h3><span class="header-section-number">3.2.3</span> GDAL</h3>
 <p><strong><em>Do you know who Frank Warmerdam is?</em></strong></p>
 <ul>
 <li>Check the the FWtools:
@@ -214,7 +212,7 @@ gdalinfo -hist -stats ndvi.tif</code></pre>
 <p>More info here on the power of GDAL via the terminal: <a href="http://www.gdal.org/" class="uri">http://www.gdal.org/</a></p>
 </div>
 <div id="excercise" class="section level3">
-<h3><span class="header-section-number">3.2.5</span> Excercise</h3>
+<h3><span class="header-section-number">3.2.4</span> Excercise</h3>
 <p>Try to write a shell script that looks at the difference between the two file provided by Loic.</p>
 <p>See the following tutorial for Geeks! (Warning!: Now you are risking to become a Geek or even computer freak yourself)</p>
 <ul>
@@ -247,6 +245,11 @@ gdalinfo -hist -stats ndvi.tif</code></pre>
 <div id="more-information" class="section level2">
 <h2><span class="header-section-number">5.1</span> More information</h2>
 <ul>
+<li>More information
+<ul>
+<li><a href="http://www.cyberciti.biz/faq/pwd-linux-unix-command-examples/" class="uri">http://www.cyberciti.biz/faq/pwd-linux-unix-command-examples/</a></li>
+<li></li>
+</ul></li>
 <li><a href="http://beginlinux.com/twitter/1094-the-beginners-guide-to-the-ubuntu-terminal">An overview of terminal commands</a></li>
 </ul>
 </div>
