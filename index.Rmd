@@ -22,11 +22,120 @@ Read and do the below described tutorial
     - Launching Rstudio and using Git
     - Running and writing Python script from the QGIS Python Console
 
-# Using the terminal within Linux
+# A simple intro to the terminal
+
+## What is the terminal
+
+### Bash? 
+
+### The terminal on Linux, Mac, or Windows
+Is not the "Terminator" but something really powerfull. The terminal is the engine behind linux and mac and can also be installed on Windows via a program called `Cygwin`.
 
 [Is the terminal in Mac and Linux the same](https://stackoverflow.com/questions/8051145/is-the-terminal-in-mac-and-linux-the-same)
 
-## Open the terminal
+## Getting started with the terminal
+
+### Command: cd, pwd, ls
+
+```{r, engine='bash', results='hide'}
+cd
+```
+
+```{r, engine='bash', results='hide'}
+pwd
+```
+
+List files
+
+```{r, engine='bash'}
+ls
+```
+
+```{r, engine='bash'}
+ls -lht
+```
+
+How to use it:
+
+```{r, engine='bash', results='hide', eval=FALSE}
+## Where am I?
+pwd
+ 
+## List the contents of the current directory
+ls
+ls -l
+ 
+# Change the current directory to Videos
+cd Videos
+pwd
+```
+
+### cp
+
+### writing a shell script?!
+
+### GDAL 
+
+***Do you know who Frank Warmerdam is?*** 
+
+- Check the the FWtools: 
+    - http://fwtools.maptools.org/
+    - FWTools is a set of Open Source GIS binaries for Windows (win32) and Linux (x86 32bit) systems produced
+- He's is the man behind GDAL and is now working at [Planet Labs](https://www.planet.com/).
+
+Now via the terminal we can acces GDAL directly!!! E.g. we can check out what the current version of GDAL is that is installed on our Linux OS:
+
+Let's download a file from [Lesson 4 and Raster object manipulations](https://geoscripting-wur.github.io/IntroToRaster/#raster-objects-manipulations):
+
+Download the `gewata.zip` file from Github ([link](https://github.com/GeoScripting-WUR/IntroToRaster/raw/gh-pages/data/gewata.zip)) and unzip in the data folder.
+
+```{r, engine='bash'}
+echo "the current GDAL version is:"
+gdal-config --version
+```
+
+Using gdalinfo:
+
+```{r, engine='bash'}
+cd data
+ls *.tif
+```
+
+```{r, engine='bash', eval=FALSE}
+gdalinfo -nomd -norat -noct LE71700552001036SGS00_SR_Gewata_INT1U.tif
+```
+
+Now let's calculate the NDVI via GDAL terminal
+
+```{r, engine='bash'}
+cd data
+cp LE71700552001036SGS00_SR_Gewata_INT1U.tif input.tif
+echo "* all files in the directory"
+ls
+echo "* now apply gdal_calc: Command line raster calculator with numpy syntax"
+gdal_calc.py -A input.tif --A_band=4 -B input.tif --B_band=3  --outfile=ndvi.tif  --calc="(A.astype(float)-B)/(A.astype(float)+B)" --type='Float32' --co="COMPRESS=LZW"
+echo "* remove the input temporary file"
+rm input.tif
+```
+
+```{r, engine='bash'}
+cd data
+echo "* list all files"
+ls -lht
+echo "* histogram statistics"
+gdalinfo -hist -stats ndvi.tif
+```
+
+More info here on the power of GDAL via the terminal:
+http://www.gdal.org/
+
+### Excercise
+
+Try to write a shell
+
+
+
+
 
 See the following tutorial for Geeks! (Warning!: Now you are risking to become a Geek or even computer freak yourself)
 
@@ -39,6 +148,7 @@ Introduction to use the terminal on Mac//very similar commands on OSGEO-Linux
 
 - http://computers.tutsplus.com/tutorials/navigating-the-terminal-a-gentle-introduction--mac-3855
 - http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line
+
 
 # R and Rstudio within Linux
 
