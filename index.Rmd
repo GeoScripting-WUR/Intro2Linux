@@ -118,7 +118,7 @@ echo "* remove the input temporary file"
 rm input.tif
 ```
 
-```{r, engine='bash'}
+```{r, engine='bash', results='hide'}
 cd data
 echo "* list all files"
 ls -lht
@@ -131,7 +131,8 @@ http://www.gdal.org/
 
 ### Excercise
 
-Try to write a shell
+Try to write a shell script that looks at the difference between the two file provided by Loic.
+
 
 
 
