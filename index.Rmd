@@ -26,9 +26,9 @@ Read and do the below described tutorial
 
 # Using the terminal and command line
 
-## Why using the command-line ([reference](https://help.ubuntu.com/community/UsingTheTerminal))
+## Why using the command-line
 
-"Under Linux there are GUIs (graphical user interfaces), where you can point and click and drag, and hopefully get work done without first reading lots of documentation. The traditional Unix environment is a CLI (command line interface), where you type commands to tell the computer what to do. That is faster and more powerful, but requires finding out what the commands are." 
+Under Linux there are GUIs (graphical user interfaces), where you can point and click and drag, and hopefully get work done without first reading lots of documentation. The traditional Unix environment is a CLI (command line interface), where you type commands to tell the computer what to do. That is faster and more powerful, but requires finding out what the commands are ([reference](https://help.ubuntu.com/community/UsingTheTerminal)).
 
 "man man" will bring up the manual entry for the man command, which is a good place to start!
 
@@ -136,7 +136,11 @@ So let's get started. First, create a `Bash` folder within your R project folder
 echo "Hello, World"
 ```
 
-The first line of the script just defines which interpreter to use. NOTE: There is no leading whitespace before #!/bin/bash. That's it, simple as that!'.
+The first line of the script just defines which interpreter to use (and where it is located). NOTE: There is no leading whitespace before #!/bin/bash. That's it, simple as that!'. To find out where your `bash` interpreter is located type the following in the terminal (this works also on a Mac terminal!):
+
+```{r, engine='bash'}
+which bash
+```
 
 Second, to run a bash script you first have to have the correct file permissions. We do this with `chmod` command in terminal (change mode) as follows:
 
@@ -144,7 +148,7 @@ Second, to run a bash script you first have to have the correct file permissions
 chmod a+x /where/i/saved/it/HelloWorld.sh   #Gives everyone execute permissions
 ```
 
-More info about `chmod` (https://help.ubuntu.com/community/FilePermissions) for your future reference. Above all do not worry, it might be a lot today. Today is just to let you know what is possible, as a teaser so you know a bit about it.
+More info about `chmod` (https://help.ubuntu.com/community/FilePermissions) for your future reference. Note: today is just an introduction to let you know what is possible so that you can find your way easier in the future.
 
 So to do so, you can go to the terminal via the `Git` tab in `Rstudio` and click on `Shell...` and from there make sure you go to the `Bash` folder you created. Even better is that your launch the `Terminal` using the short-cut (`Ctrl + Alt + T`) and the `cd` command to move to the `Bash` folder (by the way this is just a name, you can select anyname you want). See here for some `Bash` lines:
 
@@ -165,22 +169,68 @@ Hopefully you should have seen it print Hello, World!!! onto your screen. If so 
 
 **Question**: why do we add `./` in front of the Bash script?
 
+Note!: we can also access the Terminal from R using the `system()` function that can invoke a OS command:
+
+```{r, echo=TRUE, message=TRUE}
+## R code
+setwd("Bash/") ## set the working director in R
+print(system("./HelloWorld.sh", intern = TRUE)) ## set this command to the Terminal
+```
+
+
 ### Bash script with a variable
+
+Variables basically store information. You set variables like this (you can type this in the terminal). 
+
+```{r, eval=FALSE}
+var="FOO"
+```
+
+`var` can be anything you want as long as it doesn't begin with a number. "FOO" can be anything you want. To access the information from the variable you need to put a '$' in front of it like this:
+
+```{r, eval=FALSE}
+echo $var
+```
+
+Now create the following e.g. `variables.sh` script in the *Bash* folder and apply the `chmod a+x variables.sh` command on this script using the terminal.
+
+```{r, engine='bash', eval=FALSE}
+#!/bin/bash
+echo "Now with the read function"
+clear
+echo "Please enter your name"
+read name
+echo "Please enter your age"
+read age
+echo "Please enter your sex. Male/Female"
+read sex
+echo "So you're a $age year old $sex called $name"
+```
+
+You can run the script once it is *executable*:
+```{r, engine='bash', eval=FALSE}
+./variables.sh
+```
+
+If you want to learn more about `Bash` scripting: https://help.ubuntu.com/community/Beginners/BashScripting
+
 
 ## Using the GDAL library from the terminal
 
-***Do you know who Frank Warmerdam is?*** 
+A quick refresher:
 
-- Check the the FWtools: 
-    - http://fwtools.maptools.org/
-    - FWTools is a set of Open Source GIS binaries for Windows (win32) and Linux (x86 32bit) systems produced
-- He's is the man behind GDAL and is now working at [Planet Labs](https://www.planet.com/).
+- ***Do you know who Frank Warmerdam is?*** 
+  - Check the the FWtools: 
+      - http://fwtools.maptools.org/
+      - FWTools is a set of Open Source GIS binaries for Windows (win32) and Linux (x86 32bit) systems produced
+  - He's is the man behind GDAL and is now working at [Planet Labs](https://www.planet.com/).
 
 Now via the terminal we can acces GDAL directly!!! E.g. we can check out what the current version of GDAL is that is installed on our Linux OS:
 
 Let's download a file from [Lesson 4 and Raster object manipulations](https://geoscripting-wur.github.io/IntroToRaster/#raster-objects-manipulations):
+Download the `gewata.zip` file from Github ([link](https://github.com/GeoScripting-WUR/IntroToRaster/raw/gh-pages/data/gewata.zip)) and unzip in the data folder. Type the following in the data folder:
 
-Download the `gewata.zip` file from Github ([link](https://github.com/GeoScripting-WUR/IntroToRaster/raw/gh-pages/data/gewata.zip)) and unzip in the data folder.
+You can write a shell script to do the following below but first type in the commands via the terminal to understand what is happening:
 
 ```{r, engine='bash'}
 echo "the current GDAL version is:"
@@ -192,13 +242,14 @@ Using gdalinfo:
 ```{r, engine='bash'}
 cd data
 ls *.tif
+gdalinfo -nomd -norat -noct LE71700552001036SGS00_SR_Gewata_INT1U.tif
 ```
 
 ```{r, engine='bash', eval=FALSE}
 gdalinfo -nomd -norat -noct LE71700552001036SGS00_SR_Gewata_INT1U.tif
 ```
 
-Now let's calculate the NDVI via GDAL terminal
+Now let's calculate the NDVI via GDAL terminal by using the `gdal_calc.py`:
 
 ```{r, engine='bash'}
 cd data
@@ -220,7 +271,12 @@ gdalinfo -hist -stats ndvi.tif
 ```
 
 More info here on the power of GDAL via the terminal:
-http://www.gdal.org/
+http://www.gdal.org/ and gdalinfo
+
+Handy functions are (See the examples at the bottom):
+
+- `gdal_translate`: http://www.gdal.org/gdal_translate.html
+- `gdalwarp`: http://www.gdal.org/gdalwarp.html
 
 ### Excercise
 
