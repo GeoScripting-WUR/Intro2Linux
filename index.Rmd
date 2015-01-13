@@ -165,7 +165,7 @@ Hopefully you should have seen it print Hello, World!!! onto your screen. If so 
 
 **Question**: why do we add `./` in front of the Bash script?
 
-### Bash script with a veriable
+### Bash script with a variable
 
 ## Using the GDAL library from the terminal
 
