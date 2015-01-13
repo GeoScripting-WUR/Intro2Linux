@@ -16,72 +16,119 @@ Read and do the below described tutorial
 
 # Today's Learning objectives
 
-- Knowing what Linux is (presentation by Allard De Wit)
-- Know how to use the **terminal**!!!
+- Knowing what Linux is (based on a presentation by Allard De Wit)
+- Know how to use the **terminal**
+- Learn the basics of `Bash` scripting
 - Getting comfortable within OSGEO-Linux environment
+    - running R from the terminal
     - Launching Rstudio and using Git
     - Running and writing Python script from the QGIS Python Console
 
-# A simple intro to the terminal
+# Using the terminal and command line
 
-## What is the terminal
+## Why using the command-line ([reference](https://help.ubuntu.com/community/UsingTheTerminal))
 
-### Bash? 
+"Under Linux there are GUIs (graphical user interfaces), where you can point and click and drag, and hopefully get work done without first reading lots of documentation. The traditional Unix environment is a CLI (command line interface), where you type commands to tell the computer what to do. That is faster and more powerful, but requires finding out what the commands are." 
 
-### The terminal on Linux, Mac, or Windows
-Is not the "Terminator" but something really powerfull. The terminal is the engine behind linux and mac and can also be installed on Windows via a program called `Cygwin`.
+"man man" will bring up the manual entry for the man command, which is a good place to start!
 
-[Is the terminal in Mac and Linux the same](https://stackoverflow.com/questions/8051145/is-the-terminal-in-mac-and-linux-the-same)
+```{r, eval=FALSE}
+man man
+```
 
-## Using the terminal
+"man intro" is especially useful - it displays the "Introduction to user commands" which is a well-written, fairly brief introduction to the Linux command line.
 
-### Basic commands
+```{r, eval=FALSE}
+man intro
+```
+
+There are many varieties of Linux, but almost all of them use similar commands that can be entered from a command-line interface terminal.
+
+There are also many graphical user interfaces (GUIs), but each of them works differently and there is little standardization between them. Experienced users who work with many different Linux distributions therefore find it easier to learn commands that can be used in all varieties of Ubuntu and, indeed, in other Linux distributions as well.
+
+## What is Bash?
+
+`Bash`, the **Bourne-again-shell** (named after the author Stephen Bourne), scripting is one of the easiest types of scripting to learn, and is best compared to Windows `Batch` scripting via [DOS](http://en.wikipedia.org/wiki/DOS). `Bash` is very flexible, and has many advanced features that you won't see in batch scripts.
+
+However if you are a 'non-computer-savvy' person that won't mean a thing to you. Bash is the language that you will learn to love as much of everyday Linux life is done/can be done using the Terminal. You will soon learn that most things can be done through both GUI (Graphical User Interface) and CLI (Command Line Interface), however some things are more easily achieved from one or the other. For example, changing file permissions of a folder and all its sub folders is more easily achieved using cli instead gui.
+
+Bash, is the default shell on Linux and Mac OS X. Bash shell scripting, like also `R` or `Python`, allows multiple commands to be combined, facilitating automation. 
+
+A shell script (shell program) is a text file that contains commands that are interpreted by the shell (see below, we will learn how to write a shell script).
+
+Each command can be linked in a script to combine several commands by providing the output of one as input to the other. Shell scripts can also contain the control structures common to the majority of programming languages (i.e. variables, logic constructs, looping constructs, functions and comments). The main distinction between shell programs and those written in C, C++, Java (to name but a few) is that shell programs are not compiled for execution, but are readily interpreted by the shell.
+
+## Launching the terminal
+
+**Keyboard Shortcut**: `Ctrl + Alt + T` 
+
+Is not a "Terminator" but something really powerfull because via the terminal you get access to the CLI and it default Bash interface. The terminal is the engine behind linux and mac and can also be installed on Windows via a program called [Cygwin](https://www.cygwin.com) which provide a Linux interface on Windows. It is important as a geo-scripter to know about the Terminal as if will offer a lot of advantages. You'll see to more you will start scripting the more you will encounter the words "terminal", "shell", "bash", etc.
+
+
+## Some commands
+
+We will discuss useful everyday commands, as well as going a bit more in depth into scripting and semi-advanced features of Bash. Bash is not only used to run programs and applications, but it can also be used to write programs or scripts.
 
 Most common commands:
-- cd
-- pwd
-- ls
-- cp and mv
-- etc.
 
-```{r, engine='bash', results='hide'}
-cd
+- `pwd`: checking your current working directory
+- `cd`: change directory
+- `cd ..`: move up one directory
+- `mkdir`: creating folders
+- `rm` or `rm -R`: deleting files or folders
+- `sudo`: opening applications as root (super-user, `su`) which requires your `su` pasword
+- `ls`: listing files in a folder
+- `cp`: copy files e.g. for backing up things or just copying. We will use these command it the scripts below.
+
+Note!: Tab completion works from the terminal which is super-handy so that you never need to write filenames etc.
+
+Let's get started! Launch your Virtual Machine, login (username: user, pasword: user) and use the File Manager to create the following folders, similar as you would do on your Windows computer.
+
+![folders](figures/setup_folders.png)
+
+Now open the terminal using the `Ctrl + Alt + T`  shortcut and go to this folder and list all the files within that folder. See the examples below:
+
+Do you notice what the difference is between `ls`, `ls -l`, `ls -lh`?
+
+![movingfolders](figures/MovingFolder_lsh.png)
+
+The files like `main.R` and the `.Rproj` are created via Rstudio as we have learned in the previous lessons (setting up a local git repository). Go ahead and use Rstudio and create a new local Git Repository. There is no need to link this repository to a remote Repository yet (we will do this together in the lesson, and add the README.md by pulling from the GitHub.com page).
+
+Create the `Bash` and a `R` folder (i.e. a folder that will contain our Bash Scripts, similar to the R folder)
+
+```{r, eval=FALSE}
+mkdir Bash
+mkdir R
 ```
 
-```{r, engine='bash', results='hide'}
-pwd
+![createafolder](figures/createafolder.png)
+
+Now let's use `pwd`, `cd`, and `cd ..` see what happens:
+
+![pwdcd](figures/usingpwdcd.png)
+
+So, that's it for now! It is just a brief intro, in order to get you started with some simple commands in the terminal. 
+
+Try out other commands:
+
+- make a directory and remove if (e.g. `mkdir -R namedirectory).
+- create a Rscript via Rstudio, and the remove it via the terminal using `rm filename.R`.
+- create another file an copy it and then remove it, etc.:
+
+```{r, eval=FALSE}
+cp source_file dest_file
+rm dest_file
 ```
 
-List files
+- use `ls` commands and it's options.
 
-```{r, engine='bash'}
-ls
-```
+Read the `File & Directory Commands` section (https://help.ubuntu.com/community/UsingTheTerminal) and let me know if you have questions about some commands. 
 
-```{r, engine='bash'}
-ls -lht
-```
+## Scripting in the terminal
 
-How to use it:
+`Bash` is primarily a scripting language, so it would be a crime not to talk about scripting. Let's dive straight in with a `bash` script. More precisely the infamous "Hello World" script. You can create a bash script by opening your favorite text editor to edit your script and then saving it (typically the `.sh` file extension is used for your reference, but is not necessary. In our example, we will be using the `.sh` extension).
 
-```{r, engine='bash', results='hide', eval=FALSE}
-## Where am I?
-pwd
- 
-## List the contents of the current directory
-ls
-ls -l
- 
-# Change the current directory to Videos
-cd Videos
-pwd
-```
-
-### Scripting in the terminal
-
-`Bash` is primarily a scripting language, so it would be a crime not to talk about scripting. Let's dive straight in with a `bash` script. More precisely the infamous "Hello World" script. You can create a bash script by opening your favorite text editor to edit your script and then saving it (typically the `.sh` file extension is used for your reference, but is not necessary. In our examples, we will be using the `.sh` extension).
-
-So let's get started. First, create a `Bash` folder within your R project folder (like you have your `R` folder). Within this folder create a simple text file using Rstudio -> New File -> Text File and call this file: `HelloWorld.sh` add the following text and save.
+So let's get started. First, create a `Bash` folder within your R project folder (if it is not there yet). Within this folder create a simple text file using *Rstudio -> New File -> Text File* and call this file: `HelloWorld.sh` add the following text and save.
 
 ```{r, eval =FALSE, engine='bash'}
  #!/bin/bash         
@@ -91,11 +138,14 @@ echo "Hello, World"
 The first line of the script just defines which interpreter to use. NOTE: There is no leading whitespace before #!/bin/bash. That's it, simple as that!'.
 
 Second, to run a bash script you first have to have the correct file permissions. We do this with `chmod` command in terminal (change mode) as follows:
+
 ```{r, eval=FALSE}
 chmod a+x /where/i/saved/it/HelloWorld.sh   #Gives everyone execute permissions
 ```
 
-Go to the terminal via the `Git` tab in `Rstudio` and click on `Shell...` and from there make sure you go to the `Bash` folder you created and you can excute the following line (see output of the following script below behind `##`:
+More info about `chmod` (https://help.ubuntu.com/community/FilePermissions) for your future reference. Above all do not worry, it might be a lot today. Today is just to let you know what is possible, as a teaser so you know a bit about it.
+
+So to do so, you can go to the terminal via the `Git` tab in `Rstudio` and click on `Shell...` and from there make sure you go to the `Bash` folder you created. Even better is that your launch the `Terminal` using the short-cut (`Ctrl + Alt + T`) and the `cd` command to move to the `Bash` folder (by the way this is just a name, you can select anyname you want). See here for some `Bash` lines:
 
 ```{r, eval=FALSE, engine='bash'}
 echo "Go to the Bash folder"
@@ -208,3 +258,4 @@ Introduction to use the terminal on Mac//very similar commands on OSGEO-Linux
     * 
 - [An overview of terminal commands](http://beginlinux.com/twitter/1094-the-beginners-guide-to-the-ubuntu-terminal)
 
+-More info for Mac users?[Is the terminal in Mac and Linux the same](https://stackoverflow.com/questions/8051145/is-the-terminal-in-mac-and-linux-the-same)
