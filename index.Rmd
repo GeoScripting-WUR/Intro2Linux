@@ -126,6 +126,7 @@ Read the `File & Directory Commands` section (https://help.ubuntu.com/community/
 
 ## Scripting in the terminal
 
+### Hello, world Bash script 
 `Bash` is primarily a scripting language, so it would be a crime not to talk about scripting. Let's dive straight in with a `bash` script. More precisely the infamous "Hello World" script. You can create a bash script by opening your favorite text editor to edit your script and then saving it (typically the `.sh` file extension is used for your reference, but is not necessary. In our example, we will be using the `.sh` extension).
 
 So let's get started. First, create a `Bash` folder within your R project folder (if it is not there yet). Within this folder create a simple text file using *Rstudio -> New File -> Text File* and call this file: `HelloWorld.sh` add the following text and save.
@@ -164,7 +165,9 @@ Hopefully you should have seen it print Hello, World!!! onto your screen. If so 
 
 **Question**: why do we add `./` in front of the Bash script?
 
-### Using the GDAL library from the terminal
+### Bash script with a veriable
+
+## Using the GDAL library from the terminal
 
 ***Do you know who Frank Warmerdam is?*** 
 
@@ -221,7 +224,7 @@ http://www.gdal.org/
 
 ### Excercise
 
-Try to write a shell script that looks at the difference between the two file provided by Loic.
+Try to write a shell script that looks at the difference between the two files (see Lesson 5 for the files).
 
 
 
@@ -239,17 +242,6 @@ Introduction to use the terminal on Mac//very similar commands on OSGEO-Linux
 
 - http://computers.tutsplus.com/tutorials/navigating-the-terminal-a-gentle-introduction--mac-3855
 - http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line
-
-
-# R and Rstudio within Linux
-
-# Python within Linux
-
-- Via QGIS -> Plug-inns -> Python Console
-- Choose you own preferred editor for Python scripts
-    - Gedit as simple but good text editor
-    - Eric
-    - Spyder
 
 ## More information
 
