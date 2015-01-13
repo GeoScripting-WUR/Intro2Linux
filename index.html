@@ -62,7 +62,7 @@ img {
 <div id="header">
 <h1 class="title">Getting started with Linux (OS-GEOLive)</h1>
 <h1 class="subtitle">The terminal, R, and Python</h1>
-<h4 class="date"><em>12 January, 2015</em></h4>
+<h4 class="date"><em>13 January, 2015</em></h4>
 </div>
 
 <div id="TOC">
@@ -74,10 +74,10 @@ img {
 <li><a href="#bash"><span class="toc-section-number">3.1.1</span> Bash?</a></li>
 <li><a href="#the-terminal-on-linux-mac-or-windows"><span class="toc-section-number">3.1.2</span> The terminal on Linux, Mac, or Windows</a></li>
 </ul></li>
-<li><a href="#getting-started-with-bash-in-the-terminal"><span class="toc-section-number">3.2</span> Getting started with Bash in the terminal</a><ul>
-<li><a href="#cp"><span class="toc-section-number">3.2.1</span> cp</a></li>
-<li><a href="#writing-a-shell-script"><span class="toc-section-number">3.2.2</span> writing a shell script?!</a></li>
-<li><a href="#gdal"><span class="toc-section-number">3.2.3</span> GDAL</a></li>
+<li><a href="#using-the-terminal"><span class="toc-section-number">3.2</span> Using the terminal</a><ul>
+<li><a href="#basic-commands"><span class="toc-section-number">3.2.1</span> Basic commands</a></li>
+<li><a href="#scripting-in-the-terminal"><span class="toc-section-number">3.2.2</span> Scripting in the terminal</a></li>
+<li><a href="#using-the-gdal-library-from-the-terminal"><span class="toc-section-number">3.2.3</span> Using the GDAL library from the terminal</a></li>
 <li><a href="#excercise"><span class="toc-section-number">3.2.4</span> Excercise</a></li>
 </ul></li>
 </ul></li>
@@ -117,15 +117,18 @@ img {
 <p><a href="https://stackoverflow.com/questions/8051145/is-the-terminal-in-mac-and-linux-the-same">Is the terminal in Mac and Linux the same</a></p>
 </div>
 </div>
-<div id="getting-started-with-bash-in-the-terminal" class="section level2">
-<h2><span class="header-section-number">3.2</span> Getting started with Bash in the terminal</h2>
-<p>See the following tutorial - try it out. <a href="https://help.ubuntu.com/community/Beginners/BashScripting" class="uri">https://help.ubuntu.com/community/Beginners/BashScripting</a> <a href="http://www.wikihow.com/Write-a-Shell-Script-Using-Bash-Shell-in-Ubuntu" class="uri">http://www.wikihow.com/Write-a-Shell-Script-Using-Bash-Shell-in-Ubuntu</a> <a href="http://linuxconfig.org/bash-scripting-tutorial" class="uri">http://linuxconfig.org/bash-scripting-tutorial</a></p>
-<p>On Mac: <a href="http://www.hackmac.org/articles/bash/bash-101-hello-world-and-a-little-further/" class="uri">http://www.hackmac.org/articles/bash/bash-101-hello-world-and-a-little-further/</a> <a href="http://www.hackmac.org/articles/bash/bash-101-history-of-bash-and-terminal/" class="uri">http://www.hackmac.org/articles/bash/bash-101-history-of-bash-and-terminal/</a> On Mac customizing your Bash environment: <a href="http://computers.tutsplus.com/tutorials/navigating-the-terminal-a-gentle-introduction" class="uri">http://computers.tutsplus.com/tutorials/navigating-the-terminal-a-gentle-introduction</a>–mac-3855 <a href="http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line" class="uri">http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line</a> ### Command: cd, pwd, ls</p>
+<div id="using-the-terminal" class="section level2">
+<h2><span class="header-section-number">3.2</span> Using the terminal</h2>
+<div id="basic-commands" class="section level3">
+<h3><span class="header-section-number">3.2.1</span> Basic commands</h3>
+<p>Most common commands: - cd - pwd - ls - cp and mv - etc.</p>
 <pre class="bash"><code>cd</code></pre>
 <pre class="bash"><code>pwd</code></pre>
 <p>List files</p>
 <pre class="bash"><code>ls</code></pre>
-<pre><code>## Lesson9_Intro2Linux.Rproj
+<pre><code>## Bash
+## Lesson9_Intro2Linux.Rproj
+## R
 ## README.md
 ## Slides.Rmd
 ## Slides.html
@@ -136,11 +139,13 @@ img {
 ## index.html</code></pre>
 <pre class="bash"><code>ls -lht</code></pre>
 <pre><code>## total 1872
-## -rw-r--r--  1 verbe039  staff   4.9K Jan 12 23:25 index.Rmd
+## -rw-r--r--  1 verbe039  staff   6.3K Jan 13 11:09 index.Rmd
+## -rw-r--r--  1 verbe039  staff   748K Jan 13 11:06 index.html
+## drwxr-xr-x  7 verbe039  staff   238B Jan 13 11:06 data
+## drwxr-xr-x  4 verbe039  staff   136B Jan 13 10:39 Bash
+## drwxr-xr-x  4 verbe039  staff   136B Jan 13 10:39 backup
+## drwxr-xr-x  2 verbe039  staff    68B Jan 13 09:57 R
 ## -rw-r--r--  1 verbe039  staff   179B Jan 12 23:15 README.md
-## -rw-r--r--  1 verbe039  staff   746K Jan 12 23:09 index.html
-## drwxr-xr-x  7 verbe039  staff   238B Jan 12 23:09 data
-## drwxr-xr-x  3 verbe039  staff   102B Jan 12 22:40 backup
 ## drwxr-xr-x  3 verbe039  staff   102B Jan 12 21:42 figures
 ## -rw-r--r--  1 verbe039  staff   115B Jan 12 12:33 Slides.Rmd
 ## -rw-r--r--  1 verbe039  staff   166K Jan 12 12:33 Slides.html
@@ -156,14 +161,31 @@ ls -l
 # Change the current directory to Videos
 cd Videos
 pwd</code></pre>
-<div id="cp" class="section level3">
-<h3><span class="header-section-number">3.2.1</span> cp</h3>
 </div>
-<div id="writing-a-shell-script" class="section level3">
-<h3><span class="header-section-number">3.2.2</span> writing a shell script?!</h3>
+<div id="scripting-in-the-terminal" class="section level3">
+<h3><span class="header-section-number">3.2.2</span> Scripting in the terminal</h3>
+<p><code>Bash</code> is primarily a scripting language, so it would be a crime not to talk about scripting. Let’s dive straight in with a <code>bash</code> script. More precisely the infamous “Hello World” script. You can create a bash script by opening your favorite text editor to edit your script and then saving it (typically the <code>.sh</code> file extension is used for your reference, but is not necessary. In our examples, we will be using the <code>.sh</code> extension).</p>
+<p>So let’s get started. First, create a <code>Bash</code> folder within your R project folder (like you have your <code>R</code> folder). Within this folder create a simple text file using Rstudio -&gt; New File -&gt; Text File and call this file: <code>HelloWorld.sh</code> add the following text and save.</p>
+<pre class="bash"><code> #!/bin/bash         
+echo &quot;Hello, World&quot;</code></pre>
+<p>The first line of the script just defines which interpreter to use. NOTE: There is no leading whitespace before #!/bin/bash. That’s it, simple as that!’.</p>
+<p>Second, to run a bash script you first have to have the correct file permissions. We do this with <code>chmod</code> command in terminal (change mode) as follows:</p>
+<pre class="r"><code>chmod a+x /where/i/saved/it/HelloWorld.sh   #Gives everyone execute permissions</code></pre>
+<p>Go to the terminal via the <code>Git</code> tab in <code>Rstudio</code> and click on <code>Shell...</code> and from there make sure you go to the <code>Bash</code> folder you created and you can excute the following line (see output of the following script below behind <code>##</code>:</p>
+<pre class="bash"><code>echo &quot;Go to the Bash folder&quot;
+cd Bash
+echo &quot;Check that the file is there using the ls command:&quot;
+ls
+echo &quot;Then change the permissions:&quot;
+chmod a+x HelloWorld.sh
+echo &quot;We can now run our first `Bash script`:&quot;
+./HelloWorld.sh</code></pre>
+<p><code>## Hello, World!!!</code></p>
+<p>Hopefully you should have seen it print Hello, World!!! onto your screen. If so well done! That is your first <code>Bash</code> script.</p>
+<p><strong>Question</strong>: why do we add <code>./</code> in front of the Bash script?</p>
 </div>
-<div id="gdal" class="section level3">
-<h3><span class="header-section-number">3.2.3</span> GDAL</h3>
+<div id="using-the-gdal-library-from-the-terminal" class="section level3">
+<h3><span class="header-section-number">3.2.3</span> Using the GDAL library from the terminal</h3>
 <p><strong><em>Do you know who Frank Warmerdam is?</em></strong></p>
 <ul>
 <li>Check the the FWtools:

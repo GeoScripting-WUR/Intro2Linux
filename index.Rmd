@@ -33,20 +33,16 @@ Is not the "Terminator" but something really powerfull. The terminal is the engi
 
 [Is the terminal in Mac and Linux the same](https://stackoverflow.com/questions/8051145/is-the-terminal-in-mac-and-linux-the-same)
 
-## Getting started with Bash in the terminal
+## Using the terminal
 
-See the following tutorial - try it out.
-https://help.ubuntu.com/community/Beginners/BashScripting
-http://www.wikihow.com/Write-a-Shell-Script-Using-Bash-Shell-in-Ubuntu
-http://linuxconfig.org/bash-scripting-tutorial
+### Basic commands
 
-On Mac:
-http://www.hackmac.org/articles/bash/bash-101-hello-world-and-a-little-further/
-http://www.hackmac.org/articles/bash/bash-101-history-of-bash-and-terminal/
-On Mac customizing your Bash environment:
-http://computers.tutsplus.com/tutorials/navigating-the-terminal-a-gentle-introduction--mac-3855
-http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line
-### Command: cd, pwd, ls
+Most common commands:
+- cd
+- pwd
+- ls
+- cp and mv
+- etc.
 
 ```{r, engine='bash', results='hide'}
 cd
@@ -81,11 +77,44 @@ cd Videos
 pwd
 ```
 
-### cp
+### Scripting in the terminal
 
-### writing a shell script?!
+`Bash` is primarily a scripting language, so it would be a crime not to talk about scripting. Let's dive straight in with a `bash` script. More precisely the infamous "Hello World" script. You can create a bash script by opening your favorite text editor to edit your script and then saving it (typically the `.sh` file extension is used for your reference, but is not necessary. In our examples, we will be using the `.sh` extension).
 
-### GDAL 
+So let's get started. First, create a `Bash` folder within your R project folder (like you have your `R` folder). Within this folder create a simple text file using Rstudio -> New File -> Text File and call this file: `HelloWorld.sh` add the following text and save.
+
+```{r, eval =FALSE, engine='bash'}
+ #!/bin/bash         
+echo "Hello, World"
+```
+
+The first line of the script just defines which interpreter to use. NOTE: There is no leading whitespace before #!/bin/bash. That's it, simple as that!'.
+
+Second, to run a bash script you first have to have the correct file permissions. We do this with `chmod` command in terminal (change mode) as follows:
+```{r, eval=FALSE}
+chmod a+x /where/i/saved/it/HelloWorld.sh   #Gives everyone execute permissions
+```
+
+Go to the terminal via the `Git` tab in `Rstudio` and click on `Shell...` and from there make sure you go to the `Bash` folder you created and you can excute the following line (see output of the following script below behind `##`:
+
+```{r, eval=FALSE, engine='bash'}
+echo "Go to the Bash folder"
+cd Bash
+echo "Check that the file is there using the ls command:"
+ls
+echo "Then change the permissions:"
+chmod a+x HelloWorld.sh
+echo "We can now run our first `Bash script`:"
+./HelloWorld.sh
+```
+
+`## Hello, World!!!`
+
+Hopefully you should have seen it print Hello, World!!! onto your screen. If so well done! That is your first `Bash` script.
+
+**Question**: why do we add `./` in front of the Bash script?
+
+### Using the GDAL library from the terminal
 
 ***Do you know who Frank Warmerdam is?*** 
 
