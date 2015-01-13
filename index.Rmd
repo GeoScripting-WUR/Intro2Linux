@@ -108,9 +108,9 @@ echo "We can now run our first `Bash script`:"
 ./HelloWorld.sh
 ```
 
-`## Hello, World!!!`
+Hopefully you should have seen it print Hello, World!!! onto your screen. If so well done! That is your first `Bash` script (see below for a screenshot):
 
-Hopefully you should have seen it print Hello, World!!! onto your screen. If so well done! That is your first `Bash` script.
+![BashScript](figures/Scripting.png)
 
 **Question**: why do we add `./` in front of the Bash script?
 
