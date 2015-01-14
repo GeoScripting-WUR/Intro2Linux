@@ -62,7 +62,7 @@ img {
 <div id="header">
 <h1 class="title">Getting started with Linux (OS-GEOLive)</h1>
 <h1 class="subtitle">The terminal, R, and Python</h1>
-<h4 class="date"><em>13 January, 2015</em></h4>
+<h4 class="date"><em>14 January, 2015</em></h4>
 </div>
 
 <div id="TOC">
@@ -72,16 +72,17 @@ img {
 <li><a href="#using-the-terminal-and-command-line"><span class="toc-section-number">3</span> Using the terminal and command line</a><ul>
 <li><a href="#why-using-the-command-line"><span class="toc-section-number">3.1</span> Why using the command-line</a></li>
 <li><a href="#what-is-bash"><span class="toc-section-number">3.2</span> What is Bash?</a></li>
-<li><a href="#launching-the-terminal"><span class="toc-section-number">3.3</span> Launching the terminal</a></li>
-<li><a href="#some-commands"><span class="toc-section-number">3.4</span> Some commands</a></li>
-<li><a href="#scripting-in-the-terminal"><span class="toc-section-number">3.5</span> Scripting in the terminal</a><ul>
-<li><a href="#hello-world-bash-script"><span class="toc-section-number">3.5.1</span> Hello, world Bash script</a></li>
-<li><a href="#bash-script-with-a-variable"><span class="toc-section-number">3.5.2</span> Bash script with a variable</a></li>
+<li><a href="#what-is-the-shell"><span class="toc-section-number">3.3</span> What is the Shell?</a></li>
+<li><a href="#launching-the-shell-terminal"><span class="toc-section-number">3.4</span> Launching the Shell: terminal!</a></li>
+<li><a href="#some-commands"><span class="toc-section-number">3.5</span> Some commands</a></li>
+<li><a href="#scripting-in-the-terminal"><span class="toc-section-number">3.6</span> Scripting in the terminal</a><ul>
+<li><a href="#hello-world-bash-script"><span class="toc-section-number">3.6.1</span> Hello, world Bash script</a></li>
+<li><a href="#bash-script-with-a-variable"><span class="toc-section-number">3.6.2</span> Bash script with a variable</a></li>
 </ul></li>
-<li><a href="#using-the-gdal-library-from-the-terminal"><span class="toc-section-number">3.6</span> Using the GDAL library from the terminal</a><ul>
-<li><a href="#excercise"><span class="toc-section-number">3.6.1</span> Excercise</a></li>
+<li><a href="#using-the-gdal-library-from-the-terminal"><span class="toc-section-number">3.7</span> Using the GDAL library from the terminal</a><ul>
+<li><a href="#excercise"><span class="toc-section-number">3.7.1</span> Excercise</a></li>
 </ul></li>
-<li><a href="#more-information"><span class="toc-section-number">3.7</span> More information</a></li>
+<li><a href="#more-information"><span class="toc-section-number">3.8</span> More information</a></li>
 </ul></li>
 </ul>
 </div>
@@ -124,13 +125,17 @@ img {
 <p>A shell script (shell program) is a text file that contains commands that are interpreted by the shell (see below, we will learn how to write a shell script).</p>
 <p>Each command can be linked in a script to combine several commands by providing the output of one as input to the other. Shell scripts can also contain the control structures common to the majority of programming languages (i.e. variables, logic constructs, looping constructs, functions and comments). The main distinction between shell programs and those written in C, C++, Java (to name but a few) is that shell programs are not compiled for execution, but are readily interpreted by the shell.</p>
 </div>
-<div id="launching-the-terminal" class="section level2">
-<h2><span class="header-section-number">3.3</span> Launching the terminal</h2>
+<div id="what-is-the-shell" class="section level2">
+<h2><span class="header-section-number">3.3</span> What is the Shell?</h2>
+<p>At its base, a shell is simply a macro processor that executes commands.</p>
+</div>
+<div id="launching-the-shell-terminal" class="section level2">
+<h2><span class="header-section-number">3.4</span> Launching the Shell: terminal!</h2>
 <p><strong>Keyboard Shortcut</strong>: <code>Ctrl + Alt + T</code></p>
 <p>Is not a “Terminator” but something really powerfull because via the terminal you get access to the CLI and it default Bash interface. The terminal is the engine behind linux and mac and can also be installed on Windows via a program called <a href="https://www.cygwin.com">Cygwin</a> which provide a Linux interface on Windows. It is important as a geo-scripter to know about the Terminal as if will offer a lot of advantages. You’ll see to more you will start scripting the more you will encounter the words “terminal”, “shell”, “bash”, etc.</p>
 </div>
 <div id="some-commands" class="section level2">
-<h2><span class="header-section-number">3.4</span> Some commands</h2>
+<h2><span class="header-section-number">3.5</span> Some commands</h2>
 <p>We will discuss useful everyday commands, as well as going a bit more in depth into scripting and semi-advanced features of Bash. Bash is not only used to run programs and applications, but it can also be used to write programs or scripts.</p>
 <p>Most common commands:</p>
 <ul>
@@ -171,9 +176,9 @@ rm dest_file</code></pre>
 <p>Read the <code>File &amp; Directory Commands</code> section (<a href="https://help.ubuntu.com/community/UsingTheTerminal" class="uri">https://help.ubuntu.com/community/UsingTheTerminal</a>) and let me know if you have questions about some commands.</p>
 </div>
 <div id="scripting-in-the-terminal" class="section level2">
-<h2><span class="header-section-number">3.5</span> Scripting in the terminal</h2>
+<h2><span class="header-section-number">3.6</span> Scripting in the terminal</h2>
 <div id="hello-world-bash-script" class="section level3">
-<h3><span class="header-section-number">3.5.1</span> Hello, world Bash script</h3>
+<h3><span class="header-section-number">3.6.1</span> Hello, world Bash script</h3>
 <p><code>Bash</code> is primarily a scripting language, so it would be a crime not to talk about scripting. Let’s dive straight in with a <code>bash</code> script. More precisely the infamous “Hello World” script. You can create a bash script by opening your favorite text editor to edit your script and then saving it (typically the <code>.sh</code> file extension is used for your reference, but is not necessary. In our example, we will be using the <code>.sh</code> extension).</p>
 <p>So let’s get started. First, create a <code>Bash</code> folder within your R project folder (if it is not there yet). Within this folder create a simple text file using <em>Rstudio -&gt; New File -&gt; Text File</em> and call this file: <code>HelloWorld.sh</code> add the following text and save.</p>
 <pre class="bash"><code> #!/bin/bash         
@@ -203,7 +208,7 @@ print(system(&quot;./HelloWorld.sh&quot;, intern = TRUE)) ## set this command to
 <pre><code>## [1] &quot;Hello, World!!!&quot;</code></pre>
 </div>
 <div id="bash-script-with-a-variable" class="section level3">
-<h3><span class="header-section-number">3.5.2</span> Bash script with a variable</h3>
+<h3><span class="header-section-number">3.6.2</span> Bash script with a variable</h3>
 <p>Variables basically store information. You set variables like this (you can type this in the terminal).</p>
 <pre class="r"><code>var=&quot;FOO&quot;</code></pre>
 <p><code>var</code> can be anything you want as long as it doesn’t begin with a number. “FOO” can be anything you want. To access the information from the variable you need to put a ‘$’ in front of it like this:</p>
@@ -225,7 +230,7 @@ echo &quot;So you're a $age year old $sex called $name&quot;</code></pre>
 </div>
 </div>
 <div id="using-the-gdal-library-from-the-terminal" class="section level2">
-<h2><span class="header-section-number">3.6</span> Using the GDAL library from the terminal</h2>
+<h2><span class="header-section-number">3.7</span> Using the GDAL library from the terminal</h2>
 <p>A quick refresher:</p>
 <ul>
 <li><strong><em>Do you know who Frank Warmerdam is?</em></strong></li>
@@ -238,17 +243,19 @@ echo &quot;So you're a $age year old $sex called $name&quot;</code></pre>
 </ul>
 <p>Now via the terminal we can acces GDAL directly!!! E.g. we can check out what the current version of GDAL is that is installed on our Linux OS:</p>
 <p>Let’s download a file from <a href="https://geoscripting-wur.github.io/IntroToRaster/#raster-objects-manipulations">Lesson 4 and Raster object manipulations</a>: Download the <code>gewata.zip</code> file from Github (<a href="https://github.com/GeoScripting-WUR/IntroToRaster/raw/gh-pages/data/gewata.zip">link</a>) and unzip in the data folder. Type the following in the data folder:</p>
-<p>You can write a shell script to do the following below but first type in the commands via the terminal to understand what is happening:</p>
+<p>You can write a shell script to do the following commands below but first type in the commands via the terminal to understand what is happening:</p>
 <pre class="bash"><code>echo &quot;the current GDAL version is:&quot;
 gdal-config --version</code></pre>
 <pre><code>## the current GDAL version is:
 ## 1.11.1</code></pre>
+<p>One of the easiest and most useful commands in GDAL is <code>gdalinfo</code>. When given an image as an argument, it retrieves and prints all relevant information that is known about the file. This is especially useful if the image contains additional tag data, as is the case with <code>TIF</code> files.</p>
 <p>Using gdalinfo:</p>
 <pre class="bash"><code>cd data
 ls *.tif
 gdalinfo -nomd -norat -noct LE71700552001036SGS00_SR_Gewata_INT1U.tif</code></pre>
 <pre><code>## LE71700552001036SGS00_SR_Gewata_INT1U.tif
 ## ndvi.tif
+## temp.tif
 ## Driver: GTiff/GeoTIFF
 ## Files: LE71700552001036SGS00_SR_Gewata_INT1U.tif
 ## Size is 653, 593
@@ -315,47 +322,52 @@ rm input.tif</code></pre>
 ## input.tif
 ## ndvi.tif
 ## ndvi.tif.aux.xml
+## temp.tif
 ## * now apply gdal_calc: Command line raster calculator with numpy syntax
 ## 0 .. 10 .. 20 .. 30 .. 40 .. 50 .. 60 .. 70 .. 80 .. 90 .. 100 - Done
 ## * remove the input temporary file</code></pre>
+<p>Challenge:</p>
+<ul>
+<li>try to write to calculate the NDVI using the lines above in out nice and short shell script.</li>
+<li>Hint 1: <code>cd ../data</code> (to move back from the Bash folder and move into the data folder)</li>
+<li>Hint 2: No spaces are allowed and e.g. try to use <code>fn=$(ls *.tif)</code></li>
+</ul>
+<p>Let’s now check if the range of the NDVI values makes sense:</p>
 <pre class="bash"><code>cd data
 echo &quot;* list all files&quot;
 ls -lht
 echo &quot;* histogram statistics&quot;
 gdalinfo -hist -stats ndvi.tif</code></pre>
-<p>More info here on the power of GDAL via the terminal: <a href="http://www.gdal.org/" class="uri">http://www.gdal.org/</a> and gdalinfo</p>
+<p>More info here on the power of GDAL via the terminal: <a href="http://www.gdal.org/" class="uri">http://www.gdal.org/</a> and <code>gdalinfo</code></p>
 <p>Handy functions are (See the examples at the bottom):</p>
 <ul>
 <li><code>gdal_translate</code>: <a href="http://www.gdal.org/gdal_translate.html" class="uri">http://www.gdal.org/gdal_translate.html</a></li>
 <li><code>gdalwarp</code>: <a href="http://www.gdal.org/gdalwarp.html" class="uri">http://www.gdal.org/gdalwarp.html</a></li>
 </ul>
+<p>More info about <code>Bash</code> basics: <a href="https://www.gnu.org/software/bash/manual/bashref.html#Command-Substitution" class="uri">https://www.gnu.org/software/bash/manual/bashref.html#Command-Substitution</a></p>
+<p>Optional: if you are ready and want the learn more about using GDAL from the terminal. See here for another tutorial: <a href="http://wiki.americaview.org/display/miview/Introduction+to+GDAL" class="uri">http://wiki.americaview.org/display/miview/Introduction+to+GDAL</a></p>
 <div id="excercise" class="section level3">
-<h3><span class="header-section-number">3.6.1</span> Excercise</h3>
-<p>Try to write a shell script that looks at the difference between the two files (see Lesson 5 for the files).</p>
-<p>See the following tutorial for Geeks! (Warning!: Now you are risking to become a Geek or even computer freak yourself)</p>
-<ul>
-<li><a href="http://www.howtogeek.com/140679/beginner-geek-how-to-start-using-the-linux-terminal/" class="uri">http://www.howtogeek.com/140679/beginner-geek-how-to-start-using-the-linux-terminal/</a></li>
-<li><a href="http://www.howtogeek.com/howto/42980/the-beginners-guide-to-nano-the-linux-command-line-text-editor/" class="uri">http://www.howtogeek.com/howto/42980/the-beginners-guide-to-nano-the-linux-command-line-text-editor/</a></li>
-<li><a href="http://linuxcommand.org/lc3_learning_the_shell.php" class="uri">http://linuxcommand.org/lc3_learning_the_shell.php</a> Try to install the following program on Linux</li>
-</ul>
-<p>Introduction to use the terminal on Mac//very similar commands on OSGEO-Linux</p>
-<ul>
-<li><a href="http://computers.tutsplus.com/tutorials/navigating-the-terminal-a-gentle-introduction" class="uri">http://computers.tutsplus.com/tutorials/navigating-the-terminal-a-gentle-introduction</a>–mac-3855</li>
-<li><a href="http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line" class="uri">http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line</a></li>
-</ul>
+<h3><span class="header-section-number">3.7.1</span> Excercise</h3>
+<p>Try to write a shell script that: - resampels the Landsat data to pixels of 100m - reprojects the landsat data to WGS Lat/long (hint: gdalwarp) - convert the <em>.tif file (i.e. a geotif) to </em>.png</p>
+<p>Copy the text of your shell script in an e-mail per team and set it to me. Do not forget to add a teamname and date at the top of your script.</p>
 </div>
 </div>
 <div id="more-information" class="section level2">
-<h2><span class="header-section-number">3.7</span> More information</h2>
+<h2><span class="header-section-number">3.8</span> More information</h2>
+<p>See the following tutorial for Geeks! (Warning!: Now you are risking to become a Geek or even computer freak yourself)</p>
 <ul>
-<li>More information
-<ul>
-<li><a href="http://www.cyberciti.biz/faq/pwd-linux-unix-command-examples/" class="uri">http://www.cyberciti.biz/faq/pwd-linux-unix-command-examples/</a></li>
-<li></li>
-</ul></li>
 <li><a href="http://beginlinux.com/twitter/1094-the-beginners-guide-to-the-ubuntu-terminal">An overview of terminal commands</a></li>
+<li><a href="http://www.howtogeek.com/140679/beginner-geek-how-to-start-using-the-linux-terminal/" class="uri">http://www.howtogeek.com/140679/beginner-geek-how-to-start-using-the-linux-terminal/</a></li>
+<li><a href="http://www.howtogeek.com/howto/42980/the-beginners-guide-to-nano-the-linux-command-line-text-editor/" class="uri">http://www.howtogeek.com/howto/42980/the-beginners-guide-to-nano-the-linux-command-line-text-editor/</a></li>
+<li><a href="http://linuxcommand.org/lc3_learning_the_shell.php" class="uri">http://linuxcommand.org/lc3_learning_the_shell.php</a></li>
+<li><a href="http://www.cyberciti.biz/faq/pwd-linux-unix-command-examples/" class="uri">http://www.cyberciti.biz/faq/pwd-linux-unix-command-examples/</a></li>
+<li>For Mac users and tntroduction to use the terminal on Mac
+<ul>
+<li><a href="http://computers.tutsplus.com/tutorials/navigating-the-terminal-a-gentle-introduction" class="uri">http://computers.tutsplus.com/tutorials/navigating-the-terminal-a-gentle-introduction</a>–mac-3855</li>
+<li><a href="http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line" class="uri">http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line</a></li>
+<li><a href="https://stackoverflow.com/questions/8051145/is-the-terminal-in-mac-and-linux-the-same">Is the terminal in Mac and Linux the same</a></li>
+</ul></li>
 </ul>
-<p>-More info for Mac users?<a href="https://stackoverflow.com/questions/8051145/is-the-terminal-in-mac-and-linux-the-same">Is the terminal in Mac and Linux the same</a></p>
 </div>
 </div>
 
