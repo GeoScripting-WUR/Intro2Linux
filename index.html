@@ -79,10 +79,9 @@ img {
 <li><a href="#hello-world-bash-script"><span class="toc-section-number">3.6.1</span> Hello, world Bash script</a></li>
 <li><a href="#bash-script-with-a-variable"><span class="toc-section-number">3.6.2</span> Bash script with a variable</a></li>
 </ul></li>
-<li><a href="#using-the-gdal-library-from-the-terminal"><span class="toc-section-number">3.7</span> Using the GDAL library from the terminal</a><ul>
-<li><a href="#excercise"><span class="toc-section-number">3.7.1</span> Excercise</a></li>
-</ul></li>
-<li><a href="#more-information"><span class="toc-section-number">3.8</span> More information</a></li>
+<li><a href="#using-the-gdal-library-from-the-terminal"><span class="toc-section-number">3.7</span> Using the GDAL library from the terminal</a></li>
+<li><a href="#excercise"><span class="toc-section-number">3.8</span> Excercise</a></li>
+<li><a href="#more-information"><span class="toc-section-number">3.9</span> More information</a></li>
 </ul></li>
 </ul>
 </div>
@@ -255,7 +254,7 @@ ls *.tif
 gdalinfo -nomd -norat -noct LE71700552001036SGS00_SR_Gewata_INT1U.tif</code></pre>
 <pre><code>## LE71700552001036SGS00_SR_Gewata_INT1U.tif
 ## ndvi.tif
-## temp.tif
+## ndvi_latlong_60.tif
 ## Driver: GTiff/GeoTIFF
 ## Files: LE71700552001036SGS00_SR_Gewata_INT1U.tif
 ## Size is 653, 593
@@ -322,7 +321,7 @@ rm input.tif</code></pre>
 ## input.tif
 ## ndvi.tif
 ## ndvi.tif.aux.xml
-## temp.tif
+## ndvi_latlong_60.tif
 ## * now apply gdal_calc: Command line raster calculator with numpy syntax
 ## 0 .. 10 .. 20 .. 30 .. 40 .. 50 .. 60 .. 70 .. 80 .. 90 .. 100 - Done
 ## * remove the input temporary file</code></pre>
@@ -346,14 +345,20 @@ gdalinfo -hist -stats ndvi.tif</code></pre>
 </ul>
 <p>More info about <code>Bash</code> basics: <a href="https://www.gnu.org/software/bash/manual/bashref.html#Command-Substitution" class="uri">https://www.gnu.org/software/bash/manual/bashref.html#Command-Substitution</a></p>
 <p>Optional: if you are ready and want the learn more about using GDAL from the terminal. See here for another tutorial: <a href="http://wiki.americaview.org/display/miview/Introduction+to+GDAL" class="uri">http://wiki.americaview.org/display/miview/Introduction+to+GDAL</a></p>
-<div id="excercise" class="section level3">
-<h3><span class="header-section-number">3.7.1</span> Excercise</h3>
-<p>Try to write a shell script that: - resampels the Landsat data to pixels of 100m - reprojects the landsat data to WGS Lat/long (hint: gdalwarp) - convert the <em>.tif file (i.e. a geotif) to </em>.png</p>
-<p>Copy the text of your shell script in an e-mail per team and set it to me. Do not forget to add a teamname and date at the top of your script.</p>
 </div>
+<div id="excercise" class="section level2">
+<h2><span class="header-section-number">3.8</span> Excercise</h2>
+<p>Write a shell script that:</p>
+<ul>
+<li>resampels the Landsat data to pixels of 60m</li>
+<li>reprojects the landsat data to WGS Lat/long</li>
+<li>convert the <em>.tif file (i.e. a geotif) to </em>.png</li>
+</ul>
+<p>Copy the text of your shell script in an e-mail per team and set it to me. Do not forget to add a teamname and date at the top of your script.</p>
+<p>Hint: <a href="http://www.geos.ed.ac.uk/~smudd/TopoTutorials/html/tutorial_raster_conversion.html" class="uri">http://www.geos.ed.ac.uk/~smudd/TopoTutorials/html/tutorial_raster_conversion.html</a></p>
 </div>
 <div id="more-information" class="section level2">
-<h2><span class="header-section-number">3.8</span> More information</h2>
+<h2><span class="header-section-number">3.9</span> More information</h2>
 <ul>
 <li>A great bash scripting tutorial: <a href="http://linuxconfig.org/bash-scripting-tutorial" class="uri">http://linuxconfig.org/bash-scripting-tutorial</a></li>
 <li><a href="http://beginlinux.com/twitter/1094-the-beginners-guide-to-the-ubuntu-terminal">An overview of terminal commands</a></li>

@@ -296,14 +296,17 @@ More info about `Bash` basics: https://www.gnu.org/software/bash/manual/bashref.
 Optional: if you are ready and want the learn more about using GDAL from the terminal. See here for another tutorial:
 http://wiki.americaview.org/display/miview/Introduction+to+GDAL
 
-### Excercise
+## Excercise
 
-Try to write a shell script that:
- - resampels the Landsat data to pixels of 100m
- - reprojects the landsat data to WGS Lat/long (hint: gdalwarp)
+Write a shell script that:
+
+ - resampels the Landsat data to pixels of 60m
+ - reprojects the landsat data to WGS Lat/long
  - convert the *.tif file (i.e. a geotif) to *.png
 
 Copy the text of your shell script in an e-mail per team and set it to me. Do not forget to add a teamname and date at the top of your script.
+
+Hint: http://www.geos.ed.ac.uk/~smudd/TopoTutorials/html/tutorial_raster_conversion.html
 
 ## More information
 
