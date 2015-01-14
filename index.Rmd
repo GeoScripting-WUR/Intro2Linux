@@ -308,7 +308,7 @@ Copy the text of your shell script in an e-mail per team and set it to me. Do no
 ## More information
 
 See the following tutorial for Geeks! (Warning!: Now you are risking to become a Geek or even computer freak yourself)
-
+- A great bash scripting tutorial: http://linuxconfig.org/bash-scripting-tutorial
 - [An overview of terminal commands](http://beginlinux.com/twitter/1094-the-beginners-guide-to-the-ubuntu-terminal)
 - http://www.howtogeek.com/140679/beginner-geek-how-to-start-using-the-linux-terminal/
 - http://www.howtogeek.com/howto/42980/the-beginners-guide-to-nano-the-linux-command-line-text-editor/
