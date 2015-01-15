@@ -309,7 +309,12 @@ Download the `gewata.zip` file from Github ([link](https://github.com/GeoScripti
 Write a shell script that:
 
  - derives NDVI from the landsat *.tif file as NDVI.tif
- - resampels the NDVI tif file to pixels of 60 m and reprojects it to WGS Lat/long
+ - resampels the NDVI tif file to pixels of 60 m
+ - reprojects this resampled file to Lat/long WGS84 (the projection code is: EPSG:4326)
+ 
+    - solution!!!: `gdalwarp -t_srs EPSG:4326 $fntemp $fnout`
+
+Optional:
  - convert the *.tif file (i.e. a geotif) to *.png
 
 Copy the text of your shell script in an e-mail per team and set it to me before friday (1030u). Do not forget to add a teamname and date at the top of your script.

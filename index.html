@@ -360,9 +360,13 @@ gdalinfo -hist -stats ndvi.tif</code></pre>
 <p>Write a shell script that:</p>
 <ul>
 <li>derives NDVI from the landsat *.tif file as NDVI.tif</li>
-<li>resampels the NDVI tif file to pixels of 60 m and reprojects it to WGS Lat/long</li>
-<li>convert the <em>.tif file (i.e. a geotif) to </em>.png</li>
+<li>resampels the NDVI tif file to pixels of 60 m</li>
+<li><p>reprojects this resampled file to Lat/long WGS84 (the projection code is: EPSG:4326)</p>
+<ul>
+<li>solution!!!: <code>gdalwarp -t_srs EPSG:4326 $fntemp $fnout</code></li>
+</ul></li>
 </ul>
+<p>Optional: - convert the <em>.tif file (i.e. a geotif) to </em>.png</p>
 <p>Copy the text of your shell script in an e-mail per team and set it to me before friday (1030u). Do not forget to add a teamname and date at the top of your script.</p>
 <p>Hint: <a href="http://www.geos.ed.ac.uk/~smudd/TopoTutorials/html/tutorial_raster_conversion.html" class="uri">http://www.geos.ed.ac.uk/~smudd/TopoTutorials/html/tutorial_raster_conversion.html</a></p>
 </div>
