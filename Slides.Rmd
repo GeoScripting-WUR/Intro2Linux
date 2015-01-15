@@ -48,7 +48,13 @@ Criteria:
     * improve your script
     * focus on reproducability
     * visualise results using a script
+* Do not store data sets on GitHub (size limit of 50Mb)
+    * use Dropbox or download scripts.
 
-## Good book regarding todays lesson
+## Other nice things
 
-Check out Springer books via the WUR library
+* Check out Springer books via the WUR library
+* http://foss4geo.org/
+* Meeting at the end of the month;
+    * http://www.osgeo.org/node/1464
+    
