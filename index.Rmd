@@ -303,11 +303,13 @@ Optional: if you are ready and want the learn more about using GDAL from the ter
 http://wiki.americaview.org/display/miview/Introduction+to+GDAL
 
 ## Excercise
+Let's download a file from [Lesson 4 and Raster object manipulations](https://geoscripting-wur.github.io/IntroToRaster/#raster-objects-manipulations).
+Download the `gewata.zip` file from Github ([link](https://github.com/GeoScripting-WUR/IntroToRaster/raw/gh-pages/data/gewata.zip)) and unzip in the data folder.
 
 Write a shell script that:
 
- - resampels the Landsat data to pixels of 60 m
- - reprojects the landsat data to WGS Lat/long
+ - derives NDVI from the landsat *.tif file as NDVI.tif
+ - resampels the NDVI tif file to pixels of 60 m and reprojects it to WGS Lat/long
  - convert the *.tif file (i.e. a geotif) to *.png
 
 Copy the text of your shell script in an e-mail per team and set it to me before friday (1030u). Do not forget to add a teamname and date at the top of your script.
