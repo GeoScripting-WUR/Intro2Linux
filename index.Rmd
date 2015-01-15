@@ -18,7 +18,7 @@ Read and do the below described tutorial
 
 ## Afternoon
 
-[Discussion session and feedback](https://geoscripting-wur.github.io/Intro2Linux/slides.html)
+[Discussion session and feedback](https://geoscripting-wur.github.io/Intro2Linux/Slides.html)
 
 # Today's Learning objectives
 
