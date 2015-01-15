@@ -62,12 +62,15 @@ img {
 <div id="header">
 <h1 class="title">Getting started with Linux (OS-GEOLive)</h1>
 <h1 class="subtitle">The terminal, R, and Python</h1>
-<h4 class="date"><em>14 January, 2015</em></h4>
+<h4 class="date"><em>15 January, 2015</em></h4>
 </div>
 
 <div id="TOC">
 <ul>
-<li><a href="#today-in-the-morning"><span class="toc-section-number">1</span> Today in the morning</a></li>
+<li><a href="#today-in-the-morning"><span class="toc-section-number">1</span> Today in the morning</a><ul>
+<li><a href="#morning"><span class="toc-section-number">1.1</span> Morning</a></li>
+<li><a href="#afternoon"><span class="toc-section-number">1.2</span> Afternoon</a></li>
+</ul></li>
 <li><a href="#todays-learning-objectives"><span class="toc-section-number">2</span> Today’s Learning objectives</a></li>
 <li><a href="#using-the-terminal-and-command-line"><span class="toc-section-number">3</span> Using the terminal and command line</a><ul>
 <li><a href="#why-using-the-command-line"><span class="toc-section-number">3.1</span> Why using the command-line</a></li>
@@ -88,7 +91,14 @@ img {
 
 <div id="today-in-the-morning" class="section level1">
 <h1><span class="header-section-number">1</span> Today in the morning</h1>
+<div id="morning" class="section level2">
+<h2><span class="header-section-number">1.1</span> Morning</h2>
 <p>Read and do the below described tutorial</p>
+</div>
+<div id="afternoon" class="section level2">
+<h2><span class="header-section-number">1.2</span> Afternoon</h2>
+<p><a href="https://geoscripting-wur.github.io/Intro2Linux/slides.html">Discussion session and feedback</a></p>
+</div>
 </div>
 <div id="todays-learning-objectives" class="section level1">
 <h1><span class="header-section-number">2</span> Today’s Learning objectives</h1>
@@ -100,7 +110,7 @@ img {
 <ul>
 <li>running R from the terminal</li>
 <li>Launching Rstudio and using Git</li>
-<li>Running and writing Python script from the QGIS Python Console</li>
+<li>Knowing that there is a <code>QGIS</code> Python Console</li>
 </ul></li>
 </ul>
 </div>
@@ -253,6 +263,7 @@ gdal-config --version</code></pre>
 ls *.tif
 gdalinfo -nomd -norat -noct LE71700552001036SGS00_SR_Gewata_INT1U.tif</code></pre>
 <pre><code>## LE71700552001036SGS00_SR_Gewata_INT1U.tif
+## ndvi.tif
 ## Driver: GTiff/GeoTIFF
 ## Files: LE71700552001036SGS00_SR_Gewata_INT1U.tif
 ## Size is 653, 593
@@ -317,6 +328,8 @@ rm input.tif</code></pre>
 ## LE71700552001036SGS00_SR_Gewata_INT1U.tif
 ## gewata.zip
 ## input.tif
+## ndvi.tif
+## ndvi.tif.aux.xml
 ## * now apply gdal_calc: Command line raster calculator with numpy syntax
 ## 0 .. 10 .. 20 .. 30 .. 40 .. 50 .. 60 .. 70 .. 80 .. 90 .. 100 - Done
 ## * remove the input temporary file</code></pre>
@@ -345,11 +358,11 @@ gdalinfo -hist -stats ndvi.tif</code></pre>
 <h2><span class="header-section-number">3.8</span> Excercise</h2>
 <p>Write a shell script that:</p>
 <ul>
-<li>resampels the Landsat data to pixels of 60m</li>
+<li>resampels the Landsat data to pixels of 60 m</li>
 <li>reprojects the landsat data to WGS Lat/long</li>
 <li>convert the <em>.tif file (i.e. a geotif) to </em>.png</li>
 </ul>
-<p>Copy the text of your shell script in an e-mail per team and set it to me. Do not forget to add a teamname and date at the top of your script.</p>
+<p>Copy the text of your shell script in an e-mail per team and set it to me before friday (1030u). Do not forget to add a teamname and date at the top of your script.</p>
 <p>Hint: <a href="http://www.geos.ed.ac.uk/~smudd/TopoTutorials/html/tutorial_raster_conversion.html" class="uri">http://www.geos.ed.ac.uk/~smudd/TopoTutorials/html/tutorial_raster_conversion.html</a></p>
 </div>
 <div id="more-information" class="section level2">

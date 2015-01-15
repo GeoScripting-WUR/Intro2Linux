@@ -12,7 +12,13 @@ output:
 
 # Today in the morning
 
+## Morning 
+
 Read and do the below described tutorial
+
+## Afternoon
+
+[Discussion session and feedback](https://geoscripting-wur.github.io/Intro2Linux/slides.html)
 
 # Today's Learning objectives
 
@@ -22,7 +28,7 @@ Read and do the below described tutorial
 - Getting comfortable within OSGEO-Linux environment
     - running R from the terminal
     - Launching Rstudio and using Git
-    - Running and writing Python script from the QGIS Python Console
+    - Knowing that there is a `QGIS` Python Console
 
 # Using the terminal and command line
 
@@ -300,11 +306,11 @@ http://wiki.americaview.org/display/miview/Introduction+to+GDAL
 
 Write a shell script that:
 
- - resampels the Landsat data to pixels of 60m
+ - resampels the Landsat data to pixels of 60 m
  - reprojects the landsat data to WGS Lat/long
  - convert the *.tif file (i.e. a geotif) to *.png
 
-Copy the text of your shell script in an e-mail per team and set it to me. Do not forget to add a teamname and date at the top of your script.
+Copy the text of your shell script in an e-mail per team and set it to me before friday (1030u). Do not forget to add a teamname and date at the top of your script.
 
 Hint: http://www.geos.ed.ac.uk/~smudd/TopoTutorials/html/tutorial_raster_conversion.html
 

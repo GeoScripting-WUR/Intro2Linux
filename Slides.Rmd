@@ -1,0 +1,48 @@
+---
+title: "Intro2Linux"
+author: "Jan Verbesselt"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output: slidy_presentation
+---
+
+## Refreshing what we have seen yesterday
+
+- Let's have a look at:
+    * http://r-sig-geo.2731867.n2.nabble.com/
+    
+- Why OS-GEOlive Ubuntu Linux? 
+    * Free
+    * Open-source
+        * https://en.wikipedia.org/wiki/Open_Source_Geospatial_Foundation
+        * http://www.osgeo.org/
+        * http://live.osgeo.org/en/index.html
+        
+- Why Linux?
+    * http://www.whylinuxisbetter.net/
+
+## Free Data sources
+
+- http://www.diva-gis.org/Data
+- http://freegisdata.rtwilson.com/
+
+## Scoring of the scripting project
+
+Criteria:
+
+* Demonstrating capacity to read, visualize, and write spatial data with a reproducible script other students can use
+* Using different functions and modules (Python) or libraries (R)
+* Writing a clear, structured and well documented script 
+    * that is usable by others
+    * share via your GitHub repository
+* Creativity
+    * Tackle a simple and clear problem (not too ambitious)
+* Presentation: 
+    * Ability to present your geo-challenge
+    * Visualise the results/script 
+        * e.g. using RPubs? Create a presentation? (See the *Rmd example at our GitHub repository)
+
+
+
+## Good book regarding todays lesson
+
+Check out Springer books via the WUR library
