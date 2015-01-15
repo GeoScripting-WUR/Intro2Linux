@@ -41,7 +41,13 @@ Criteria:
     * Visualise the results/script 
         * e.g. using RPubs? Create a presentation? (See the *Rmd example at our GitHub repository)
 
+## Project planning
 
+* Make up a planning what you want to do each day
+* Try to finish the major part before Thurday so that you have thursday to 
+    * improve your script
+    * focus on reproducability
+    * visualise results using a script
 
 ## Good book regarding todays lesson
 
