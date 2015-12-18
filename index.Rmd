@@ -1,13 +1,14 @@
 ---
-title: "Getting started with Linux (OS-GEOLive)"
-subtitle: "The terminal, R, and Python"
+title: "[WUR GRS-51806 Geoscripting](https://geoscripting-wur.github.io/)"
+subtitle: "Week 1, Lesson 3: Getting started with Linux (OS-GEOLive): Using the terminal and basic bash scripting"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 output:
   html_document:
-    theme: united
+    number_sections: yes
+    css: custom.css
+    highlight: tango
     toc: yes
-    toc_depth: 4
-    number_sections: true
+    toc_depth: 2
 ---
 
 # Today in the morning
@@ -26,17 +27,17 @@ Read and do the below described tutorial
 - Know how to use the **terminal**
 - Learn the basics of `Bash` scripting
 - Getting comfortable within OSGEO-Linux environment
-    - running R from the terminal
-    - Launching Rstudio and using Git
-    - Knowing that there is a `QGIS` Python Console
+    - running R and Python from the terminal
+    - Launching Rstudio and using Git within Linux
+    - ?Knowing that there is a `QGIS` Python Console
 
 # Using the terminal and command line
 
-## Why using the command-line
+## Why using the command-line?
 
 Under Linux there are GUIs (graphical user interfaces), where you can point and click and drag, and hopefully get work done without first reading lots of documentation. The traditional Unix environment is a CLI (command line interface), where you type commands to tell the computer what to do. That is faster and more powerful, but requires finding out what the commands are ([reference](https://help.ubuntu.com/community/UsingTheTerminal)).
 
-"man man" will bring up the manual entry for the man command, which is a good place to start!
+Typing "man man" in the **terminal** will bring up the manual entry for the man command, which is a good place to start! You can launch the terminal via: **Keyboard Shortcut**: `Ctrl + Alt + T` (see below)
 
 ```{r, eval=FALSE}
 man man
@@ -48,7 +49,7 @@ man man
 man intro
 ```
 
-There are many varieties of Linux, but almost all of them use similar commands that can be entered from a command-line interface terminal.
+There are many varieties of Linux (e.g. Ubuntu, Centos, RedHat, etc.), but almost all of them use similar commands that can be entered from a command-line interface terminal.
 
 There are also many graphical user interfaces (GUIs), but each of them works differently and there is little standardization between them. Experienced users who work with many different Linux distributions therefore find it easier to learn commands that can be used in all varieties of Ubuntu and, indeed, in other Linux distributions as well.
 
@@ -73,7 +74,6 @@ At its base, a shell is simply a macro processor that executes commands.
 **Keyboard Shortcut**: `Ctrl + Alt + T` 
 
 Is not a "Terminator" but something really powerfull because via the terminal you get access to the CLI and it default Bash interface. The terminal is the engine behind linux and mac and can also be installed on Windows via a program called [Cygwin](https://www.cygwin.com) which provide a Linux interface on Windows. It is important as a geo-scripter to know about the Terminal as if will offer a lot of advantages. You'll see to more you will start scripting the more you will encounter the words "terminal", "shell", "bash", etc.
-
 
 ## Some commands
 
@@ -141,7 +141,7 @@ Read the `File & Directory Commands` section (https://help.ubuntu.com/community/
 
 So let's get started. First, create a `Bash` folder within your R project folder (if it is not there yet). Within this folder create a simple text file using *Rstudio -> New File -> Text File* and call this file: `HelloWorld.sh` add the following text and save.
 
-```{r, eval =FALSE, engine='bash'}
+```{r, eval=FALSE, engine='bash'}
  #!/bin/bash         
 echo "Hello, World"
 ```
@@ -187,7 +187,6 @@ setwd("Bash/") ## set the working director in R
 print(system("./HelloWorld.sh", intern = TRUE)) ## set this command to the Terminal
 ```
 
-
 ### Bash script with a variable
 
 Variables basically store information. You set variables like this (you can type this in the terminal). 
@@ -224,12 +223,11 @@ You can run the script once it is *executable*:
 
 If you want to learn more about `Bash` scripting: https://help.ubuntu.com/community/Beginners/BashScripting
 
-
 ## Using the GDAL library from the terminal
 
 A quick refresher:
 
-- ***Do you know who Frank Warmerdam is?*** 
+- ***Do you know who Frank Warmerdam is? Check via your favorite search engine*** 
   - Check the the FWtools: 
       - http://fwtools.maptools.org/
       - FWTools is a set of Open Source GIS binaries for Windows (win32) and Linux (x86 32bit) systems produced
@@ -237,12 +235,12 @@ A quick refresher:
 
 Now via the terminal we can acces GDAL directly!!! E.g. we can check out what the current version of GDAL is that is installed on our Linux OS:
 
-Let's download a file from [Lesson 4 and Raster object manipulations](https://geoscripting-wur.github.io/IntroToRaster/#raster-objects-manipulations):
+Let's download a file from [The intro to raster lesson](https://geoscripting-wur.github.io/IntroToRaster/#raster-objects-manipulations):
 Download the `gewata.zip` file from Github ([link](https://github.com/GeoScripting-WUR/IntroToRaster/raw/gh-pages/data/gewata.zip)) and unzip in the data folder. Type the following in the data folder:
 
 You can write a shell script to do the following commands below but first type in the commands via the terminal to understand what is happening:
 
-```{r, engine='bash'}
+```{r, eval = TRUE, engine='bash'}
 echo "the current GDAL version is:"
 gdal-config --version
 ```
@@ -251,19 +249,15 @@ One of the easiest and most useful commands in GDAL is `gdalinfo`. When given an
 
 Using gdalinfo:
 
-```{r, engine='bash'}
+```{r, eval = TRUE, engine='bash'}
 cd data
 ls *.tif
 gdalinfo -nomd -norat -noct LE71700552001036SGS00_SR_Gewata_INT1U.tif
 ```
 
-```{r, engine='bash', eval=FALSE}
-gdalinfo -nomd -norat -noct LE71700552001036SGS00_SR_Gewata_INT1U.tif
-```
-
 Now let's calculate the NDVI via GDAL terminal by using the `gdal_calc.py`:
 
-```{r, engine='bash'}
+```{r, engine='bash', eval=TRUE}
 cd data
 cp LE71700552001036SGS00_SR_Gewata_INT1U.tif input.tif
 echo "* all files in the directory"
@@ -281,7 +275,8 @@ Challenge:
 - Hint 2: No spaces are allowed and e.g. try to use `fn=$(ls *.tif)`
 
 Let's now check if the range of the NDVI values makes sense:
-```{r, engine='bash', results='hide'}
+```{r, engine='bash', results='hide', eval =FALSE}
+## set to false
 cd data
 echo "* list all files"
 ls -lht
@@ -303,7 +298,7 @@ Optional: if you are ready and want the learn more about using GDAL from the ter
 http://wiki.americaview.org/display/miview/Introduction+to+GDAL
 
 ## Excercise
-Let's download a file from [Lesson 4 and Raster object manipulations](https://geoscripting-wur.github.io/IntroToRaster/#raster-objects-manipulations).
+Let's download a file from [The intro to raster lesson](https://geoscripting-wur.github.io/IntroToRaster/#raster-objects-manipulations).
 Download the `gewata.zip` file from Github ([link](https://github.com/GeoScripting-WUR/IntroToRaster/raw/gh-pages/data/gewata.zip)) and unzip in the data folder.
 
 Write a shell script that:
@@ -317,7 +312,8 @@ Write a shell script that:
 Optional:
  - convert the *.tif file (i.e. a geotif) to *.png
 
-Copy the text of your shell script in an e-mail per team and set it to me before friday (1030u). Do not forget to add a teamname and date at the top of your script.
+Submit the text of your shell script via Blackboard in the "Script Review Center" before tomorrow (930u). 
+Do not forget to add a teamname and date at the top of your script.
 
 Hint: http://www.geos.ed.ac.uk/~smudd/TopoTutorials/html/tutorial_raster_conversion.html
 
