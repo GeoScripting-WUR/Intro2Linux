@@ -11,25 +11,41 @@ output:
     toc_depth: 2
 ---
 
-# Today in the morning
+# Planning January 6th, 2015
 
-## Morning 
+Good morning! 
+Here is what you will do today:
 
-Read and do the below described tutorial
-
-## Afternoon
-
-[Discussion session and feedback](https://geoscripting-wur.github.io/Intro2Linux/Slides.html)
+Time  | Activity
+------------- | -------------
+Morning  |  Self-study: go through the following tutorial, and get confortable with osgeo
+1330 to 1430  | Presentation by Allard de Wit (linux), demo session by Erik van Schaik (Github education and Amazon AWS)
+Rest of the afternoon | Do/finalise the exercise.
 
 # Today's Learning objectives
 
-- Knowing what Linux is (based on a presentation by Allard De Wit)
+- Knowing what Linux is & what you can do with it 
+- Getting comfortable within OSGEO-Linux environment
+    - running R and Python from the Linux terminal
+    - Launching Rstudio and QGIS
 - Know how to use the **terminal**
 - Learn the basics of `Bash` scripting
-- Getting comfortable within OSGEO-Linux environment
-    - running R and Python from the terminal
-    - Launching Rstudio and using Git within Linux
-    - ?Knowing that there is a `QGIS` Python Console
+
+# Using OSGEO live
+
+## What is OSGEO-live?
+
+## Why Linux & OSGEO-live?
+
+Linux environment (Lubuntu) with a wide range of free and open-source GIS and Remote sensing tools installed. We are using OS-GEO-live here, especially since installing open-source tools and python modules is so much easiers on Linux then it is on for example another operating system like Windows or Mac.
+
+## Getting started
+
+First open on your computer, VMware workstation Player (as demonstrated in yesterdays lesson).
+Second, login into your linux and open Rstudio, and also QGIS.
+Third, follow and do a little demo excercise with QGIS available at:
+
+Question 1 (submit via BlackBoard):
 
 # Using the terminal and command line
 
@@ -52,6 +68,10 @@ man intro
 There are many varieties of Linux (e.g. Ubuntu, Centos, RedHat, etc.), but almost all of them use similar commands that can be entered from a command-line interface terminal.
 
 There are also many graphical user interfaces (GUIs), but each of them works differently and there is little standardization between them. Experienced users who work with many different Linux distributions therefore find it easier to learn commands that can be used in all varieties of Ubuntu and, indeed, in other Linux distributions as well.
+
+## Starting R from the terminal
+
+## Starting Python from the terminal
 
 ## What is Bash?
 
