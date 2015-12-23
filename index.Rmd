@@ -1,6 +1,6 @@
 ---
 title: "[WUR GRS-51806 Geoscripting](https://geoscripting-wur.github.io/)"
-subtitle: "Week 1, Lesson 3: Getting started with Linux (OS-GEOLive): Using the terminal and basic bash scripting"
+subtitle: "Week 1, Lesson 3: Getting started with Linux, the terminal and bash scripting"
 author: "Jan Verbesselt"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 output:
@@ -12,49 +12,55 @@ output:
     toc_depth: 2
 ---
 
-# Planning January 6th, 2015
+# Planning
 
 Good morning! 
 Here is what you will do today:
 
 Time  | Activity
 ------------- | -------------
-Morning  |  Self-study: go through the following tutorial, and get confortable with osgeo
-1330 to 1430  | Presentation by Allard de Wit (linux), demo session by Erik van Schaik (Github education and Amazon AWS)
-Rest of the afternoon | Do/finalise the exercise.
+Morning  |  Self-study: go through the following tutorial, and get confortable with OSGEO-live and the linux terminal
+1330 to 1530  | Presentation by Allard de Wit (linux), demo session by Erik van Schaik (Github education and Amazon AWS )
+Rest of the afternoon | Do and finalise the exercise
 
 # Today's Learning objectives
 
 - Knowing what Linux is & what you can do with it 
 - Getting comfortable within OSGEO-Linux environment
     - running R and Python from the Linux terminal
-    - Launching Rstudio and QGIS
-- Know how to use the **terminal**
-- Learn the basics of `Bash` scripting
+- Knowing how to use the **terminal**
+- Learn the basics of `Bash` scripting and know how to create a shell script
 
-# Using OSGEO live
+# OSGEO-live?!
 
-## What is OSGEO-live?
+OSGEO-live is a linux operating system (i.e. Lubuntu) with a wide range of free and open-source GIS and Remote sensing tools installed.
+See this website (http://live.osgeo.org/) for more information. We will use OSGEO-live via VMware workstation player (see here for instruction, and will also explain this in the lesson on Tuesday afternoon).
 
 ## Why Linux & OSGEO-live?
 
-Linux environment (Lubuntu) with a wide range of free and open-source GIS and Remote sensing tools installed. We are using OS-GEO-live here, especially since installing open-source tools and python modules is so much easiers on Linux then it is on for example another operating system like Windows or Mac.
+We are using OS-GEO-live here, especially since installing open-source tools and python modules is so much more easy on Linux then it is on for example another operating system like Windows or Mac. Furthermore, at WU there is also ArcGIS and Arcpy installed on the windows machines and this python version tends to cause conflits with open-source python modules and tools (e.g. GDAL, GEOS).
 
-## Getting started
+## Getting started on OSGEO-live
 
-First open on your computer, VMware workstation Player (as demonstrated in yesterdays lesson).
-Second, login into your linux and open Rstudio, and also QGIS.
-Third, follow and do a little demo excercise with QGIS available at:
+First open your computer, VMware workstation Player (as demonstrated in yesterdays lesson).
+Second, login into your linux, try out Rstudio, and also open QGIS. 
+Third, follow this overview presentation of what is possible within OSGEO-live.
 
-Question 1 (submit via BlackBoard):
+[tutorial with QGIS and Python](http://www.qgistutorials.com/en/docs/getting_started_with_pyqgis.html).
+
+*Question*: ...
+
+You can also [use R from within QGIS](https://docs.qgis.org/testing/en/docs/training_manual/processing/r_intro.html).
 
 # Using the terminal and command line
 
-*Why using the terminal?*: Under Linux there are GUIs (graphical user interfaces), where you can point and click and drag, and hopefully get work done without first reading lots of documentation. The traditional Unix environment is a CLI (command line interface), where you type commands to tell the computer what to do. That is *faster and more powerful*, but requires finding out what the commands are ([reference](https://help.ubuntu.com/community/UsingTheTerminal)).
+*Why using the terminal?*: Under Linux there are GUIs (graphical user interfaces), where you can point and click and drag, and hopefully get work done without first reading lots of documentation. The traditional Unix environment is a CLI (command line interface), where you type commands to tell the computer what to do. That is *faster and more powerful*, but requires finding out what the commands are ([more information about using the terminal](https://help.ubuntu.com/community/UsingTheTerminal)).
 
 There are many varieties of Linux (e.g. Ubuntu, Centos, RedHat, etc.), but almost all of them use similar commands that can be entered from a command-line interface terminal.
 
 There are also many graphical user interfaces (GUIs), but each of them works differently and there is little standardization between them. Experienced users who work with many different Linux distributions therefore find it easier to learn commands that can be used in all varieties of Ubuntu and, indeed, in other Linux distributions as well.
+
+*Question*: what are the advantages of using the terminal? Can you think of some examples?
 
 ## What is Bash?
 
@@ -68,11 +74,13 @@ A shell script (shell program) is a text file that contains commands that are in
 
 Each command can be linked in a script to combine several commands by providing the output of one as input to the other. Shell scripts can also contain the control structures common to the majority of programming languages (i.e. variables, logic constructs, looping constructs, functions and comments). The main distinction between shell programs and those written in C, C++, Java (to name but a few) is that shell programs are not compiled for execution, but are readily interpreted by the shell.
 
+*Question*: What is a shell script?
+
 ## Launching the Shell: terminal!
 
 **Keyboard Shortcut**: `Ctrl + Alt + T` 
 
-Is not a "Terminator" but something really powerfull because via the terminal you get access to the CLI and it default Bash interface. The terminal is the engine behind linux and mac and can also be installed on Windows via a program called [Cygwin](https://www.cygwin.com) which provide a Linux interface on Windows. It is important as a geo-scripter to know about the Terminal as if will offer a lot of advantages. You'll see to more you will start scripting the more you will encounter the words "terminal", "shell", "bash", etc.
+Is not a "Terminator" but something really powerfull because via the terminal you get access to the CLI and it default Bash interface. The terminal is the engine behind linux and mac and can also be installed on Windows via a program called [Cygwin](https://www.cygwin.com) which provide a Linux interface on Windows. *It is important as a geo-scripter to know about the Terminal as if will offer a lot of advantages*. The more you'll get into scripting the more you will encounter the words "terminal", "shell", "bash", etc.
 
 ## Some commands
 
@@ -82,6 +90,8 @@ Typing "man man" in the **terminal** will bring up the manual entry for the man 
 
 ```{r, eval=FALSE}
 man man
+## scroll down to examples
+## type 'q' to exit
 ```
 
 "man intro" is especially useful - it displays the "Introduction to user commands" which is a well-written, fairly brief introduction to the Linux command line.
@@ -104,34 +114,31 @@ Most common commands:
 
 Note!: Tab completion works from the terminal which is super-handy so that you never need to write filenames etc.
 
-Let's get started! Launch your Virtual Machine, login (username: user, pasword: user) and use the File Manager to create the following folders, similar as you would do on your Windows computer.
+Now type to bring you back to your home folder, and chech what your current working directory is.
 
-![folders](figures/setup_folders.png)
+```{r, eval=FALSE}
+cd
+pwd
+```
 
-Now open the terminal using the `Ctrl + Alt + T`  shortcut and go to this folder and list all the files within that folder. See the examples below:
+This should looks as follows:
 
-Do you notice what the difference is between `ls`, `ls -l`, `ls -lh`?
+![cdpwd](figs/cd_pwd.png)
 
-![movingfolders](figures/MovingFolder_lsh.png)
+*Question*: What is the difference between `ls -l` and `ls -lh`?
 
-The files like `main.R` and the `.Rproj` are created via Rstudio as we have learned in the previous lessons (setting up a local git repository). Go ahead and use Rstudio and create a new local Git Repository. There is no need to link this repository to a remote Repository yet (we will do this together in the lesson, and add the README.md by pulling from the GitHub.com page).
-
-Create the `Bash` and a `R` folder (i.e. a folder that will contain our Bash Scripts, similar to the R folder)
+Now, create the `Bash` folder (i.e. a folder that will contain our Bash Scripts)
 
 ```{r, eval=FALSE}
 mkdir Bash
-mkdir R
 ```
 
-![createafolder](figures/createafolder.png)
+It should now look like this:
 
-Now let's use `pwd`, `cd`, and `cd ..` see what happens:
+![mkdir](figs/mkdir.png)
 
-![pwdcd](figures/usingpwdcd.png)
 
-So, that's it for now! It is just a brief intro, in order to get you started with some simple commands in the terminal. 
-
-Try out other commands:
+Now, try out some morecommands:
 
 - make a directory and remove if (e.g. `mkdir -R namedirectory).
 - create a Rscript via Rstudio, and the remove it via the terminal using `rm filename.R`.
@@ -144,11 +151,11 @@ rm dest_file
 
 - use `ls` commands and it's options.
 
-Read the `File & Directory Commands` section (https://help.ubuntu.com/community/UsingTheTerminal) and let me know if you have questions about some commands. 
+Read the `File & Directory Commands` section (https://help.ubuntu.com/community/UsingTheTerminal) and let us know if you have questions about some commands. 
 
 ## Starting R or Python from the terminal
 
-Starting and stopping R from the terminal:
+Starting and stopping R from the terminal (this will provide you the same within the `console` as in *Rstudio*:
 ```{r, engine='bash', eval=FALSE}
 R ## just type R and then q() to exit
 q()
@@ -202,7 +209,7 @@ echo "We can now run our first `Bash script`:"
 
 Hopefully you should have seen it print Hello, World!!! onto your screen. If so well done! That is your first `Bash` script (see below for a screenshot):
 
-![BashScript](figures/Scripting.png)
+![BashScript](figs/Scripting.png)
 
 **Question**: why do we add `./` in front of the Bash script?
 
@@ -359,3 +366,5 @@ Hint: http://www.geos.ed.ac.uk/~smudd/TopoTutorials/html/tutorial_raster_convers
     - http://computers.tutsplus.com/tutorials/navigating-the-terminal-a-gentle-introduction--mac-3855
     - http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line
     - [Is the terminal in Mac and Linux the same](https://stackoverflow.com/questions/8051145/is-the-terminal-in-mac-and-linux-the-same)
+- [Python code Building plug-in](https://www.google.nl/url?sa=t&rct=j&q=&esrc=s&source=web&cd=6&cad=rja&uact=8&ved=0ahUKEwjuyp3np_LJAhXEHg8KHT1sDbwQtwIIRjAF&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DeWNEcJYnkPQ&usg=AFQjCNFl3yb7yw3mf2arEc38_flIkdZWxA&sig2=u1GrY051UiDyeVg5JyfJXw)
+- [Using Jupyter notebook within OSGEO](http://www.r-bloggers.com/interactive-r-notebooks-with-jupyter-and-sagemathcloud/)
