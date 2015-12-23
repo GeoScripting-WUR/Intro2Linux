@@ -8,6 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 
+<meta name="author" content="Jan Verbesselt" />
 
 
 <title>WUR GRS-51806 Geoscripting</title>
@@ -75,6 +76,7 @@ img {
 <div id="header">
 <h1 class="title"><a href="https://geoscripting-wur.github.io/">WUR GRS-51806 Geoscripting</a></h1>
 <h3 class="subtitle"><em>Week 1, Lesson 3: Getting started with Linux (OS-GEOLive): Using the terminal and basic bash scripting</em></h3>
+<h4 class="author"><em>Jan Verbesselt</em></h4>
 <h4 class="date"><em>23 December, 2015</em></h4>
 </div>
 
@@ -88,17 +90,14 @@ img {
 <li><a href="#getting-started"><span class="toc-section-number">3.3</span> Getting started</a></li>
 </ul></li>
 <li><a href="#using-the-terminal-and-command-line"><span class="toc-section-number">4</span> Using the terminal and command line</a><ul>
-<li><a href="#why-using-the-command-line"><span class="toc-section-number">4.1</span> Why using the command-line?</a></li>
-<li><a href="#starting-r-from-the-terminal"><span class="toc-section-number">4.2</span> Starting R from the terminal</a></li>
-<li><a href="#starting-python-from-the-terminal"><span class="toc-section-number">4.3</span> Starting Python from the terminal</a></li>
-<li><a href="#what-is-bash"><span class="toc-section-number">4.4</span> What is Bash?</a></li>
-<li><a href="#what-is-the-shell"><span class="toc-section-number">4.5</span> What is the Shell?</a></li>
-<li><a href="#launching-the-shell-terminal"><span class="toc-section-number">4.6</span> Launching the Shell: terminal!</a></li>
-<li><a href="#some-commands"><span class="toc-section-number">4.7</span> Some commands</a></li>
-<li><a href="#scripting-in-the-terminal"><span class="toc-section-number">4.8</span> Scripting in the terminal</a></li>
-<li><a href="#using-the-gdal-library-from-the-terminal"><span class="toc-section-number">4.9</span> Using the GDAL library from the terminal</a></li>
-<li><a href="#excercise"><span class="toc-section-number">4.10</span> Excercise</a></li>
-<li><a href="#more-information"><span class="toc-section-number">4.11</span> More information</a></li>
+<li><a href="#what-is-bash"><span class="toc-section-number">4.1</span> What is Bash?</a></li>
+<li><a href="#launching-the-shell-terminal"><span class="toc-section-number">4.2</span> Launching the Shell: terminal!</a></li>
+<li><a href="#some-commands"><span class="toc-section-number">4.3</span> Some commands</a></li>
+<li><a href="#starting-r-or-python-from-the-terminal"><span class="toc-section-number">4.4</span> Starting R or Python from the terminal</a></li>
+<li><a href="#scripting-in-the-terminal"><span class="toc-section-number">4.5</span> Scripting in the terminal</a></li>
+<li><a href="#using-the-gdal-library-from-the-terminal"><span class="toc-section-number">4.6</span> Using the GDAL library from the terminal</a></li>
+<li><a href="#excercise"><span class="toc-section-number">4.7</span> Excercise</a></li>
+<li><a href="#more-information"><span class="toc-section-number">4.8</span> More information</a></li>
 </ul></li>
 </ul>
 </div>
@@ -159,42 +158,29 @@ img {
 </div>
 <div id="using-the-terminal-and-command-line" class="section level1">
 <h1><span class="header-section-number">4</span> Using the terminal and command line</h1>
-<div id="why-using-the-command-line" class="section level2">
-<h2><span class="header-section-number">4.1</span> Why using the command-line?</h2>
-<p>Under Linux there are GUIs (graphical user interfaces), where you can point and click and drag, and hopefully get work done without first reading lots of documentation. The traditional Unix environment is a CLI (command line interface), where you type commands to tell the computer what to do. That is faster and more powerful, but requires finding out what the commands are (<a href="https://help.ubuntu.com/community/UsingTheTerminal">reference</a>).</p>
-<p>Typing “man man” in the <strong>terminal</strong> will bring up the manual entry for the man command, which is a good place to start! You can launch the terminal via: <strong>Keyboard Shortcut</strong>: <code>Ctrl + Alt + T</code> (see below)</p>
-<pre class="sourceCode r"><code class="sourceCode r">man man</code></pre>
-<p>“man intro” is especially useful - it displays the “Introduction to user commands” which is a well-written, fairly brief introduction to the Linux command line.</p>
-<pre class="sourceCode r"><code class="sourceCode r">man intro</code></pre>
+<p><em>Why using the terminal?</em>: Under Linux there are GUIs (graphical user interfaces), where you can point and click and drag, and hopefully get work done without first reading lots of documentation. The traditional Unix environment is a CLI (command line interface), where you type commands to tell the computer what to do. That is <em>faster and more powerful</em>, but requires finding out what the commands are (<a href="https://help.ubuntu.com/community/UsingTheTerminal">reference</a>).</p>
 <p>There are many varieties of Linux (e.g. Ubuntu, Centos, RedHat, etc.), but almost all of them use similar commands that can be entered from a command-line interface terminal.</p>
 <p>There are also many graphical user interfaces (GUIs), but each of them works differently and there is little standardization between them. Experienced users who work with many different Linux distributions therefore find it easier to learn commands that can be used in all varieties of Ubuntu and, indeed, in other Linux distributions as well.</p>
-</div>
-<div id="starting-r-from-the-terminal" class="section level2">
-<h2><span class="header-section-number">4.2</span> Starting R from the terminal</h2>
-</div>
-<div id="starting-python-from-the-terminal" class="section level2">
-<h2><span class="header-section-number">4.3</span> Starting Python from the terminal</h2>
-</div>
 <div id="what-is-bash" class="section level2">
-<h2><span class="header-section-number">4.4</span> What is Bash?</h2>
+<h2><span class="header-section-number">4.1</span> What is Bash?</h2>
 <p><code>Bash</code>, the <strong>Bourne-again-shell</strong> (named after the author Stephen Bourne), scripting is one of the easiest types of scripting to learn, and is best compared to Windows <code>Batch</code> scripting via <a href="http://en.wikipedia.org/wiki/DOS">DOS</a>. <code>Bash</code> is very flexible, and has many advanced features that you won’t see in batch scripts.</p>
 <p>However if you are a ‘non-computer-savvy’ person that won’t mean a thing to you. Bash is the language that you will learn to love as much of everyday Linux life is done/can be done using the Terminal. You will soon learn that most things can be done through both GUI (Graphical User Interface) and CLI (Command Line Interface), however some things are more easily achieved from one or the other. For example, changing file permissions of a folder and all its sub folders is more easily achieved using cli instead gui.</p>
 <p>Bash, is the default shell on Linux and Mac OS X. Bash shell scripting, like also <code>R</code> or <code>Python</code>, allows multiple commands to be combined, facilitating automation.</p>
 <p>A shell script (shell program) is a text file that contains commands that are interpreted by the shell (see below, we will learn how to write a shell script).</p>
 <p>Each command can be linked in a script to combine several commands by providing the output of one as input to the other. Shell scripts can also contain the control structures common to the majority of programming languages (i.e. variables, logic constructs, looping constructs, functions and comments). The main distinction between shell programs and those written in C, C++, Java (to name but a few) is that shell programs are not compiled for execution, but are readily interpreted by the shell.</p>
 </div>
-<div id="what-is-the-shell" class="section level2">
-<h2><span class="header-section-number">4.5</span> What is the Shell?</h2>
-<p>At its base, a shell is simply a macro processor that executes commands.</p>
-</div>
 <div id="launching-the-shell-terminal" class="section level2">
-<h2><span class="header-section-number">4.6</span> Launching the Shell: terminal!</h2>
+<h2><span class="header-section-number">4.2</span> Launching the Shell: terminal!</h2>
 <p><strong>Keyboard Shortcut</strong>: <code>Ctrl + Alt + T</code></p>
 <p>Is not a “Terminator” but something really powerfull because via the terminal you get access to the CLI and it default Bash interface. The terminal is the engine behind linux and mac and can also be installed on Windows via a program called <a href="https://www.cygwin.com">Cygwin</a> which provide a Linux interface on Windows. It is important as a geo-scripter to know about the Terminal as if will offer a lot of advantages. You’ll see to more you will start scripting the more you will encounter the words “terminal”, “shell”, “bash”, etc.</p>
 </div>
 <div id="some-commands" class="section level2">
-<h2><span class="header-section-number">4.7</span> Some commands</h2>
+<h2><span class="header-section-number">4.3</span> Some commands</h2>
 <p>We will discuss useful everyday commands, as well as going a bit more in depth into scripting and semi-advanced features of Bash. Bash is not only used to run programs and applications, but it can also be used to write programs or scripts.</p>
+<p>Typing “man man” in the <strong>terminal</strong> will bring up the manual entry for the man command, which is a good place to start! You can launch the terminal via:</p>
+<pre class="sourceCode r"><code class="sourceCode r">man man</code></pre>
+<p>“man intro” is especially useful - it displays the “Introduction to user commands” which is a well-written, fairly brief introduction to the Linux command line.</p>
+<pre class="sourceCode r"><code class="sourceCode r">man intro</code></pre>
 <p>Most common commands:</p>
 <ul>
 <li><code>pwd</code>: checking your current working directory</li>
@@ -233,10 +219,19 @@ rm dest_file</code></pre>
 </ul>
 <p>Read the <code>File &amp; Directory Commands</code> section (<a href="https://help.ubuntu.com/community/UsingTheTerminal" class="uri">https://help.ubuntu.com/community/UsingTheTerminal</a>) and let me know if you have questions about some commands.</p>
 </div>
+<div id="starting-r-or-python-from-the-terminal" class="section level2">
+<h2><span class="header-section-number">4.4</span> Starting R or Python from the terminal</h2>
+<p>Starting and stopping R from the terminal:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">R</span> <span class="co">## just type R and then q() to exit</span>
+<span class="fu">q()</span></code></pre>
+<p>Starting and stopping python from the terminal:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">python</span>
+<span class="fu">exit()</span></code></pre>
+</div>
 <div id="scripting-in-the-terminal" class="section level2">
-<h2><span class="header-section-number">4.8</span> Scripting in the terminal</h2>
+<h2><span class="header-section-number">4.5</span> Scripting in the terminal</h2>
 <div id="hello-world-bash-script" class="section level3">
-<h3><span class="header-section-number">4.8.1</span> Hello, world Bash script</h3>
+<h3><span class="header-section-number">4.5.1</span> Hello, world Bash script</h3>
 <p><code>Bash</code> is primarily a scripting language, so it would be a crime not to talk about scripting. Let’s dive straight in with a <code>bash</code> script. More precisely the infamous “Hello World” script. You can create a bash script by opening your favorite text editor to edit your script and then saving it (typically the <code>.sh</code> file extension is used for your reference, but is not necessary. In our example, we will be using the <code>.sh</code> extension).</p>
 <p>So let’s get started. First, create a <code>Bash</code> folder within your R project folder (if it is not there yet). Within this folder create a simple text file using <em>Rstudio -&gt; New File -&gt; Text File</em> and call this file: <code>HelloWorld.sh</code> add the following text and save.</p>
 <pre class="sourceCode bash"><code class="sourceCode bash"> <span class="co">#!/bin/bash         </span>
@@ -266,7 +261,7 @@ rm dest_file</code></pre>
 <pre><code>## [1] &quot;Hello, World!!!&quot;</code></pre>
 </div>
 <div id="bash-script-with-a-variable" class="section level3">
-<h3><span class="header-section-number">4.8.2</span> Bash script with a variable</h3>
+<h3><span class="header-section-number">4.5.2</span> Bash script with a variable</h3>
 <p>Variables basically store information. You set variables like this (you can type this in the terminal).</p>
 <pre class="sourceCode r"><code class="sourceCode r">var=<span class="st">&quot;FOO&quot;</span></code></pre>
 <p><code>var</code> can be anything you want as long as it doesn’t begin with a number. “FOO” can be anything you want. To access the information from the variable you need to put a ‘$’ in front of it like this:</p>
@@ -288,7 +283,7 @@ rm dest_file</code></pre>
 </div>
 </div>
 <div id="using-the-gdal-library-from-the-terminal" class="section level2">
-<h2><span class="header-section-number">4.9</span> Using the GDAL library from the terminal</h2>
+<h2><span class="header-section-number">4.6</span> Using the GDAL library from the terminal</h2>
 <p>A quick refresher:</p>
 <ul>
 <li><strong><em>Do you know who Frank Warmerdam is? Check via your favorite search engine</em></strong></li>
@@ -404,23 +399,24 @@ rm dest_file</code></pre>
 <p>Optional: if you are ready and want the learn more about using GDAL from the terminal. See here for another tutorial: <a href="http://wiki.americaview.org/display/miview/Introduction+to+GDAL" class="uri">http://wiki.americaview.org/display/miview/Introduction+to+GDAL</a></p>
 </div>
 <div id="excercise" class="section level2">
-<h2><span class="header-section-number">4.10</span> Excercise</h2>
+<h2><span class="header-section-number">4.7</span> Excercise</h2>
 <p>Let’s download a file from <a href="https://geoscripting-wur.github.io/IntroToRaster/#raster-objects-manipulations">The intro to raster lesson</a>. Download the <code>gewata.zip</code> file from Github (<a href="https://github.com/GeoScripting-WUR/IntroToRaster/raw/gh-pages/data/gewata.zip">link</a>) and unzip in the data folder.</p>
 <p>Write a shell script that:</p>
 <ul>
 <li>derives NDVI from the landsat *.tif file as NDVI.tif</li>
 <li>resampels the NDVI tif file to pixels of 60 m</li>
-<li><p>reprojects this resampled file to Lat/long WGS84 (the projection code is: EPSG:4326)</p>
+<li><p><em>Bonus</em>: reprojects this resampled file to Lat/long WGS84 (the projection code is: EPSG:4326)</p>
 <ul>
-<li>solution!!!: <code>gdalwarp -t_srs EPSG:4326 $fntemp $fnout</code></li>
+<li>Tip!!!: <code>gdalwarp -t_srs EPSG:4326 $fntemp $fnout</code></li>
 </ul></li>
 </ul>
 <p>Optional: - convert the <em>.tif file (i.e. a geotif) to </em>.png</p>
-<p>Submit the text of your shell script via Blackboard in the “Script Review Center” before tomorrow (930u). Do not forget to add a teamname and date at the top of your script.</p>
+<p>Submit the text of your shell script via Blackboard in the “Script Review Center” before tomorrow (930u). Make sure your script is clear and reproducible. There is not need to upload your shell script (you can copy the code directly within the BlackBoard reply zone as text,</p>
+<p><em>Do not forget to add a teamname, and members and date of script at the top of your script.</em></p>
 <p>Hint: <a href="http://www.geos.ed.ac.uk/~smudd/TopoTutorials/html/tutorial_raster_conversion.html" class="uri">http://www.geos.ed.ac.uk/~smudd/TopoTutorials/html/tutorial_raster_conversion.html</a></p>
 </div>
 <div id="more-information" class="section level2">
-<h2><span class="header-section-number">4.11</span> More information</h2>
+<h2><span class="header-section-number">4.8</span> More information</h2>
 <ul>
 <li>A great bash scripting tutorial: <a href="http://linuxconfig.org/bash-scripting-tutorial" class="uri">http://linuxconfig.org/bash-scripting-tutorial</a></li>
 <li><a href="http://beginlinux.com/twitter/1094-the-beginners-guide-to-the-ubuntu-terminal">An overview of terminal commands</a></li>

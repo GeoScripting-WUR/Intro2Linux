@@ -1,6 +1,7 @@
 ---
 title: "[WUR GRS-51806 Geoscripting](https://geoscripting-wur.github.io/)"
 subtitle: "Week 1, Lesson 3: Getting started with Linux (OS-GEOLive): Using the terminal and basic bash scripting"
+author: "Jan Verbesselt"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 output:
   html_document:
@@ -49,29 +50,11 @@ Question 1 (submit via BlackBoard):
 
 # Using the terminal and command line
 
-## Why using the command-line?
-
-Under Linux there are GUIs (graphical user interfaces), where you can point and click and drag, and hopefully get work done without first reading lots of documentation. The traditional Unix environment is a CLI (command line interface), where you type commands to tell the computer what to do. That is faster and more powerful, but requires finding out what the commands are ([reference](https://help.ubuntu.com/community/UsingTheTerminal)).
-
-Typing "man man" in the **terminal** will bring up the manual entry for the man command, which is a good place to start! You can launch the terminal via: **Keyboard Shortcut**: `Ctrl + Alt + T` (see below)
-
-```{r, eval=FALSE}
-man man
-```
-
-"man intro" is especially useful - it displays the "Introduction to user commands" which is a well-written, fairly brief introduction to the Linux command line.
-
-```{r, eval=FALSE}
-man intro
-```
+*Why using the terminal?*: Under Linux there are GUIs (graphical user interfaces), where you can point and click and drag, and hopefully get work done without first reading lots of documentation. The traditional Unix environment is a CLI (command line interface), where you type commands to tell the computer what to do. That is *faster and more powerful*, but requires finding out what the commands are ([reference](https://help.ubuntu.com/community/UsingTheTerminal)).
 
 There are many varieties of Linux (e.g. Ubuntu, Centos, RedHat, etc.), but almost all of them use similar commands that can be entered from a command-line interface terminal.
 
 There are also many graphical user interfaces (GUIs), but each of them works differently and there is little standardization between them. Experienced users who work with many different Linux distributions therefore find it easier to learn commands that can be used in all varieties of Ubuntu and, indeed, in other Linux distributions as well.
-
-## Starting R from the terminal
-
-## Starting Python from the terminal
 
 ## What is Bash?
 
@@ -85,10 +68,6 @@ A shell script (shell program) is a text file that contains commands that are in
 
 Each command can be linked in a script to combine several commands by providing the output of one as input to the other. Shell scripts can also contain the control structures common to the majority of programming languages (i.e. variables, logic constructs, looping constructs, functions and comments). The main distinction between shell programs and those written in C, C++, Java (to name but a few) is that shell programs are not compiled for execution, but are readily interpreted by the shell.
 
-## What is the Shell?
-
-At its base, a shell is simply a macro processor that executes commands.
-
 ## Launching the Shell: terminal!
 
 **Keyboard Shortcut**: `Ctrl + Alt + T` 
@@ -98,6 +77,18 @@ Is not a "Terminator" but something really powerfull because via the terminal yo
 ## Some commands
 
 We will discuss useful everyday commands, as well as going a bit more in depth into scripting and semi-advanced features of Bash. Bash is not only used to run programs and applications, but it can also be used to write programs or scripts.
+
+Typing "man man" in the **terminal** will bring up the manual entry for the man command, which is a good place to start! You can launch the terminal via: 
+
+```{r, eval=FALSE}
+man man
+```
+
+"man intro" is especially useful - it displays the "Introduction to user commands" which is a well-written, fairly brief introduction to the Linux command line.
+
+```{r, eval=FALSE}
+man intro
+```
 
 Most common commands:
 
@@ -109,6 +100,7 @@ Most common commands:
 - `sudo`: opening applications as root (super-user, `su`) which requires your `su` pasword
 - `ls`: listing files in a folder
 - `cp`: copy files e.g. for backing up things or just copying. We will use these command it the scripts below.
+
 
 Note!: Tab completion works from the terminal which is super-handy so that you never need to write filenames etc.
 
@@ -153,6 +145,21 @@ rm dest_file
 - use `ls` commands and it's options.
 
 Read the `File & Directory Commands` section (https://help.ubuntu.com/community/UsingTheTerminal) and let me know if you have questions about some commands. 
+
+## Starting R or Python from the terminal
+
+Starting and stopping R from the terminal:
+```{r, engine='bash', eval=FALSE}
+R ## just type R and then q() to exit
+q()
+```
+
+Starting and stopping python from the terminal:
+
+```{r, engine='bash', eval=FALSE}
+python
+exit()
+```
 
 ## Scripting in the terminal
 
@@ -325,15 +332,18 @@ Write a shell script that:
 
  - derives NDVI from the landsat *.tif file as NDVI.tif
  - resampels the NDVI tif file to pixels of 60 m
- - reprojects this resampled file to Lat/long WGS84 (the projection code is: EPSG:4326)
+ - *Bonus*: reprojects this resampled file to Lat/long WGS84 (the projection code is: EPSG:4326)
  
-    - solution!!!: `gdalwarp -t_srs EPSG:4326 $fntemp $fnout`
+    - Tip!!!: `gdalwarp -t_srs EPSG:4326 $fntemp $fnout`
 
 Optional:
  - convert the *.tif file (i.e. a geotif) to *.png
 
-Submit the text of your shell script via Blackboard in the "Script Review Center" before tomorrow (930u). 
-Do not forget to add a teamname and date at the top of your script.
+Submit the text of your shell script via Blackboard in the "Script Review Center" before tomorrow (930u).
+Make sure your script is clear and reproducible. There is not need to upload your shell script (you can copy the code directly 
+within the BlackBoard reply zone as text,
+
+*Do not forget to add a teamname, and members and date of script at the top of your script.*
 
 Hint: http://www.geos.ed.ac.uk/~smudd/TopoTutorials/html/tutorial_raster_conversion.html
 
