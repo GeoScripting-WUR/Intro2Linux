@@ -184,6 +184,8 @@ exit()
 So let's get started. First, go to the `Bash` folder you just created. 
 Within this folder create a simple text file using *Rstudio -> New File -> Text File* and call this file: `HelloWorld.sh` add the following text and save.
 
+![execute](figs/rstudioshell.png)
+
 ```{r, eval=FALSE, engine='bash'}
  #!/bin/bash         
 echo "Hello, World"
@@ -203,7 +205,7 @@ chmod a+x ~/Bash/HelloWorld.sh   #Gives everyone execute permissions
 
 More info about `chmod` (https://help.ubuntu.com/community/FilePermissions) for your future reference. Note: today is just an introduction to let you know what is possible so that you can find your way easier in the future.
 
-**Insert figure###
+![execute](figs/execute.png)
 
 Below is a summary of what we have done in the terminal:
 
