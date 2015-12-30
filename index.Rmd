@@ -19,9 +19,8 @@ Here is what you will do today:
 
 Time  | Activity
 ------------- | -------------
-Morning  |  Self-study: go through the following tutorial, and get confortable with OSGEO-live and the linux terminal
+Morning       |  Self-study: go through the following tutorial, and get confortable with OSGEO-live and the linux terminal
 1330 to 1530  | Presentation by Allard de Wit (linux), demo session by Erik van Schaik (Github education and Amazon AWS)
-
 Rest of the afternoon | Do and finalise the exercise
 
 # Today's Learning objectives
