@@ -19,8 +19,9 @@ Here is what you will do today:
 
 Time  | Activity
 ------------- | -------------
-Morning  |  Self-study: go through the following tutorial, and get comfortable with OSGEO-live and the linux terminal
-1330 to 1530  | Presentation by Allard de Wit (linux), demo session by Erik van Schaik (Github education and Amazon AWS )
+Morning  |  Self-study: go through the following tutorial, and get confortable with OSGEO-live and the linux terminal
+1330 to 1530  | Presentation by Allard de Wit (linux), demo session by Erik van Schaik (Github education and Amazon AWS)
+
 Rest of the afternoon | Do and finalise the exercise
 
 # Today's Learning objectives
@@ -34,19 +35,19 @@ Rest of the afternoon | Do and finalise the exercise
 # OSGEO-live?!
 
 OSGEO-live is a linux operating system (i.e. Lubuntu) with a wide range of free and open-source GIS and Remote sensing tools installed.
-See this website (http://live.osgeo.org/) for more information. We will use OSGEO-live via VMware workstation player (see here for instruction, and will also explain this in the lesson on Tuesday afternoon).
+See this website (http://live.osgeo.org/) for more information. We will use OSGEO-live via VMware workstation player (see [here](https://geoscripting-wur.github.io/system_setup/) for instruction, and will also explain this in the lesson on Tuesday afternoon).
 
 ## Why Linux & OSGEO-live?
 
-We are using OS-GEO-live here, especially since installing open-source tools and python modules is so much more easy on Linux then it is on for example another operating system like Windows or Mac. Furthermore, at WU there is also ArcGIS and Arcpy installed on the windows machines and this python version tends to cause conflits with open-source python modules and tools (e.g. GDAL, GEOS).
+We are using OS-GEO-live here, especially since installing open-source tools and python modules is so much more easy on Linux than it is on for example another operating system like Windows or Mac. Furthermore, at WU there is also ArcGIS and Arcpy installed on the windows machines and this python version tends to cause conflits with open-source python modules and tools (e.g. GDAL, GEOS).
 
 ## Getting started on OSGEO-live
 
 First open your computer, VMware workstation Player (as demonstrated in yesterdays lesson).
-Second, login into your linux, try out Rstudio, and also open QGIS. 
+Second, login into your linux, try out Rstudio, and also open QGIS.
 Third, follow this overview presentation of what is possible within OSGEO-live.
 
-[tutorial with QGIS and Python](http://www.qgistutorials.com/en/docs/getting_started_with_pyqgis.html).
+[Tutorial with QGIS and Python](http://www.qgistutorials.com/en/docs/getting_started_with_pyqgis.html).
 
 *Question*: ...
 
@@ -60,13 +61,13 @@ There are many varieties of Linux (e.g. Ubuntu, Centos, RedHat, etc.), but almos
 
 There are also many graphical user interfaces (GUIs), but each of them works differently and there is little standardization between them. Experienced users who work with many different Linux distributions therefore find it easier to learn commands that can be used in all varieties of Ubuntu and, indeed, in other Linux distributions as well.
 
-*Question*: what are the advantages of using the terminal? Can you think of some examples?
+*Question*: What are the advantages of using the terminal? Can you think of some examples?
 
 ## What is Bash?
 
 `Bash`, the **Bourne-again-shell** (named after the author Stephen Bourne), scripting is one of the easiest types of scripting to learn, and is best compared to Windows `Batch` scripting via [DOS](http://en.wikipedia.org/wiki/DOS). `Bash` is very flexible, and has many advanced features that you won't see in batch scripts.
 
-However if you are a 'non-computer-savvy' person that won't mean a thing to you. Bash is the language that you will learn to love as much of everyday Linux life is done/can be done using the Terminal. You will soon learn that most things can be done through both GUI (Graphical User Interface) and CLI (Command Line Interface), however some things are more easily achieved from one or the other. For example, changing file permissions of a folder and all its sub folders is more easily achieved using cli instead gui.
+However if you are a 'non-computer-savvy' person this won't mean a thing to you. Bash is the language that you will learn to love as much of everyday Linux life is done/can be done using the Terminal. You will soon learn that most things can be done through both GUI (Graphical User Interface) and CLI (Command Line Interface), however some things are more easily achieved from one or the other. For example, changing file permissions of a folder and all its sub folders is more easily achieved using cli instead of gui.
 
 Bash, is the default shell on Linux and Mac OS X. Bash shell scripting, like also `R` or `Python`, allows multiple commands to be combined, facilitating automation.
 
@@ -80,7 +81,7 @@ Each command can be linked in a script to combine several commands by providing 
 
 **Keyboard Shortcut**: `Ctrl + Alt + T` 
 
-Is not a "Terminator" but something really powerfull because via the terminal you get access to the CLI and it default Bash interface. The terminal is the engine behind linux and mac and can also be installed on Windows via a program called [Cygwin](https://www.cygwin.com) which provide a Linux interface on Windows. *It is important as a geo-scripter to know about the Terminal as if will offer a lot of advantages*. The more you'll get into scripting the more you will encounter the words "terminal", "shell", "bash", etc.
+Is not a "Terminator" but something really powerful because via the terminal you get access to the CLI and its default Bash interface. The terminal is the engine behind linux and mac and can also be installed on Windows via a program called [Cygwin](https://www.cygwin.com) which provide a Linux interface on Windows. *It is important as a geo-scripter to know about the Terminal as if will offer a lot of advantages*. The more you'll get into scripting the more you will encounter the words "terminal", "shell", "bash", etc.
 
 ## Some commands
 
@@ -137,18 +138,18 @@ It should now look like this:
 
 ![mkdir](figs/mkdir.png)
 
-Now, try out some morecommands:
 
-- make a directory and remove if (e.g. `mkdir -R namedirectory).
-- create a Rscript via Rstudio, and the remove it via the terminal using `rm filename.R`.
-- create another file an copy it and then remove it, etc.:
+Now, try out some more commands:
+- make a directory and remove it (e.g. `mkdir -R namedirectory).
+- create an Rscript via Rstudio, and then remove it via the terminal using `rm filename.R`.
+- create another file and copy it and then remove it, etc.:
 
 ```{r, eval=FALSE}
 cp source_file dest_file
 rm dest_file
 ```
 
-- use `ls` commands and it's options.
+- use `ls` commands and its options.
 
 Read the `File & Directory Commands` section (https://help.ubuntu.com/community/UsingTheTerminal) and let us know if you have questions about some commands. 
 
@@ -182,7 +183,7 @@ echo "Hello, World"
 
 The first line of the script just defines which interpreter to use (and where it is located). NOTE: There is no leading whitespace before #!/bin/bash. That's it, simple as that!'. To find out where your `bash` interpreter is located type the following in the terminal (this works also on a Mac terminal!):
 
-```{r, engine='bash'}
+```{r, engine='bash', eval=FALSE}
 which bash
 ```
 
@@ -269,7 +270,7 @@ A quick refresher:
       - FWTools is a set of Open Source GIS binaries for Windows (win32) and Linux (x86 32bit) systems produced
   - He's is the man behind GDAL and is now working at [Planet Labs](https://www.planet.com/).
 
-Now via the terminal we can acces GDAL directly!!! E.g. we can check out what the current version of GDAL is that is installed on our Linux OS:
+Now via the terminal we can access GDAL directly!!! E.g. we can check out what the current version of GDAL is that is installed on our Linux OS:
 
 Let's download a file from [The intro to raster lesson](https://geoscripting-wur.github.io/IntroToRaster/#raster-objects-manipulations):
 Download the `gewata.zip` file from Github ([link](https://github.com/GeoScripting-WUR/IntroToRaster/raw/gh-pages/data/gewata.zip)) and unzip in the data folder. Type the following in the data folder:
@@ -306,7 +307,7 @@ rm input.tif
 
 Challenge:
 
-- try to write to calculate the NDVI using the lines above in out nice and short shell script.
+- try to write to calculate the NDVI using the lines above in a nice and short shell script.
 - Hint 1: `cd ../data` (to move back from the Bash folder and move into the data folder)
 - Hint 2: No spaces are allowed and e.g. try to use `fn=$(ls *.tif)`
 
@@ -349,8 +350,7 @@ Optional:
  - convert the *.tif file (i.e. a geotif) to *.png
 
 Submit the text of your shell script via Blackboard in the "Script Review Center" before tomorrow (930u).
-Make sure your script is clear and reproducible. There is not need to upload your shell script (you can copy the code directly 
-within the BlackBoard reply zone as text,
+Make sure your script is clear and reproducible. There is no need to upload your shell script (you can copy the code directly within the BlackBoard reply zone as text)
 
 *Do not forget to add a teamname, and members and date of script at the top of your script.*
 
