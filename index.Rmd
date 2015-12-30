@@ -1,5 +1,5 @@
 ---
-title: "[WUR GRS-51806 Geoscripting](https://geoscripting-wur.github.io/)"
+title: "[WUR Geo-scripting](https://geoscripting-wur.github.io/)"
 subtitle: "Week 1, Lesson 3: Getting started with Linux, the terminal and bash scripting"
 author: "Jan Verbesselt"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
@@ -19,7 +19,7 @@ Here is what you will do today:
 
 Time  | Activity
 ------------- | -------------
-Morning  |  Self-study: go through the following tutorial, and get confortable with OSGEO-live and the linux terminal
+Morning  |  Self-study: go through the following tutorial, and get comfortable with OSGEO-live and the linux terminal
 1330 to 1530  | Presentation by Allard de Wit (linux), demo session by Erik van Schaik (Github education and Amazon AWS )
 Rest of the afternoon | Do and finalise the exercise
 
@@ -137,7 +137,6 @@ It should now look like this:
 
 ![mkdir](figs/mkdir.png)
 
-
 Now, try out some morecommands:
 
 - make a directory and remove if (e.g. `mkdir -R namedirectory).
@@ -173,7 +172,8 @@ exit()
 ### Hello, world Bash script 
 `Bash` is primarily a scripting language, so it would be a crime not to talk about scripting. Let's dive straight in with a `bash` script. More precisely the infamous "Hello World" script. You can create a bash script by opening your favorite text editor to edit your script and then saving it (typically the `.sh` file extension is used for your reference, but is not necessary. In our example, we will be using the `.sh` extension).
 
-So let's get started. First, create a `Bash` folder within your R project folder (if it is not there yet). Within this folder create a simple text file using *Rstudio -> New File -> Text File* and call this file: `HelloWorld.sh` add the following text and save.
+So let's get started. First, go to the `Bash` folder you just created. 
+Within this folder create a simple text file using *Rstudio -> New File -> Text File* and call this file: `HelloWorld.sh` add the following text and save.
 
 ```{r, eval=FALSE, engine='bash'}
  #!/bin/bash         
@@ -189,12 +189,14 @@ which bash
 Second, to run a bash script you first have to have the correct file permissions. We do this with `chmod` command in terminal (change mode) as follows:
 
 ```{r, eval=FALSE}
-chmod a+x /where/i/saved/it/HelloWorld.sh   #Gives everyone execute permissions
+chmod a+x ~/Bash/HelloWorld.sh   #Gives everyone execute permissions
 ```
 
 More info about `chmod` (https://help.ubuntu.com/community/FilePermissions) for your future reference. Note: today is just an introduction to let you know what is possible so that you can find your way easier in the future.
 
-So to do so, you can go to the terminal via the `Git` tab in `Rstudio` and click on `Shell...` and from there make sure you go to the `Bash` folder you created. Even better is that your launch the `Terminal` using the short-cut (`Ctrl + Alt + T`) and the `cd` command to move to the `Bash` folder (by the way this is just a name, you can select anyname you want). See here for some `Bash` lines:
+**Insert figure###
+
+Below is a summary of what we have done in the terminal:
 
 ```{r, eval=FALSE, engine='bash'}
 echo "Go to the Bash folder"
