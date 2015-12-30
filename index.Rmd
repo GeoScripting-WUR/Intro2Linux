@@ -35,7 +35,7 @@ Rest of the afternoon | Do and finalise the exercise
 # OSGEO-live?!
 
 OSGEO-live is a linux operating system (i.e. Lubuntu) with a wide range of free and open-source GIS and Remote sensing tools installed.
-See this website (http://live.osgeo.org/) for more information. We will use OSGEO-live via VMware workstation player (see [here](https://geoscripting-wur.github.io/system_setup/) for instruction, and will also explain this in the lesson on Tuesday afternoon).
+See this website (http://live.osgeo.org/) for more information. We will use OSGEO-live via VMware workstation player (see [here](https://geoscripting-wur.github.io/system_setup/) for instructions and we will also explain this in the lesson on Tuesday afternoon).
 
 ## Why Linux & OSGEO-live?
 
@@ -44,14 +44,15 @@ We are using OS-GEO-live here, especially since installing open-source tools and
 ## Getting started on OSGEO-live
 
 First open your computer, VMware workstation Player (as demonstrated in yesterdays lesson).
+
 Second, login into your linux, try out Rstudio, and also open QGIS.
-Third, follow this overview presentation of what is possible within OSGEO-live.
 
-[Tutorial with QGIS and Python](http://www.qgistutorials.com/en/docs/getting_started_with_pyqgis.html).
+ Third, follow this overview presentation of what is possible within OSGEO-live: http://live.osgeo.org/en/presentation/index.html#/
 
-*Question*: ...
-
-You can also [use R from within QGIS](https://docs.qgis.org/testing/en/docs/training_manual/processing/r_intro.html).
+**Question**: After browsing through the presentation you now have a better idea of what is available via this OS-GEO live Operating system. Now, can you explain what: 
+    
+    - OS-GEO live is?
+    - What we can do with GDAL and GEOS (hint: see presentation?)?
 
 # Using the terminal and command line
 
@@ -61,7 +62,9 @@ There are many varieties of Linux (e.g. Ubuntu, Centos, RedHat, etc.), but almos
 
 There are also many graphical user interfaces (GUIs), but each of them works differently and there is little standardization between them. Experienced users who work with many different Linux distributions therefore find it easier to learn commands that can be used in all varieties of Ubuntu and, indeed, in other Linux distributions as well.
 
-*Question*: What are the advantages of using the terminal? Can you think of some examples?
+**Question**: 
+
+    - What are the advantages of using the terminal? Can you think of some examples?
 
 ## What is Bash?
 
@@ -75,17 +78,21 @@ A shell script (shell program) is a text file that contains commands that are in
 
 Each command can be linked in a script to combine several commands by providing the output of one as input to the other. Shell scripts can also contain the control structures common to the majority of programming languages (i.e. variables, logic constructs, looping constructs, functions and comments). The main distinction between shell programs and those written in C, C++, Java (to name but a few) is that shell programs are not compiled for execution, but are readily interpreted by the shell.
 
-*Question*: What is a shell script?
+**Question** : 
+
+    - What is a shell script?
 
 ## Launching the Shell: terminal!
 
-**Keyboard Shortcut**: `Ctrl + Alt + T` 
-
-Is not a "Terminator" but something really powerful because via the terminal you get access to the CLI and its default Bash interface. The terminal is the engine behind linux and mac and can also be installed on Windows via a program called [Cygwin](https://www.cygwin.com) which provide a Linux interface on Windows. *It is important as a geo-scripter to know about the Terminal as if will offer a lot of advantages*. The more you'll get into scripting the more you will encounter the words "terminal", "shell", "bash", etc.
+Is not a "Terminator" but something really powerful because via the terminal you get access to the CLI and its default Bash interface. The terminal is the engine behind linux and mac and can also be installed on Windows via a program called [Cygwin](https://www.cygwin.com) which provide a Linux interface on Windows. **It is important as a geo-scripter to know about the Terminal as if will offer a lot of advantages**. The more you'll get into scripting the more you will encounter the words "terminal", "shell", "bash", etc.
 
 ## Some commands
 
 We will discuss useful everyday commands, as well as going a bit more in depth into scripting and semi-advanced features of Bash. Bash is not only used to run programs and applications, but it can also be used to write programs or scripts.
+
+Now, within OSGEO-live you can use the **keyboard Shortcut**: `Ctrl + Alt + T`, to launch the terminal. This will look like:
+
+![terminal](figs/terminal.png)
 
 Typing "man man" in the **terminal** will bring up the manual entry for the man command, which is a good place to start! You can launch the terminal via: 
 
@@ -161,6 +168,8 @@ R ## just type R and then q() to exit
 q()
 ```
 
+![RinTerminal](figs/RinTerminal.png)
+
 Starting and stopping python from the terminal:
 
 ```{r, engine='bash', eval=FALSE}
@@ -214,7 +223,9 @@ Hopefully you should have seen it print Hello, World!!! onto your screen. If so 
 
 ![BashScript](figs/Scripting.png)
 
-**Question**: why do we add `./` in front of the Bash script?
+**Question**: 
+
+    - Why do we add `./` in front of the Bash script?
 
 Note!: we can also access the Terminal from R using the `system()` function that can invoke a OS command:
 
@@ -258,18 +269,17 @@ You can run the script once it is *executable*:
 ./variables.sh
 ```
 
+** Question **:
+
+    - Try it out yourself, and try to do a calculation of e.g. a + b as input variables  
+    
+Hint: [Shell-tips](https://www.shell-tips.com/2010/06/14/performing-math-calculation-in-bash/)
+
 If you want to learn more about `Bash` scripting: https://help.ubuntu.com/community/Beginners/BashScripting
 
 ## Using the GDAL library from the terminal
 
-A quick refresher:
-
-- ***Do you know who Frank Warmerdam is? Check via your favorite search engine*** 
-  - Check the the FWtools: 
-      - http://fwtools.maptools.org/
-      - FWTools is a set of Open Source GIS binaries for Windows (win32) and Linux (x86 32bit) systems produced
-  - He's is the man behind GDAL and is now working at [Planet Labs](https://www.planet.com/).
-
+We will learn more about GDAL in the later lessons. GDAL is a very powerful translator library written in C/C++ for raster and vector geospatial data formats.
 Now via the terminal we can access GDAL directly!!! E.g. we can check out what the current version of GDAL is that is installed on our Linux OS:
 
 Let's download a file from [The intro to raster lesson](https://geoscripting-wur.github.io/IntroToRaster/#raster-objects-manipulations):
@@ -292,7 +302,8 @@ ls *.tif
 gdalinfo -nomd -norat -noct LE71700552001036SGS00_SR_Gewata_INT1U.tif
 ```
 
-Now let's calculate the NDVI via GDAL terminal by using the `gdal_calc.py`:
+Now let's calculate the NDVI via GDAL terminal by using the `gdal_calc.py`. For more information about [GDAL_calc](http://www.gdal.org/gdal_calc.html).
+
 
 ```{r, engine='bash', eval=TRUE}
 cd data
@@ -300,7 +311,7 @@ cp LE71700552001036SGS00_SR_Gewata_INT1U.tif input.tif
 echo "* all files in the directory"
 ls
 echo "* now apply gdal_calc: Command line raster calculator with numpy syntax"
-gdal_calc.py -A input.tif --A_band=4 -B input.tif --B_band=3  --outfile=ndvi.tif  --calc="(A.astype(float)-B)/(A.astype(float)+B)" --type='Float32' --co="COMPRESS=LZW"
+gdal_calc.py -A input.tif --A_band=4 -B input.tif --B_band=3  --outfile=ndvi.tif  --calc="(A.astype(float)-B)/(A.astype(float)+B)" --type='Float32'
 echo "* remove the input temporary file"
 rm input.tif
 ```
@@ -346,15 +357,13 @@ Write a shell script that:
  
     - Tip!!!: `gdalwarp -t_srs EPSG:4326 $fntemp $fnout`
 
-Optional:
- - convert the *.tif file (i.e. a geotif) to *.png
-
 Submit the text of your shell script via Blackboard in the "Script Review Center" before tomorrow (930u).
-Make sure your script is clear and reproducible. There is no need to upload your shell script (you can copy the code directly within the BlackBoard reply zone as text)
+Make sure your script is clear and reproducible, and let is test by at least one other team. 
+You can upload your shell script as attachment or you can also copy the code in the BlackBoard reply zone (the other team needs to make it excecutable in order to test it.
 
 *Do not forget to add a teamname, and members and date of script at the top of your script.*
 
-Hint: http://www.geos.ed.ac.uk/~smudd/TopoTutorials/html/tutorial_raster_conversion.html
+[More tips](http://www.geos.ed.ac.uk/~smudd/TopoTutorials/html/tutorial_raster_conversion.html)
 
 ## More information
 
