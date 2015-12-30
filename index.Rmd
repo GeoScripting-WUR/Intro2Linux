@@ -295,7 +295,7 @@ One of the easiest and most useful commands in GDAL is `gdalinfo`. When given an
 
 Using gdalinfo:
 
-```{r, eval = TRUE, engine='bash'}
+```{r, eval = TRUE, engine='bash', eval=FALSE}
 cd data
 ls *.tif
 gdalinfo -nomd -norat -noct LE71700552001036SGS00_SR_Gewata_INT1U.tif
@@ -321,14 +321,22 @@ Challenge:
 - Hint 1: `cd ../data` (to move back from the Bash folder and move into the data folder)
 - Hint 2: No spaces are allowed and e.g. try to use `fn=$(ls *.tif)`
 
-Let's now check if the range of the NDVI values makes sense:
+
+Let's now check if the range of the NDVI values makes sense, and make a nice script:
 ```{r, engine='bash', results='hide', eval =FALSE}
-## set to false
-cd data
-echo "* list all files"
-ls -lht
-echo "* histogram statistics"
-gdalinfo -hist -stats ndvi.tif
+#!/bin/bash
+echo "teamname"
+echo "14 january 2015"
+echo "calculate landsat ndvi"
+cd ../data
+fn=$(ls *.tif)
+echo "The input file: $fn"
+outfn="ndvi.tif"
+echo "The output file: $outfn"
+echo "calculate ndvi"
+gdal_calc.py -A $fn --A_band=4 -B $fn --B_band=3  --outfile=$outfn  --calc="(A.astype(float)-B)/(A.astype(float)+B)" --type='Float32'
+echo "look at some histogram statistics"
+gdalinfo -hist -stats $outfn
 ```
 
 More info here on the power of GDAL via the terminal:

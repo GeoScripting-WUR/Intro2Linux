@@ -120,9 +120,12 @@ img {
 <td align="left">1330 to 1530</td>
 <td align="left">Presentation by Allard de Wit (linux), demo session by Erik van Schaik (Github education and Amazon AWS)</td>
 </tr>
+<tr class="odd">
+<td align="left">Rest of the afternoon</td>
+<td align="left">Do and finalise the exercise</td>
+</tr>
 </tbody>
 </table>
-<p>Rest of the afternoon | Do and finalise the exercise</p>
 </div>
 <div id="todays-learning-objectives" class="section level1">
 <h1><span class="header-section-number">2</span> Today’s Learning objectives</h1>
@@ -297,58 +300,6 @@ rm dest_file</code></pre>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cd</span> data
 <span class="kw">ls</span> *.tif
 <span class="kw">gdalinfo</span> -nomd -norat -noct LE71700552001036SGS00_SR_Gewata_INT1U.tif</code></pre>
-<pre><code>## LE71700552001036SGS00_SR_Gewata_INT1U.tif
-## ndvi.tif
-## Driver: GTiff/GeoTIFF
-## Files: LE71700552001036SGS00_SR_Gewata_INT1U.tif
-## Size is 653, 593
-## Coordinate System is:
-## PROJCS[&quot;UTM Zone 36, Northern Hemisphere&quot;,
-##     GEOGCS[&quot;WGS 84&quot;,
-##         DATUM[&quot;unknown&quot;,
-##             SPHEROID[&quot;WGS84&quot;,6378137,298.257223563]],
-##         PRIMEM[&quot;Greenwich&quot;,0],
-##         UNIT[&quot;degree&quot;,0.0174532925199433]],
-##     PROJECTION[&quot;Transverse_Mercator&quot;],
-##     PARAMETER[&quot;latitude_of_origin&quot;,0],
-##     PARAMETER[&quot;central_meridian&quot;,33],
-##     PARAMETER[&quot;scale_factor&quot;,0.9996],
-##     PARAMETER[&quot;false_easting&quot;,500000],
-##     PARAMETER[&quot;false_northing&quot;,0],
-##     UNIT[&quot;metre&quot;,1,
-##         AUTHORITY[&quot;EPSG&quot;,&quot;9001&quot;]]]
-## Origin = (829455.000000000000000,843195.000000000000000)
-## Pixel Size = (30.000000000000000,-30.000000000000000)
-## Corner Coordinates:
-## Upper Left  (  829455.000,  843195.000) ( 35d59' 8.17&quot;E,  7d37' 4.43&quot;N)
-## Lower Left  (  829455.000,  825405.000) ( 35d59' 4.21&quot;E,  7d27'25.90&quot;N)
-## Upper Right (  849045.000,  843195.000) ( 36d 9'46.63&quot;E,  7d36'59.90&quot;N)
-## Lower Right (  849045.000,  825405.000) ( 36d 9'42.43&quot;E,  7d27'21.46&quot;N)
-## Center      (  839250.000,  834300.000) ( 36d 4'25.36&quot;E,  7d32'12.96&quot;N)
-## Band 1 Block=653x2 Type=Byte, ColorInterp=Gray
-##   Min=4.000 Max=39.000 
-##   Minimum=4.000, Maximum=39.000, Mean=10.087, StdDev=2.325
-##   NoData Value=255
-## Band 2 Block=653x2 Type=Byte, ColorInterp=Undefined
-##   Min=6.000 Max=56.000 
-##   Minimum=6.000, Maximum=56.000, Mean=12.820, StdDev=3.174
-##   NoData Value=255
-## Band 3 Block=653x2 Type=Byte, ColorInterp=Undefined
-##   Min=3.000 Max=71.000 
-##   Minimum=3.000, Maximum=71.000, Mean=11.560, StdDev=5.216
-##   NoData Value=255
-## Band 4 Block=653x2 Type=Byte, ColorInterp=Undefined
-##   Min=18.000 Max=102.000 
-##   Minimum=18.000, Maximum=102.000, Mean=59.542, StdDev=9.124
-##   NoData Value=255
-## Band 5 Block=653x2 Type=Byte, ColorInterp=Undefined
-##   Min=6.000 Max=138.000 
-##   Minimum=6.000, Maximum=138.000, Mean=38.118, StdDev=13.058
-##   NoData Value=255
-## Band 6 Block=653x2 Type=Byte, ColorInterp=Undefined
-##   Min=2.000 Max=408.000 
-##   Minimum=2.000, Maximum=408.000, Mean=20.593, StdDev=11.541
-##   NoData Value=255</code></pre>
 <p>Now let’s calculate the NDVI via GDAL terminal by using the <code>gdal_calc.py</code>. For more information about <a href="http://www.gdal.org/gdal_calc.html">GDAL_calc</a>.</p>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cd</span> data
 <span class="kw">cp</span> LE71700552001036SGS00_SR_Gewata_INT1U.tif input.tif
@@ -373,13 +324,20 @@ rm dest_file</code></pre>
 <li>Hint 1: <code>cd ../data</code> (to move back from the Bash folder and move into the data folder)</li>
 <li>Hint 2: No spaces are allowed and e.g. try to use <code>fn=$(ls *.tif)</code></li>
 </ul>
-<p>Let’s now check if the range of the NDVI values makes sense:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash"><span class="co">## set to false</span>
-<span class="kw">cd</span> data
-<span class="kw">echo</span> <span class="st">&quot;* list all files&quot;</span>
-<span class="kw">ls</span> -lht
-<span class="kw">echo</span> <span class="st">&quot;* histogram statistics&quot;</span>
-<span class="kw">gdalinfo</span> -hist -stats ndvi.tif</code></pre>
+<p>Let’s now check if the range of the NDVI values makes sense, and make a nice script:</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="co">#!/bin/bash</span>
+<span class="kw">echo</span> <span class="st">&quot;teamname&quot;</span>
+<span class="kw">echo</span> <span class="st">&quot;14 january 2015&quot;</span>
+<span class="kw">echo</span> <span class="st">&quot;calculate landsat ndvi&quot;</span>
+<span class="kw">cd</span> ../data
+<span class="ot">fn=$(</span><span class="kw">ls</span> *.tif<span class="ot">)</span>
+<span class="kw">echo</span> <span class="st">&quot;The input file: </span><span class="ot">$fn</span><span class="st">&quot;</span>
+<span class="ot">outfn=</span><span class="st">&quot;ndvi.tif&quot;</span>
+<span class="kw">echo</span> <span class="st">&quot;The output file: </span><span class="ot">$outfn</span><span class="st">&quot;</span>
+<span class="kw">echo</span> <span class="st">&quot;calculate ndvi&quot;</span>
+<span class="kw">gdal_calc.py</span> -A <span class="ot">$fn</span> --A_band=4 -B <span class="ot">$fn</span> --B_band=3  --outfile=<span class="ot">$outfn</span>  --calc=<span class="st">&quot;(A.astype(float)-B)/(A.astype(float)+B)&quot;</span> --type=<span class="st">'Float32'</span>
+<span class="kw">echo</span> <span class="st">&quot;look at some histogram statistics&quot;</span>
+<span class="kw">gdalinfo</span> -hist -stats <span class="ot">$outfn</span></code></pre>
 <p>More info here on the power of GDAL via the terminal: <a href="http://www.gdal.org/" class="uri">http://www.gdal.org/</a> and <code>gdalinfo</code></p>
 <p>Handy functions are (See the examples at the bottom):</p>
 <ul>
