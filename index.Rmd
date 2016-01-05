@@ -20,7 +20,7 @@ Here is what you will do today:
 Time  | Activity
 ------------- | -------------
 Morning       |  Self-study: go through the following tutorial, and get confortable with OSGEO-live and the linux terminal
-1330 to 1530  | Presentation by Allard de Wit (linux), demo session by Erik van Schaik (Github education and Amazon AWS)
+1330 to 1530  | Presentation by Erik van Schaik (Working in the cloud!)
 Rest of the afternoon | Do and finalise the exercise
 
 # Today's Learning objectives
@@ -204,8 +204,6 @@ chmod a+x ~/Bash/HelloWorld.sh   #Gives everyone execute permissions
 ```
 
 More info about `chmod` (https://help.ubuntu.com/community/FilePermissions) for your future reference. Note: today is just an introduction to let you know what is possible so that you can find your way easier in the future.
-
-![execute](figs/execute.png)
 
 Below is a summary of what we have done in the terminal:
 
