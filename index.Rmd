@@ -17,6 +17,8 @@ output:
 Good morning! 
 Here is what you will do today:
 
+** important ** : post the answers within the self-study in the script review center!
+
 Time  | Activity
 ------------- | -------------
 Morning       |  Self-study: go through the following tutorial, and get confortable with OSGEO-live and the linux terminal
