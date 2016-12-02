@@ -17,30 +17,65 @@ output:
 Good morning! 
 Here is what you will do today:
 
-** important ** : post the answers within the self-study in the script review center!
+**Important**: post the answers within the self-study in the script review center!
 
 Time  | Activity
 ------------- | -------------
-Morning       |  Self-study: go through the following tutorial, and get confortable with OSGEO-live and the linux terminal
-1330 to 1530  | Presentation by Erik van Schaik (Working in the cloud!)
+Morning       |  Self-study: go through the following tutorial, and get confortable with a Linux environment and the terminal
+13:30 to 15:30  | Presentation by Erik van Schaik (Working in the cloud!)
 Rest of the afternoon | Do and finalise the exercise
 
 # Today's Learning objectives
 
 - Knowing what Linux is & what you can do with it 
-- Getting comfortable within OSGEO-Linux environment
-    - running R and Python from the Linux terminal
-- Knowing how to use the **terminal**
-- Learn the basics of `Bash` scripting and know how to create a shell script
+- Getting comfortable working within a Linux environment
+- Knowing how to use the *terminal*
+    - Running R and Python from the terminal
+- Learn the basics of *Bash* scripting and know how to create a shell script
 
-# OSGEO-live?!
+# Linux?!
 
-OSGEO-live is a linux operating system (i.e. Lubuntu) with a wide range of free and open-source GIS and Remote sensing tools installed.
-See this website (http://live.osgeo.org/) for more information. We will use OSGEO-live via VMware workstation player (see [here](https://geoscripting-wur.github.io/system_setup/) for instructions and we will also explain this in the lesson on Tuesday afternoon).
+*Linux* is a free and open-source operating system kernel. In this course we will be working with *Ubuntu*, which is the most popular *Linux distribution*. A Linux distribution is an operating system that is built upon the Linux kernel and includes plenty of handy programs for daily work.
 
-## Why Linux & OSGEO-live?
+There is a large variety of different Linux distributions. One that is handy for geo-information science work is OSGeo-Live, which is an Ubuntu-based distribution that has a wide range of free and open-source GIS and Remote sensing tools preinstalled.
+See [this website](http://live.osgeo.org/) for more information.
 
-We are using OS-GEO-live here, especially since installing open-source tools and python modules is so much more easy on Linux than it is on for example another operating system like Windows or Mac. Furthermore, at WU there is also ArcGIS and Arcpy installed on the windows machines and this python version tends to cause conflits with open-source python modules and tools (e.g. GDAL, GEOS).
+These tools are also available in other distributions, but they have to be installed manually. A general-use distribution such as *Ubuntu* or *openSUSE* is more suitable for regular day-to-day tasks, since not having the unnecessary tools installed takes less space and makes it work faster. It is also easier to find help for them than for specialised distributions. So in this course we will use a customised Ubuntu distribution with only the tools needed for this course preinstalled.
+
+This year the operating systems are hosted by the [SURFsara High Performance Computing cloud](https://userinfo.surfsara.nl/systems/hpc-cloud) and accessed over the internet.
+
+## Why use a Linux distribution?
+
+A Linux environment makes it much easier to install and combine a variety of open-source software, such as Python modules and GDAL, compared to other operating systems like Windows or macOS. In addition, open-source scientific software is often developed primarily for Linux (since that's what most supercomputers and servers run!), and so it tends to be more stable and have more features on Linux. Furthermore, at Wageningen University & Research PC labs, ArcGIS and ArcPy are installed on the Windows machines, and this Python version tends to cause conflicts with open-source Python modules and tools (e.g. GDAL, GEOS).
+
+## Why cloud computing?
+
+In the field of geo-information, the amount of available data is staggering. This *Big Data* is often too large to download and too intensive to process on a personal computer. Therefore data providers such as the European Space Agency and research organisations like SURFsara are now offering virtual machines (VM) running on their own cloud infrastructure for scientific purposes, so that this Big Data can be processed faster and more efficiently. These cloud VMs are typically running Linux distributions and have a whole lot of resources (processor cores, RAM, hard disk) available.
+
+## Getting started with SURFsara cloud
+
+First go to [https://ui.hpccloud.surfsara.nl/](https://ui.hpccloud.surfsara.nl/) and log in with the credentials that have been provided to you. Each student has a unique account. Then, click on your username and go to Settings. Click "Update SSH Key" and paste the public key you generated in the previous lesson into the text box, and click the "Update SSH Key" button.
+
+**Hint**: the easiest way to find it is by running Git GUI, though Help → Show SSH Key. In the PC lab the SSH keys are stored on the *M:* drive, so they are unique to the WUR user account. If you want to access the cloud from your own device, you will need to update the SSH key in your SURFsara account to the one on your device.
+
+Next, press "Change view" and set it to "user". From the Dashboard, go to Virtual Resources → Templates, select the "Ubuntu 16.04 GeoScripting" template and press "Clone". Give it a name you like: this will become your very own virtual machine. A *Template* is a set of settings for your virtual machine, including the number of cores, memory and hard disks.
+
+You can run it already by clicking on it and pressing "Instantiate", then confirming the settings by pressing "Instantiate" again. You will see your virtual machine running in the Virtual Resources → Virtual Machines page.
+
+There are two ways to log into your virtual machine: through a graphical interface using the *X2Go Client* software, and through a command line using *Git Bash*. We will mainly use the graphical interface in this course. To do that, launch *X2Go Client* on Windows, and the new session *Session Preferences* window will be opened automatically. Fill in the details as follows:
+
+* Session name: Enter a descriptive name for your VM.
+* Host: The IP address of your VM. It starts with "145.100" and you can see it on the right in the *Virtual Machines* page. You can also copy it fromt he "Network" tab after you click on the VM entry.
+* Login: *ubuntu*
+* SSH port: Leave at *22*
+* Use RSA/DSA key for ssh connection: The path to the *M:\\.ssh\id_rsa* file (**not** *id_rsa.pub*).
+* Session type: *XFCE*
+
+In addition, in the *Connections* tab you can set the compression method to "4k-png". This is a lower-colour setting that saves bandwith and thus makes the desktop more responsive.
+
+Press OK, and from here on you can press the bubble on the right-hand side to launch the dektop of the virtual machine. You will see a *Host key verification failed* warning; this is expected every time you launch a new VM, answer *Yes*.
+
+**Note**: To properly shut down your VM, open the X2Go Client window again, and press the *Terminate* button on the lower right part of the main pane. Then on the SURFsara website, select your VM, press the garbage can button, and select *Shutdown*. Remember to shut down VMs you don't need, as they take up precious resources from the cloud!
 
 ## Getting started on OSGEO-live
 
