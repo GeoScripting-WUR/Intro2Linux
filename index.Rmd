@@ -73,9 +73,39 @@ There are two ways to log into your virtual machine: through a graphical interfa
 
 In addition, in the *Connections* tab you can set the compression method to "4k-png". This is a lower-colour setting that saves bandwith and thus makes the desktop more responsive.
 
-Press OK, and from here on you can press the bubble on the right-hand side to launch the dektop of the virtual machine. You will see a *Host key verification failed* warning; this is expected every time you launch a new VM, answer *Yes*.
+Press OK, and from here on you can press the bubble on the right-hand side to launch the dektop of the virtual machine. You will see a *Host key verification failed* warning; this is expected every time you launch a new VM, answer *Yes*. You might also see a warning about shared folders and printers; this is safe to ignore. Tturn off folder and printer sharing for the message to go away.
 
 **Note**: To properly shut down your VM, open the X2Go Client window again, and press the *Terminate* button on the lower right part of the main pane. Then on the SURFsara website, select your VM, press the garbage can button, and select *Shutdown*. Remember to shut down VMs you don't need, as they take up precious resources from the cloud!
+
+### Saving changes
+
+If you change something, then restart the VM, you may notice that your changes have been lost. This is because by default VM hard drives are not persistent. You need to clone them and set them as persistent to make the changes stick.
+
+To do that, go to the *Virtual Resources* → *Images* page on the SURFsara website. This is a list of hard disks available to your VMs. Select the *Ubuntu 16.04 GeoScripting* image, which is the operating system image, then click "Clone" and name it. Go back to the image listing, selected your cloned OS image, press on the three-dots button and choose "Make persistent".
+
+You now have a persistent clone of the operating system. Now you need to tell the VM to use it. To do that, go to the *Templates* page, select the template and clone it. Select your cloned template and click *Update*. Go to the *Storage* tab and click on your cloned OS image, then click *Update* to confirm changes.
+
+Now when you instantiate your cloned template, it will use the persistent image and allow you to make changes. In case something ever goes wrong with the VM, you can always delete the cloned image and reclone the original image to start fresh.
+
+### Adding more space
+
+The OS image only has 10 GiB of space. In case it is not enough, such as for processing large rasters, you can add an additional hard drive to your VM and store your files on it.
+
+To do that, repeat the cloning and template editing process, but this time with the *User data* image. When editing your teplate file (you can keep updating the cloned template you already have), instead of replacing Disk 0, press the *Add another disk* button and choose your cloned *User data* image as Disk 1.
+
+The space is then available in the *userdata* directory within your user directory (*/home/ubuntu/userdata*).
+
+### File sharing
+
+You might want to transfer files to or from the VM. There are two ways to do so. The more convenient method is to use *Network File System* (NFS) to access the VM drive as if it was a local hard drive. To do that, you need to establish a secure connection to the VM and map the network drive to your PC.
+
+First, start *Git Bash*. This will open a terminal window. In it, enter: `ssh -NL 2049:localhost:2049 ubuntu@<ip>` where `<ip>` is the IP address of your VM. This will establish a secure SSH connection to the VM on port 2049. You can use this method for other applications and ports as well, such as to access RStudio Server. When you are done, to disconnect the secure connection, press Ctrl+C in the Git Bash window.
+
+To map the network drive, right-click on your desktop, choose *New* → *Shortcut*, and enter `<ip>:/home/ubuntu/geoscripting` (again, use the IP of your VM). Double-clicking on the shortcut, you will see an empty folder. It is the */home/ubuntu/geoscripting* directory on the VM, and you can drag and drop files and folders to and from it.
+
+Another method to tranfer files is using the *Secure File Transfter Protocol* (SFTP). It is a command-line program that comes with SSH. You can use it for transferring any file you can access using SSH, so it is not limited to prespecified directories like NFS is. So you can use it to get or send files outside of your *userdata* directory.
+
+To use it, open *Git Bash* again, and enter: `sftp ubuntu@<ip>`. This will give you a prompt in which you can enter commands. Use `get <file>` to download files and `put <file>` to upload them, where `<file>` is the path to the file. You can change the directory you download the files to by using `lcd <path>`, and the directory you download from by using `cd <path>`. Enter `?` for a complete list of commands, `exit` to quit.
 
 ## Getting started on OSGEO-live
 
