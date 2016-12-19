@@ -154,41 +154,37 @@ Is not a "Terminator" but something really powerful, because via the terminal yo
 
 We will discuss useful everyday commands, as well as going a bit more in depth into scripting and semi-advanced features of Bash. Bash is not only used to run programs and applications, but it can also be used to write programs or scripts.
 
-Now, within OSGEO-live you can use the **keyboard Shortcut**: `Ctrl + Alt + T`, to launch the terminal. This will look like:
+Launch the terminal by clicking on *Applications* → *Terminal Emulator*. This will look like:
 
 ![terminal](figs/terminal.png)
 
-Typing "man man" in the **terminal** will bring up the manual entry for the man command, which is a good place to start! You can launch the terminal via: 
+Typing `man man` in the **terminal** will bring up the manual entry for the man command, which is a good place to start!
 
-```{r, eval=FALSE}
-man man
-## scroll down to examples
-## type 'q' to exit
-```
+Manual pages are text files displayed in a pager program that allows easy scrolling. The default pager is `less`, which allows you to scroll using arrow keys, search with the `/` key and quit with the `q` key. You can also see its help by using the `h` key or looking at its manual page using `man less`.
 
-"man intro" is especially useful - it displays the "Introduction to user commands" which is a well-written, fairly brief introduction to the Linux command line.
+`man intro` is especially useful - it displays the "Introduction to user commands" which is a well-written, fairly brief introduction to the Linux command line.
 
-```{r, eval=FALSE}
+```bash
 man intro
 ```
 
 Most common commands:
 
-- `pwd`: checking your current working directory
+- `pwd`: show your current working directory
 - `cd`: change directory
 - `cd ..`: move up one directory
-- `mkdir`: creating folders
-- `rm` or `rm -R`: deleting files or folders
-- `sudo`: opening applications as root (super-user, `su`) which requires your `su` pasword
-- `ls`: listing files in a folder
-- `cp`: copy files e.g. for backing up things or just copying. We will use these command it the scripts below.
+- `mkdir`: create directory
+- `rm` or `rm -R`: delete files or directories
+- `sudo`: running programs as root (administrator/super-user), which may ask for your user pasword
+- `ls`: listing files in a directory
+- `cp`: copy files e.g. for backing up things or just copying. We will use these command in the scripts below.
 
 
-Note!: Tab completion works from the terminal which is super-handy so that you never need to write filenames etc.
+**Note**: Bash has a feature called Tab-completion. If you start writing a command or filename, pressing the `Tab` key a couple of times will give a list of suggestions for auto-completion. This is super-handy so that you never need to write filenames etc. In addition, you can recall the last commands you entered by using the up arrow key. Lastly, you can always open multiple terminals, even in tabs, by using *File* → *Open Tab*.
 
-Now type to bring you back to your home folder, and chech what your current working directory is.
+Now type the following to bring you back to your home directory, and check what your current working directory is.
 
-```{r, eval=FALSE}
+```bash
 cd
 pwd
 ```
@@ -197,11 +193,11 @@ This should looks as follows:
 
 ![cdpwd](figs/cd_pwd.png)
 
-*Question*: What is the difference between `ls -l` and `ls -lh`?
+**Question**: What is the difference between `ls -l` and `ls -lh`?
 
-Now, create the `Bash` folder (i.e. a folder that will contain our Bash Scripts)
+Now, create a directory called `Bash` (i.e. a directory that will contain our *Bash* scripts)
 
-```{r, eval=FALSE}
+```bash
 mkdir Bash
 ```
 
@@ -211,11 +207,11 @@ It should now look like this:
 
 
 Now, try out some more commands:
-- make a directory and remove it (e.g. `mkdir -R namedirectory).
-- create an Rscript via Rstudio, and then remove it via the terminal using `rm filename.R`.
+- make a directory and remove it (e.g. `mkdir namedirectory`, `rmdir namedirectory`).
+- create an *R* script via *RStudio* or *RKWard*, and then remove it via the terminal using `rm filename.R`.
 - create another file and copy it and then remove it, etc.:
 
-```{r, eval=FALSE}
+```bash
 cp source_file dest_file
 rm dest_file
 ```
@@ -226,7 +222,7 @@ Read the `File & Directory Commands` section (https://help.ubuntu.com/community/
 
 ## Starting R or Python from the terminal
 
-Starting and stopping R from the terminal (this will provide you the same within the `console` as in *Rstudio*:
+Starting and stopping R from the terminal (this is the same as the R console you know from *RStudio*/*RKWard*):
 ```{r, engine='bash', eval=FALSE}
 R ## just type R and then q() to exit
 q()
@@ -234,9 +230,9 @@ q()
 
 ![RinTerminal](figs/RinTerminal.png)
 
-Starting and stopping python from the terminal:
+Starting and stopping *Python* from the terminal:
 
-```{r, engine='bash', eval=FALSE}
+```
 python
 exit()
 ```
@@ -244,28 +240,28 @@ exit()
 ## Scripting in the terminal
 
 ### Hello, world Bash script 
-`Bash` is primarily a scripting language, so it would be a crime not to talk about scripting. Let's dive straight in with a `bash` script. More precisely the infamous "Hello World" script. You can create a bash script by opening your favorite text editor to edit your script and then saving it (typically the `.sh` file extension is used for your reference, but is not necessary. In our example, we will be using the `.sh` extension).
+*Bash* is primarily a scripting language, so it would be a crime not to talk about scripting. Let's dive straight in with a *Bash* script. More precisely the infamous "Hello World" script. You can create a bash script by opening your favorite text editor to edit your script and then saving it (typically the `.sh` file extension is used for your reference, but is not required. In our example, we will be using the `.sh` extension).
 
-So let's get started. First, go to the `Bash` folder you just created. 
-Within this folder create a simple text file using *Rstudio -> New File -> Text File* and call this file: `HelloWorld.sh` add the following text and save.
+So let's get started. First, go to the `Bash` directory you just created. Within this directory create a simple text file and call it `HelloWorld.sh`, then add the following text and save. You can use the *Mousepad* editor, or use *RStudio* or *RKWard* as a sort of text editor. In fact, there are even command-line text editors, like `nano`.
 
 ![execute](figs/rstudioshell.png)
 
-```{r, eval=FALSE, engine='bash'}
- #!/bin/bash         
+```bash
+#!/bin/bash
 echo "Hello, World"
+
 ```
 
-The first line of the script just defines which interpreter to use (and where it is located). NOTE: There is no leading whitespace before #!/bin/bash. That's it, simple as that!'. To find out where your `bash` interpreter is located type the following in the terminal (this works also on a Mac terminal!):
+The first line of the script just defines which interpreter to use (and where it is located). NOTE: There is no leading whitespace before #!/bin/bash. That's it, simple as that! To find out where your `bash` interpreter is located type the following in the terminal (this works also on a Mac terminal!):
 
-```{r, engine='bash', eval=FALSE}
+```bash
 which bash
 ```
 
-Second, to run a bash script you first have to have the correct file permissions. We do this with `chmod` command in terminal (change mode) as follows:
+Second, to run a bash script you first have to have the correct file permissions. We do this with `chmod` (change mode) command in terminal as follows:
 
-```{r, eval=FALSE}
-chmod a+x ~/Bash/HelloWorld.sh   #Gives everyone execute permissions
+```bash
+chmod u+x Bash/HelloWorld.sh  # Gives your user execute permissions
 ```
 
 More info about `chmod` (https://help.ubuntu.com/community/FilePermissions) for your future reference. Note: today is just an introduction to let you know what is possible so that you can find your way easier in the future.
@@ -278,44 +274,42 @@ cd Bash
 echo "Check that the file is there using the ls command:"
 ls
 echo "Then change the permissions:"
-chmod a+x HelloWorld.sh
-echo "We can now run our first `Bash script`:"
+chmod u+x HelloWorld.sh
+echo "We can now run our first Bash script:"
 ./HelloWorld.sh
 ```
 
-Hopefully you should have seen it print Hello, World!!! onto your screen. If so well done! That is your first `Bash` script (see below for a screenshot):
+Hopefully you should have seen it print `Hello, World` onto your screen. If so well done! That is your first *Bash* script (see below for a screenshot):
 
 ![BashScript](figs/Scripting.png)
 
-**Question**: 
+**Question**: Why do we add `./` in front of the Bash script?
 
-    - Why do we add `./` in front of the Bash script?
-
-Note!: we can also access the Terminal from R using the `system()` function that can invoke a OS command:
+**Note**: we can also access the Terminal from R using the `system()` function that can invoke an OS command:
 
 ```{r, echo=TRUE, message=TRUE}
 ## R code
-setwd("Bash/") ## set the working director in R
-print(system("./HelloWorld.sh", intern = TRUE)) ## set this command to the Terminal
+setwd("Bash/") # Set the working directory in R
+print(system("./HelloWorld.sh", intern = TRUE)) # Execute this command in Bash
 ```
 
 ### Bash script with a variable
 
 Variables basically store information. You set variables like this (you can type this in the terminal). 
 
-```{r, eval=FALSE}
+```bash
 var="FOO"
 ```
 
 `var` can be anything you want as long as it doesn't begin with a number. "FOO" can be anything you want. To access the information from the variable you need to put a '$' in front of it like this:
 
-```{r, eval=FALSE}
+```bash
 echo $var
 ```
 
-Now create the following e.g. `variables.sh` script in the *Bash* folder and apply the `chmod a+x variables.sh` command on this script using the terminal.
+Now create the following e.g. `variables.sh` script in the *Bash* folder and apply the `chmod u+x variables.sh` command on this script using the terminal.
 
-```{r, engine='bash', eval=FALSE}
+```bash
 #!/bin/bash
 echo "Now with the read function"
 clear
@@ -333,13 +327,11 @@ You can run the script once it is *executable*:
 ./variables.sh
 ```
 
-** Question **:
-
-    - Try it out yourself, and try to do a calculation of e.g. a + b as input variables  
+**Question**: Try it out yourself, and try to do a calculation of e.g. a + b as input variables.
     
 Hint: [Shell-tips](https://www.shell-tips.com/2010/06/14/performing-math-calculation-in-bash/)
 
-If you want to learn more about `Bash` scripting: https://help.ubuntu.com/community/Beginners/BashScripting
+If you want to learn more about *Bash* scripting: https://help.ubuntu.com/community/Beginners/BashScripting
 
 ## Using the GDAL library from the terminal
 
