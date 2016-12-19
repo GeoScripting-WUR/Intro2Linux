@@ -99,9 +99,11 @@ The space is then available in the *userdata* directory within your user directo
 
 You might want to transfer files to or from the VM. There are two ways to do so. The more convenient method is to use *Network File System* (NFS) to access the VM drive as if it was a local hard drive. To do that, you need to establish a secure connection to the VM and map the network drive to your PC.
 
-First, start *Git Bash*. This will open a terminal window. In it, enter: `ssh -N -L 2049:localhost:2049 -L 2050:localhost:2050 -L 111:localhost:111 ubuntu@<ip>` where `<ip>` is the IP address of your VM. This will establish a secure SSH connection to the VM on ports 2049, 2050 and 111. You can use this method for other applications and ports as well (such as to access RStudio Server on some VMs). When you are done, to disconnect the secure connection, press Ctrl+C in the Git Bash window.
+First, start *Git Bash*. This will open a terminal window. In it, enter: `ssh -N -L 2049:localhost:2049 -L 2050:localhost:2050 -L 111:localhost:111 ubuntu@<ip>` where `<ip>` is the IP address of your VM. This will establish a secure SSH connection to the VM on ports 2049, 2050 and 111 (the console getting stuck and seemingly nothing happening is good and expected). You can use this method for other applications and ports as well (such as to access RStudio Server on some VMs). When you are done, to disconnect the secure connection, press Ctrl+C in the Git Bash window, which brings you back to the `$` prompt.
 
-To map the network drive, open My Computer, press the *Map Network Drive* button, and enter `localhost:/home/ubuntu/userdata` (again, use the IP of your VM). Double-clicking on the shortcut, you will see an empty folder. It is the */home/ubuntu/userdata* directory on the VM, and you can drag and drop files and folders to and from it. To disconnect, right-click on the network drive and click *Disconnect*, and close the *Git Bash* window that is running the `ssh` command.
+To map the network drive, there are also two options. The GUI option is to open My Computer, press the *Map Network Drive* button, and enter `localhost:/home/ubuntu/userdata` (again, use the IP of your VM). Double-clicking on the drive, you will see a folder with nothing but an inaccesible `lost+found` folder. It is the */home/ubuntu/userdata* directory on the VM, and you can drag and drop files and folders to and from it. To disconnect, right-click on the network drive and click *Disconnect*.
+
+The GUI option will have Windows treating files you create as read-only, however. To make it treat them as read-write, you need to use the command line option. To do that, run `cmd.exe` (Command Prompt) from the Start menu, then enter `mount -o fileaccess=777 localhost:/home/ubuntu/userdata Z:`. This will make the drive appear in My Computer just like the GUI method did.
 
 Another method to tranfer files is using the *Secure File Transfter Protocol* (SFTP). It is a command-line program that comes with SSH. You can use it for transferring any file you can access using SSH, so it is not limited to prespecified directories like NFS is. So you can use it to get or send files outside of your *userdata* directory.
 
@@ -122,35 +124,31 @@ Second, login into your linux, try out Rstudio, and also open QGIS.
 
 # Using the terminal and command line
 
-*Why using the terminal?*: Under Linux there are GUIs (graphical user interfaces), where you can point and click and drag, and hopefully get work done without first reading lots of documentation. The traditional Unix environment is a CLI (command line interface), where you type commands to tell the computer what to do. That is *faster and more powerful*, but requires finding out what the commands are ([more information about using the terminal](https://help.ubuntu.com/community/UsingTheTerminal)).
+*Why use the terminal?*: Under Linux there are GUIs (graphical user interfaces), where you can point and click and drag, and hopefully get work done without first reading lots of documentation. The traditional Unix environment is a CLI (command line interface), where you type commands to tell the computer what to do. That is *faster and more powerful*, but requires finding out what the commands are ([more information about using the terminal](https://help.ubuntu.com/community/UsingTheTerminal)).
 
-There are many varieties of Linux (e.g. Ubuntu, Centos, RedHat, etc.), but almost all of them use similar commands that can be entered from a command-line interface terminal.
+There are many distributions of Linux (e.g. Ubuntu, CentOS, RedHat, SUSE, etc.), but almost all of them use similar commands that can be entered from a command-line interface terminal.
 
 There are also many graphical user interfaces (GUIs), but each of them works differently and there is little standardization between them. Experienced users who work with many different Linux distributions therefore find it easier to learn commands that can be used in all varieties of Ubuntu and, indeed, in other Linux distributions as well.
 
-**Question**: 
-
-    - What are the advantages of using the terminal? Can you think of some examples?
+**Question**: What are the advantages of using the terminal? Can you think of some examples?
 
 ## What is Bash?
 
-`Bash`, the **Bourne-again-shell** (named after the author Stephen Bourne), scripting is one of the easiest types of scripting to learn, and is best compared to Windows `Batch` scripting via [DOS](http://en.wikipedia.org/wiki/DOS). `Bash` is very flexible, and has many advanced features that you won't see in batch scripts.
+**Bash**, the **Bourne-again-shell** (named after the author Stephen Bourne), scripting is one of the easiest types of scripting to learn, and is best compared to Windows [batch scripting](https://en.wikipedia.org/wiki/Batch_file). *Bash* is very flexible, and has many advanced features that you won't see in batch scripts.
 
-However if you are a 'non-computer-savvy' person this won't mean a thing to you. Bash is the language that you will learn to love as much of everyday Linux life is done/can be done using the Terminal. You will soon learn that most things can be done through both GUI (Graphical User Interface) and CLI (Command Line Interface), however some things are more easily achieved from one or the other. For example, changing file permissions of a folder and all its sub folders is more easily achieved using cli instead of gui.
+However if you are a 'non-computer-savvy' person this won't mean a thing to you. Bash is the language that you will learn to love as much of everyday Linux life is done/can be done using the Terminal. You will soon learn that most things can be done through both GUI (Graphical User Interface) and CLI (Command Line Interface), however some things are more easily achieved from one or the other. For example, changing file permissions of specific type of files in a given directory is more easily achieved using CLI instead of GUI.
 
-Bash, is the default shell on Linux and Mac OS X. Bash shell scripting, like also `R` or `Python`, allows multiple commands to be combined, facilitating automation.
+*Bash* is the default shell on Linux and Mac OS X. *Bash* shell scripting, like also *R* or *Python*, allows multiple commands to be combined, facilitating automation.
 
 A shell script (shell program) is a text file that contains commands that are interpreted by the shell (see below, we will learn how to write a shell script).
 
 Each command can be linked in a script to combine several commands by providing the output of one as input to the other. Shell scripts can also contain the control structures common to the majority of programming languages (i.e. variables, logic constructs, looping constructs, functions and comments). The main distinction between shell programs and those written in C, C++, Java (to name but a few) is that shell programs are not compiled for execution, but are readily interpreted by the shell.
 
-**Question** : 
-
-    - What is a shell script?
+**Question**: What is a shell script?
 
 ## Launching the Shell: terminal!
 
-Is not a "Terminator" but something really powerful because via the terminal you get access to the CLI and its default Bash interface. The terminal is the engine behind linux and mac and can also be installed on Windows via a program called [Cygwin](https://www.cygwin.com) which provide a Linux interface on Windows. **It is important as a geo-scripter to know about the Terminal as if will offer a lot of advantages**. The more you'll get into scripting the more you will encounter the words "terminal", "shell", "bash", etc.
+Is not a "Terminator" but something really powerful, because via the terminal you get access to the CLI and its default *Bash* shell. The terminal is an interactive command line program tat allows running the *Bash* interpreter, and is included in every Linux distribution as well as macOS and can also be installed on Windows. In fact, you have already used it to connect to the cloud VM: that's what the *Git Bash* program is! It is included with Git for Windows, and in Windows 10 *Bash* is even included by default with the [*Windows Subsystem for Linux*](https://msdn.microsoft.com/en-us/commandline/wsl/about). **It is important as a geo-scripter to know about the Terminal as if will offer a lot of advantages**. The more you'll get into scripting the more you will encounter the words "terminal", "shell", "bash", etc.
 
 ## Some commands
 
