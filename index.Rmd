@@ -71,11 +71,15 @@ There are two ways to log into your virtual machine: through a graphical interfa
 * Use RSA/DSA key for ssh connection: The path to the *M:\\.ssh\id_rsa* file (**not** *id_rsa.pub*).
 * Session type: *XFCE*
 
+![X2Go settings](figs/x2gosettings.PNG)
+
 In addition, in the *Connections* tab you can set the compression method to "4k-png". This is a lower-colour setting that saves bandwith and thus makes the desktop more responsive.
 
-Press OK, and from here on you can press the bubble on the right-hand side to launch the dektop of the virtual machine. You will see a *Host key verification failed* warning; this is expected every time you launch a new VM, answer *Yes*. You might also see a warning about shared folders and printers; this is safe to ignore. Tturn off folder and printer sharing for the message to go away.
+Press OK, and from here on you can press the bubble on the right-hand side to launch the dektop of the virtual machine. You will see a *Host key verification failed* warning; this is expected every time you launch a new VM, answer *Yes*. You might also see a warning about shared folders and printers; this is safe to ignore. Turn off folder and printer sharing for the message to go away.
 
 **Note**: To properly shut down your VM, open the X2Go Client window again, and press the *Terminate* button on the lower right part of the main pane. Then on the SURFsara website, select your VM, press the garbage can button, and select *Shutdown*. Remember to shut down VMs you don't need, as they take up precious resources from the cloud!
+
+![VM running through X2go](figs/x2gorunning.PNG)
 
 ### Saving changes
 
@@ -105,7 +109,9 @@ To map the network drive, there are also two options. The GUI option is to open 
 
 The GUI option will have Windows treating files you create as read-only, however. To make it treat them as read-write, you need to use the command line option. To do that, run `cmd.exe` (Command Prompt) from the Start menu, then enter `mount -o fileaccess=777 localhost:/home/ubuntu/userdata Z:`. This will make the drive appear in My Computer just like the GUI method did.
 
-Another method to tranfer files is using the *Secure File Transfter Protocol* (SFTP). It is a command-line program that comes with SSH. You can use it for transferring any file you can access using SSH, so it is not limited to prespecified directories like NFS is. So you can use it to get or send files outside of your *userdata* directory.
+![NFS shared drive mapped to drive Z:](figs/filesharing.png)
+
+Another, less complicated but also less convenient method to tranfer files is using the *Secure File Transfter Protocol* (SFTP). It is a command-line program that comes with SSH. You can use it for transferring any file you can access using SSH, so it is not limited to prespecified directories like NFS is. So you can use it to get or send files outside of your *userdata* directory.
 
 To use it, open *Git Bash* again, and enter: `sftp ubuntu@<ip>`. This will give you a prompt in which you can enter commands. Use `get <file>` to download files and `put <file>` to upload them, where `<file>` is the path to the file. You can change the directory you download the files to by using `lcd <path>`, and the directory you download from by using `cd <path>`. Enter `?` for a complete list of commands, `exit` to quit.
 
