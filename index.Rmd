@@ -1,7 +1,7 @@
 ---
 title: "[WUR Geo-scripting](https://geoscripting-wur.github.io/)"
 subtitle: "Week 1, Lesson 3: Getting started with Linux, the terminal and bash scripting"
-author: "Jan Verbesselt"
+author: "Jan Verbesselt and Dainius Masiliunas"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 output:
   html_document:
@@ -115,18 +115,18 @@ Another, less complicated but also less convenient method to tranfer files is us
 
 To use it, open *Git Bash* again, and enter: `sftp ubuntu@<ip>`. This will give you a prompt in which you can enter commands. Use `get <file>` to download files and `put <file>` to upload them, where `<file>` is the path to the file. You can change the directory you download the files to by using `lcd <path>`, and the directory you download from by using `cd <path>`. Enter `?` for a complete list of commands, `exit` to quit.
 
-## Getting started on OSGEO-live
+## Getting started on Linux
 
 First open your computer, VMware workstation Player (as demonstrated in yesterdays lesson).
 
-Second, login into your linux, try out Rstudio, and also open QGIS.
+Second, login into your linux, try out RStudio/RKWard, and also open QGIS.
 
- Third, follow this overview presentation of what is possible within OSGEO-live: http://live.osgeo.org/en/presentation/index.html#/
+Third, follow this overview presentation of what is possible within OSGEO-live: http://live.osgeo.org/en/presentation/index.html#/
 
 **Question**: After browsing through the presentation you now have a better idea of what is available via this OS-GEO live Operating system. Now, can you explain what: 
     
-    - OS-GEO live is?
-    - What we can do with GDAL and GEOS (hint: see presentation?)?
+- OS-GEO live is?
+- What we can do with GDAL and GEOS (hint: see presentation?)?
 
 # Using the terminal and command line
 
@@ -333,21 +333,16 @@ You can run the script once it is *executable*:
 ./variables.sh
 ```
 
-**Question**: Try it out yourself, and try to do a calculation of e.g. a + b as input variables.
-    
-Hint: [Shell-tips](https://www.shell-tips.com/2010/06/14/performing-math-calculation-in-bash/)
+**Question**: Try it out yourself, and try to do a calculation of e.g. a + b as input variables. Hint: [Shell-tips](https://www.shell-tips.com/2010/06/14/performing-math-calculation-in-bash/)
 
 If you want to learn more about *Bash* scripting: https://help.ubuntu.com/community/Beginners/BashScripting
 
 ## Using the GDAL library from the terminal
 
-We will learn more about GDAL in the later lessons. GDAL is a very powerful translator library written in C/C++ for raster and vector geospatial data formats.
-Now via the terminal we can access GDAL directly!!! E.g. we can check out what the current version of GDAL is that is installed on our Linux OS:
+We will learn more about GDAL in the later lessons. GDAL is a very powerful and fast processing library written in C/C++ for raster and vector geospatial data formats. Now via the terminal we can access GDAL directly! E.g. we can check out what the current version of GDAL is that is installed on our Linux OS.
 
 Let's download a file from [The intro to raster lesson](https://geoscripting-wur.github.io/IntroToRaster/#raster-objects-manipulations):
-Download the `gewata.zip` file from Github ([link](https://github.com/GeoScripting-WUR/IntroToRaster/raw/gh-pages/data/gewata.zip)) and unzip in the data folder. Type the following in the data folder:
-
-You can write a shell script to do the following commands below but first type in the commands via the terminal to understand what is happening:
+Download the `gewata.zip` file from Github ([link](https://github.com/GeoScripting-WUR/IntroToRaster/raw/gh-pages/data/gewata.zip)) and unzip in the `data` directory. Type the following in the `data` directory: (Note: You can write a shell script to do the following commands below but first type in the commands via the terminal to understand what is happening.)
 
 ```{r, eval = TRUE, engine='bash'}
 echo "the current GDAL version is:"
@@ -364,7 +359,7 @@ ls *.tif
 gdalinfo -nomd -norat -noct LE71700552001036SGS00_SR_Gewata_INT1U.tif
 ```
 
-Now let's calculate the NDVI via GDAL terminal by using the `gdal_calc.py`. For more information about [GDAL_calc](http://www.gdal.org/gdal_calc.html).
+Now let's calculate the NDVI via GDAL terminal by using the `gdal_calc.py`. See [GDAL_calc](http://www.gdal.org/gdal_calc.html) for more information.
 
 
 ```{r, engine='bash', eval=TRUE}
@@ -378,26 +373,24 @@ echo "* remove the input temporary file"
 rm input.tif
 ```
 
-Challenge:
-
-- try to write to calculate the NDVI using the lines above in a nice and short shell script.
+**Question**: Try to write to calculate the NDVI using the lines above in a nice and short shell script.
 - Hint 1: `cd ../data` (to move back from the Bash folder and move into the data folder)
-- Hint 2: No spaces are allowed and e.g. try to use `fn=$(ls *.tif)`
+- Hint 2: No spaces in file names are allowed and try to use variables e.g. `fn=$(ls *.tif)`
 
 
 Let's now check if the range of the NDVI values makes sense, and make a nice script:
 ```{r, engine='bash', results='hide', eval =FALSE}
 #!/bin/bash
 echo "teamname"
-echo "14 january 2015"
-echo "calculate landsat ndvi"
+echo "14 January 2016"
+echo "Calculate LandSat NDVI"
 cd ../data
 fn=$(ls *.tif)
 echo "The input file: $fn"
 outfn="ndvi.tif"
 echo "The output file: $outfn"
 echo "calculate ndvi"
-gdal_calc.py -A $fn --A_band=4 -B $fn --B_band=3  --outfile=$outfn  --calc="(A.astype(float)-B)/(A.astype(float)+B)" --type='Float32'
+gdal_calc.py -A $fn --A_band=4 -B $fn --B_band=3 --outfile=$outfn --calc="(A.astype(float)-B)/(A.astype(float)+B)" --type='Float32'
 echo "look at some histogram statistics"
 gdalinfo -hist -stats $outfn
 ```
@@ -410,25 +403,24 @@ Handy functions are (See the examples at the bottom):
 - `gdal_translate`: http://www.gdal.org/gdal_translate.html
 - `gdalwarp`: http://www.gdal.org/gdalwarp.html
 
-More info about `Bash` basics: https://www.gnu.org/software/bash/manual/bashref.html#Command-Substitution
+More info about *Bash* basics: https://www.gnu.org/software/bash/manual/bashref.html#Command-Substitution
 
 Optional: if you are ready and want the learn more about using GDAL from the terminal. See here for another tutorial:
 http://wiki.americaview.org/display/miview/Introduction+to+GDAL
 
 ## Excercise
 Let's download a file from [The intro to raster lesson](https://geoscripting-wur.github.io/IntroToRaster/#raster-objects-manipulations).
-Download the `gewata.zip` file from Github ([link](https://github.com/GeoScripting-WUR/IntroToRaster/raw/gh-pages/data/gewata.zip)) and unzip in the data folder.
+Download the `gewata.zip` file from Github ([link](https://github.com/GeoScripting-WUR/IntroToRaster/raw/gh-pages/data/gewata.zip)) and unzip in the data directory.
 
 Write a shell script that:
 
- - derives NDVI from the landsat *.tif file as NDVI.tif
- - resampels the NDVI tif file to pixels of 60 m
- - *Bonus*: reprojects this resampled file to Lat/long WGS84 (the projection code is: EPSG:4326)
- 
-    - Tip!!!: `gdalwarp -t_srs EPSG:4326 $fntemp $fnout`
+- derives NDVI from the landsat `*.tif` file as `NDVI.tif`
+- resamples the NDVI tif file to pixels of 60 m
+- *Bonus*: reprojects this resampled file to Lat/long WGS84 (the projection code is: EPSG:4326)
+    - Tip: `gdalwarp -t_srs EPSG:4326 $fntemp $fnout`
 
-Submit the text of your shell script via Blackboard in the "Script Review Center" before tomorrow (930u).
-Make sure your script is clear and reproducible, and let it test by at least one other team. 
+Submit the text of your shell script via Blackboard in the "Script Review Center" before tomorrow (9:30).
+Make sure your script is clear and reproducible, and let it be tested by at least one other team. 
 You can copy the code in the BlackBoard review center (the other team needs to make it excecutable in order to test it).
 
 *Do not forget to add a teamname, and members and date of script at the top of your script.*
@@ -437,15 +429,16 @@ You can copy the code in the BlackBoard review center (the other team needs to m
 
 ## More information
 
+- [Hands-on introduction to bash basics for beginners](https://news.opensuse.org/2014/06/10/command-line-tuesdays-part-one/)
 - A great bash scripting tutorial: http://linuxconfig.org/bash-scripting-tutorial
 - [An overview of terminal commands](http://beginlinux.com/twitter/1094-the-beginners-guide-to-the-ubuntu-terminal)
 - http://www.howtogeek.com/140679/beginner-geek-how-to-start-using-the-linux-terminal/
 - http://www.howtogeek.com/howto/42980/the-beginners-guide-to-nano-the-linux-command-line-text-editor/
 - http://linuxcommand.org/lc3_learning_the_shell.php
 - http://www.cyberciti.biz/faq/pwd-linux-unix-command-examples/
-- For Mac users and tntroduction to use the terminal on Mac
+- For macOS users and introduction to use the terminal on macOS
     - http://computers.tutsplus.com/tutorials/navigating-the-terminal-a-gentle-introduction--mac-3855
     - http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line
     - [Is the terminal in Mac and Linux the same](https://stackoverflow.com/questions/8051145/is-the-terminal-in-mac-and-linux-the-same)
-- [Python code Building plug-in](https://www.google.nl/url?sa=t&rct=j&q=&esrc=s&source=web&cd=6&cad=rja&uact=8&ved=0ahUKEwjuyp3np_LJAhXEHg8KHT1sDbwQtwIIRjAF&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DeWNEcJYnkPQ&usg=AFQjCNFl3yb7yw3mf2arEc38_flIkdZWxA&sig2=u1GrY051UiDyeVg5JyfJXw)
+- [Python code Building plug-in](https://www.youtube.com/watch?v=eWNEcJYnkPQ)
 - [Using Jupyter notebook within OSGEO](http://www.r-bloggers.com/interactive-r-notebooks-with-jupyter-and-sagemathcloud/)
