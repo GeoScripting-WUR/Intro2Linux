@@ -39,7 +39,7 @@ Press OK, and from here on you can press the bubble on the right-hand side to la
 
 ![VM running through X2go](figs/x2gorunning.PNG)
 
-## Shut fown a VM
+## Shut down a VM
 
 **Important**: Remember to properly shut down VMs you don't need, as they take up precious resources from the cloud! If you do not, other students might not be able to start their own VMs.
 
