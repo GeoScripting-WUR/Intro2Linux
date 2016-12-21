@@ -62,78 +62,44 @@ First of all, you will need to set up either of the two.
 
 Once you have everything ready, login into your Linux VM, try out RStudio/RKWard, and also open QGIS.
 
-# Using the terminal and command line
+# Using the terminal and *Bash*
 
-*Why use the terminal?*: Under Linux there are GUIs (graphical user interfaces), where you can point and click and drag, and hopefully get work done without first reading lots of documentation. The traditional Unix environment is a CLI (command line interface), where you type commands to tell the computer what to do. That is *faster and more powerful*, but requires finding out what the commands are ([more information about using the terminal](https://help.ubuntu.com/community/UsingTheTerminal)).
+There are two ways to interact with your operating system: a graphical user interface (GUI), where you point and click, and a command-line interface (CLI), where you type commands to make something happen. GUIs are simpler to use, but CLIs are more powerful and faster for some tasks, once you get used to them.
 
-There are many distributions of Linux (e.g. Ubuntu, CentOS, RedHat, SUSE, etc.), but almost all of them use similar commands that can be entered from a command-line interface terminal.
+**Question**: What are the advantages of using CLI? Can you think of some examples?
 
-There are also many graphical user interfaces (GUIs), but each of them works differently and there is little standardization between them. Experienced users who work with many different Linux distributions therefore find it easier to learn commands that can be used in all varieties of Ubuntu and, indeed, in other Linux distributions as well.
-
-**Question**: What are the advantages of using the terminal? Can you think of some examples?
-
-## What is Bash?
-
-**Bash**, the **Bourne-again-shell** (named after the author Stephen Bourne), scripting is one of the easiest types of scripting to learn, and is best compared to Windows [batch scripting](https://en.wikipedia.org/wiki/Batch_file). *Bash* is very flexible, and has many advanced features that you won't see in batch scripts.
-
-However if you are a 'non-computer-savvy' person this won't mean a thing to you. Bash is the language that you will learn to love as much of everyday Linux life is done/can be done using the Terminal. You will soon learn that most things can be done through both GUI (Graphical User Interface) and CLI (Command Line Interface), however some things are more easily achieved from one or the other. For example, changing file permissions of specific type of files in a given directory is more easily achieved using CLI instead of GUI.
-
-*Bash* is the default shell on Linux and Mac OS X. *Bash* shell scripting, like also *R* or *Python*, allows multiple commands to be combined, facilitating automation.
-
-A shell script (shell program) is a text file that contains commands that are interpreted by the shell (see below, we will learn how to write a shell script).
-
-Each command can be linked in a script to combine several commands by providing the output of one as input to the other. Shell scripts can also contain the control structures common to the majority of programming languages (i.e. variables, logic constructs, looping constructs, functions and comments). The main distinction between shell programs and those written in C, C++, Java (to name but a few) is that shell programs are not compiled for execution, but are readily interpreted by the shell.
-
-**Question**: What is a shell script?
-
-## Launching the Shell: terminal!
-
-Is not a "Terminator" but something really powerful, because via the terminal you get access to the CLI and its default *Bash* shell. The terminal is an interactive command line program tat allows running the *Bash* interpreter, and is included in every Linux distribution as well as macOS and can also be installed on Windows. In fact, you have already used it to connect to the cloud VM: that's what the *Git Bash* program is! It is included with Git for Windows, and in Windows 10 *Bash* is even included by default with the [*Windows Subsystem for Linux*](https://msdn.microsoft.com/en-us/commandline/wsl/about). **It is important as a geo-scripter to know about the Terminal as if will offer a lot of advantages**. The more you'll get into scripting the more you will encounter the words "terminal", "shell", "bash", etc.
-
-## Some commands
-
-We will discuss useful everyday commands, as well as going a bit more in depth into scripting and semi-advanced features of Bash. Bash is not only used to run programs and applications, but it can also be used to write programs or scripts.
-
-Launch the terminal by clicking on *Applications* → *Terminal Emulator*. This will look like:
+Most Linux distributions come with a *terminal*, which is a program you use to run CLI programs. You might know the *Command Prompt* program on Windows: that is a type of *terminal*. On Linux, there is a variety of terminal applications to choose from. You can start one on your virtual machine by clicking on *Applications* → *Terminal Emulator*. This will look like:
 
 ![terminal](figs/terminal.png)
 
-Typing `man man` in the **terminal** will bring up the manual entry for the man command, which is a good place to start!
+A *terminal* is just a gateway to the world of CLIs, but through it you interact with a particular *shell* (or *command interpreter*) which speaks a programming language. The default shell on Linux is *Bash*, and programs written in the *Bash* language are called *Bash scripts*. Much like the *R* console, you can input commands to *Bash* line by line through the *terminal*.
 
-Manual pages are text files displayed in a pager program that allows easy scrolling. The default pager is `less`, which allows you to scroll using arrow keys, search with the `/` key and quit with the `q` key. You can also see its help by using the `h` key or looking at its manual page using `man less`.
+*Bash* shell scripting, like also *R* or *Python*, allows multiple commands to be combined, facilitating automation. A shell script (shell program) is a text file that contains commands that are interpreted by the shell (see below, we will learn how to write a shell script). Each command can be linked in a script to combine several commands by providing the output of one as input to the other. Shell scripts can also contain the control structures common to the majority of programming languages (i.e. variables, logic constructs, looping constructs, functions and comments). The main distinction between shell programs and those written in C, C++, Java (to name but a few) is that shell programs are not compiled for execution, but are readily interpreted by the shell.
 
-`man intro` is especially useful - it displays the "Introduction to user commands" which is a well-written, fairly brief introduction to the Linux command line.
+**Question**: What is a shell script?
 
-```bash
-man intro
-```
+*Bash* is not only the default shell on Linux, but also macOS, and there are versions of *Bash* that run on Windows too. It is included with Git for Windows, and in Windows 10 *Bash* is even included by default with the [*Windows Subsystem for Linux*](https://msdn.microsoft.com/en-us/commandline/wsl/about). However, without the wealth of CLI programs that Linux distributions come with, *Bash* functionality is fairly limited.
 
-Most common commands:
+But enough theory: let's try using the terminal in practice! Go through this exercise and see what happens: [https://news.opensuse.org/2014/06/10/command-line-tuesdays-part-one/](https://news.opensuse.org/2014/06/10/command-line-tuesdays-part-one/)
 
-- `pwd`: show your current working directory
-- `cd`: change directory
-- `cd ..`: move up one directory
-- `mkdir`: create directory
-- `rm` or `rm -R`: delete files or directories
-- `sudo`: running programs as root (administrator/super-user), which may ask for your user pasword
-- `ls`: listing files in a directory
-- `cp`: copy files e.g. for backing up things or just copying. We will use these command in the scripts below.
+## Basic commands
 
+Now go through the next exercise to learn how to navigate the file system: [https://news.opensuse.org/2014/06/24/command-line-tuesdays-part-two/](https://news.opensuse.org/2014/06/24/command-line-tuesdays-part-two/)
 
-**Note**: Bash has a feature called Tab-completion. If you start writing a command or filename, pressing the `Tab` key a couple of times will give a list of suggestions for auto-completion. This is super-handy so that you never need to write filenames etc. In addition, you can recall the last commands you entered by using the up arrow key. Lastly, you can always open multiple terminals, even in tabs, by using *File* → *Open Tab*.
+The file system layout image might not display properly, but it is intended to show this:
+![Filesystem Hierarchy Standard](https://configureinstantly.files.wordpress.com/2011/01/file-system.jpg)
 
-Now type the following to bring you back to your home directory, and check what your current working directory is.
-
-```bash
-cd
-pwd
-```
-
-This should looks as follows:
+Once you're done, you should have something like this displayed in your terminal:
 
 ![cdpwd](figs/cd_pwd.png)
 
-**Question**: What is the difference between `ls -l` and `ls -lh`?
+Next, let's go into some useful every-day commands: [https://news.opensuse.org/2014/07/01/command-line-tuesdays-part-three/](https://news.opensuse.org/2014/07/01/command-line-tuesdays-part-three/)
+
+**Question**: What is the difference between `ls -l`, `ls -lh` and `ls -lh --si`?
+
+## File manipulation
+
+Now let's dive into manipulating files and directories: [https://news.opensuse.org/2014/07/08/command-line-tuesdays-part-four/](https://news.opensuse.org/2014/07/08/command-line-tuesdays-part-four/)
 
 Now, create a directory called `Bash` (i.e. a directory that will contain our *Bash* scripts)
 
@@ -158,7 +124,31 @@ rm dest_file
 
 - use `ls` commands and its options.
 
-Read the `File & Directory Commands` section (https://help.ubuntu.com/community/UsingTheTerminal) and let us know if you have questions about some commands. 
+**Tip**: Bash has a feature called Tab-completion. If you start writing a command or filename, pressing the `Tab` key a couple of times will give a list of suggestions for auto-completion. This is super-handy so that you never need to write filenames etc. In addition, you can recall the last commands you entered by using the up arrow key. Lastly, you can always open multiple terminals, even in tabs, by using *File* → *Open Tab*.
+
+## More information about commands
+
+So far we have been using only a few of the functions that the commands offer. You can find a list of them by looking at their manual pages by following the last exercise: [https://news.opensuse.org/2014/07/15/command-line-tuesdays-part-five/](https://news.opensuse.org/2014/07/15/command-line-tuesdays-part-five/)
+
+Manual pages are text files displayed in a pager program that allows easy scrolling. The default pager is `less`, which you have already used in the third exercise. You can also look at its manual page using `man less`. Also try `man intro`: the "Introduction to user commands", a well-written, fairly brief introduction to the Linux command line.
+
+```bash
+man intro
+```
+
+Here's a list of most common commands:
+
+- `pwd`: show your current working directory
+- `cd`: change directory
+- `cd ..`: move up one directory
+- `mkdir`: create directory
+- `rm` or `rm -R`: delete files or directories
+- `sudo`: running programs as root (administrator/super-user), which may ask for your user pasword
+- `ls`: listing files in a directory
+- `cp`: copy files e.g. for backing up things or just copying. We will use these command in the scripts below.
+
+
+You can also read the [Ubuntu documentation on CLI](https://help.ubuntu.com/community/UsingTheTerminal) to learn more, and let us know if you have questions about some commands. 
 
 ## Starting R or Python from the terminal
 
