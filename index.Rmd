@@ -42,164 +42,64 @@ See [this website](http://live.osgeo.org/) for more information.
 
 These tools are also available in other distributions, but they have to be installed manually. A general-use distribution such as *Ubuntu* or *openSUSE* is more suitable for regular day-to-day tasks, since not having the unnecessary tools installed takes less space and makes it work faster. It is also easier to find help for them than for specialised distributions. So in this course we will use a customised Ubuntu distribution with only the tools needed for this course preinstalled.
 
-This year the operating systems are hosted by the [SURFsara High Performance Computing cloud](https://userinfo.surfsara.nl/systems/hpc-cloud) and accessed over the internet.
-
 ## Why use a Linux distribution?
 
 A Linux environment makes it much easier to install and combine a variety of open-source software, such as Python modules and GDAL, compared to other operating systems like Windows or macOS. In addition, open-source scientific software is often developed primarily for Linux (since that's what most supercomputers and servers run!), and so it tends to be more stable and have more features on Linux. Furthermore, at Wageningen University & Research PC labs, ArcGIS and ArcPy are installed on the Windows machines, and this Python version tends to cause conflicts with open-source Python modules and tools (e.g. GDAL, GEOS).
 
-## Why cloud computing?
-
-In the field of geo-information, the amount of available data is staggering. This *Big Data* is often too large to download and too intensive to process on a personal computer. Therefore data providers such as the European Space Agency and research organisations like SURFsara are now offering virtual machines (VM) running on their own cloud infrastructure for scientific purposes, so that this Big Data can be processed faster and more efficiently. These cloud VMs are typically running Linux distributions and have a whole lot of resources (processor cores, RAM, hard disk) available.
-
-## Getting started with SURFsara cloud
-
-First go to [https://ui.hpccloud.surfsara.nl/](https://ui.hpccloud.surfsara.nl/) and log in with the credentials that have been provided to you. Each student has a unique account. Then, click on your username and go to Settings. Click "Update SSH Key" and paste the public key you generated in the previous lesson into the text box, and click the "Update SSH Key" button.
-
-**Hint**: the easiest way to find it is by running Git GUI, though Help → Show SSH Key. In the PC lab the SSH keys are stored on the *M:* drive, so they are unique to the WUR user account. If you want to access the cloud from your own device, you will need to update the SSH key in your SURFsara account to the one on your device.
-
-Next, press "Change view" and set it to "user". From the Dashboard, go to Virtual Resources → Templates, select the "Ubuntu 16.04 GeoScripting" template and press "Clone". Give it a name you like: this will become your very own virtual machine. A *Template* is a set of settings for your virtual machine, including the number of cores, memory and hard disks.
-
-You can run it already by clicking on it and pressing "Instantiate", then confirming the settings by pressing "Instantiate" again. You will see your virtual machine running in the Virtual Resources → Virtual Machines page.
-
-There are two ways to log into your virtual machine: through a graphical interface using the *X2Go Client* software, and through a command line using *Git Bash*. We will mainly use the graphical interface in this course. To do that, launch *X2Go Client* on Windows, and the new session *Session Preferences* window will be opened automatically. Fill in the details as follows:
-
-* Session name: Enter a descriptive name for your VM.
-* Host: The IP address of your VM. It starts with "145.100" and you can see it on the right in the *Virtual Machines* page. You can also copy it fromt he "Network" tab after you click on the VM entry.
-* Login: *ubuntu*
-* SSH port: Leave at *22*
-* Use RSA/DSA key for ssh connection: The path to the *M:\\.ssh\id_rsa* file (**not** *id_rsa.pub*).
-* Session type: *XFCE*
-
-![X2Go settings](figs/x2gosettings.PNG)
-
-In addition, in the *Connections* tab you can set the compression method to "4k-png". This is a lower-colour setting that saves bandwith and thus makes the desktop more responsive.
-
-Press OK, and from here on you can press the bubble on the right-hand side to launch the dektop of the virtual machine. You will see a *Host key verification failed* warning; this is expected every time you launch a new VM, answer *Yes*. You might also see a warning about shared folders and printers; this is safe to ignore. Turn off folder and printer sharing for the message to go away.
-
-**Note**: To properly shut down your VM, open the X2Go Client window again, and press the *Terminate* button on the lower right part of the main pane. Then on the SURFsara website, select your VM, press the garbage can button, and select *Shutdown*. Remember to shut down VMs you don't need, as they take up precious resources from the cloud!
-
-![VM running through X2go](figs/x2gorunning.PNG)
-
-### Saving changes
-
-If you change something, then restart the VM, you may notice that your changes have been lost. This is because by default VM hard drives are not persistent. You need to clone them and set them as persistent to make the changes stick.
-
-To do that, go to the *Virtual Resources* → *Images* page on the SURFsara website. This is a list of hard disks available to your VMs. Select the *Ubuntu 16.04 GeoScripting* image, which is the operating system image, then click "Clone" and name it. Go back to the image listing, selected your cloned OS image, press on the three-dots button and choose "Make persistent".
-
-You now have a persistent clone of the operating system. Now you need to tell the VM to use it. To do that, go to the *Templates* page, select the template and clone it. Select your cloned template and click *Update*. Go to the *Storage* tab and click on your cloned OS image, then click *Update* to confirm changes.
-
-Now when you instantiate your cloned template, it will use the persistent image and allow you to make changes. In case something ever goes wrong with the VM, you can always delete the cloned image and reclone the original image to start fresh.
-
-### Adding more space
-
-The OS image only has 10 GiB of space. In case it is not enough, such as for processing large rasters, you can add an additional hard drive to your VM and store your files on it.
-
-To do that, repeat the cloning and template editing process, but this time with the *User data* image. When editing your teplate file (you can keep updating the cloned template you already have), instead of replacing Disk 0, press the *Add another disk* button and choose your cloned *User data* image as Disk 1.
-
-The space is then available in the *userdata* directory within your user directory (*/home/ubuntu/userdata*).
-
-### File sharing
-
-You might want to transfer files to or from the VM. There are two ways to do so. The more convenient method is to use *Network File System* (NFS) to access the VM drive as if it was a local hard drive. To do that, you need to establish a secure connection to the VM and map the network drive to your PC.
-
-First, start *Git Bash*. This will open a terminal window. In it, enter: `ssh -N -L 2049:localhost:2049 -L 2050:localhost:2050 -L 111:localhost:111 ubuntu@<ip>` where `<ip>` is the IP address of your VM. This will establish a secure SSH connection to the VM on ports 2049, 2050 and 111 (the console getting stuck and seemingly nothing happening is good and expected). You can use this method for other applications and ports as well (such as to access RStudio Server on some VMs). When you are done, to disconnect the secure connection, press Ctrl+C in the Git Bash window, which brings you back to the `$` prompt.
-
-To map the network drive, there are also two options. The GUI option is to open My Computer, press the *Map Network Drive* button, and enter `localhost:/home/ubuntu/userdata` (again, use the IP of your VM). Double-clicking on the drive, you will see a folder with nothing but an inaccesible `lost+found` folder. It is the */home/ubuntu/userdata* directory on the VM, and you can drag and drop files and folders to and from it. To disconnect, right-click on the network drive and click *Disconnect*.
-
-The GUI option will have Windows treating files you create as read-only, however. To make it treat them as read-write, you need to use the command line option. To do that, run `cmd.exe` (Command Prompt) from the Start menu, then enter `mount -o fileaccess=777 localhost:/home/ubuntu/userdata Z:`. This will make the drive appear in My Computer just like the GUI method did.
-
-![NFS shared drive mapped to drive Z:](figs/filesharing.png)
-
-Another, less complicated but also less convenient method to tranfer files is using the *Secure File Transfter Protocol* (SFTP). It is a command-line program that comes with SSH. You can use it for transferring any file you can access using SSH, so it is not limited to prespecified directories like NFS is. So you can use it to get or send files outside of your *userdata* directory.
-
-To use it, open *Git Bash* again, and enter: `sftp ubuntu@<ip>`. This will give you a prompt in which you can enter commands. Use `get <file>` to download files and `put <file>` to upload them, where `<file>` is the path to the file. You can change the directory you download the files to by using `lcd <path>`, and the directory you download from by using `cd <path>`. Enter `?` for a complete list of commands, `exit` to quit.
-
 ## Getting started on Linux
 
-First open your computer, VMware workstation Player (as demonstrated in yesterdays lesson).
+During the course we will make use of a Linux virtual machine. There are two varieties of virtual machines available for this course: cloud VMs hosted by the [SURFsara High Performance Computing cloud](https://userinfo.surfsara.nl/systems/hpc-cloud) and accessed over the internet, and local VMs installed on the PCs in the PC lab. Either can be used, although most testing has been done on the cloud VMs.
 
-Second, login into your linux, try out RStudio/RKWard, and also open QGIS.
+First of all, you will need to set up either of the two.
 
-Third, follow this overview presentation of what is possible within OSGEO-live: http://live.osgeo.org/en/presentation/index.html#/
+### SURFsara cloud VM setup
 
-**Question**: After browsing through the presentation you now have a better idea of what is available via this OS-GEO live Operating system. Now, can you explain what: 
-    
-- OS-GEO live is?
-- What we can do with GDAL and GEOS (hint: see presentation?)?
+[See this page for instructions on setting up the SURFsara cloud VMs](surfsara_tutorial.html).
 
-# Using the terminal and command line
+### VirtualBox VM setup
 
-*Why use the terminal?*: Under Linux there are GUIs (graphical user interfaces), where you can point and click and drag, and hopefully get work done without first reading lots of documentation. The traditional Unix environment is a CLI (command line interface), where you type commands to tell the computer what to do. That is *faster and more powerful*, but requires finding out what the commands are ([more information about using the terminal](https://help.ubuntu.com/community/UsingTheTerminal)).
+[See this page for general instructions on setting up OSGeo-Live on VirtualBox](https://live.osgeo.org/en/quickstart/virtualization_quickstart.html). **Note**: There are cusom VM files provided so you don't have to download them from the internet (the files are quite large). You also do not need to add yourself to the `vboxsf` group (this is already taken care of). In the options, you might want to enable clipboard support (*Both*) so you can copy-paste between Windows and Linux.
 
-There are many distributions of Linux (e.g. Ubuntu, CentOS, RedHat, SUSE, etc.), but almost all of them use similar commands that can be entered from a command-line interface terminal.
+Once you have everything ready, login into your Linux VM, try out RStudio/RKWard, and also open QGIS.
 
-There are also many graphical user interfaces (GUIs), but each of them works differently and there is little standardization between them. Experienced users who work with many different Linux distributions therefore find it easier to learn commands that can be used in all varieties of Ubuntu and, indeed, in other Linux distributions as well.
+# Using the terminal and *Bash*
 
-**Question**: What are the advantages of using the terminal? Can you think of some examples?
+There are two ways to interact with your operating system: a graphical user interface (GUI), where you point and click, and a command-line interface (CLI), where you type commands to make something happen. GUIs are simpler to use, but CLIs are more powerful and faster for some tasks, once you get used to them.
 
-## What is Bash?
+**Question**: What are the advantages of using CLI? Can you think of some examples?
 
-**Bash**, the **Bourne-again-shell** (named after the author Stephen Bourne), scripting is one of the easiest types of scripting to learn, and is best compared to Windows [batch scripting](https://en.wikipedia.org/wiki/Batch_file). *Bash* is very flexible, and has many advanced features that you won't see in batch scripts.
-
-However if you are a 'non-computer-savvy' person this won't mean a thing to you. Bash is the language that you will learn to love as much of everyday Linux life is done/can be done using the Terminal. You will soon learn that most things can be done through both GUI (Graphical User Interface) and CLI (Command Line Interface), however some things are more easily achieved from one or the other. For example, changing file permissions of specific type of files in a given directory is more easily achieved using CLI instead of GUI.
-
-*Bash* is the default shell on Linux and Mac OS X. *Bash* shell scripting, like also *R* or *Python*, allows multiple commands to be combined, facilitating automation.
-
-A shell script (shell program) is a text file that contains commands that are interpreted by the shell (see below, we will learn how to write a shell script).
-
-Each command can be linked in a script to combine several commands by providing the output of one as input to the other. Shell scripts can also contain the control structures common to the majority of programming languages (i.e. variables, logic constructs, looping constructs, functions and comments). The main distinction between shell programs and those written in C, C++, Java (to name but a few) is that shell programs are not compiled for execution, but are readily interpreted by the shell.
-
-**Question**: What is a shell script?
-
-## Launching the Shell: terminal!
-
-Is not a "Terminator" but something really powerful, because via the terminal you get access to the CLI and its default *Bash* shell. The terminal is an interactive command line program tat allows running the *Bash* interpreter, and is included in every Linux distribution as well as macOS and can also be installed on Windows. In fact, you have already used it to connect to the cloud VM: that's what the *Git Bash* program is! It is included with Git for Windows, and in Windows 10 *Bash* is even included by default with the [*Windows Subsystem for Linux*](https://msdn.microsoft.com/en-us/commandline/wsl/about). **It is important as a geo-scripter to know about the Terminal as if will offer a lot of advantages**. The more you'll get into scripting the more you will encounter the words "terminal", "shell", "bash", etc.
-
-## Some commands
-
-We will discuss useful everyday commands, as well as going a bit more in depth into scripting and semi-advanced features of Bash. Bash is not only used to run programs and applications, but it can also be used to write programs or scripts.
-
-Launch the terminal by clicking on *Applications* → *Terminal Emulator*. This will look like:
+Most Linux distributions come with a *terminal*, which is a program you use to run CLI programs. You might know the *Command Prompt* program on Windows: that is a type of *terminal*. On Linux, there is a variety of terminal applications to choose from. You can start one on your virtual machine by clicking on *Applications* → *Terminal Emulator*. This will look like:
 
 ![terminal](figs/terminal.png)
 
-Typing `man man` in the **terminal** will bring up the manual entry for the man command, which is a good place to start!
+A *terminal* is just a gateway to the world of CLIs, but through it you interact with a particular *shell* (or *command interpreter*) which speaks a programming language. The default shell on Linux is *Bash*, and programs written in the *Bash* language are called *Bash scripts*. Much like the *R* console, you can input commands to *Bash* line by line through the *terminal*.
 
-Manual pages are text files displayed in a pager program that allows easy scrolling. The default pager is `less`, which allows you to scroll using arrow keys, search with the `/` key and quit with the `q` key. You can also see its help by using the `h` key or looking at its manual page using `man less`.
+*Bash* shell scripting, like also *R* or *Python*, allows multiple commands to be combined, facilitating automation. A shell script (shell program) is a text file that contains commands that are interpreted by the shell (see below, we will learn how to write a shell script). Each command can be linked in a script to combine several commands by providing the output of one as input to the other. Shell scripts can also contain the control structures common to the majority of programming languages (i.e. variables, logic constructs, looping constructs, functions and comments). The main distinction between shell programs and those written in C, C++, Java (to name but a few) is that shell programs are not compiled for execution, but are readily interpreted by the shell.
 
-`man intro` is especially useful - it displays the "Introduction to user commands" which is a well-written, fairly brief introduction to the Linux command line.
+**Question**: What is a shell script?
 
-```bash
-man intro
-```
+*Bash* is not only the default shell on Linux, but also macOS, and there are versions of *Bash* that run on Windows too. It is included with Git for Windows, and in Windows 10 *Bash* is even included by default with the [*Windows Subsystem for Linux*](https://msdn.microsoft.com/en-us/commandline/wsl/about). However, without the wealth of CLI programs that Linux distributions come with, *Bash* functionality is fairly limited.
 
-Most common commands:
+But enough theory: let's try using the terminal in practice! Go through this exercise and see what happens: [https://news.opensuse.org/2014/06/10/command-line-tuesdays-part-one/](https://news.opensuse.org/2014/06/10/command-line-tuesdays-part-one/)
 
-- `pwd`: show your current working directory
-- `cd`: change directory
-- `cd ..`: move up one directory
-- `mkdir`: create directory
-- `rm` or `rm -R`: delete files or directories
-- `sudo`: running programs as root (administrator/super-user), which may ask for your user pasword
-- `ls`: listing files in a directory
-- `cp`: copy files e.g. for backing up things or just copying. We will use these command in the scripts below.
+## Basic commands
 
+Now go through the next exercise to learn how to navigate the file system: [https://news.opensuse.org/2014/06/24/command-line-tuesdays-part-two/](https://news.opensuse.org/2014/06/24/command-line-tuesdays-part-two/)
 
-**Note**: Bash has a feature called Tab-completion. If you start writing a command or filename, pressing the `Tab` key a couple of times will give a list of suggestions for auto-completion. This is super-handy so that you never need to write filenames etc. In addition, you can recall the last commands you entered by using the up arrow key. Lastly, you can always open multiple terminals, even in tabs, by using *File* → *Open Tab*.
+The file system layout image might not display properly, but it is intended to show this:
+![Filesystem Hierarchy Standard](https://configureinstantly.files.wordpress.com/2011/01/file-system.jpg)
 
-Now type the following to bring you back to your home directory, and check what your current working directory is.
-
-```bash
-cd
-pwd
-```
-
-This should looks as follows:
+Once you're done, you should have something like this displayed in your terminal:
 
 ![cdpwd](figs/cd_pwd.png)
 
-**Question**: What is the difference between `ls -l` and `ls -lh`?
+Next, let's go into some useful every-day commands: [https://news.opensuse.org/2014/07/01/command-line-tuesdays-part-three/](https://news.opensuse.org/2014/07/01/command-line-tuesdays-part-three/)
+
+**Question**: What is the difference between `ls -l`, `ls -lh` and `ls -lh --si`?
+
+## File manipulation
+
+Now let's dive into manipulating files and directories: [https://news.opensuse.org/2014/07/08/command-line-tuesdays-part-four/](https://news.opensuse.org/2014/07/08/command-line-tuesdays-part-four/)
 
 Now, create a directory called `Bash` (i.e. a directory that will contain our *Bash* scripts)
 
@@ -224,7 +124,31 @@ rm dest_file
 
 - use `ls` commands and its options.
 
-Read the `File & Directory Commands` section (https://help.ubuntu.com/community/UsingTheTerminal) and let us know if you have questions about some commands. 
+**Tip**: Bash has a feature called Tab-completion. If you start writing a command or filename, pressing the `Tab` key a couple of times will give a list of suggestions for auto-completion. This is super-handy so that you never need to write filenames etc. In addition, you can recall the last commands you entered by using the up arrow key. Lastly, you can always open multiple terminals, even in tabs, by using *File* → *Open Tab*.
+
+## More information about commands
+
+So far we have been using only a few of the functions that the commands offer. You can find a list of them by looking at their manual pages by following the last exercise: [https://news.opensuse.org/2014/07/15/command-line-tuesdays-part-five/](https://news.opensuse.org/2014/07/15/command-line-tuesdays-part-five/)
+
+Manual pages are text files displayed in a pager program that allows easy scrolling. The default pager is `less`, which you have already used in the third exercise. You can also look at its manual page using `man less`. Also try `man intro`: the "Introduction to user commands", a well-written, fairly brief introduction to the Linux command line.
+
+```bash
+man intro
+```
+
+Here's a list of most common commands:
+
+- `pwd`: show your current working directory
+- `cd`: change directory
+- `cd ..`: move up one directory
+- `mkdir`: create directory
+- `rm` or `rm -R`: delete files or directories
+- `sudo`: running programs as root (administrator/super-user), which may ask for your user pasword
+- `ls`: listing files in a directory
+- `cp`: copy files e.g. for backing up things or just copying. We will use these command in the scripts below.
+
+
+You can also read the [Ubuntu documentation on CLI](https://help.ubuntu.com/community/UsingTheTerminal) to learn more, and let us know if you have questions about some commands. 
 
 ## Starting R or Python from the terminal
 
