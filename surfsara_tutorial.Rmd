@@ -12,13 +12,13 @@ First go to [https://ui.hpccloud.surfsara.nl/](https://ui.hpccloud.surfsara.nl/)
 
 ## Start a VM
 
-### "Cloud" view
+<!--### "Cloud" view-->
 You can start a virtual machine by going to the *VMs* tab and clicking the + button. Select the "Ubuntu 16.04 GeoScripting" template and press "Create" (do not change the size of the disks). Wait a bit until your VM enters the ready state (icon turns green).
 
-### "User" view
+<!--### "User" view
 Next, press "Change view" and set it to "user". From the Dashboard, go to Virtual Resources → Templates, select the "Ubuntu 16.04 GeoScripting" template and press "Clone". Give it a name you like: this will become your very own virtual machine. A *Template* is a set of settings for your virtual machine, including the number of cores, memory and hard disks.
 
-You can run it already by clicking on it and pressing "Instantiate", then confirming the settings by pressing "Instantiate" again. You will see your virtual machine running in the Virtual Resources → Virtual Machines page.
+You can run it already by clicking on it and pressing "Instantiate", then confirming the settings by pressing "Instantiate" again. You will see your virtual machine running in the Virtual Resources → Virtual Machines page. -->
 
 ## Log into the VM
 
@@ -45,25 +45,25 @@ Press OK, and from here on you can press the bubble on the right-hand side to la
 
 To properly shut down your VM, first you need to make sure your computer is no longer connected to it. If you have X2Go running, open the X2Go Client window again, and press the *Terminate* button on the lower right part of the main pane.
 
-### "Cloud" view
+<!--### "Cloud" view-->
 
 Then on the SURFSara website, select your VM, press the *Power off* button and confirm *Send the power off signal*. Wait for the state to become *OFF*, then press the *Delete* button and confirm deletion. *Only if your VM is deleted does it free the resources for other students to use!*
 
-### "User" view
+<!--### "User" view
 
-Then on the SURFsara website, select your VM, press the garbage can button, and select *Shutdown*. 
+Then on the SURFsara website, select your VM, press the garbage can button, and select *Shutdown*. -->
 
 ## Saving changes
 
 If you change something, then restart the VM, you may notice that your changes have been lost. This is because by default VM hard drives are not persistent. You need to clone them and set them as persistent to make the changes stick.
 
-### "Cloud" view
+<!--### "Cloud" view-->
 
 To do that, when your VM is in the *OFF* state, press the green floppy disk icon. Give your new template a name and choose "Persistent". Wait a while while your changes are saved.
 
 From here on, as long as you start the VM from the template in the *Saved* tab, the changes you do will be saved.
 
-### "User" view
+<!--### "User" view
 
 To do that, go to the *Virtual Resources* → *Images* page on the SURFsara website. This is a list of hard disks available to your VMs. Select the *Ubuntu 16.04 GeoScripting* image, which is the operating system image, then click "Clone" and name it. Go back to the image listing, selected your cloned OS image, press on the three-dots button and choose "Make persistent".
 
@@ -75,7 +75,7 @@ The OS image only has 10 GiB of space. In case it is not enough, such as for pro
 
 To do that, repeat the cloning and template editing process, but this time with the *userdata shared drive* image. When editing your teplate file (you can keep updating the cloned template you already have), instead of replacing Disk 0, press the *Add another disk* button and choose your cloned *User data* image as Disk 1.
 
-The space is then available in the *userdata* directory within your user directory (*/home/ubuntu/userdata*).
+The space is then available in the *userdata* directory within your user directory (*/home/ubuntu/userdata*).-->
 
 ## File sharing
 
@@ -92,3 +92,8 @@ The GUI option will have Windows treating files you create as read-only, however
 Another, less complicated but also less convenient method to tranfer files is using the *Secure File Transfter Protocol* (SFTP). It is a command-line program that comes with SSH. You can use it for transferring any file you can access using SSH, so it is not limited to prespecified directories like NFS is. So you can use it to get or send files outside of your *userdata* directory.
 
 To use it, open *Git Bash* again, and enter: `sftp ubuntu@<ip>`. This will give you a prompt in which you can enter commands. Use `get <file>` to download files and `put <file>` to upload them, where `<file>` is the path to the file. You can change the directory you download the files to by using `lcd <path>`, and the directory you download from by using `cd <path>`. Enter `?` for a complete list of commands, `exit` to quit. 
+
+# References
+
+* [Workshop on using SURFsara](https://doc.hpccloud.surfsara.nl/VU-20161019/index)
+* [SURFsara documentation](https://doc.hpccloud.surfsara.nl/)
