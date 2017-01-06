@@ -332,7 +332,35 @@ More info about *Bash* basics: https://www.gnu.org/software/bash/manual/bashref.
 Optional: if you are ready and want the learn more about using GDAL from the terminal. See here for another tutorial:
 http://wiki.americaview.org/display/miview/Introduction+to+GDAL
 
-## Excercise
+# Finding help
+
+Just like with programming, you may find yourself facing some issue while using Linux (software availability, programs or drivers not working as expected, bugs etc.). While during the course you may make use of the Q&A forum, for the future it is useful to know where to find help.
+
+## System overview
+
+One important aspect to realise about Linux distributions is that they are a volunteer effort. That means that unlike for example Windows, there usually is no tech support number you can call; instead, there are ways to communicate with other users who may know a solution, or indeed with the developers who wrote the software directly. Another important aspect to keep in mind is that a Linux distribution is like an onion: it is made of a whole lot of different layers of software, and identifying which layer is the cause of the problem is quite important. Below is a graph showing some of the most important layers.
+
+![Structure of a Linux distribution, from high-level to low-level.](figs/linuxstructure.png)
+
+Each of these (and many more) are software projects with their own development teams. They are typically open-source, and their developers only provide the source. Distributions are ones responsible for taking this source, compiling it into actual programs, testing them, putting them into packages and distributing them to users. A package is a relatively self-contained piece of software for a particular distribution that contains information on what other packages it requires to function properly and packages that it expects, but can work without. Users are only supposed to install distribution-provided packages: anything else is potentially unsafe, since it would mean the software has not received the testing that distribution packages have to go through.
+
+Given all this complexity, issues may be caused by misconfiguration, user error, or actual bugs in software; which in turn may lie in the packaging of software, or software itself (programs or libraries that the programs use). Usually the term *downstream* is used to describe distribution package maintainers, and *upstream* to describe the original developers of the software.
+
+## How to get help
+
+Just like with programming issues, a search engine is your first line of getting information. Note, however, that Linux distributions are for the most part quickly-moving targets: instructions written for one version of your distribution might need some changes in the next. So even if you find what seems to be a solution, you need to be critical about whether it does what you want. Checking the date is a good idea: solutions that were good 4 years ago are likely no longer relevant.
+
+Of special note is that each major Linux distribution maintains a wiki which serves as documentation and a knowledge base for common issues. You should search the wiki first and foremost, since it typically has up-to-date information for your specific distribution. For instance, if you are using Ubuntu, see the [Ubuntu wiki](https://help.ubuntu.com/community/CommunityHelpWiki).
+
+If you couldn't find the answer, your next step should be to ask the community of the distribution. Typically there are two support channels: IRC for instant messaging, and support forums.
+
+IRC (Internet Relay Chat) is used for short and straightforward questions, or questions that require a lot of back-and-forth (debugging, getting diagnostic data etc.). Packagers and software developers alike very often can be found on IRC, and are happy to help with any questions that may pop up. Most of them are on the Freenode IRC server. For instance, to access the IRC chatroom for Ubuntu support, you can use the web interface to [chat.freenode.net #ubuntu chatroom](http://webchat.freenode.net?channels=%23ubuntu) (see also [IRC guidelines and list of chatrooms](https://community.ubuntu.com/contribute/support/irc/)).
+
+Each distribution also has a dedicated support forum. Forums are more useful for more complicated questions that are difficult to explain using IRC, or for non-urgent issues. See for instance the [Ubuntu forums](https://ubuntuforums.org/). Ubuntu in particular also has its own questions and answers board called [Ask Ubuntu](http://askubuntu.com/).
+
+By this point, you should hopefully have found a solution to the problem you are facing. Sometimes, however, you may uncover an actual bug in the software. In the case you do, you should try to report it to a bug tracker. *Note*: Reporting bugs is quite advanced, and should only be done if you are sure you found a bug. It is, however, an integral part of the open-source development model: a bug that is reported is brought to the attention of the software developer and gets fixed for each and every user of the software. Just like with questions, bugs should first be reported downstream to your distribution, and only reported upstream if asked by downstream developers (or if you are sure that the bug is indeed in the source of the software, rather than the packaging of it). See for instance the [Ubuntu bug reporting guidelines](https://help.ubuntu.com/community/ReportingBugs).
+
+# Excercise
 Let's download a file from [The intro to raster lesson](https://geoscripting-wur.github.io/IntroToRaster/#raster-objects-manipulations).
 Download the `gewata.zip` file from Github ([link](https://github.com/GeoScripting-WUR/IntroToRaster/raw/gh-pages/data/gewata.zip)) and unzip in the data directory.
 
@@ -351,7 +379,7 @@ You can copy the code in the BlackBoard review center (the other team needs to m
 
 [More tips](http://www.geos.ed.ac.uk/~smudd/TopoTutorials/html/tutorial_raster_conversion.html)
 
-## More information
+# More information
 
 - [Hands-on introduction to bash basics for beginners](https://news.opensuse.org/2014/06/10/command-line-tuesdays-part-one/)
 - A great bash scripting tutorial: http://linuxconfig.org/bash-scripting-tutorial
