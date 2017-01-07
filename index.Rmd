@@ -22,7 +22,7 @@ Here is what you will do today:
 Time  | Activity
 ------------- | -------------
 Morning       |  Self-study: go through the following tutorial, and get confortable with a Linux environment and the terminal
-13:30 to 15:30  | Presentation by Erik van Schaik (Working in the cloud!)
+13:30 to 15:30  | Presentation and discussion
 Rest of the afternoon | Do and finalise the exercise
 
 # Today's Learning objectives
