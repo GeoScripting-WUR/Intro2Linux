@@ -103,7 +103,7 @@ Now let's dive into manipulating files and directories: [https://news.opensuse.o
 
 Now, create a directory called `Bash` (i.e. a directory that will contain our *Bash* scripts)
 
-```bash
+```{r, eval=FALSE, engine='bash'}
 mkdir Bash
 ```
 
@@ -117,7 +117,7 @@ Now, try out some more commands:
 - create an *R* script via *RStudio* or *RKWard*, and then remove it via the terminal using `rm filename.R`.
 - create another file and copy it and then remove it, etc.:
 
-```bash
+```{r, eval=FALSE, engine='bash'}
 cp source_file dest_file
 rm dest_file
 ```
@@ -132,7 +132,7 @@ So far we have been using only a few of the functions that the commands offer. Y
 
 Manual pages are text files displayed in a pager program that allows easy scrolling. The default pager is `less`, which you have already used in the third exercise. You can also look at its manual page using `man less`. Also try `man intro`: the "Introduction to user commands", a well-written, fairly brief introduction to the Linux command line.
 
-```bash
+```{r, eval=FALSE, engine='bash'}
 man intro
 ```
 
@@ -162,7 +162,7 @@ q()
 
 Starting and stopping *Python* from the terminal:
 
-```
+```{r, eval=FALSE, engine='bash'}
 python
 exit()
 ```
@@ -176,7 +176,7 @@ So let's get started. First, go to the `Bash` directory you just created. Within
 
 ![execute](figs/rstudioshell.png)
 
-```bash
+```{r, eval=FALSE, engine='bash'}
 #!/bin/bash
 echo "Hello, World"
 
@@ -184,13 +184,13 @@ echo "Hello, World"
 
 The first line of the script just defines which interpreter to use (and where it is located). NOTE: There is no leading whitespace before #!/bin/bash. That's it, simple as that! To find out where your `bash` interpreter is located type the following in the terminal (this works also on a Mac terminal!):
 
-```bash
+```{r, eval=FALSE, engine='bash'}
 which bash
 ```
 
 Second, to run a bash script you first have to have the correct file permissions. We do this with `chmod` (change mode) command in terminal as follows:
 
-```bash
+```{r, eval=FALSE, engine='bash'}
 chmod u+x Bash/HelloWorld.sh  # Gives your user execute permissions
 ```
 
@@ -227,19 +227,19 @@ print(system("./HelloWorld.sh", intern = TRUE)) # Execute this command in Bash
 
 Variables basically store information. You set variables like this (you can type this in the terminal). 
 
-```bash
+```{r, eval=FALSE, engine='bash'}
 var="FOO"
 ```
 
 `var` can be anything you want as long as it doesn't begin with a number. "FOO" can be anything you want. To access the information from the variable you need to put a '$' in front of it like this:
 
-```bash
+```{r, eval=FALSE, engine='bash'}
 echo $var
 ```
 
 Now create the following e.g. `variables.sh` script in the *Bash* folder and apply the `chmod u+x variables.sh` command on this script using the terminal.
 
-```bash
+```{r, eval=FALSE, engine='bash'}
 #!/bin/bash
 echo "Now with the read function"
 clear
@@ -268,7 +268,7 @@ We will learn more about GDAL in the later lessons. GDAL is a very powerful and 
 Let's download a file from [The intro to raster lesson](https://geoscripting-wur.github.io/IntroToRaster/#raster-objects-manipulations):
 Download the `gewata.zip` file from Github ([link](https://github.com/GeoScripting-WUR/IntroToRaster/raw/gh-pages/data/gewata.zip)) and unzip in the `data` directory. Type the following in the `data` directory: (Note: You can write a shell script to do the following commands below but first type in the commands via the terminal to understand what is happening.)
 
-```{r, eval = TRUE, engine='bash'}
+```{r, eval = FALSE, engine='bash'}
 echo "the current GDAL version is:"
 gdal-config --version
 ```
@@ -277,7 +277,7 @@ One of the easiest and most useful commands in GDAL is `gdalinfo`. When given an
 
 Using gdalinfo:
 
-```{r, eval = TRUE, engine='bash', eval=FALSE}
+```{r, eval = FALSE, engine='bash', eval=FALSE}
 cd data
 ls *.tif
 gdalinfo -nomd -norat -noct LE71700552001036SGS00_SR_Gewata_INT1U.tif
@@ -286,7 +286,7 @@ gdalinfo -nomd -norat -noct LE71700552001036SGS00_SR_Gewata_INT1U.tif
 Now let's calculate the NDVI via GDAL terminal by using the `gdal_calc.py`. See [GDAL_calc](http://www.gdal.org/gdal_calc.html) for more information.
 
 
-```{r, engine='bash', eval=TRUE}
+```{r, engine='bash', eval=FALSE}
 cd data
 cp LE71700552001036SGS00_SR_Gewata_INT1U.tif input.tif
 echo "* all files in the directory"
