@@ -66,7 +66,7 @@ Once you have everything ready, login into your Linux VM, try out RStudio/RKWard
 
 There are two ways to interact with your operating system: a graphical user interface (GUI), where you point and click, and a command-line interface (CLI), where you type commands to make something happen. GUIs are simpler to use, but CLIs are more powerful and faster for some tasks, once you get used to them.
 
-**Question**: What are the advantages of using CLI? Can you think of some examples?
+**Question 1**: What are the advantages of using CLI? Can you think of some examples?
 
 Most Linux distributions come with a *terminal*, which is a program you use to run CLI programs. You might know the *Command Prompt* program on Windows: that is a type of *terminal*. On Linux, there is a variety of terminal applications to choose from. You can start one on your virtual machine by clicking on *Applications* → *Terminal Emulator*. This will look like:
 
@@ -76,7 +76,7 @@ A *terminal* is just a gateway to the world of CLIs, but through it you interact
 
 *Bash* shell scripting, like also *R* or *Python*, allows multiple commands to be combined, facilitating automation. A shell script (shell program) is a text file that contains commands that are interpreted by the shell (see below, we will learn how to write a shell script). Each command can be linked in a script to combine several commands by providing the output of one as input to the other. Shell scripts can also contain the control structures common to the majority of programming languages (i.e. variables, logic constructs, looping constructs, functions and comments). The main distinction between shell programs and those written in C, C++, Java (to name but a few) is that shell programs are not compiled for execution, but are readily interpreted by the shell.
 
-**Question**: What is a shell script?
+**Question 2**: What is a shell script?
 
 *Bash* is not only the default shell on Linux, but also macOS, and there are versions of *Bash* that run on Windows too. It is included with Git for Windows, and in Windows 10 *Bash* is even included by default with the [*Windows Subsystem for Linux*](https://msdn.microsoft.com/en-us/commandline/wsl/about). However, without the wealth of CLI programs that Linux distributions come with, *Bash* functionality is fairly limited.
 
@@ -95,7 +95,7 @@ Once you're done, you should have something like this displayed in your terminal
 
 Next, let's go into some useful every-day commands: [https://news.opensuse.org/2014/07/01/command-line-tuesdays-part-three/](https://news.opensuse.org/2014/07/01/command-line-tuesdays-part-three/)
 
-**Question**: What is the difference between `ls -l`, `ls -lh` and `ls -lh --si`?
+**Question 3**: What is the difference between `ls -l`, `ls -lh` and `ls -lh --si`?
 
 ## File manipulation
 
@@ -213,7 +213,7 @@ Hopefully you should have seen it print `Hello, World` onto your screen. If so w
 
 ![BashScript](figs/Scripting.png)
 
-**Question**: Why do we add `./` in front of the Bash script?
+**Question 4**: Why do we add `./` in front of the Bash script?
 
 **Note**: we can also access the Terminal from R using the `system()` function that can invoke an OS command:
 
@@ -257,7 +257,7 @@ You can run the script once it is *executable*:
 ./variables.sh
 ```
 
-**Question**: Try it out yourself, and try to do a calculation of e.g. a + b as input variables. Hint: [Shell-tips](https://www.shell-tips.com/2010/06/14/performing-math-calculation-in-bash/)
+**Question 5**: Try it out yourself, and try to do a calculation of e.g. a + b as input variables. Hint: [Shell-tips](https://www.shell-tips.com/2010/06/14/performing-math-calculation-in-bash/)
 
 If you want to learn more about *Bash* scripting: https://help.ubuntu.com/community/Beginners/BashScripting
 
@@ -297,7 +297,7 @@ echo "* remove the input temporary file"
 rm input.tif
 ```
 
-**Question**: Try to write to calculate the NDVI using the lines above in a nice and short shell script.
+**Question 6**: Try to write to calculate the NDVI using the lines above in a nice and short shell script.
 - Hint 1: `cd ../data` (to move back from the Bash folder and move into the data folder)
 - Hint 2: No spaces in file names are allowed and try to use variables e.g. `fn=$(ls *.tif)`
 
