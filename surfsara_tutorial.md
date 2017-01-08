@@ -85,7 +85,7 @@ First, start *Git Bash*. This will open a terminal window. In it, enter: `ssh -N
 
 To map the network drive, there are also two options. The GUI option is to open My Computer, press the *Map Network Drive* button, and enter `localhost:/home/ubuntu/userdata` (again, use the IP of your VM). Double-clicking on the drive, you will see a folder with nothing but an inaccesible `lost+found` folder. It is the */home/ubuntu/userdata* directory on the VM, and you can drag and drop files and folders to and from it. To disconnect, right-click on the network drive and click *Disconnect*.
 
-The GUI option will have Windows treating files you create as read-only, however. To make it treat them as read-write, you need to use the command line option. To do that, run `cmd.exe` (Command Prompt) from the Start menu, then enter `mount -o fileaccess=777 localhost:/home/ubuntu/userdata Z:`. This will make the drive appear in My Computer just like the GUI method did.
+**Note**: If the GUI option has Windows treating files you create as read-only, try mounting the remote drive by using the command line. To do that, run `cmd.exe` (Command Prompt) from the Start menu, then enter `mount -o fileaccess=777 localhost:/home/ubuntu/userdata Z:`. This will make the drive appear in My Computer just like the GUI method did, with all new files being treated as read-write.
 
 ![NFS shared drive mapped to drive Z:](figs/filesharing.png)
 
