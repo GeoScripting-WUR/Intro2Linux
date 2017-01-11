@@ -866,7 +866,7 @@
 <h1 class="title"><a href="https://geoscripting-wur.github.io/">WUR Geo-scripting</a></h1>
 <h1 class="subtitle">Week 1, Lesson 3: Getting started with Linux, the terminal and bash scripting</h1>
 <h2 class="author">Jan Verbesselt and Dainius Masiliunas</h2>
-<h3 class="date">08 January, 2017</h3>
+<h3 class="date">11 January, 2017</h3>
 </div>
 <div id="wrap">
 <div class="container">
@@ -893,7 +893,7 @@
 </tr>
 <tr class="even">
 <td align="left">13:30 to 15:30</td>
-<td align="left">Presentation and discussion</td>
+<td align="left">Discussion</td>
 </tr>
 <tr class="odd">
 <td align="left">Rest of the afternoon</td>
@@ -918,21 +918,27 @@
 <h2 id="why-use-a-linux-distribution">Why use a Linux distribution?</h2>
 <p>A Linux environment makes it much easier to install and combine a variety of open-source software, such as Python modules and GDAL, compared to other operating systems like Windows or macOS. In addition, open-source scientific software is often developed primarily for Linux (since that's what most supercomputers and servers run!), and so it tends to be more stable and have more features on Linux. Furthermore, at Wageningen University &amp; Research PC labs, ArcGIS and ArcPy are installed on the Windows machines, and this Python version tends to cause conflicts with open-source Python modules and tools (e.g. GDAL, GEOS).</p>
 <h2 id="getting-started-on-linux">Getting started on Linux</h2>
-<p>During the course we will make use of a Linux virtual machine. There are two varieties of virtual machines available for this course: cloud VMs hosted by the <a href="https://userinfo.surfsara.nl/systems/hpc-cloud">SURFsara High Performance Computing cloud</a> and accessed over the internet, and local VMs installed on the PCs in the PC lab. Either can be used, although most testing has been done on the cloud VMs.</p>
-<p>First of all, you will need to set up either of the two.</p>
+<p>During the course we will make use of a Linux virtual machine. There are two varieties of virtual machines available for this course: cloud VMs hosted by the <a href="https://userinfo.surfsara.nl/systems/hpc-cloud">SURFsara High Performance Computing cloud</a> and accessed over the internet, and local VMs installed on the PCs in the PC lab. Either can be used, although most testing has been done on the cloud VMs. Also note that the cloud VMs will not be available on Tuesday 24 January 2017, so it is best if you try out both solutions (as time permits).</p>
+<p>First of all, you will need to set them up.</p>
 <h3 id="surfsara-cloud-vm-setup">SURFsara cloud VM setup</h3>
 <p><a href="surfsara_tutorial.html">See this page for instructions on setting up the SURFsara cloud VMs</a>.</p>
 <h3 id="virtualbox-vm-setup">VirtualBox VM setup</h3>
-<p><a href="https://live.osgeo.org/en/quickstart/virtualization_quickstart.html">See this page for general instructions on setting up OSGeo-Live on VirtualBox</a>. <strong>Note</strong>: There are cusom VM files provided so you don't have to download them from the internet (the files are quite large). You also do not need to add yourself to the <code>vboxsf</code> group (this is already taken care of). In the options, you might want to enable clipboard support (<em>Both</em>) so you can copy-paste between Windows and Linux.</p>
+<p>To set up VirtualBox, first find the provided image of OSGeo-Live on the network drive in the PC lab, which should be available to you as <em>W:51806-live.ova</em>. This is a compressed VirtualBox image with RStudio installed. For use on your own PCs, you can copy the file on your PC from the PC lab or download OSGeo-Live from <a href="https://live.osgeo.org/en/quickstart/virtualization_quickstart.html">its website</a>.</p>
+<p>Once you have the file, all you need to do is import it in VirtualBox by going to <em>File → Import Appliance</em> and specifying the location of the OVA file. Everything else can be left default.</p>
+<p>Once importing is complete, you can go to the appliance settings and set the M: shared folder to be read-write by deselecting <em>Read-only</em> in its properties (<em>Shared folders</em> tab). That way all files you have in the shared folder will also be visible from the VM. You can see it by running the VM, opening the file manager in it and clicking on the <em>sf_M_DRIVE</em> mount on the left side of the window.</p>
 <p>Once you have everything ready, login into your Linux VM, try out RStudio/RKWard, and also open QGIS.</p>
 <h1 id="using-the-terminal-and-bash">Using the terminal and <em>Bash</em></h1>
 <p>There are two ways to interact with your operating system: a graphical user interface (GUI), where you point and click, and a command-line interface (CLI), where you type commands to make something happen. GUIs are simpler to use, but CLIs are more powerful and faster for some tasks, once you get used to them.</p>
+<blockquote>
 <p><strong>Question 1</strong>: What are the advantages of using CLI? Can you think of some examples?</p>
+</blockquote>
 <p>Most Linux distributions come with a <em>terminal</em>, which is a program you use to run CLI programs. You might know the <em>Command Prompt</em> program on Windows: that is a type of <em>terminal</em>. On Linux, there is a variety of terminal applications to choose from. You can start one on your virtual machine by clicking on <em>Applications</em> → <em>Terminal Emulator</em>. This will look like:</p>
 <p><img src="figs/terminal.png" alt="terminal" /></p>
 <p>A <em>terminal</em> is just a gateway to the world of CLIs, but through it you interact with a particular <em>shell</em> (or <em>command interpreter</em>) which speaks a programming language. The default shell on Linux is <em>Bash</em>, and programs written in the <em>Bash</em> language are called <em>Bash scripts</em>. Much like the <em>R</em> console, you can input commands to <em>Bash</em> line by line through the <em>terminal</em>.</p>
 <p><em>Bash</em> shell scripting, like also <em>R</em> or <em>Python</em>, allows multiple commands to be combined, facilitating automation. A shell script (shell program) is a text file that contains commands that are interpreted by the shell (see below, we will learn how to write a shell script). Each command can be linked in a script to combine several commands by providing the output of one as input to the other. Shell scripts can also contain the control structures common to the majority of programming languages (i.e. variables, logic constructs, looping constructs, functions and comments). The main distinction between shell programs and those written in C, C++, Java (to name but a few) is that shell programs are not compiled for execution, but are readily interpreted by the shell.</p>
+<blockquote>
 <p><strong>Question 2</strong>: What is a shell script?</p>
+</blockquote>
 <p><em>Bash</em> is not only the default shell on Linux, but also macOS, and there are versions of <em>Bash</em> that run on Windows too. It is included with Git for Windows, and in Windows 10 <em>Bash</em> is even included by default with the <a href="https://msdn.microsoft.com/en-us/commandline/wsl/about"><em>Windows Subsystem for Linux</em></a>. However, without the wealth of CLI programs that Linux distributions come with, <em>Bash</em> functionality is fairly limited.</p>
 <p>But enough theory: let's try using the terminal in practice! Go through this exercise and see what happens: <a href="https://news.opensuse.org/2014/06/10/command-line-tuesdays-part-one/" class="uri">https://news.opensuse.org/2014/06/10/command-line-tuesdays-part-one/</a></p>
 <h2 id="basic-commands">Basic commands</h2>
@@ -941,7 +947,9 @@
 <p>Once you're done, you should have something like this displayed in your terminal:</p>
 <p><img src="figs/cd_pwd.png" alt="cdpwd" /></p>
 <p>Next, let's go into some useful every-day commands: <a href="https://news.opensuse.org/2014/07/01/command-line-tuesdays-part-three/" class="uri">https://news.opensuse.org/2014/07/01/command-line-tuesdays-part-three/</a></p>
+<blockquote>
 <p><strong>Question 3</strong>: What is the difference between <code>ls -l</code>, <code>ls -lh</code> and <code>ls -lh --si</code>?</p>
+</blockquote>
 <h2 id="file-manipulation">File manipulation</h2>
 <p>Now let's dive into manipulating files and directories: <a href="https://news.opensuse.org/2014/07/08/command-line-tuesdays-part-four/" class="uri">https://news.opensuse.org/2014/07/08/command-line-tuesdays-part-four/</a></p>
 <p>Now, create a directory called <code>Bash</code> (i.e. a directory that will contain our <em>Bash</em> scripts)</p>
@@ -986,6 +994,21 @@ rm dest_file</code></pre>
 <li><code>cp</code>: copy files e.g. for backing up things or just copying. We will use these command in the scripts below.</li>
 </ul>
 <p>You can also read the <a href="https://help.ubuntu.com/community/UsingTheTerminal">Ubuntu documentation on CLI</a> to learn more, and let us know if you have questions about some commands.</p>
+<h2 id="package-installation-and-management">Package installation and management</h2>
+<p>One of the greatest advantages of Linux distributions over other OSs is the package manager. Even if you never used Linux before, you are probably already using a package manager on your mobile device: The App Store, Google Play Store and Windows Store are all package managers, modelled after the Linux ones. A package manager is a central system for downloading, installing and removing software.</p>
+<p>Each major Linux distribution has its own package manager, which is aware of all packages maintained by the distribution. These packages are tested and are known to work with that particular distribution version, so the package manager is the first place to look for installing additional software. The package manager is typically a command-line program, although some distributions also have GUI interfaces for it.</p>
+<p>Ubuntu uses <em>Aptitude</em> as the package manager. Here is a short list of the most useful package manager commands on Ubuntu:</p>
+<ul>
+<li><code>apt search</code>: Search for a package</li>
+<li><code>sudo apt-get install</code>: Install a package</li>
+<li><code>sudo apt-get update</code>: Update one or more packages</li>
+<li><code>sudo apt-get remove</code>: Uninstall a package</li>
+<li>See <code>man apt</code> for more.</li>
+</ul>
+<p>For instance, if you run <code>apt search chrom</code>, one of the results will be <code>chromium-browser</code>. It's <a href="https://en.wikipedia.org/wiki/Chromium_(web_browser)">Chromium</a>, the open-source version of Google Chrome. You can install it by running <code>sudo apt-get install chromium-browser</code>. Similarly, the Ubuntu package repository contains a lot (but not all) of R packages (they are prefixed with <code>r-cran-</code>) and Python packages (prefixed with <code>python-</code>; the ones prefixed with <code>python3-</code> are for Python 3 which we will not be using this year). If there is a package available in the distribution repository, almost always it is better to use that instead of using a package manager built into the language (<code>install.packages</code> in R and <code>easyinstall</code>/<code>pip</code>/<code>conda</code> in Python).</p>
+<p>The aforementioned commands are specific to Debian and its derivatives (Ubuntu is one). In other distributions, package manager syntax is different, but the result is the same. For instance, in openSUSE the equivalent commands would be <code>zypper search</code>, <code>sudo zypper install</code>, <code>sudo zypper update</code> and <code>sudo zypper remove</code>.</p>
+<p>Whenever a package is not included in the distribution repository, one option is to look for additional software sources. Ubuntu allows users to maintain their own packages through a system called Personal Package Archives (PPA). However, these packages are not tested and are not guaranteed to work, or could even cause problems in the system, so you have to be careful. Other distributions also have their own third-party repository systems: openSUSE uses Open Build Service, Fedora uses Copr etc.</p>
+<p>If a package doesn't exist in third party repositories either, there is often the possibility to download the source code of a package and compile it. Often times cross-platform software vendors provide installers for Windows and source code for Linux. However, compiling from source yourself should only be done as the very last resort; in fact, it is often easier and safer to create a package yourself than to try to build it from source!</p>
 <h2 id="starting-r-or-python-from-the-terminal">Starting R or Python from the terminal</h2>
 Starting and stopping R from the terminal (this is the same as the R console you know from <em>RStudio</em>/<em>RKWard</em>):
 <div class="row">
@@ -1048,7 +1071,9 @@ echo "We can now run our first Bash script:"
 </div>
 <p>Hopefully you should have seen it print <code>Hello, World</code> onto your screen. If so well done! That is your first <em>Bash</em> script (see below for a screenshot):</p>
 <p><img src="figs/Scripting.png" alt="BashScript" /></p>
+<blockquote>
 <p><strong>Question 4</strong>: Why do we add <code>./</code> in front of the Bash script?</p>
+</blockquote>
 <p><strong>Note</strong>: we can also access the Terminal from R using the <code>system()</code> function that can invoke an OS command:</p>
 <div class="row">
 <button class="source R toggle btn btn-xs btn-primary">
@@ -1101,7 +1126,9 @@ You can run the script once it is <em>executable</em>:
 </button>
 <pre style=""><code class="source bash">./variables.sh</code></pre>
 </div>
+<blockquote>
 <p><strong>Question 5</strong>: Try it out yourself, and try to do a calculation of e.g. a + b as input variables. Hint: <a href="https://www.shell-tips.com/2010/06/14/performing-math-calculation-in-bash/">Shell-tips</a></p>
+</blockquote>
 <p>If you want to learn more about <em>Bash</em> scripting: https://help.ubuntu.com/community/Beginners/BashScripting</p>
 <h2 id="using-the-gdal-library-from-the-terminal">Using the GDAL library from the terminal</h2>
 <p>We will learn more about GDAL in the later lessons. GDAL is a very powerful and fast processing library written in C/C++ for raster and vector geospatial data formats. Now via the terminal we can access GDAL directly! E.g. we can check out what the current version of GDAL is that is installed on our Linux OS.</p>
@@ -1137,7 +1164,13 @@ gdal_calc.py -A input.tif --A_band=4 -B input.tif --B_band=3  --outfile=ndvi.tif
 echo "* remove the input temporary file"
 rm input.tif</code></pre>
 </div>
-<p><strong>Question 6</strong>: Try to write to calculate the NDVI using the lines above in a nice and short shell script. - Hint 1: <code>cd ../data</code> (to move back from the Bash folder and move into the data folder) - Hint 2: No spaces in file names are allowed and try to use variables e.g. <code>fn=$(ls *.tif)</code></p>
+<blockquote>
+<p><strong>Question 6</strong>: Try to write to calculate the NDVI using the lines above in a nice and short shell script.</p>
+</blockquote>
+<ul>
+<li>Hint 1: <code>cd ../data</code> (to move back from the Bash folder and move into the data folder)</li>
+<li>Hint 2: No spaces in file names are allowed and try to use variables e.g. <code>fn=$(ls *.tif)</code></li>
+</ul>
 Let's now check if the range of the NDVI values makes sense, and make a nice script:
 <div class="row">
 <button class="source bash toggle btn btn-xs btn-primary">
