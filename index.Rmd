@@ -58,7 +58,7 @@ First of all, you will need to set them up.
 
 ### VirtualBox VM setup
 
-To set up VirtualBox, first find the provided image of OSGeo-Live on the network drive in the PC lab, which should be available to you as *W:\Student\Shares\GRS51806\osgeo-live.ova*. This is a compressed VirtualBox image with RStudio installed. For use on your own PCs, you can copy the file on your PC from the PC lab or download OSGeo-Live from [its website](https://live.osgeo.org/en/quickstart/virtualization_quickstart.html).
+To set up VirtualBox, first find the provided image of OSGeo-Live on the network drive in the PC lab, which should be available to you as `W:\Student\Shares\GRS51806\osgeo-live.ova`. This is a compressed VirtualBox image with RStudio installed. For use on your own PCs, you can copy the file on your PC from the PC lab or download OSGeo-Live from [its website](https://live.osgeo.org/en/quickstart/virtualization_quickstart.html).
 
 Once you have the file, all you need to do is import it in VirtualBox by going to *File → Import Appliance* and specifying the location of the OVA file. Everything else can be left default.
 
