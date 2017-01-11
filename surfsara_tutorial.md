@@ -6,14 +6,14 @@ In the field of geo-information, the amount of available data is staggering. Thi
 
 ## Enrol your SSH key
 
-First go to [https://ui.hpccloud.surfsara.nl/](https://ui.hpccloud.surfsara.nl/) and log in with the credentials that have been provided to you by email. Each student has a unique account. Then, click on your username and go to Settings. Click "Update SSH Key" and paste the public key you generated in the previous lesson into the text box, and click the "Update SSH Key" button.
+First go to [https://ui.hpccloud.surfsara.nl/](https://ui.hpccloud.surfsara.nl/) and log in with the credentials that have been provided to you. Each student has a unique account. Then, click on your username and go to Settings. Click "Update SSH Key" and paste the public key you generated in the previous lesson into the text box, and click the "Update SSH Key" button.
 
 **Hint**: the easiest way to find it is by running Git GUI, though Help → Show SSH Key. In the PC lab the SSH keys are stored on the *M:* drive, so they are unique to the WUR user account. If you want to access the cloud from your own device, you will need to update the SSH key in your SURFsara account to the one on your device.
 
 ## Start a VM
 
 <!--### "Cloud" view-->
-You can start a virtual machine by going to the *VMs* tab and clicking the + button. Select the "Ubuntu 16.04 GeoScripting" template and press "Create" (do not change the size of the disks). Wait a bit until your VM enters the ready state (icon turns green).
+You can start a virtual machine by going to the *VMs* tab and clicking the + button. Select the "Ubuntu 16.04 GeoScripting" template and press "Create" (do not change the size of the disks). Wait a bit (several minutes) until your VM enters the ready state (icon turns green).
 
 <!--### "User" view
 Next, press "Change view" and set it to "user". From the Dashboard, go to Virtual Resources → Templates, select the "Ubuntu 16.04 GeoScripting" template and press "Clone". Give it a name you like: this will become your very own virtual machine. A *Template* is a set of settings for your virtual machine, including the number of cores, memory and hard disks.
@@ -41,13 +41,15 @@ Press OK, and from here on you can press the bubble on the right-hand side to la
 
 ## Shut down a VM
 
-**Important**: Remember to properly shut down VMs you don't need, as they take up precious resources from the cloud! If you do not, other students might not be able to start their own VMs.
+> **Very important**: Remember to properly shut down VMs that you are not actively using, as they take up precious resources from the cloud! If you do not, other students might not be able to start their own VMs.
 
 To properly shut down your VM, first you need to make sure your computer is no longer connected to it. If you have X2Go running, open the X2Go Client window again, and press the *Terminate* button on the lower right part of the main pane.
 
 <!--### "Cloud" view-->
 
-Then on the SURFSara website, select your VM, press the *Power off* button and confirm *Send the power off signal*. Wait for the state to become *OFF*, then press the *Delete* button and confirm deletion. *Only if your VM is deleted does it free the resources for other students to use!*
+Then on the SURFSara website, select your VM, press the *Power off* button and confirm *Send the power off signal*. Wait for the state to become *OFF*, then press the *Delete* button and confirm deletion.
+
+> **Important**: Only if your VM is *deleted* (does *not* show up in the VMs tab altogether) does it free the resources for other students to use!
 
 <!--### "User" view
 
@@ -62,6 +64,8 @@ If you change something, then restart the VM, you may notice that your changes h
 To do that, when your VM is in the *OFF* state, press the green floppy disk icon. Give your new template a name and choose "Persistent". Wait a while while your changes are saved.
 
 From here on, as long as you start the VM from the template in the *Saved* tab, the changes you do will be saved.
+
+**Important**: Do not make more than one VM persistent, as it might go over the hard disk quota! If you want to start fresh, make sure your previous saved template is deleted first.
 
 <!--### "User" view
 
