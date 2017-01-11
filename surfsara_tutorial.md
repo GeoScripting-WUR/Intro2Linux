@@ -1,12 +1,12 @@
-# Why cloud computing?
+# Getting started with SURFsara cloud
+
+## Why cloud computing?
 
 In the field of geo-information, the amount of available data is staggering. This *Big Data* is often too large to download and too intensive to process on a personal computer. Therefore data providers such as the European Space Agency and research organisations like SURFsara are now offering virtual machines (VM) running on their own cloud infrastructure for scientific purposes, so that this Big Data can be processed faster and more efficiently. These cloud VMs are typically running Linux distributions and have a whole lot of resources (processor cores, RAM, hard disk) available.
 
-# Getting started with SURFsara cloud
-
 ## Enrol your SSH key
 
-First go to [https://ui.hpccloud.surfsara.nl/](https://ui.hpccloud.surfsara.nl/) and log in with the credentials that have been provided to you. Each student has a unique account. Then, click on your username and go to Settings. Click "Update SSH Key" and paste the public key you generated in the previous lesson into the text box, and click the "Update SSH Key" button.
+Let's start with SURFsara cloud. First go to [https://ui.hpccloud.surfsara.nl/](https://ui.hpccloud.surfsara.nl/) and log in with the credentials that have been provided to you. Each student has a unique account. Then, click on your username and go to Settings. Click "Update SSH Key" and paste the public key you generated in the previous lesson into the text box, and click the "Update SSH Key" button.
 
 **Hint**: the easiest way to find it is by running Git GUI, though Help → Show SSH Key. In the PC lab the SSH keys are stored on the *M:* drive, so they are unique to the WUR user account. If you want to access the cloud from your own device, you will need to update the SSH key in your SURFsara account to the one on your device.
 
@@ -41,15 +41,15 @@ Press OK, and from here on you can press the bubble on the right-hand side to la
 
 ## Shut down a VM
 
-> **Very important**: Remember to properly shut down VMs that you are not actively using, as they take up precious resources from the cloud! If you do not, other students might not be able to start their own VMs.
+**Very important: Remember to properly shut down VMs that you are not actively using, as they take up precious resources from the cloud! If you do not, other students might not be able to start their own VMs.**
 
-To properly shut down your VM, first you need to make sure your computer is no longer connected to it. If you have X2Go running, open the X2Go Client window again, and press the *Terminate* button on the lower right part of the main pane.
+To properly shut down your VM, first you need to make sure your computer is no longer connected to it. If you have X2Go running, open the X2Go Client window again, and press the *Terminate* button on the lower right part of the main pane. This will gracefully log your user out.
 
 <!--### "Cloud" view-->
 
 Then on the SURFSara website, select your VM, press the *Power off* button and confirm *Send the power off signal*. Wait for the state to become *OFF*, then press the *Delete* button and confirm deletion.
 
-> **Important**: Only if your VM is *deleted* (does *not* show up in the VMs tab altogether) does it free the resources for other students to use!
+**Important**: Only if your VM is **deleted** (does **not** show up in the *VMs* tab altogether) does it free the resources for other students to use!
 
 <!--### "User" view
 
@@ -61,7 +61,7 @@ If you change something, then restart the VM, you may notice that your changes h
 
 <!--### "Cloud" view-->
 
-To do that, when your VM is in the *OFF* state, press the green floppy disk icon. Give your new template a name and choose "Persistent". Wait a while while your changes are saved.
+To do that, when your VM is in the *OFF* state, press the green floppy disk icon. Give your new template a descriptive name (for example, your name or the name of your group) and choose "Persistent". Wait a while while your changes are saved.
 
 From here on, as long as you start the VM from the template in the *Saved* tab, the changes you do will be saved.
 
