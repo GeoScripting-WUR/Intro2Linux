@@ -13,7 +13,7 @@ Let's start with SURFsara cloud. First go to [https://ui.hpccloud.surfsara.nl/](
 ## Start a VM
 
 <!--### "Cloud" view-->
-You can start a virtual machine by going to the *VMs* tab and clicking the + button. Select the "Ubuntu 16.04 GeoScripting" template and press "Create" (do not change the size of the disks). Wait a bit (several minutes) until your VM enters the ready state (icon turns green).
+You can start a virtual machine by going to the *VMs* tab and clicking the + button. Select the "Ubuntu 16.04 GeoScripting" template and press "Create" (do not change the size of the disks). Wait a bit (several minutes) until your VM enters the ready state (icon turns green). Note that the page does not update automatically: you need to click the *Refresh* (circling arrows) button in the SURFsara UI (**not** in your browser!) to update the view.
 
 <!--### "User" view
 Next, press "Change view" and set it to "user". From the Dashboard, go to Virtual Resources → Templates, select the "Ubuntu 16.04 GeoScripting" template and press "Clone". Give it a name you like: this will become your very own virtual machine. A *Template* is a set of settings for your virtual machine, including the number of cores, memory and hard disks.
