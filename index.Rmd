@@ -22,7 +22,7 @@ Here is what you will do today:
 Time  | Activity
 ------------- | -------------
 Morning       |  Self-study: go through the following tutorial, and get confortable with a Linux environment and the terminal
-13:30 to 15:30  | Presentation and discussion
+13:30 to 15:30  | Discussion
 Rest of the afternoon | Do and finalise the exercise
 
 # Today's Learning objectives
@@ -48,9 +48,9 @@ A Linux environment makes it much easier to install and combine a variety of ope
 
 ## Getting started on Linux
 
-During the course we will make use of a Linux virtual machine. There are two varieties of virtual machines available for this course: cloud VMs hosted by the [SURFsara High Performance Computing cloud](https://userinfo.surfsara.nl/systems/hpc-cloud) and accessed over the internet, and local VMs installed on the PCs in the PC lab. Either can be used, although most testing has been done on the cloud VMs.
+During the course we will make use of a Linux virtual machine. There are two varieties of virtual machines available for this course: cloud VMs hosted by the [SURFsara High Performance Computing cloud](https://userinfo.surfsara.nl/systems/hpc-cloud) and accessed over the internet, and local VMs installed on the PCs in the PC lab. Either can be used, although most testing has been done on the cloud VMs. Also note that the cloud VMs will not be available on Tuesday 24 January 2017, so it is best if you try out both solutions (as time permits).
 
-First of all, you will need to set up either of the two.
+First of all, you will need to set them up.
 
 ### SURFsara cloud VM setup
 
@@ -58,7 +58,11 @@ First of all, you will need to set up either of the two.
 
 ### VirtualBox VM setup
 
-[See this page for general instructions on setting up OSGeo-Live on VirtualBox](https://live.osgeo.org/en/quickstart/virtualization_quickstart.html). **Note**: There are cusom VM files provided so you don't have to download them from the internet (the files are quite large). You also do not need to add yourself to the `vboxsf` group (this is already taken care of). In the options, you might want to enable clipboard support (*Both*) so you can copy-paste between Windows and Linux.
+To set up VirtualBox, first find the provided image of OSGeo-Live on the network drive in the PC lab, which should be available to you as *W:\Student\Shares\GRS51806\osgeo-live.ova*. This is a compressed VirtualBox image with RStudio installed. For use on your own PCs, you can copy the file on your PC from the PC lab or download OSGeo-Live from [its website](https://live.osgeo.org/en/quickstart/virtualization_quickstart.html).
+
+Once you have the file, all you need to do is import it in VirtualBox by going to *File → Import Appliance* and specifying the location of the OVA file. Everything else can be left default.
+
+Once importing is complete, you can go to the appliance settings and set the M: shared folder to be read-write by deselecting *Read-only* in its properties (*Shared folders* tab). That way all files you have in the shared folder will also be visible from the VM. You can see it by running the VM, opening the file manager in it and clicking on the *sf_M_DRIVE* mount on the left side of the window.
 
 Once you have everything ready, login into your Linux VM, try out RStudio/RKWard, and also open QGIS.
 
@@ -66,7 +70,7 @@ Once you have everything ready, login into your Linux VM, try out RStudio/RKWard
 
 There are two ways to interact with your operating system: a graphical user interface (GUI), where you point and click, and a command-line interface (CLI), where you type commands to make something happen. GUIs are simpler to use, but CLIs are more powerful and faster for some tasks, once you get used to them.
 
-**Question 1**: What are the advantages of using CLI? Can you think of some examples?
+> **Question 1**: What are the advantages of using CLI? Can you think of some examples?
 
 Most Linux distributions come with a *terminal*, which is a program you use to run CLI programs. You might know the *Command Prompt* program on Windows: that is a type of *terminal*. On Linux, there is a variety of terminal applications to choose from. You can start one on your virtual machine by clicking on *Applications* → *Terminal Emulator*. This will look like:
 
@@ -76,7 +80,7 @@ A *terminal* is just a gateway to the world of CLIs, but through it you interact
 
 *Bash* shell scripting, like also *R* or *Python*, allows multiple commands to be combined, facilitating automation. A shell script (shell program) is a text file that contains commands that are interpreted by the shell (see below, we will learn how to write a shell script). Each command can be linked in a script to combine several commands by providing the output of one as input to the other. Shell scripts can also contain the control structures common to the majority of programming languages (i.e. variables, logic constructs, looping constructs, functions and comments). The main distinction between shell programs and those written in C, C++, Java (to name but a few) is that shell programs are not compiled for execution, but are readily interpreted by the shell.
 
-**Question 2**: What is a shell script?
+> **Question 2**: What is a shell script?
 
 *Bash* is not only the default shell on Linux, but also macOS, and there are versions of *Bash* that run on Windows too. It is included with Git for Windows, and in Windows 10 *Bash* is even included by default with the [*Windows Subsystem for Linux*](https://msdn.microsoft.com/en-us/commandline/wsl/about). However, without the wealth of CLI programs that Linux distributions come with, *Bash* functionality is fairly limited.
 
@@ -95,7 +99,7 @@ Once you're done, you should have something like this displayed in your terminal
 
 Next, let's go into some useful every-day commands: [https://news.opensuse.org/2014/07/01/command-line-tuesdays-part-three/](https://news.opensuse.org/2014/07/01/command-line-tuesdays-part-three/)
 
-**Question 3**: What is the difference between `ls -l`, `ls -lh` and `ls -lh --si`?
+> **Question 3**: What is the difference between `ls -l`, `ls -lh` and `ls -lh --si`?
 
 ## File manipulation
 
@@ -149,6 +153,28 @@ Here's a list of most common commands:
 
 
 You can also read the [Ubuntu documentation on CLI](https://help.ubuntu.com/community/UsingTheTerminal) to learn more, and let us know if you have questions about some commands. 
+
+## Package installation and management
+
+One of the greatest advantages of Linux distributions over other OSs is the package manager. Even if you never used Linux before, you are probably already using a package manager on your mobile device: The App Store, Google Play Store and Windows Store are all package managers, modelled after the Linux ones. A package manager is a central system for downloading, installing and removing software.
+
+Each major Linux distribution has its own package manager, which is aware of all packages maintained by the distribution. These packages are tested and are known to work with that particular distribution version, so the package manager is the first place to look for installing additional software. The package manager is typically a command-line program, although some distributions also have GUI interfaces for it.
+
+Ubuntu uses *Aptitude* as the package manager. Here is a short list of the most useful package manager commands on Ubuntu:
+
+- `apt search`: Search for a package
+- `sudo apt-get install`: Install a package
+- `sudo apt-get update`: Update one or more packages
+- `sudo apt-get remove`: Uninstall a package
+- See `man apt` for more.
+
+For instance, if you run `apt search chrom`, one of the results will be `chromium-browser`. It's [Chromium](https://en.wikipedia.org/wiki/Chromium_(web_browser)), the open-source version of Google Chrome. You can install it by running `sudo apt-get install chromium-browser`. Similarly, the Ubuntu package repository contains a lot (but not all) of R packages (they are prefixed with `r-cran-`) and Python packages (prefixed with `python-`; the ones prefixed with `python3-` are for Python 3 which we will not be using this year). If there is a package available in the distribution repository, almost always it is better to use that instead of using a package manager built into the language (`install.packages` in R and `easyinstall`/`pip`/`conda` in Python).
+
+The aforementioned commands are specific to Debian and its derivatives (Ubuntu is one). In other distributions, package manager syntax is different, but the result is the same. For instance, in openSUSE the equivalent commands would be `zypper search`, `sudo zypper install`, `sudo zypper update` and `sudo zypper remove`.
+
+Whenever a package is not included in the distribution repository, one option is to look for additional software sources. Ubuntu allows users to maintain their own packages through a system called Personal Package Archives (PPA). However, these packages are not tested and are not guaranteed to work, or could even cause problems in the system, so you have to be careful. Other distributions also have their own third-party repository systems: openSUSE uses Open Build Service, Fedora uses Copr etc.
+
+If a package doesn't exist in third party repositories either, there is often the possibility to download the source code of a package and compile it. Often times cross-platform software vendors provide installers for Windows and source code for Linux. However, compiling from source yourself should only be done as the very last resort; in fact, it is often easier and safer to create a package yourself than to try to build it from source!
 
 ## Starting R or Python from the terminal
 
@@ -213,7 +239,7 @@ Hopefully you should have seen it print `Hello, World` onto your screen. If so w
 
 ![BashScript](figs/Scripting.png)
 
-**Question 4**: Why do we add `./` in front of the Bash script?
+> **Question 4**: Why do we add `./` in front of the Bash script?
 
 **Note**: we can also access the Terminal from R using the `system()` function that can invoke an OS command:
 
@@ -257,7 +283,7 @@ You can run the script once it is *executable*:
 ./variables.sh
 ```
 
-**Question 5**: Try it out yourself, and try to do a calculation of e.g. a + b as input variables. Hint: [Shell-tips](https://www.shell-tips.com/2010/06/14/performing-math-calculation-in-bash/)
+> **Question 5**: Try it out yourself, and try to do a calculation of e.g. a + b as input variables. Hint: [Shell-tips](https://www.shell-tips.com/2010/06/14/performing-math-calculation-in-bash/)
 
 If you want to learn more about *Bash* scripting: https://help.ubuntu.com/community/Beginners/BashScripting
 
@@ -297,7 +323,8 @@ echo "* remove the input temporary file"
 rm input.tif
 ```
 
-**Question 6**: Try to write to calculate the NDVI using the lines above in a nice and short shell script.
+> **Question 6**: Try to write to calculate the NDVI using the lines above in a nice and short shell script.
+
 - Hint 1: `cd ../data` (to move back from the Bash folder and move into the data folder)
 - Hint 2: No spaces in file names are allowed and try to use variables e.g. `fn=$(ls *.tif)`
 
