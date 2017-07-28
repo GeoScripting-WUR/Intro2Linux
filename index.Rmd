@@ -17,8 +17,6 @@ output:
 Good morning! 
 Here is what you will do today:
 
-**Important**: post the answers within the self-study in the script review center!
-
 Time  | Activity
 ------------- | -------------
 Morning       |  Self-study: go through the following tutorial, and get confortable with a Linux environment and the terminal
@@ -347,17 +345,17 @@ gdalinfo -hist -stats $outfn
 ```
 
 More info here on the power of GDAL via the terminal:
-http://www.gdal.org/ and `gdalinfo`
+[GDAL_website](http://www.gdal.org/) and `gdalinfo`
 
 Handy functions are (See the examples at the bottom):
 
-- `gdal_translate`: http://www.gdal.org/gdal_translate.html
-- `gdalwarp`: http://www.gdal.org/gdalwarp.html
+- [`gdal_translate`](http://www.gdal.org/gdal_translate.html)
+- [`gdalwarp`](http://www.gdal.org/gdalwarp.html)
 
-More info about *Bash* basics: https://www.gnu.org/software/bash/manual/bashref.html#Command-Substitution
+More info about *Bash* basics from [GNU](https://www.gnu.org/software/bash/manual/bashref.html#Command-Substitution)
 
-Optional: if you are ready and want the learn more about using GDAL from the terminal. See here for another tutorial:
-http://wiki.americaview.org/display/miview/Introduction+to+GDAL
+Optional: if you are ready and want the learn more about using GDAL from the terminal. See [here](http://wiki.americaview.org/display/miview/Introduction+to+GDAL) for another tutorial:
+
 
 # Finding help
 
@@ -369,7 +367,7 @@ One important aspect to realise about Linux distributions is that they are a vol
 
 ![Structure of a Linux distribution, from high-level to low-level.](figs/linuxstructure.png)
 
-Each of these (and many more) are software projects with their own development teams. They are typically open-source, and their developers only provide the source. Distributions are ones responsible for taking this source, compiling it into actual programs, testing them, putting them into packages and distributing them to users. A package is a relatively self-contained piece of software for a particular distribution that contains information on what other packages it requires to function properly and packages that it expects, but can work without. Users are only supposed to install distribution-provided packages: anything else is potentially unsafe, since it would mean the software has not received the testing that distribution packages have to go through.
+Each of these (and many more) are software projects with their own development teams. They are typically open-source, and their developers only provide the source. Distribution maintainers are responsible for taking this source, compiling it into actual programs, testing them, putting them into packages and distributing them to users. A package is a relatively self-contained piece of software for a particular distribution that contains information on what other packages it requires to function properly and packages that it expects, but can work without. Users are only supposed to install distribution-provided packages: anything else is potentially unsafe, since it would mean the software has not received the testing that distribution packages have to go through.
 
 Given all this complexity, issues may be caused by misconfiguration, user error, or actual bugs in software; which in turn may lie in the packaging of software, or software itself (programs or libraries that the programs use). Usually the term *downstream* is used to describe distribution package maintainers, and *upstream* to describe the original developers of the software.
 
@@ -398,9 +396,7 @@ Write a shell script that:
 - *Bonus*: reprojects this resampled file to Lat/long WGS84 (the projection code is: EPSG:4326)
     - Tip: `gdalwarp -t_srs EPSG:4326 $fntemp $fnout`
 
-Submit the text of your shell script via Blackboard in the "Script Review Center" before tomorrow (9:30).
-Make sure your script is clear and reproducible, and let it be tested by at least one other team. 
-You can copy the code in the BlackBoard review center (the other team needs to make it excecutable in order to test it).
+Make sure your script is clear and reproducible, and let it be tested on the next day by at least one other team. 
 
 *Do not forget to add a teamname, and members and date of script at the top of your script.*
 
