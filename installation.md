@@ -28,9 +28,13 @@ The Ubuntu family is mostly seggregated by desktop environment lines, which give
 
 Partitioning is dividing the hard disk into parts for different operating systems. Most distributions have a partitioning tool that suggests reasonable partitioning defaults, namely to shrink an existing partition to make space and create new partitions for the Linux distribution. However, always double-check the partitioning setup: an erased partition is not recoverable! It is also always highly recommended to back up all important data before partitioning.
 
-## Distribution notes
+## Rebooting
 
-### Release model
+And that's it! After the installation is finished, remove the USB stick and boot the computer up. If all went well, you should see the bootloader with options to boot Linux (the default) and Windows (if it was installed).
+
+# Distribution notes
+
+## Release model
 
 Distributions are clasified by release model into long term support, regular release and rolling release distributions.
 
@@ -40,13 +44,13 @@ Regular release distributions make a new release several times a year. This allo
 
 Rolling release distributions offer the latest software at all times. There are no major releases of these distributions, because every component of these distributions is constantly updated. Rolling release distributions are most suited for developers and scientists that need easy access to the latest tools and software there is. However, this comes at a price that updates may change your workflow without warning or in some cases even break the system, so some knowledge about troubleshooting is necessary. Rolling release distributions include openSUSE Tumbleweed, the Arch family (Antergos, Manjaro) and Gentoo.
 
-### Specialisation
+## Specialisation
 
 Distributions may be general-purpose or specialised. OSGeo Live is a typical specialised distribution: it is made to showcase geoinformation tools, so it is convenient for quickly setting up a GeoServer or PostGIS. However, it has a lot of tools that you most likely don't need, and it is not supported by the community, so finding help for it may be challenging. Other examples of specialised distributions are Kali, Tails and GPartEd. In comparison, general-purpose distributions such as openSUSE, Debian, Fedora, Ubuntu (including derivatives), Puppy, Arch and Gentoo are all supported by large communities that are available for help, and they only come with the basic system. You can then install all the necessary software (including all the geoinformation tools you need) yourself.
 
 If there is a single special purpose that you need to cover, or if you want to run a live system, choosing a specialised distribution makes for the quickest option to get what you need up and running. But if you want to customise your system and use it for various tasks, a general-purpose distribution is more fitting.
 
-### Software availability
+## Software availability
 
 Different distributions have different ways of packaging and distributing software, and the number of developers working on packaging also differ.
 
@@ -54,7 +58,7 @@ Most proprietary software, such as CAD and other workstation software, games, no
 
 The rest of the distributions tend to have a lower number of packages available, as they are smaller. That is fine if only the common software is needed (web browsers, office suites, major desktop environments), but may become a problem if specialised, uncommon software is required.
 
-### Distribution traits
+## Distribution traits
 
 The website [DistroWatch](http://distrowatch.com/) lists the most popular distributions and gives more details about them. As a quick overview, here are the traits of some of the top general-purpose distributions:
 
