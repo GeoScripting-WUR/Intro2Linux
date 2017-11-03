@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
   <meta name="author" content="Jan Verbesselt and Dainius Masiliunas" />
-  <title>WUR Geo-scripting</title>
+  <title></title>
   <style type="text/css">code{white-space: pre;}</style>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
@@ -862,19 +862,16 @@
   </style>
 </head>
 <body>
-<div id="header">
-<h1 class="title"><a href="https://geoscripting-wur.github.io/">WUR Geo-scripting</a></h1>
-<h1 class="subtitle">Week 1, Lesson 3: Getting started with Linux, the terminal and bash scripting</h1>
-<h2 class="author">Jan Verbesselt and Dainius Masiliunas</h2>
-<h3 class="date">11 January, 2017</h3>
-</div>
+<title>
+Week 1, Lesson 4: Getting started with Linux, the terminal and Bash scripting
+</title>
 <div id="wrap">
 <div class="container">
 <div class="row row-offcanvas row-offcanvas-right">
 <div class="contents col-xs-12 col-md-10">
-<h1 id="planning">Planning</h1>
+<h1 id="wur-geoscripting"><a href="https://geoscripting-wur.github.io/">WUR Geoscripting</a> <img src="http://www.wur.nl/upload/b43b7095-e452-482a-8969-fed9a50393a8_WUR_RGB_standard.png" alt="WUR logo" style="height: 35px;"/></h1>
+<h1 id="week-1-lesson-4-getting-started-with-linux-the-terminal-and-bash-scripting">Week 1, Lesson 4: Getting started with Linux, the terminal and Bash scripting</h1>
 <p>Good morning! Here is what you will do today:</p>
-<p><strong>Important</strong>: post the answers within the self-study in the script review center!</p>
 <table style="width:39%;">
 <colgroup>
 <col width="19%" />
@@ -882,22 +879,22 @@
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">Time</th>
-<th align="left">Activity</th>
+<th>Time</th>
+<th>Activity</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Morning</td>
-<td align="left">Self-study: go through the following tutorial, and get confortable with a Linux environment and the terminal</td>
+<td>Morning</td>
+<td>Self-study: go through the following tutorial, and get confortable with a Linux environment and the terminal</td>
 </tr>
 <tr class="even">
-<td align="left">13:30 to 15:30</td>
-<td align="left">Discussion</td>
+<td>13:30 to 15:30</td>
+<td>Discussion</td>
 </tr>
 <tr class="odd">
-<td align="left">Rest of the afternoon</td>
-<td align="left">Do and finalise the exercise</td>
+<td>Rest of the afternoon</td>
+<td>Do and finalise the exercise</td>
 </tr>
 </tbody>
 </table>
@@ -912,21 +909,31 @@
 <li>Learn the basics of <em>Bash</em> scripting and know how to create a shell script</li>
 </ul>
 <h1 id="linux">Linux?!</h1>
-<p><em>Linux</em> is a free and open-source operating system kernel. In this course we will be working with <em>Ubuntu</em>, which is the most popular <em>Linux distribution</em>. A Linux distribution is an operating system that is built upon the Linux kernel and includes plenty of handy programs for daily work.</p>
-<p>There is a large variety of different Linux distributions. One that is handy for geo-information science work is OSGeo-Live, which is an Ubuntu-based distribution that has a wide range of free and open-source GIS and Remote sensing tools preinstalled. See <a href="http://live.osgeo.org/">this website</a> for more information.</p>
-<p>These tools are also available in other distributions, but they have to be installed manually. A general-use distribution such as <em>Ubuntu</em> or <em>openSUSE</em> is more suitable for regular day-to-day tasks, since not having the unnecessary tools installed takes less space and makes it work faster. It is also easier to find help for them than for specialised distributions. So in this course we will use a customised Ubuntu distribution with only the tools needed for this course preinstalled.</p>
+<p><em>Linux</em> is a free and open-source operating system kernel. In this course we will be working with a customised <em>Xubuntu</em>, which is a popular lightweight <em>Linux distribution</em>. A Linux distribution is an operating system that is built upon the Linux kernel and includes plenty of handy programs for daily work.</p>
+<p>There is a large variety of different Linux distributions. One that is handy for geo-information science work is OSGeo-Live, which is also an Ubuntu-based distribution that has a wide range of free and open-source GIS and Remote sensing tools preinstalled. See <a href="http://live.osgeo.org/">this website</a> for more information.</p>
+<p>These tools are also available in other distributions, but they have to be installed manually. A general-use distribution such as <em>Ubuntu</em> or <em>openSUSE</em> is more suitable for regular day-to-day tasks, since not having the unnecessary tools installed takes less space and makes it work faster. It is also easier to find help for them than for specialised distributions. So in this course we will use a customised Xubuntu distribution with only the tools needed for this course preinstalled.</p>
 <h2 id="why-use-a-linux-distribution">Why use a Linux distribution?</h2>
 <p>A Linux environment makes it much easier to install and combine a variety of open-source software, such as Python modules and GDAL, compared to other operating systems like Windows or macOS. In addition, open-source scientific software is often developed primarily for Linux (since that's what most supercomputers and servers run!), and so it tends to be more stable and have more features on Linux. Furthermore, at Wageningen University &amp; Research PC labs, ArcGIS and ArcPy are installed on the Windows machines, and this Python version tends to cause conflicts with open-source Python modules and tools (e.g. GDAL, GEOS).</p>
 <h2 id="getting-started-on-linux">Getting started on Linux</h2>
-<p>During the course we will make use of a Linux virtual machine. There are two varieties of virtual machines available for this course: cloud VMs hosted by the <a href="https://userinfo.surfsara.nl/systems/hpc-cloud">SURFsara High Performance Computing cloud</a> and accessed over the internet, and local VMs installed on the PCs in the PC lab. Either can be used, although most testing has been done on the cloud VMs. Also note that the cloud VMs will not be available on Tuesday 24 January 2017, so it is best if you try out both solutions (as time permits).</p>
-<p>First of all, you will need to set them up.</p>
-<h3 id="surfsara-cloud-vm-setup">SURFsara cloud VM setup</h3>
-<p><a href="surfsara_tutorial.html">See this page for instructions on setting up the SURFsara cloud VMs</a>.</p>
+<p>During the course we will work in a Linux environment. There are several choices, listed in the order of most to least tested for the course:</p>
+<ol style="list-style-type: decimal">
+<li>VMware Horizon virtual desktop infrastructure (VDI) that is provided by the WUR IT department. It is available over the internet for each student in the course and supported by the IT department.</li>
+<li>Local VirtualBox VMs installed on the PCs in the PC labs. These can only be accessed from a specific PC and intended as a fallback is there are problems when using VDIs.</li>
+<li>Your own hardware: if you know what you are doing, you can install Linux on your own laptops or external hard disks.</li>
+</ol>
+<p>The VDIs are recommended, but ultimately the choice is up to you. In either case, the systems need to be set up.</p>
+<!--### SURFsara cloud VM setup
+
+[See this page for instructions on setting up the SURFsara cloud VMs](surfsara_tutorial.html).-->
+<h3 id="vmware-horizon-vdi-setup">VMware Horizon VDI setup</h3>
+<p>The VMware Horizon VDIs can be accessed through the VMware Horizon client (preinstalled on WUR PCs). See <a href="vmware_horizon_tutorial.html">this page</a> for detailed instructions on how to use them.</p>
 <h3 id="virtualbox-vm-setup">VirtualBox VM setup</h3>
 <p>To set up VirtualBox, first find the provided image of OSGeo-Live on the network drive in the PC lab, which should be available to you as <code>W:\Student\Shares\GRS51806\2017\osgeo-live.ova</code>. This is a compressed VirtualBox image with RStudio installed. For use on your own PCs, you can copy the file on your PC from the PC lab or download OSGeo-Live from <a href="https://live.osgeo.org/en/quickstart/virtualization_quickstart.html">its website</a>.</p>
 <p>Once you have the file, all you need to do is import it in VirtualBox by going to <em>File → Import Appliance</em> and specifying the location of the OVA file. Everything else can be left default.</p>
 <p>Once importing is complete, you can go to the appliance settings and set the M: shared folder to be read-write by deselecting <em>Read-only</em> in its properties (<em>Shared folders</em> tab). That way all files you have in the shared folder will also be visible from the VM. You can see it by running the VM, opening the file manager in it and clicking on the <em>sf_M_DRIVE</em> mount on the left side of the window.</p>
 <p>Once you have everything ready, login into your Linux VM, try out RStudio/RKWard, and also open QGIS.</p>
+<h3 id="installing-linux-on-your-own-hardware">Installing Linux on your own hardware</h3>
+<p>If you like, you can install Linux on your own laptops or external hard drives. Compared to virtualisation, it is much faster to run Linux directly. See <a href="installation.html">this page</a> for tips on that.</p>
 <h1 id="using-the-terminal-and-bash">Using the terminal and <em>Bash</em></h1>
 <p>There are two ways to interact with your operating system: a graphical user interface (GUI), where you point and click, and a command-line interface (CLI), where you type commands to make something happen. GUIs are simpler to use, but CLIs are more powerful and faster for some tasks, once you get used to them.</p>
 <blockquote>
@@ -1190,20 +1197,20 @@ gdal_calc.py -A $fn --A_band=4 -B $fn --B_band=3 --outfile=$outfn --calc="(A.ast
 echo "look at some histogram statistics"
 gdalinfo -hist -stats $outfn</code></pre>
 </div>
-<p>More info here on the power of GDAL via the terminal: http://www.gdal.org/ and <code>gdalinfo</code></p>
+<p>More info here on the power of GDAL via the terminal: <a href="http://www.gdal.org/">GDAL_website</a> and <code>gdalinfo</code></p>
 <p>Handy functions are (See the examples at the bottom):</p>
 <ul>
-<li><code>gdal_translate</code>: http://www.gdal.org/gdal_translate.html</li>
-<li><code>gdalwarp</code>: http://www.gdal.org/gdalwarp.html</li>
+<li><a href="http://www.gdal.org/gdal_translate.html"><code>gdal_translate</code></a></li>
+<li><a href="http://www.gdal.org/gdalwarp.html"><code>gdalwarp</code></a></li>
 </ul>
-<p>More info about <em>Bash</em> basics: https://www.gnu.org/software/bash/manual/bashref.html#Command-Substitution</p>
-<p>Optional: if you are ready and want the learn more about using GDAL from the terminal. See here for another tutorial: http://wiki.americaview.org/display/miview/Introduction+to+GDAL</p>
+<p>More info about <em>Bash</em> basics from <a href="https://www.gnu.org/software/bash/manual/bashref.html#Command-Substitution">GNU</a></p>
+<p>Optional: if you are ready and want the learn more about using GDAL from the terminal. See <a href="http://wiki.americaview.org/display/miview/Introduction+to+GDAL">here</a> for another tutorial:</p>
 <h1 id="finding-help">Finding help</h1>
 <p>Just like with programming, you may find yourself facing some issue while using Linux (software availability, programs or drivers not working as expected, bugs etc.). While during the course you may make use of the Q&amp;A forum, for the future it is useful to know where to find help.</p>
 <h2 id="system-overview">System overview</h2>
 <p>One important aspect to realise about Linux distributions is that they are a volunteer effort. That means that unlike for example Windows, there usually is no tech support number you can call; instead, there are ways to communicate with other users who may know a solution, or indeed with the developers who wrote the software directly. Another important aspect to keep in mind is that a Linux distribution is like an onion: it is made of a whole lot of different layers of software, and identifying which layer is the cause of the problem is quite important. Below is a graph showing some of the most important layers.</p>
 <p><img src="figs/linuxstructure.png" alt="Structure of a Linux distribution, from high-level to low-level." /></p>
-<p>Each of these (and many more) are software projects with their own development teams. They are typically open-source, and their developers only provide the source. Distributions are ones responsible for taking this source, compiling it into actual programs, testing them, putting them into packages and distributing them to users. A package is a relatively self-contained piece of software for a particular distribution that contains information on what other packages it requires to function properly and packages that it expects, but can work without. Users are only supposed to install distribution-provided packages: anything else is potentially unsafe, since it would mean the software has not received the testing that distribution packages have to go through.</p>
+<p>Each of these (and many more) are software projects with their own development teams. They are typically open-source, and their developers only provide the source. Distribution maintainers are responsible for taking this source, compiling it into actual programs, testing them, putting them into packages and distributing them to users. A package is a relatively self-contained piece of software for a particular distribution that contains information on what other packages it requires to function properly and packages that it expects, but can work without. Users are only supposed to install distribution-provided packages: anything else is potentially unsafe, since it would mean the software has not received the testing that distribution packages have to go through.</p>
 <p>Given all this complexity, issues may be caused by misconfiguration, user error, or actual bugs in software; which in turn may lie in the packaging of software, or software itself (programs or libraries that the programs use). Usually the term <em>downstream</em> is used to describe distribution package maintainers, and <em>upstream</em> to describe the original developers of the software.</p>
 <h2 id="how-to-get-help">How to get help</h2>
 <p>Just like with programming issues, a search engine is your first line of getting information. Note, however, that Linux distributions are for the most part quickly-moving targets: instructions written for one version of your distribution might need some changes in the next. So even if you find what seems to be a solution, you need to be critical about whether it does what you want. Checking the date is a good idea: solutions that were good 4 years ago are likely no longer relevant.</p>
@@ -1223,78 +1230,26 @@ gdalinfo -hist -stats $outfn</code></pre>
 <li>Tip: <code>gdalwarp -t_srs EPSG:4326 $fntemp $fnout</code></li>
 </ul></li>
 </ul>
-<p>Submit the text of your shell script via Blackboard in the &quot;Script Review Center&quot; before tomorrow (9:30). Make sure your script is clear and reproducible, and let it be tested by at least one other team. You can copy the code in the BlackBoard review center (the other team needs to make it excecutable in order to test it).</p>
+<p>Make sure your script is clear and reproducible, and let it be tested on the next day by at least one other team.</p>
 <p><em>Do not forget to add a teamname, and members and date of script at the top of your script.</em></p>
 <p><a href="http://www.geos.ed.ac.uk/~smudd/TopoTutorials/html/tutorial_raster_conversion.html">More tips</a></p>
 <h1 id="more-information">More information</h1>
 <ul>
 <li><a href="https://news.opensuse.org/2014/06/10/command-line-tuesdays-part-one/">Hands-on introduction to bash basics for beginners</a></li>
-<li>A great bash scripting tutorial: http://linuxconfig.org/bash-scripting-tutorial</li>
+<li><a href="http://linuxconfig.org/bash-scripting-tutorial">A great bash scripting tutorial</a></li>
 <li><a href="http://beginlinux.com/twitter/1094-the-beginners-guide-to-the-ubuntu-terminal">An overview of terminal commands</a></li>
-<li>http://www.howtogeek.com/140679/beginner-geek-how-to-start-using-the-linux-terminal/</li>
-<li>http://www.howtogeek.com/howto/42980/the-beginners-guide-to-nano-the-linux-command-line-text-editor/</li>
-<li>http://linuxcommand.org/lc3_learning_the_shell.php</li>
-<li>http://www.cyberciti.biz/faq/pwd-linux-unix-command-examples/</li>
+<li><a href="http://www.howtogeek.com/140679/beginner-geek-how-to-start-using-the-linux-terminal/" class="uri">http://www.howtogeek.com/140679/beginner-geek-how-to-start-using-the-linux-terminal/</a></li>
+<li><a href="http://www.howtogeek.com/howto/42980/the-beginners-guide-to-nano-the-linux-command-line-text-editor/" class="uri">http://www.howtogeek.com/howto/42980/the-beginners-guide-to-nano-the-linux-command-line-text-editor/</a></li>
+<li><a href="http://linuxcommand.org/lc3_learning_the_shell.php" class="uri">http://linuxcommand.org/lc3_learning_the_shell.php</a></li>
+<li><a href="http://www.cyberciti.biz/faq/pwd-linux-unix-command-examples/" class="uri">http://www.cyberciti.biz/faq/pwd-linux-unix-command-examples/</a></li>
 <li>For macOS users and introduction to use the terminal on macOS
 <ul>
-<li>http://computers.tutsplus.com/tutorials/navigating-the-terminal-a-gentle-introduction--mac-3855</li>
-<li>http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line</li>
+<li><a href="http://computers.tutsplus.com/tutorials/navigating-the-terminal-a-gentle-introduction--mac-3855" class="uri">http://computers.tutsplus.com/tutorials/navigating-the-terminal-a-gentle-introduction--mac-3855</a></li>
+<li><a href="http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line" class="uri">http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line</a></li>
 <li><a href="https://stackoverflow.com/questions/8051145/is-the-terminal-in-mac-and-linux-the-same">Is the terminal in Mac and Linux the same</a></li>
 </ul></li>
 <li><a href="https://www.youtube.com/watch?v=eWNEcJYnkPQ">Python code Building plug-in</a></li>
 <li><a href="http://www.r-bloggers.com/interactive-r-notebooks-with-jupyter-and-sagemathcloud/">Using Jupyter notebook within OSGEO</a>
-</div>
-</div>
-<div class="navbar navbar-fixed-bottom navbar-inverse">
-<div class="container">
-<div class="navbar-header">
-<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-<span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
-</button>
-</div>
-<div id="bottom-navbar" class="navbar-collapse collapse navbar-responsive-collapse">
-<ul class="nav navbar-nav navbar-right">
-<li class="nav">
-<p class="navbar-text">
-Toggle
-</p>
-</li>
-<li class="dropup">
-<a href="#" class="dropdown-toggle" data-toggle="dropdown">Code <b class="caret"></b></a>
-<ul class="dropdown-menu">
-<li class="dropdown-header">
-Languages
-</li>
-<li class="active">
-<a href="#" class="toggle-global source bash" type="source.bash">bash</a>
-</li>
-<li class="active">
-<a href="#" class="toggle-global source R" type="source.R">R</a>
-</li>
-<li>
-<a href="#" type="all-source" class="toggle-global">All</a>
-</li>
-</ul>
-</li>
-<li class="dropup">
-<a href="#" class="dropdown-toggle" data-toggle="dropdown">Output <b class="caret"></b></a>
-<ul class="dropdown-menu">
-<li class="dropdown-header">
-Type
-</li>
-<li class="active">
-<a href="#" class="toggle-global output" type="output">output</a>
-</li>
-<li>
-<a href="#" type="all-output" class="toggle-global">All</a>
-</li>
-</ul>
-</li>
-<li class="active">
-<a href="#" type="figure" class="toggle-global">Figures</a>
-</li>
-</ul>
-</div>
 </div>
 </div>
 </div>
@@ -1308,7 +1263,7 @@ Styled with <a href="https://github.com/jimhester/knitrBootstrap">knitrBootstrap
 </p>
 </div>
 </div>
-<link rel="stylesheet" id="theme" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" media="screen"></link><link rel="stylesheet" id="highlight" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/7.3/styles/default.min.css" media="screen"></link>
+<link rel="stylesheet" id="theme" href="https://netdna.bootstrapcdn.com/bootswatch/3.0.0/simplex/bootstrap.min.css" media="screen"></link><link rel="stylesheet" id="highlight" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/7.3/styles/tomorrow-night-bright.min.css" media="screen"></link>
 </div></li>
 </ul>
 </body>

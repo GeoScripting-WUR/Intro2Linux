@@ -1,18 +1,19 @@
 ---
-title: "[WUR Geo-scripting](https://geoscripting-wur.github.io/)"
-subtitle: "Week 1, Lesson 3: Getting started with Linux, the terminal and bash scripting"
 author: "Jan Verbesselt and Dainius Masiliunas"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 output:
-  html_document:
-    number_sections: yes
-    css: custom.css
-    highlight: tango
-    toc: yes
-    toc_depth: 2
+  knitrBootstrap::bootstrap_document:
+    title: "Week 1, Lesson 4: Getting started with Linux, the terminal and Bash scripting"
+    theme: "simplex"
+    highlight: Tomorrow Night Bright
+    menu: FALSE
+    theme.chooser: TRUE
+    highlight.chooser: TRUE
 ---
 
-# Planning
+# [WUR Geoscripting](https://geoscripting-wur.github.io/) <img src="http://www.wur.nl/upload/b43b7095-e452-482a-8969-fed9a50393a8_WUR_RGB_standard.png" alt="WUR logo" style="height: 35px;"/>
+
+# Week 1, Lesson 4: Getting started with Linux, the terminal and Bash scripting
 
 Good morning! 
 Here is what you will do today:
@@ -33,12 +34,12 @@ Rest of the afternoon | Do and finalise the exercise
 
 # Linux?!
 
-*Linux* is a free and open-source operating system kernel. In this course we will be working with *Ubuntu*, which is the most popular *Linux distribution*. A Linux distribution is an operating system that is built upon the Linux kernel and includes plenty of handy programs for daily work.
+*Linux* is a free and open-source operating system kernel. In this course we will be working with a customised *Xubuntu*, which is a popular lightweight *Linux distribution*. A Linux distribution is an operating system that is built upon the Linux kernel and includes plenty of handy programs for daily work.
 
-There is a large variety of different Linux distributions. One that is handy for geo-information science work is OSGeo-Live, which is an Ubuntu-based distribution that has a wide range of free and open-source GIS and Remote sensing tools preinstalled.
+There is a large variety of different Linux distributions. One that is handy for geo-information science work is OSGeo-Live, which is also an Ubuntu-based distribution that has a wide range of free and open-source GIS and Remote sensing tools preinstalled.
 See [this website](http://live.osgeo.org/) for more information.
 
-These tools are also available in other distributions, but they have to be installed manually. A general-use distribution such as *Ubuntu* or *openSUSE* is more suitable for regular day-to-day tasks, since not having the unnecessary tools installed takes less space and makes it work faster. It is also easier to find help for them than for specialised distributions. So in this course we will use a customised Ubuntu distribution with only the tools needed for this course preinstalled.
+These tools are also available in other distributions, but they have to be installed manually. A general-use distribution such as *Ubuntu* or *openSUSE* is more suitable for regular day-to-day tasks, since not having the unnecessary tools installed takes less space and makes it work faster. It is also easier to find help for them than for specialised distributions. So in this course we will use a customised Xubuntu distribution with only the tools needed for this course preinstalled.
 
 ## Why use a Linux distribution?
 
@@ -46,13 +47,21 @@ A Linux environment makes it much easier to install and combine a variety of ope
 
 ## Getting started on Linux
 
-During the course we will make use of a Linux virtual machine. There are two varieties of virtual machines available for this course: cloud VMs hosted by the [SURFsara High Performance Computing cloud](https://userinfo.surfsara.nl/systems/hpc-cloud) and accessed over the internet, and local VMs installed on the PCs in the PC lab. Either can be used, although most testing has been done on the cloud VMs. Also note that the cloud VMs will not be available on Tuesday 24 January 2017, so it is best if you try out both solutions (as time permits).
+During the course we will work in a Linux environment. There are several choices, listed in the order of most to least tested for the course:
 
-First of all, you will need to set them up.
+1. VMware Horizon virtual desktop infrastructure (VDI) that is provided by the WUR IT department. It is available over the internet for each student in the course and supported by the IT department.
+2. Local VirtualBox VMs installed on the PCs in the PC labs. These can only be accessed from a specific PC and intended as a fallback is there are problems when using VDIs.
+3. Your own hardware: if you know what you are doing, you can install Linux on your own laptops or external hard disks.
 
-### SURFsara cloud VM setup
+The VDIs are recommended, but ultimately the choice is up to you. In either case, the systems need to be set up.
 
-[See this page for instructions on setting up the SURFsara cloud VMs](surfsara_tutorial.html).
+<!--### SURFsara cloud VM setup
+
+[See this page for instructions on setting up the SURFsara cloud VMs](surfsara_tutorial.html).-->
+
+### VMware Horizon VDI setup
+
+The VMware Horizon VDIs can be accessed through the VMware Horizon client (preinstalled on WUR PCs). See [this page](vmware_horizon_tutorial.html) for detailed instructions on how to use them.
 
 ### VirtualBox VM setup
 
@@ -63,6 +72,10 @@ Once you have the file, all you need to do is import it in VirtualBox by going t
 Once importing is complete, you can go to the appliance settings and set the M: shared folder to be read-write by deselecting *Read-only* in its properties (*Shared folders* tab). That way all files you have in the shared folder will also be visible from the VM. You can see it by running the VM, opening the file manager in it and clicking on the *sf_M_DRIVE* mount on the left side of the window.
 
 Once you have everything ready, login into your Linux VM, try out RStudio/RKWard, and also open QGIS.
+
+### Installing Linux on your own hardware
+
+If you like, you can install a Linux distribution on your own laptops or external hard drives. Compared to virtualisation, it is much faster to run a Linux distribution directly. See [this page](installation.html) for tips on that.
 
 # Using the terminal and *Bash*
 
@@ -405,15 +418,15 @@ Make sure your script is clear and reproducible, and let it be tested on the nex
 # More information
 
 - [Hands-on introduction to bash basics for beginners](https://news.opensuse.org/2014/06/10/command-line-tuesdays-part-one/)
-- A great bash scripting tutorial: http://linuxconfig.org/bash-scripting-tutorial
+- [A great bash scripting tutorial](http://linuxconfig.org/bash-scripting-tutorial)
 - [An overview of terminal commands](http://beginlinux.com/twitter/1094-the-beginners-guide-to-the-ubuntu-terminal)
-- http://www.howtogeek.com/140679/beginner-geek-how-to-start-using-the-linux-terminal/
-- http://www.howtogeek.com/howto/42980/the-beginners-guide-to-nano-the-linux-command-line-text-editor/
-- http://linuxcommand.org/lc3_learning_the_shell.php
-- http://www.cyberciti.biz/faq/pwd-linux-unix-command-examples/
+- [http://www.howtogeek.com/140679/beginner-geek-how-to-start-using-the-linux-terminal/](http://www.howtogeek.com/140679/beginner-geek-how-to-start-using-the-linux-terminal/)
+- [http://www.howtogeek.com/howto/42980/the-beginners-guide-to-nano-the-linux-command-line-text-editor/](http://www.howtogeek.com/howto/42980/the-beginners-guide-to-nano-the-linux-command-line-text-editor/)
+- [http://linuxcommand.org/lc3_learning_the_shell.php](http://linuxcommand.org/lc3_learning_the_shell.php)
+- [http://www.cyberciti.biz/faq/pwd-linux-unix-command-examples/](http://www.cyberciti.biz/faq/pwd-linux-unix-command-examples/)
 - For macOS users and introduction to use the terminal on macOS
-    - http://computers.tutsplus.com/tutorials/navigating-the-terminal-a-gentle-introduction--mac-3855
-    - http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line
+    - [http://computers.tutsplus.com/tutorials/navigating-the-terminal-a-gentle-introduction--mac-3855](http://computers.tutsplus.com/tutorials/navigating-the-terminal-a-gentle-introduction--mac-3855)
+    - [http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line](http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line)
     - [Is the terminal in Mac and Linux the same](https://stackoverflow.com/questions/8051145/is-the-terminal-in-mac-and-linux-the-same)
 - [Python code Building plug-in](https://www.youtube.com/watch?v=eWNEcJYnkPQ)
 - [Using Jupyter notebook within OSGEO](http://www.r-bloggers.com/interactive-r-notebooks-with-jupyter-and-sagemathcloud/)

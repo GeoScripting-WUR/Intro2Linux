@@ -2,11 +2,13 @@
 
 In some cases you might want to install and/or run Linux on your own device; maybe you want to work from home having direct access to all your files, maybe you need to run a scientific program that works best on Linux, or maybe there's an old laptop that you'd like to revive, etc. In all cases, it's useful to know how to start.
 
+You can have both Windows and Linux installed on the same machine at the same time (called "dual-booting"). Note, however, that if you are not careful, you may lose data on the machine you are trying to install Linux on! Make sure you always have backups.
+
 ## Distribution selection
 
 Linux comes in a variety of distributions, fit for different purposes and needs. Choosing an appropriate distribution is an important first step. If you choose poorly, you will still be able to do what you want for the most part, but it may not be enjoyable; it's like eating soup with a fork!
 
-There are multiple aspects to consider when choosing a distribution, of which most important are the specialisation, release model, and software availability. They are discussed below, in the section "Distribution notes". You can also use an [online distribution chooser](https://distrochooser.de/) that gives a list of suggestions quite like a personality test (but, like a personality test, should not be followed blindly).
+There are multiple aspects to consider when choosing a distribution, of which most important are the specialisation, release model, and software availability. They are discussed below, in the section "[Distribution notes](#distribution-notes)". You can also use an [online distribution chooser](https://distrochooser.de/) that gives a list of suggestions quite like a personality test (but, like a personality test, should not be followed blindly).
 
 ## Installation and running
 
@@ -16,7 +18,7 @@ To write ISO files onto a USB stick from Windows, there is a variety of tools av
 
 After the USB stick is ready, the target computer needs to be told to boot from it. This is specific to each computer: some will boot from USB media automatically, some require you to hit a button on startup to go into a boot menu (commonly Delete, F9, F1). If the computer is relatively new, it is likely that it has Secure Boot enabled, which may interfere with Linux installation, in which case you need to disable it in the UEFI properties (again this varies between computers).
 
-Once you boot from the USB stick, you will often have a choice of running the distribution live or installing it. Running live limits what files are saved, so it's useful for checking the distribution out and performing system repair tasks, but for longer-term usage installation is necessary. Note that you can also install distributions onto external hard drives, in case you don't want to change any data on an internal hard drive.
+Once you boot from the USB stick, you will often have a choice of running the distribution live or installing it. Running live limits what files are saved: it's useful for checking the distribution out and performing system repair tasks, but for longer-term usage, installation is necessary. Note that you can also install distributions onto external hard drives, in case you don't want to change any data on an internal hard drive.
 
 ## Desktop environment
 
@@ -26,11 +28,13 @@ The Ubuntu family is mostly seggregated by desktop environment lines, which give
 
 ## Partitioning
 
-Partitioning is dividing the hard disk into parts for different operating systems. Most distributions have a partitioning tool that suggests reasonable partitioning defaults, namely to shrink an existing partition to make space and create new partitions for the Linux distribution. However, always double-check the partitioning setup: an erased partition is not recoverable! It is also always highly recommended to back up all important data before partitioning.
+Partitioning is dividing the hard disk into parts reserved for different operating systems. Most distributions have a partitioning tool that suggests reasonable partitioning defaults, namely to shrink an existing partition to make space and create new partitions for the Linux distribution. If Windows is already installed, dual-boot is usually set up automatically. However, always double-check the partitioning setup: **an erased partition is not recoverable!** It is also always highly recommended to **back up all important data before partitioning**.
+
+It is also possible to install Linux distributions on external hard disk drives, so that no data on the computer itself is changed. That way the external hard drive will work partially like a LiveCD (you boot from it rather than a locally-installed OS), but also partially like a regular distribution (you can store and change data on it in a regular way). However, the external hard drive needs to be of good quality and have a stable connection to the PC.
 
 ## Rebooting
 
-And that's it! After the installation is finished, remove the USB stick and boot the computer up. If all went well, you should see the bootloader with options to boot Linux (the default) and Windows (if it was installed).
+And that's it! After the installation is finished, remove the USB stick and boot the computer up. If all went well, you should see the bootloader with options to boot Linux (the default) and Windows (if it was previously installed).
 
 # Distribution notes
 
@@ -62,16 +66,17 @@ The rest of the distributions tend to have a lower number of packages available,
 
 The website [DistroWatch](http://distrowatch.com/) lists the most popular distributions and gives more details about them. As a quick overview, here are the traits of some of the top general-purpose distributions:
 
-* Ubuntu: (Probably) most popular, GNOME 3-based, LTS and regular release, corporate (Canonical Ltd.).
-* Kubuntu, Lubuntu, Xubuntu: Ubuntu with KDE Plasma 5, LXQt, Xfce respectively.
-* Mint: Ubuntu with more preinstalled software, supports Cinnamon and MATE.
-* Debian: Long term support, only free software, community-based.
-* openSUSE: Long term support (Leap) and fast rolling release (Tumbleweed) versions, includes a graphical control panel, based on corporate (SUSE Linux Enterprise).
-* CentOS: Very long term support, based on corporate (Red Hat Enterprise Linux).
-* Fedora: Regular release, corporate (Red Hat Enterprise Linux) bases on it
-* Puppy: Aimed at old computers specifically, community-based.
-* Mageia: Aimed at user-friendliness, includes a graphical control panel, community-based.
-* Zorin OS: Aimed at easier migration from Windows to Linux, community-based.
-* Arch: Aimed at maximum configurability, but requires knowledge to set up (no installer); fast rolling release, community-based.
-* Antergos, Manjaro: Arch-based, but with an installer. Manjaro deviates from Arch more (slower rolling release).
-* Gentoo: Even more configurability than Arch, the fastest and most secure, but requires building all software from source; slower rolling release, community-based.
+* [Ubuntu](https://www.ubuntu.com/): (Probably) most popular, GNOME 3-based, LTS and regular release, corporate (Canonical Ltd.).
+* [Kubuntu](https://www.kubuntu.org/), [Lubuntu](http://lubuntu.me/), [Xubuntu](https://xubuntu.org/): Ubuntu with KDE Plasma 5, LXQt and Xfce, respectively.
+* [OSGeo Live](https://live.osgeo.org/): Xubuntu LTS with almost all available tools related to geo-information preinstalled.
+* [Mint](https://linuxmint.com/): Ubuntu with more preinstalled software, supports Cinnamon and MATE.
+* [Debian](https://www.debian.org/): Long term support, only free software, community-based.
+* [openSUSE](https://www.opensuse.org/): Long term support (Leap) and fast rolling release (Tumbleweed) versions, includes a graphical control panel, based on corporate (SUSE Linux Enterprise).
+* [CentOS](https://www.centos.org/): Very long term support, based on corporate (Red Hat Enterprise Linux).
+* [Fedora](https://getfedora.org/): Regular release, corporate (Red Hat Enterprise Linux) bases on it
+* [Puppy](http://puppylinux.com/): Aimed at old computers specifically, community-based.
+* [Mageia](http://www.mageia.org/): Aimed at beginners and user-friendliness, includes a graphical control panel, community-based.
+* [Zorin OS](https://zorinos.com/): Aimed at easier migration from Windows to Linux, community-based.
+* [Arch](https://www.archlinux.org/): Aimed at maximum configurability, but requires knowledge to set up (no installer); fast rolling release, community-based.
+* [Antergos](https://antergos.com/), [Manjaro](https://manjaro.org/): Arch-based, but with an installer. Manjaro deviates from Arch more (slower rolling release).
+* [Gentoo](https://gentoo.org/): Even more configurability than Arch, the fastest and most secure, but requires building all software from source; slower rolling release, community-based.
