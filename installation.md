@@ -68,7 +68,7 @@ The website [DistroWatch](http://distrowatch.com/) lists the most popular distri
 
 * [Ubuntu](https://www.ubuntu.com/): (Probably) most popular, GNOME 3-based, LTS and regular release, corporate (Canonical Ltd.).
 * [Kubuntu](https://www.kubuntu.org/), [Lubuntu](http://lubuntu.me/), [Xubuntu](https://xubuntu.org/): Ubuntu with KDE Plasma 5, LXQt and Xfce, respectively.
-* [OSGeo Live](https://live.osgeo.org/): Xubuntu LTS with almost all available tools related to geo-information preinstalled.
+* [OSGeo Live](https://live.osgeo.org/): Lubuntu LTS with almost all available tools related to geo-information preinstalled.
 * [Mint](https://linuxmint.com/): Ubuntu with more preinstalled software, supports Cinnamon and MATE.
 * [Debian](https://www.debian.org/): Long term support, only free software, community-based.
 * [openSUSE](https://www.opensuse.org/): Long term support (Leap) and fast rolling release (Tumbleweed) versions, includes a graphical control panel, based on corporate (SUSE Linux Enterprise).
