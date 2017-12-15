@@ -34,12 +34,12 @@ Rest of the afternoon | Do and finalise the exercise
 
 # Linux?!
 
-*Linux* is a free and open-source operating system kernel. In this course we will be working with a customised *Xubuntu*, which is a popular lightweight *Linux distribution*. A Linux distribution is an operating system that is built upon the Linux kernel and includes plenty of handy programs for daily work.
+*Linux* is a free and open-source operating system kernel. In this course we will be working with a customised *Ubuntu*, which is a popular *Linux distribution*. A Linux distribution is an operating system that is built upon the Linux kernel and includes plenty of handy programs for daily work.
 
 There is a large variety of different Linux distributions. One that is handy for geo-information science work is OSGeo-Live, which is also an Ubuntu-based distribution that has a wide range of free and open-source GIS and Remote sensing tools preinstalled.
 See [this website](http://live.osgeo.org/) for more information.
 
-These tools are also available in other distributions, but they have to be installed manually. A general-use distribution such as *Ubuntu* or *openSUSE* is more suitable for regular day-to-day tasks, since not having the unnecessary tools installed takes less space and makes it work faster. It is also easier to find help for them than for specialised distributions. So in this course we will use a customised Xubuntu distribution with only the tools needed for this course preinstalled.
+These tools are also available in other distributions, but they have to be installed manually. A general-use distribution such as *Ubuntu* or *openSUSE* is more suitable for regular day-to-day tasks, since not having the unnecessary tools installed takes less space and makes it work faster. It is also easier to find help for them than for specialised distributions. So in this course we will use a customised Ubuntu distribution with only the tools needed for this course preinstalled.
 
 ## Why use a Linux distribution?
 
@@ -61,7 +61,7 @@ The VDIs are recommended, but ultimately the choice is up to you. In either case
 
 ### VMware Horizon VDI setup
 
-The VMware Horizon VDIs can be accessed through the VMware Horizon client (preinstalled on WUR PCs). See [this page](vmware_horizon_tutorial.html) for detailed instructions on how to use them.
+The VMware Horizon VDIs can be accessed through the VMware Horizon client (preinstalled on WUR PCs). **See [this page](vmware_horizon_tutorial.html) for detailed instructions on how to use them.**
 
 ### VirtualBox VM setup
 

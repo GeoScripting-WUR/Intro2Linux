@@ -10,7 +10,7 @@ Working in a Linux environment, on a cloud computing instance, is one of the lea
 
 ## Starting up a Linux VDI
 
-Each WUR student should have access to one Linux VDI running Xubuntu 16.04 that has 2 cores, 4 GiB RAM and 50 GiB space. These resources are not dynamic; if you feel that you need more, feel free to run Linux on your own devices or on local virtual machines on the university machines. If you should have access to a VDI but don't appear to, please contact the course coordinators and/or the IT help desk.
+Each WUR student should have access to one Linux VDI running Ubuntu 16.04 that has 2 cores, 4 GiB RAM and 40 GiB space. These resources are not dynamic; if you feel that you need more, feel free to run Linux on your own devices or on local virtual machines on the university machines. If you should have access to a VDI but don't appear to, please contact the course coordinators and/or the IT help desk.
 
 The VDIs are always running. There are two ways to log in: via a client program or through a web browser.
 
@@ -20,11 +20,11 @@ On university PCs, the VMware Horizon program is preinstalled, you can launch it
 
 ![VMware Horizon Windows client](figs/vmware-horizon-config.png)
 
-If you click the options button in the top right and select `Configure VMware Blast`, you can choose the quality settings of remote connections. If you find the quality sufficient, leave the default options to save bandwidth. The VDIs are running in the local WUR network, however, due to the number of students accessing it at one time, bandwidth should nevertheless be conserved. You can increase the setting to `Excellent` if you need a higher quality image (but potentially slower response time), and deselect `H.264` if you need perfectly accurate colours in still images.
+If you click the options button in the top right and select `Configure VMware Blast`, you can choose the quality settings of remote connections. The VDIs are running in the local WUR network, however, due to the large number of students accessing VDIs at one time, bandwidth should be conserved. The default ought to be good enough, but in case the response time is too low or you get disconnects, you should use the setting `Poor`. If you need perfectly accurate colours (e.g. inspecting rasters) you may deselect `H.264` for that session.
 
-Log into the server by double-clicking the `workspace.wur.nl` icon. Here, you should see a list of VDIs. Double-click (or right-cick and `Launch`) the VDI that is called `Linux Geoscripting`. You should then be automatically logged into the VDI and see the Xfce desktop.
+Log into the server by double-clicking the `workspace.wur.nl` icon. Here, you should see a list of VDIs. Double-click (or right-click and `Launch`) the VDI that is called `Linux Geoscripting`. You should then be automatically logged into the VDI and see the GNOME Flashback desktop.
 
-![Running Xubuntu 16.04 VDI](figs/vmware-horizon-vdi.png)
+![Running Ubuntu 16.04 VDI](figs/vmware-horizon-vdi.png)
 
 ### MyWorkspace
 
@@ -42,7 +42,7 @@ If need be, you can connect to your VDI via SSH from inside the WUR network. You
 
 ## Stopping the Linux VDI
 
-The VDIs at the moment are made to be always running. Do not shut them down, otherwise you will not be able to start them back up without contacting IT support! The clean way to terminate a VDI session is to log out. You can do this from the Whisker menu → *Log Out* (power symbol), this will stop your session automatically and quit the VMware Horizon client. You can also log out from the VMware Horizon client by pressing the `Log off` button.
+The VDIs at the moment are made to be always running. Do not shut them down, otherwise you will not be able to start them back up without contacting IT support! The clean way to terminate a VDI session is to log out. You can do this from the gear menu → *Log Out*, this will stop your session automatically and quit the VMware Horizon client. You can also log out from within the VMware Horizon client by pressing the `Log off` button at the top.
 
 If you wish to leave the VDI running without stopping all programs, you can just close the VMware Horizon client window. The next time you log in, you will be back where you left off, with all programs running.
 
@@ -50,7 +50,9 @@ If you wish to leave the VDI running without stopping all programs, you can just
 
 In case something goes wrong, you are able to restart the VDI from the client. There are two options: `Restart` and `Reset` (in the desktop client they are in the menu bar and in the context menu when you right-click on a VDI; on MyWorkspace they are in the sidebar). `Restart` restarts the VDI gracefully (it asks Linux to restart itself). `Reset` is a forced restart, equivalent to cutting the power, which may lead to loss of data, so use that only as a last resort. Either way it might take up to 10 minutes for the restart to finish.
 
-At the moment of writing, the `W` network share sometimes disconnects, you need a restart to make it reappear again.
+If you are using the VDI for a long time, you may run into the issue that after logging off, logging in is no longer automatic and asks for your password. This means that your VMWare Horizon session has expired. You can restart the client to refresh the session (or just enter your username and password in the VDI).
+
+At the moment of writing, the `M` and `W` network shares sometimes disconnect, you need a restart to make them reappear again.
 
 In case of technical problems with VDI instances themselves (and not the software on them) that you cannot solve yourself, accidental shutdowns, or for catastrophic failures that would require a reset of your VDI to the initial state, you can [write an email to the IT helpdesk](http://www.wur.nl/en/Education-Programmes/Current-Students/ICT-related-questions.htm), mentioning Linux VDI in the email header.
 
