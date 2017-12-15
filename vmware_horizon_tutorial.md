@@ -38,7 +38,7 @@ You can use the VDI as a regular Linux desktop machine. From the file manager (T
 
 Each VDI is personal. You have root access to your VDI, running `sudo` will ask for your WUR password.
 
-If need be, you can connect to your VDI via SSH from inside the WUR network. You can find your VDI's IP by running `ip address` in the terminal, and you can log into it by running `ssh <username>@<ip>`, provided that you set up an SSH authentication mechanism. You can also connect to servers (such as Jupyter or RStudio) this way.
+If need be, you can connect to your VDI via SSH from inside the WUR network. You can find the name of your VDI if you look at the name in the terminal (it is something akin to `D744009`), or your VDI's IP by running `ip address` in the terminal. Then you can log into it by running `ssh <username>@<vdiname>` or `ssh <username>@<ip>` and entering your password (note: you must be connected to wired internet on campus, wireless does not seem to work). SSH is useful if you need to run expert tasks on the terminal, such as updating all packages on the system. You can also connect to servers (such as Jupyter or RStudio) this way.
 
 ## Stopping the Linux VDI
 
