@@ -939,8 +939,8 @@ Week 1, Lesson 4: Getting started with Linux, the terminal and Bash scripting
 <blockquote>
 <p><strong>Question 1</strong>: What are the advantages of using CLI? Can you think of some examples?</p>
 </blockquote>
-<p>Most Linux distributions come with a <em>terminal</em>, which is a program you use to run CLI programs. You might know the <em>Command Prompt</em> program on Windows: that is a type of <em>terminal</em>. On Linux, there is a variety of terminal applications to choose from. You can start one on your virtual machine by clicking on <em>Applications</em> → <em>Terminal Emulator</em>. This will look like:</p>
-<p><img src="figs/terminal.png" alt="terminal" /></p>
+<p>Most Linux distributions come with a <em>terminal</em>, which is a program you use to run CLI programs. You might know the <em>Command Prompt</em> program on Windows: that is a type of <em>terminal</em>. On Linux, there is a variety of terminal applications to choose from. You can start one on your virtual machine by clicking on <em>Applications</em> → <em>System Tools</em> → <em>Terminal</em>. This will look like:</p>
+<p><img src="figs/terminal-vdi.png" alt="terminal" /></p>
 <p>A <em>terminal</em> is just a gateway to the world of CLIs, but through it you interact with a particular <em>shell</em> (or <em>command interpreter</em>) which speaks a programming language. The default shell on Linux is <em>Bash</em>, and programs written in the <em>Bash</em> language are called <em>Bash scripts</em>. Much like the <em>R</em> console, you can input commands to <em>Bash</em> line by line through the <em>terminal</em>.</p>
 <p><em>Bash</em> shell scripting, like also <em>R</em> or <em>Python</em>, allows multiple commands to be combined, facilitating automation. A shell script (shell program) is a text file that contains commands that are interpreted by the shell (see below, we will learn how to write a shell script). Each command can be linked in a script to combine several commands by providing the output of one as input to the other. Shell scripts can also contain the control structures common to the majority of programming languages (i.e. variables, logic constructs, looping constructs, functions and comments). The main distinction between shell programs and those written in C, C++, Java (to name but a few) is that shell programs are not compiled for execution, but are readily interpreted by the shell.</p>
 <blockquote>
@@ -952,7 +952,7 @@ Week 1, Lesson 4: Getting started with Linux, the terminal and Bash scripting
 <p>Now go through the next exercise to learn how to navigate the file system: <a href="https://news.opensuse.org/2014/06/24/command-line-tuesdays-part-two/" class="uri">https://news.opensuse.org/2014/06/24/command-line-tuesdays-part-two/</a></p>
 <p>The file system layout image might not display properly, but it is intended to show this: <img src="https://configureinstantly.files.wordpress.com/2011/01/file-system.jpg" alt="Filesystem Hierarchy Standard" /></p>
 <p>Once you're done, you should have something like this displayed in your terminal:</p>
-<p><img src="figs/cd_pwd.png" alt="cdpwd" /></p>
+<p><img src="figs/cd_pwd-vdi.png" alt="cdpwd" /></p>
 <p>Next, let's go into some useful every-day commands: <a href="https://news.opensuse.org/2014/07/01/command-line-tuesdays-part-three/" class="uri">https://news.opensuse.org/2014/07/01/command-line-tuesdays-part-three/</a></p>
 <blockquote>
 <p><strong>Question 3</strong>: What is the difference between <code>ls -l</code>, <code>ls -lh</code> and <code>ls -lh --si</code>?</p>
@@ -967,7 +967,7 @@ Week 1, Lesson 4: Getting started with Linux, the terminal and Bash scripting
 <pre style=""><code class="source bash">mkdir Bash</code></pre>
 </div>
 <p>It should now look like this:</p>
-<p><img src="figs/mkdir.png" alt="mkdir" /></p>
+<p><img src="figs/mkdir-vdi.png" alt="mkdir" /></p>
 <p>Now, try out some more commands: - make a directory and remove it (e.g. <code>mkdir namedirectory</code>, <code>rmdir namedirectory</code>). - create an <em>R</em> script via <em>RStudio</em> or <em>RKWard</em>, and then remove it via the terminal using <code>rm filename.R</code>. - create another file and copy it and then remove it, etc.:</p>
 <div class="row">
 <button class="source bash toggle btn btn-xs btn-primary">
@@ -1007,9 +1007,9 @@ rm dest_file</code></pre>
 <p>Ubuntu uses <em>Aptitude</em> as the package manager. Here is a short list of the most useful package manager commands on Ubuntu:</p>
 <ul>
 <li><code>apt search</code>: Search for a package</li>
-<li><code>sudo apt-get install</code>: Install a package</li>
-<li><code>sudo apt-get update</code>: Update one or more packages</li>
-<li><code>sudo apt-get remove</code>: Uninstall a package</li>
+<li><code>sudo apt install</code>: Install a package</li>
+<li><code>sudo apt update</code>: Update one or more packages</li>
+<li><code>sudo apt remove</code>: Uninstall a package</li>
 <li>See <code>man apt</code> for more.</li>
 </ul>
 <p>For instance, if you run <code>apt search chrom</code>, one of the results will be <code>chromium-browser</code>. It's <a href="https://en.wikipedia.org/wiki/Chromium_(web_browser)">Chromium</a>, the open-source version of Google Chrome. You can install it by running <code>sudo apt-get install chromium-browser</code>. Similarly, the Ubuntu package repository contains a lot (but not all) of R packages (they are prefixed with <code>r-cran-</code>) and Python packages (prefixed with <code>python-</code>; the ones prefixed with <code>python3-</code> are for Python 3 which we will not be using this year). If there is a package available in the distribution repository, almost always it is better to use that instead of using a package manager built into the language (<code>install.packages</code> in R and <code>easyinstall</code>/<code>pip</code>/<code>conda</code> in Python).</p>
@@ -1025,7 +1025,7 @@ Starting and stopping R from the terminal (this is the same as the R console you
 <pre style=""><code class="source bash">R ## just type R and then q() to exit
 q()</code></pre>
 </div>
-<p><img src="figs/RinTerminal.png" alt="RinTerminal" /></p>
+<p><img src="figs/RinTerminal-vdi.jpg" alt="RinTerminal" /></p>
 <p>Starting and stopping <em>Python</em> from the terminal:</p>
 <div class="row">
 <button class="source bash toggle btn btn-xs btn-primary">
@@ -1037,8 +1037,8 @@ exit()</code></pre>
 <h2 id="scripting-in-the-terminal">Scripting in the terminal</h2>
 <h3 id="hello-world-bash-script">Hello, world Bash script</h3>
 <p><em>Bash</em> is primarily a scripting language, so it would be a crime not to talk about scripting. Let's dive straight in with a <em>Bash</em> script. More precisely the infamous &quot;Hello World&quot; script. You can create a bash script by opening your favorite text editor to edit your script and then saving it (typically the <code>.sh</code> file extension is used for your reference, but is not required. In our example, we will be using the <code>.sh</code> extension).</p>
-<p>So let's get started. First, go to the <code>Bash</code> directory you just created. Within this directory create a simple text file and call it <code>HelloWorld.sh</code>, then add the following text and save. You can use the <em>Mousepad</em> editor, or use <em>RStudio</em> or <em>RKWard</em> as a sort of text editor. In fact, there are even command-line text editors, like <code>nano</code>.</p>
-<p><img src="figs/rstudioshell.png" alt="execute" /></p>
+<p>So let's get started. First, go to the <code>Bash</code> directory you just created. Within this directory create a simple text file and call it <code>HelloWorld.sh</code>, then add the following text and save. You can use the <em>gedit</em> editor, or use <em>RStudio</em> or <em>RKWard</em> as a sort of text editor. In fact, there are even command-line text editors, like <code>nano</code>.</p>
+<p><img src="figs/rstudioshell-vdi.jpg" alt="execute" /></p>
 <div class="row">
 <button class="source bash toggle btn btn-xs btn-primary">
 <span class="glyphicon glyphicon-chevron-down"></span> bash source
@@ -1077,7 +1077,7 @@ echo "We can now run our first Bash script:"
 ./HelloWorld.sh</code></pre>
 </div>
 <p>Hopefully you should have seen it print <code>Hello, World</code> onto your screen. If so well done! That is your first <em>Bash</em> script (see below for a screenshot):</p>
-<p><img src="figs/Scripting.png" alt="BashScript" /></p>
+<p><img src="figs/Scripting-vdi.jpg" alt="BashScript" /></p>
 <blockquote>
 <p><strong>Question 4</strong>: Why do we add <code>./</code> in front of the Bash script?</p>
 </blockquote>

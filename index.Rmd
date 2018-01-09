@@ -83,9 +83,9 @@ There are two ways to interact with your operating system: a graphical user inte
 
 > **Question 1**: What are the advantages of using CLI? Can you think of some examples?
 
-Most Linux distributions come with a *terminal*, which is a program you use to run CLI programs. You might know the *Command Prompt* program on Windows: that is a type of *terminal*. On Linux, there is a variety of terminal applications to choose from. You can start one on your virtual machine by clicking on *Applications* → *Terminal Emulator*. This will look like:
+Most Linux distributions come with a *terminal*, which is a program you use to run CLI programs. You might know the *Command Prompt* program on Windows: that is a type of *terminal*. On Linux, there is a variety of terminal applications to choose from. You can start one on your virtual machine by clicking on *Applications* → *System Tools* → *Terminal*. This will look like:
 
-![terminal](figs/terminal.png)
+![terminal](figs/terminal-vdi.png)
 
 A *terminal* is just a gateway to the world of CLIs, but through it you interact with a particular *shell* (or *command interpreter*) which speaks a programming language. The default shell on Linux is *Bash*, and programs written in the *Bash* language are called *Bash scripts*. Much like the *R* console, you can input commands to *Bash* line by line through the *terminal*.
 
@@ -106,7 +106,7 @@ The file system layout image might not display properly, but it is intended to s
 
 Once you're done, you should have something like this displayed in your terminal:
 
-![cdpwd](figs/cd_pwd.png)
+![cdpwd](figs/cd_pwd-vdi.png)
 
 Next, let's go into some useful every-day commands: [https://news.opensuse.org/2014/07/01/command-line-tuesdays-part-three/](https://news.opensuse.org/2014/07/01/command-line-tuesdays-part-three/)
 
@@ -124,7 +124,7 @@ mkdir Bash
 
 It should now look like this:
 
-![mkdir](figs/mkdir.png)
+![mkdir](figs/mkdir-vdi.png)
 
 
 Now, try out some more commands:
@@ -174,9 +174,9 @@ Each major Linux distribution has its own package manager, which is aware of all
 Ubuntu uses *Aptitude* as the package manager. Here is a short list of the most useful package manager commands on Ubuntu:
 
 - `apt search`: Search for a package
-- `sudo apt-get install`: Install a package
-- `sudo apt-get update`: Update one or more packages
-- `sudo apt-get remove`: Uninstall a package
+- `sudo apt install`: Install a package
+- `sudo apt update`: Update one or more packages
+- `sudo apt remove`: Uninstall a package
 - See `man apt` for more.
 
 For instance, if you run `apt search chrom`, one of the results will be `chromium-browser`. It's [Chromium](https://en.wikipedia.org/wiki/Chromium_(web_browser)), the open-source version of Google Chrome. You can install it by running `sudo apt-get install chromium-browser`. Similarly, the Ubuntu package repository contains a lot (but not all) of R packages (they are prefixed with `r-cran-`) and Python packages (prefixed with `python-`; the ones prefixed with `python3-` are for Python 3 which we will not be using this year). If there is a package available in the distribution repository, almost always it is better to use that instead of using a package manager built into the language (`install.packages` in R and `easyinstall`/`pip`/`conda` in Python).
@@ -195,7 +195,7 @@ R ## just type R and then q() to exit
 q()
 ```
 
-![RinTerminal](figs/RinTerminal.png)
+![RinTerminal](figs/RinTerminal-vdi.jpg)
 
 Starting and stopping *Python* from the terminal:
 
@@ -209,9 +209,9 @@ exit()
 ### Hello, world Bash script 
 *Bash* is primarily a scripting language, so it would be a crime not to talk about scripting. Let's dive straight in with a *Bash* script. More precisely the infamous "Hello World" script. You can create a bash script by opening your favorite text editor to edit your script and then saving it (typically the `.sh` file extension is used for your reference, but is not required. In our example, we will be using the `.sh` extension).
 
-So let's get started. First, go to the `Bash` directory you just created. Within this directory create a simple text file and call it `HelloWorld.sh`, then add the following text and save. You can use the *Mousepad* editor, or use *RStudio* or *RKWard* as a sort of text editor. In fact, there are even command-line text editors, like `nano`.
+So let's get started. First, go to the `Bash` directory you just created. Within this directory create a simple text file and call it `HelloWorld.sh`, then add the following text and save. You can use the *gedit* editor, or use *RStudio* or *RKWard* as a sort of text editor. In fact, there are even command-line text editors, like `nano`.
 
-![execute](figs/rstudioshell.png)
+![execute](figs/rstudioshell-vdi.jpg)
 
 ```{r, eval=FALSE, engine='bash'}
 #!/bin/bash
@@ -248,7 +248,7 @@ echo "We can now run our first Bash script:"
 
 Hopefully you should have seen it print `Hello, World` onto your screen. If so well done! That is your first *Bash* script (see below for a screenshot):
 
-![BashScript](figs/Scripting.png)
+![BashScript](figs/Scripting-vdi.jpg)
 
 > **Question 4**: Why do we add `./` in front of the Bash script?
 
