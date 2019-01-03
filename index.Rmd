@@ -1,9 +1,9 @@
 ---
 author: "Jan Verbesselt and Dainius Masiliunas"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
+title: "Week 1, Lesson 4: Getting started with Linux, the terminal and Bash scripting"
 output:
   knitrBootstrap::bootstrap_document:
-    title: "Week 1, Lesson 4: Getting started with Linux, the terminal and Bash scripting"
     theme: "simplex"
     highlight: Tomorrow Night Bright
     menu: FALSE
@@ -21,7 +21,7 @@ Here is what you will do today:
 Time  | Activity
 ------------- | -------------
 Morning       |  Self-study: go through the following tutorial, and get confortable with a Linux environment and the terminal
-13:30 to 15:30  | Discussion
+14:00 to 16:00  | Discussion
 Rest of the afternoon | Do and finalise the exercise
 
 # Today's Learning objectives
@@ -47,11 +47,19 @@ A Linux environment makes it much easier to install and combine a variety of ope
 
 ## Getting started on Linux
 
-During the course we will work in a Linux environment. There are several choices, listed in the order of most to least tested for the course:
+During the course we will work in a Linux environment. For students taking the course in Wageningen University, we provide a **VMware Horizon virtual desktop infrastructure (VDI)** that is managed by the WUR IT department. It is available over the internet for each student in the course and supported by the IT department.
 
-1. VMware Horizon virtual desktop infrastructure (VDI) that is provided by the WUR IT department. It is available over the internet for each student in the course and supported by the IT department.
-2. Local VirtualBox VMs installed on the PCs in the PC labs. These can only be accessed from a specific PC and intended as a fallback is there are problems when using VDIs.
-3. Your own hardware: if you know what you are doing, you can install Linux on your own laptops or external hard disks.
+The VMware Horizon VDIs can be accessed through the VMware Horizon client (preinstalled on WUR PCs). **See [this page](vmware_horizon_tutorial.html) for detailed instructions on how to use them.**
+
+```{block, type="alert alert-danger"}
+**Notice**: Make sure you have no problems logging into and using the VDI. From here on out, we will try to work from within the VDI.
+```
+
+```{block, type="alert alert-info"}
+In case the VDI is not sufficient (e.g. for the project week) or you'd like to run Linux on your own hardware, we have two more alternatives:
+
+- Local VirtualBox VMs installed on the PCs in the PC labs. These can only be accessed from a specific PC and intended as a fallback is there are problems when using VDIs.
+- Your own hardware: if you know what you are doing, you can install Linux on your own laptops or external hard disks.
 
 The VDIs are recommended, but ultimately the choice is up to you. In either case, the systems need to be set up.
 
@@ -59,29 +67,28 @@ The VDIs are recommended, but ultimately the choice is up to you. In either case
 
 [See this page for instructions on setting up the SURFsara cloud VMs](surfsara_tutorial.html).-->
 
-### VMware Horizon VDI setup
-
-The VMware Horizon VDIs can be accessed through the VMware Horizon client (preinstalled on WUR PCs). **See [this page](vmware_horizon_tutorial.html) for detailed instructions on how to use them.**
-
 ### VirtualBox VM setup
 
-To set up VirtualBox, first find the provided image of OSGeo-Live on the network drive in the PC lab, which should be available to you as `W:\Student\Shares\GRS51806\2017\osgeo-live.ova`. This is a compressed VirtualBox image with RStudio installed. For use on your own PCs, you can copy the file on your PC from the PC lab or download OSGeo-Live from [its website](https://live.osgeo.org/en/quickstart/virtualization_quickstart.html).
+To set up VirtualBox, first find the provided image of OSGeo-Live on the network drive in the PC lab, which should be available to you as `W:\\Student\\GRS-33806\\OSGeo Live 12.ova`. This is a compressed VirtualBox image with RStudio installed. For use on your own PCs, you can copy the file on your PC from the PC lab or download OSGeo-Live from [its website](https://live.osgeo.org/en/quickstart/virtualization_quickstart.html).
 
 Once you have the file, all you need to do is import it in VirtualBox by going to *File → Import Appliance* and specifying the location of the OVA file. Everything else can be left default.
 
-Once importing is complete, you can go to the appliance settings and set the M: shared folder to be read-write by deselecting *Read-only* in its properties (*Shared folders* tab). That way all files you have in the shared folder will also be visible from the VM. You can see it by running the VM, opening the file manager in it and clicking on the *sf_M_DRIVE* mount on the left side of the window.
-
-Once you have everything ready, login into your Linux VM, try out RStudio/RKWard, and also open QGIS.
+Once importing is complete, you can go to the appliance settings and add a shared folder. That way all files you have in the shared folder will also be visible from the VM. You can see it by running the VM, opening the file manager in it and clicking on the shared folder name on the left side of the window.
 
 ### Installing Linux on your own hardware
 
-If you like, you can install a Linux distribution on your own laptops or external hard drives. Compared to virtualisation, it is much faster to run a Linux distribution directly. See [this page](installation.html) for tips on that.
+If you like, you can install a Linux distribution on your own laptops or external hard drives. Compared to virtualisation, it is much faster to run a Linux distribution directly. See a [theoretical overview of running Linux on your own hardware](installation.html) and [Linux system setup](../system_setup/index.html).
+```
+
+Once you have everything ready, login into your Linux VM, try out RStudio/RKWard, and also open QGIS.
 
 # Using the terminal and *Bash*
 
 There are two ways to interact with your operating system: a graphical user interface (GUI), where you point and click, and a command-line interface (CLI), where you type commands to make something happen. GUIs are simpler to use, but CLIs are more powerful and faster for some tasks, once you get used to them.
 
+```{block, type="alert alert-success"}
 > **Question 1**: What are the advantages of using CLI? Can you think of some examples?
+```
 
 Most Linux distributions come with a *terminal*, which is a program you use to run CLI programs. You might know the *Command Prompt* program on Windows: that is a type of *terminal*. On Linux, there is a variety of terminal applications to choose from. You can start one on your virtual machine by clicking on *Applications* → *System Tools* → *Terminal*. This will look like:
 
@@ -91,7 +98,9 @@ A *terminal* is just a gateway to the world of CLIs, but through it you interact
 
 *Bash* shell scripting, like also *R* or *Python*, allows multiple commands to be combined, facilitating automation. A shell script (shell program) is a text file that contains commands that are interpreted by the shell (see below, we will learn how to write a shell script). Each command can be linked in a script to combine several commands by providing the output of one as input to the other. Shell scripts can also contain the control structures common to the majority of programming languages (i.e. variables, logic constructs, looping constructs, functions and comments). The main distinction between shell programs and those written in C, C++, Java (to name but a few) is that shell programs are not compiled for execution, but are readily interpreted by the shell.
 
+```{block, type="alert alert-success"}
 > **Question 2**: What is a shell script?
+```
 
 *Bash* is not only the default shell on Linux, but also macOS, and there are versions of *Bash* that run on Windows too. It is included with Git for Windows, and in Windows 10 *Bash* is even included by default with the [*Windows Subsystem for Linux*](https://msdn.microsoft.com/en-us/commandline/wsl/about). However, without the wealth of CLI programs that Linux distributions come with, *Bash* functionality is fairly limited.
 
@@ -110,7 +119,9 @@ Once you're done, you should have something like this displayed in your terminal
 
 Next, let's go into some useful every-day commands: [https://news.opensuse.org/2014/07/01/command-line-tuesdays-part-three/](https://news.opensuse.org/2014/07/01/command-line-tuesdays-part-three/)
 
+```{block, type="alert alert-success"}
 > **Question 3**: What is the difference between `ls -l`, `ls -lh` and `ls -lh --si`?
+```
 
 ## File manipulation
 
@@ -128,6 +139,7 @@ It should now look like this:
 
 
 Now, try out some more commands:
+
 - make a directory and remove it (e.g. `mkdir namedirectory`, `rmdir namedirectory`).
 - create an *R* script via *RStudio* or *RKWard*, and then remove it via the terminal using `rm filename.R`.
 - create another file and copy it and then remove it, etc.:
@@ -139,11 +151,13 @@ rm dest_file
 
 - use `ls` commands and its options.
 
+```{block, type="alert alert-info"}
 **Tip**: Bash has a feature called Tab-completion. If you start writing a command or filename, pressing the `Tab` key a couple of times will give a list of suggestions for auto-completion. This is super-handy so that you never need to write filenames etc. In addition, you can recall the last commands you entered by using the up arrow key. Lastly, you can always open multiple terminals, even in tabs, by using *File* → *Open Tab*.
+```
 
 ## More information about commands
 
-So far we have been using only a few of the functions that the commands offer. You can find a list of them by looking at their manual pages by following the last exercise: [https://news.opensuse.org/2014/07/15/command-line-tuesdays-part-five/](https://news.opensuse.org/2014/07/15/command-line-tuesdays-part-five/)
+So far we have been using only a few of the functions that the commands offer. You can find a list of them by looking at their manual pages by following the last part of the tutorial: [https://news.opensuse.org/2014/07/15/command-line-tuesdays-part-five/](https://news.opensuse.org/2014/07/15/command-line-tuesdays-part-five/)
 
 Manual pages are text files displayed in a pager program that allows easy scrolling. The default pager is `less`, which you have already used in the third exercise. You can also look at its manual page using `man less`. Also try `man intro`: the "Introduction to user commands", a well-written, fairly brief introduction to the Linux command line.
 
@@ -162,8 +176,9 @@ Here's a list of most common commands:
 - `ls`: listing files in a directory
 - `cp`: copy files e.g. for backing up things or just copying. We will use these command in the scripts below.
 
-
-You can also read the [Ubuntu documentation on CLI](https://help.ubuntu.com/community/UsingTheTerminal) to learn more, and let us know if you have questions about some commands. 
+```{block, type="alert alert-info"}
+**Optional**: You can also read the [Ubuntu documentation on CLI](https://help.ubuntu.com/community/UsingTheTerminal) to learn more, and let us know if you have questions about some commands. 
+```
 
 ## Package installation and management
 
@@ -179,9 +194,9 @@ Ubuntu uses *Aptitude* as the package manager. Here is a short list of the most 
 - `sudo apt remove`: Uninstall a package
 - See `man apt` for more.
 
-For instance, if you run `apt search chrom`, one of the results will be `chromium-browser`. It's [Chromium](https://en.wikipedia.org/wiki/Chromium_(web_browser)), the open-source version of Google Chrome. You can install it by running `sudo apt-get install chromium-browser`. Similarly, the Ubuntu package repository contains a lot (but not all) of R packages (they are prefixed with `r-cran-`) and Python packages (prefixed with `python-`; the ones prefixed with `python3-` are for Python 3 which we will not be using this year). If there is a package available in the distribution repository, almost always it is better to use that instead of using a package manager built into the language (`install.packages` in R and `easyinstall`/`pip`/`conda` in Python).
+For instance, if you run `apt search chrom`, one of the results will be `chromium-browser`. It's [Chromium](https://en.wikipedia.org/wiki/Chromium_(web_browser)), the open-source version of Google Chrome. You can install it by running `sudo apt install chromium-browser`. Similarly, the Ubuntu package repository contains a lot (but not all) of R packages (they are prefixed with `r-cran-`) and Python packages (prefixed with `python3-`; the ones prefixed with `python-` are for Python 2 which we will not be using this year). If there is a package available in the distribution repository, almost always it is better to use that instead of using a package manager built into the language (`install.packages` in R and `easyinstall`/`pip`/`conda` in Python).
 
-The aforementioned commands are specific to Debian and its derivatives (Ubuntu is one). In other distributions, package manager syntax is different, but the result is the same. For instance, in openSUSE the equivalent commands would be `zypper search`, `sudo zypper install`, `sudo zypper update` and `sudo zypper remove`.
+The aforementioned commands are specific to the Debian fabily of Linux distribution (of whom Ubuntu is a member). In other distributions, package manager syntax is different, but the result is the same. For instance, in openSUSE the equivalent commands would be `zypper search`, `sudo zypper install`, `sudo zypper update` and `sudo zypper remove`.
 
 Whenever a package is not included in the distribution repository, one option is to look for additional software sources. Ubuntu allows users to maintain their own packages through a system called Personal Package Archives (PPA). However, these packages are not tested and are not guaranteed to work, or could even cause problems in the system, so you have to be careful. Other distributions also have their own third-party repository systems: openSUSE uses Open Build Service, Fedora uses Copr etc.
 
@@ -219,10 +234,16 @@ echo "Hello, World"
 
 ```
 
-The first line of the script just defines which interpreter to use (and where it is located). NOTE: There is no leading whitespace before #!/bin/bash. That's it, simple as that! To find out where your `bash` interpreter is located type the following in the terminal (this works also on a Mac terminal!):
+The first line of the script just defines which interpreter to use (and where it is located). That's it, simple as that!
 
-```{r, eval=FALSE, engine='bash'}
-which bash
+```{block, type="alert alert-danger"}
+**Note**: There is no leading whitespace before `#!/bin/bash`, and you cannot add any comments before it. This *shebang* should be the very first thing in the file.
+```
+
+To find out where your `bash` interpreter is located type the following in the terminal (this works also on a Mac terminal!):
+
+```{bash}
+type bash
 ```
 
 Second, to run a bash script you first have to have the correct file permissions. We do this with `chmod` (change mode) command in terminal as follows:
@@ -231,7 +252,9 @@ Second, to run a bash script you first have to have the correct file permissions
 chmod u+x Bash/HelloWorld.sh  # Gives your user execute permissions
 ```
 
-More info about `chmod` (https://help.ubuntu.com/community/FilePermissions) for your future reference. Note: today is just an introduction to let you know what is possible so that you can find your way easier in the future.
+```{block, type="alert alert-info"}
+**Optional**: [More info about `chmod`](https://help.ubuntu.com/community/FilePermissions) for your future reference. Note: today is just an introduction to let you know what is possible so that you can find your way easier in the future.
+```
 
 Below is a summary of what we have done in the terminal:
 
@@ -250,9 +273,13 @@ Hopefully you should have seen it print `Hello, World` onto your screen. If so w
 
 ![BashScript](figs/Scripting-vdi.jpg)
 
+```{block, type="alert alert-success"}
 > **Question 4**: Why do we add `./` in front of the Bash script?
+```
 
+```{block, type="alert alert-info"}
 **Note**: we can also access the Terminal from R using the `system()` function that can invoke an OS command:
+```
 
 ```{r, echo=TRUE, message=TRUE}
 ## R code
@@ -268,7 +295,7 @@ Variables basically store information. You set variables like this (you can type
 var="FOO"
 ```
 
-`var` can be anything you want as long as it doesn't begin with a number. "FOO" can be anything you want. To access the information from the variable you need to put a '$' in front of it like this:
+`var` can be anything you want as long as it doesn't begin with a number. "FOO" can be anything you want. There cannot be any space in between the `=` sign. To access the information from the variable you need to put a '$' in front of it like this:
 
 ```{r, eval=FALSE, engine='bash'}
 echo $var
@@ -294,9 +321,13 @@ You can run the script once it is *executable*:
 ./variables.sh
 ```
 
+```{block, type="alert alert-success"}
 > **Question 5**: Try it out yourself, and try to do a calculation of e.g. a + b as input variables. Hint: [Shell-tips](https://www.shell-tips.com/2010/06/14/performing-math-calculation-in-bash/)
+```
 
-If you want to learn more about *Bash* scripting: https://help.ubuntu.com/community/Beginners/BashScripting
+```{block, type="alert alert-info"}
+**Optional**: If you want to learn more about *Bash* scripting: [https://help.ubuntu.com/community/Beginners/BashScripting](https://help.ubuntu.com/community/Beginners/BashScripting)
+```
 
 ## Using the GDAL library from the terminal
 
@@ -314,13 +345,13 @@ One of the easiest and most useful commands in GDAL is `gdalinfo`. When given an
 
 Using gdalinfo:
 
-```{r, eval = FALSE, engine='bash', eval=FALSE}
+```{r, eval = FALSE, engine='bash'}
 cd data
 ls *.tif
 gdalinfo -nomd -norat -noct LE71700552001036SGS00_SR_Gewata_INT1U.tif
 ```
 
-Now let's calculate the NDVI via GDAL terminal by using the `gdal_calc.py`. See [GDAL_calc](http://www.gdal.org/gdal_calc.html) for more information.
+Now let's calculate the NDVI via GDAL terminal by using the `gdal_calc.py` script. See [GDAL_calc](http://www.gdal.org/gdal_calc.html) for more information.
 
 
 ```{r, engine='bash', eval=FALSE}
@@ -334,11 +365,13 @@ echo "* remove the input temporary file"
 rm input.tif
 ```
 
+```{block, type="alert alert-success"}
 > **Question 6**: Try to write to calculate the NDVI using the lines above in a nice and short shell script.
 
 - Hint 1: `cd ../data` (to move back from the Bash folder and move into the data folder)
 - Hint 2: No spaces in file names are allowed and try to use variables e.g. `fn=$(ls *.tif)`
 
+```
 
 Let's now check if the range of the NDVI values makes sense, and make a nice script:
 ```{r, engine='bash', results='hide', eval =FALSE}
@@ -357,6 +390,7 @@ echo "look at some histogram statistics"
 gdalinfo -hist -stats $outfn
 ```
 
+```{block, type="alert alert-info"}
 More info here on the power of GDAL via the terminal:
 [GDAL_website](http://www.gdal.org/) and `gdalinfo`
 
@@ -365,10 +399,13 @@ Handy functions are (See the examples at the bottom):
 - [`gdal_translate`](http://www.gdal.org/gdal_translate.html)
 - [`gdalwarp`](http://www.gdal.org/gdalwarp.html)
 
-More info about *Bash* basics from [GNU](https://www.gnu.org/software/bash/manual/bashref.html#Command-Substitution)
+**Optional**:
 
-Optional: if you are ready and want the learn more about using GDAL from the terminal. See [here](http://wiki.americaview.org/display/miview/Introduction+to+GDAL) for another tutorial:
+More info about *Bash* basics from [GNU](https://www.gnu.org/software/bash/manual/bashref.html#Command-Substitution).
 
+If you are ready and want the learn more about using GDAL from the terminal, see [here](http://wiki.americaview.org/display/miview/Introduction+to+GDAL) for another tutorial.
+
+```
 
 # Finding help
 
@@ -399,7 +436,7 @@ Each distribution also has a dedicated support forum. Forums are more useful for
 By this point, you should hopefully have found a solution to the problem you are facing. Sometimes, however, you may uncover an actual bug in the software. In the case you do, you should try to report it to a bug tracker. *Note*: Reporting bugs is quite advanced, and should only be done if you are sure you found a bug. It is, however, an integral part of the open-source development model: a bug that is reported is brought to the attention of the software developer and gets fixed for each and every user of the software. Just like with questions, bugs should first be reported downstream to your distribution, and only reported upstream if asked by downstream developers (or if you are sure that the bug is indeed in the source of the software, rather than the packaging of it). See for instance the [Ubuntu bug reporting guidelines](https://help.ubuntu.com/community/ReportingBugs).
 
 # Excercise
-Let's download a file from [The intro to raster lesson](https://geoscripting-wur.github.io/IntroToRaster/#raster-objects-manipulations).
+Let's download a file from the intro to raster lesson.
 Download the `gewata.zip` file from Github ([link](https://github.com/GeoScripting-WUR/IntroToRaster/raw/gh-pages/data/gewata.zip)) and unzip in the data directory.
 
 Write a shell script that:
@@ -409,12 +446,13 @@ Write a shell script that:
 - *Bonus*: reprojects this resampled file to Lat/long WGS84 (the projection code is: EPSG:4326)
     - Tip: `gdalwarp -t_srs EPSG:4326 $fntemp $fnout`
 
-Make sure your script is clear and reproducible, and let it be tested on the next day by at least one other team. 
+Make sure your script is clear and reproducible, make a new GitLab project according to the same guidelines as yesterday, and upload the script there. Test the script of another team (see the random team selector Shiny app) tomorrow morning and add an issue with your testing results and score according to the rubric.
 
 *Do not forget to add a teamname, and members and date of script at the top of your script.*
 
 [More tips](http://www.geos.ed.ac.uk/~smudd/TopoTutorials/html/tutorial_raster_conversion.html)
 
+```{block, type="alert alert-info"}
 # More information
 
 - [Hands-on introduction to bash basics for beginners](https://news.opensuse.org/2014/06/10/command-line-tuesdays-part-one/)
@@ -430,3 +468,5 @@ Make sure your script is clear and reproducible, and let it be tested on the nex
     - [Is the terminal in Mac and Linux the same](https://stackoverflow.com/questions/8051145/is-the-terminal-in-mac-and-linux-the-same)
 - [Python code Building plug-in](https://www.youtube.com/watch?v=eWNEcJYnkPQ)
 - [Using Jupyter notebook within OSGEO](http://www.r-bloggers.com/interactive-r-notebooks-with-jupyter-and-sagemathcloud/)
+```
+

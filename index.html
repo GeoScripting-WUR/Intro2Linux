@@ -5,8 +5,13 @@
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
   <meta name="author" content="Jan Verbesselt and Dainius Masiliunas" />
-  <title></title>
-  <style type="text/css">code{white-space: pre;}</style>
+  <title>Week 1, Lesson 4: Getting started with Linux, the terminal and Bash scripting</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <!-- jQuery -->
@@ -862,9 +867,11 @@
   </style>
 </head>
 <body>
-<title>
-Week 1, Lesson 4: Getting started with Linux, the terminal and Bash scripting
-</title>
+<div id="header">
+<h1 class="title">Week 1, Lesson 4: Getting started with Linux, the terminal and Bash scripting</h1>
+<h2 class="author">Jan Verbesselt and Dainius Masiliunas</h2>
+<h3 class="date">03 January, 2019</h3>
+</div>
 <div id="wrap">
 <div class="container">
 <div class="row row-offcanvas row-offcanvas-right">
@@ -872,10 +879,10 @@ Week 1, Lesson 4: Getting started with Linux, the terminal and Bash scripting
 <h1 id="wur-geoscripting"><a href="https://geoscripting-wur.github.io/">WUR Geoscripting</a> <img src="http://www.wur.nl/upload/b43b7095-e452-482a-8969-fed9a50393a8_WUR_RGB_standard.png" alt="WUR logo" style="height: 35px;"/></h1>
 <h1 id="week-1-lesson-4-getting-started-with-linux-the-terminal-and-bash-scripting">Week 1, Lesson 4: Getting started with Linux, the terminal and Bash scripting</h1>
 <p>Good morning! Here is what you will do today:</p>
-<table style="width:39%;">
+<table>
 <colgroup>
-<col width="19%" />
-<col width="19%" />
+<col width="50%" />
+<col width="50%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -889,7 +896,7 @@ Week 1, Lesson 4: Getting started with Linux, the terminal and Bash scripting
 <td>Self-study: go through the following tutorial, and get confortable with a Linux environment and the terminal</td>
 </tr>
 <tr class="even">
-<td>13:30 to 15:30</td>
+<td>14:00 to 16:00</td>
 <td>Discussion</td>
 </tr>
 <tr class="odd">
@@ -898,7 +905,7 @@ Week 1, Lesson 4: Getting started with Linux, the terminal and Bash scripting
 </tr>
 </tbody>
 </table>
-<h1 id="todays-learning-objectives">Today's Learning objectives</h1>
+<h1 id="todays-learning-objectives">Today’s Learning objectives</h1>
 <ul>
 <li>Knowing what Linux is &amp; what you can do with it</li>
 <li>Getting comfortable working within a Linux environment</li>
@@ -913,53 +920,101 @@ Week 1, Lesson 4: Getting started with Linux, the terminal and Bash scripting
 <p>There is a large variety of different Linux distributions. One that is handy for geo-information science work is OSGeo-Live, which is also an Ubuntu-based distribution that has a wide range of free and open-source GIS and Remote sensing tools preinstalled. See <a href="http://live.osgeo.org/">this website</a> for more information.</p>
 <p>These tools are also available in other distributions, but they have to be installed manually. A general-use distribution such as <em>Ubuntu</em> or <em>openSUSE</em> is more suitable for regular day-to-day tasks, since not having the unnecessary tools installed takes less space and makes it work faster. It is also easier to find help for them than for specialised distributions. So in this course we will use a customised Ubuntu distribution with only the tools needed for this course preinstalled.</p>
 <h2 id="why-use-a-linux-distribution">Why use a Linux distribution?</h2>
-<p>A Linux environment makes it much easier to install and combine a variety of open-source software, such as Python modules and GDAL, compared to other operating systems like Windows or macOS. In addition, open-source scientific software is often developed primarily for Linux (since that's what most supercomputers and servers run!), and so it tends to be more stable and have more features on Linux. Furthermore, at Wageningen University &amp; Research PC labs, ArcGIS and ArcPy are installed on the Windows machines, and this Python version tends to cause conflicts with open-source Python modules and tools (e.g. GDAL, GEOS).</p>
+<p>A Linux environment makes it much easier to install and combine a variety of open-source software, such as Python modules and GDAL, compared to other operating systems like Windows or macOS. In addition, open-source scientific software is often developed primarily for Linux (since that’s what most supercomputers and servers run!), and so it tends to be more stable and have more features on Linux. Furthermore, at Wageningen University &amp; Research PC labs, ArcGIS and ArcPy are installed on the Windows machines, and this Python version tends to cause conflicts with open-source Python modules and tools (e.g. GDAL, GEOS).</p>
 <h2 id="getting-started-on-linux">Getting started on Linux</h2>
-<p>During the course we will work in a Linux environment. There are several choices, listed in the order of most to least tested for the course:</p>
-<ol style="list-style-type: decimal">
-<li>VMware Horizon virtual desktop infrastructure (VDI) that is provided by the WUR IT department. It is available over the internet for each student in the course and supported by the IT department.</li>
-<li>Local VirtualBox VMs installed on the PCs in the PC labs. These can only be accessed from a specific PC and intended as a fallback is there are problems when using VDIs.</li>
-<li>Your own hardware: if you know what you are doing, you can install Linux on your own laptops or external hard disks.</li>
-</ol>
-<p>The VDIs are recommended, but ultimately the choice is up to you. In either case, the systems need to be set up.</p>
+<p>During the course we will work in a Linux environment. For students taking the course in Wageningen University, we provide a <strong>VMware Horizon virtual desktop infrastructure (VDI)</strong> that is managed by the WUR IT department. It is available over the internet for each student in the course and supported by the IT department.</p>
+<p>The VMware Horizon VDIs can be accessed through the VMware Horizon client (preinstalled on WUR PCs). <strong>See <a href="vmware_horizon_tutorial.html">this page</a> for detailed instructions on how to use them.</strong></p>
+<div class="row">
+<div class="alert alert-danger">
+<p>
+<strong>Notice</strong>: Make sure you have no problems logging into and using the VDI. From here on out, we will try to work from within the VDI.
+</p>
+</div>
+</div>
+<div class="row">
+<div class="alert alert-info">
+<p>
+In case the VDI is not sufficient (e.g. for the project week) or you’d like to run Linux on your own hardware, we have two more alternatives:
+</p>
+<ul>
+<li>
+Local VirtualBox VMs installed on the PCs in the PC labs. These can only be accessed from a specific PC and intended as a fallback is there are problems when using VDIs.
+</li>
+<li>
+Your own hardware: if you know what you are doing, you can install Linux on your own laptops or external hard disks.
+</li>
+</ul>
+<p>
+The VDIs are recommended, but ultimately the choice is up to you. In either case, the systems need to be set up.
+</p>
 <!--### SURFsara cloud VM setup
 
 [See this page for instructions on setting up the SURFsara cloud VMs](surfsara_tutorial.html).-->
-<h3 id="vmware-horizon-vdi-setup">VMware Horizon VDI setup</h3>
-<p>The VMware Horizon VDIs can be accessed through the VMware Horizon client (preinstalled on WUR PCs). <strong>See <a href="vmware_horizon_tutorial.html">this page</a> for detailed instructions on how to use them.</strong></p>
-<h3 id="virtualbox-vm-setup">VirtualBox VM setup</h3>
-<p>To set up VirtualBox, first find the provided image of OSGeo-Live on the network drive in the PC lab, which should be available to you as <code>W:\Student\Shares\GRS51806\2017\osgeo-live.ova</code>. This is a compressed VirtualBox image with RStudio installed. For use on your own PCs, you can copy the file on your PC from the PC lab or download OSGeo-Live from <a href="https://live.osgeo.org/en/quickstart/virtualization_quickstart.html">its website</a>.</p>
-<p>Once you have the file, all you need to do is import it in VirtualBox by going to <em>File → Import Appliance</em> and specifying the location of the OVA file. Everything else can be left default.</p>
-<p>Once importing is complete, you can go to the appliance settings and set the M: shared folder to be read-write by deselecting <em>Read-only</em> in its properties (<em>Shared folders</em> tab). That way all files you have in the shared folder will also be visible from the VM. You can see it by running the VM, opening the file manager in it and clicking on the <em>sf_M_DRIVE</em> mount on the left side of the window.</p>
+<h3 id="virtualbox-vm-setup">
+VirtualBox VM setup
+</h3>
+<p>
+To set up VirtualBox, first find the provided image of OSGeo-Live on the network drive in the PC lab, which should be available to you as <code>W:-33806Live 12.ova</code>. This is a compressed VirtualBox image with RStudio installed. For use on your own PCs, you can copy the file on your PC from the PC lab or download OSGeo-Live from <a href="https://live.osgeo.org/en/quickstart/virtualization_quickstart.html">its website</a>.
+</p>
+<p>
+Once you have the file, all you need to do is import it in VirtualBox by going to <em>File → Import Appliance</em> and specifying the location of the OVA file. Everything else can be left default.
+</p>
+<p>
+Once importing is complete, you can go to the appliance settings and add a shared folder. That way all files you have in the shared folder will also be visible from the VM. You can see it by running the VM, opening the file manager in it and clicking on the shared folder name on the left side of the window.
+</p>
+<h3 id="installing-linux-on-your-own-hardware">
+Installing Linux on your own hardware
+</h3>
+<p>
+If you like, you can install a Linux distribution on your own laptops or external hard drives. Compared to virtualisation, it is much faster to run a Linux distribution directly. See a <a href="installation.html">theoretical overview of running Linux on your own hardware</a> and <a href="../system_setup/index.html">Linux system setup</a>.
+</p>
+</div>
+</div>
 <p>Once you have everything ready, login into your Linux VM, try out RStudio/RKWard, and also open QGIS.</p>
-<h3 id="installing-linux-on-your-own-hardware">Installing Linux on your own hardware</h3>
-<p>If you like, you can install a Linux distribution on your own laptops or external hard drives. Compared to virtualisation, it is much faster to run a Linux distribution directly. See <a href="installation.html">this page</a> for tips on that.</p>
 <h1 id="using-the-terminal-and-bash">Using the terminal and <em>Bash</em></h1>
 <p>There are two ways to interact with your operating system: a graphical user interface (GUI), where you point and click, and a command-line interface (CLI), where you type commands to make something happen. GUIs are simpler to use, but CLIs are more powerful and faster for some tasks, once you get used to them.</p>
+<div class="row">
+<div class="alert alert-success">
 <blockquote>
-<p><strong>Question 1</strong>: What are the advantages of using CLI? Can you think of some examples?</p>
+<p>
+<strong>Question 1</strong>: What are the advantages of using CLI? Can you think of some examples?
+</p>
 </blockquote>
+</div>
+</div>
 <p>Most Linux distributions come with a <em>terminal</em>, which is a program you use to run CLI programs. You might know the <em>Command Prompt</em> program on Windows: that is a type of <em>terminal</em>. On Linux, there is a variety of terminal applications to choose from. You can start one on your virtual machine by clicking on <em>Applications</em> → <em>System Tools</em> → <em>Terminal</em>. This will look like:</p>
 <p><img src="figs/terminal-vdi.png" alt="terminal" /></p>
 <p>A <em>terminal</em> is just a gateway to the world of CLIs, but through it you interact with a particular <em>shell</em> (or <em>command interpreter</em>) which speaks a programming language. The default shell on Linux is <em>Bash</em>, and programs written in the <em>Bash</em> language are called <em>Bash scripts</em>. Much like the <em>R</em> console, you can input commands to <em>Bash</em> line by line through the <em>terminal</em>.</p>
-<p><em>Bash</em> shell scripting, like also <em>R</em> or <em>Python</em>, allows multiple commands to be combined, facilitating automation. A shell script (shell program) is a text file that contains commands that are interpreted by the shell (see below, we will learn how to write a shell script). Each command can be linked in a script to combine several commands by providing the output of one as input to the other. Shell scripts can also contain the control structures common to the majority of programming languages (i.e. variables, logic constructs, looping constructs, functions and comments). The main distinction between shell programs and those written in C, C++, Java (to name but a few) is that shell programs are not compiled for execution, but are readily interpreted by the shell.</p>
+<p><em>Bash</em> shell scripting, like also <em>R</em> or <em>Python</em>, allows multiple commands to be combined, facilitating automation. A shell script (shell program) is a text file that contains commands that are interpreted by the shell (see below, we will learn how to write a shell script). Each command can be linked in a script to combine several commands by providing the output of one as input to the other. Shell scripts can also contain the control structures common to the majority of programming languages (i.e. variables, logic constructs, looping constructs, functions and comments). The main distinction between shell programs and those written in C, C++, Java (to name but a few) is that shell programs are not compiled for execution, but are readily interpreted by the shell.</p>
+<div class="row">
+<div class="alert alert-success">
 <blockquote>
-<p><strong>Question 2</strong>: What is a shell script?</p>
+<p>
+<strong>Question 2</strong>: What is a shell script?
+</p>
 </blockquote>
+</div>
+</div>
 <p><em>Bash</em> is not only the default shell on Linux, but also macOS, and there are versions of <em>Bash</em> that run on Windows too. It is included with Git for Windows, and in Windows 10 <em>Bash</em> is even included by default with the <a href="https://msdn.microsoft.com/en-us/commandline/wsl/about"><em>Windows Subsystem for Linux</em></a>. However, without the wealth of CLI programs that Linux distributions come with, <em>Bash</em> functionality is fairly limited.</p>
-<p>But enough theory: let's try using the terminal in practice! Go through this exercise and see what happens: <a href="https://news.opensuse.org/2014/06/10/command-line-tuesdays-part-one/" class="uri">https://news.opensuse.org/2014/06/10/command-line-tuesdays-part-one/</a></p>
+<p>But enough theory: let’s try using the terminal in practice! Go through this exercise and see what happens: <a href="https://news.opensuse.org/2014/06/10/command-line-tuesdays-part-one/" class="uri">https://news.opensuse.org/2014/06/10/command-line-tuesdays-part-one/</a></p>
 <h2 id="basic-commands">Basic commands</h2>
 <p>Now go through the next exercise to learn how to navigate the file system: <a href="https://news.opensuse.org/2014/06/24/command-line-tuesdays-part-two/" class="uri">https://news.opensuse.org/2014/06/24/command-line-tuesdays-part-two/</a></p>
 <p>The file system layout image might not display properly, but it is intended to show this: <img src="https://configureinstantly.files.wordpress.com/2011/01/file-system.jpg" alt="Filesystem Hierarchy Standard" /></p>
-<p>Once you're done, you should have something like this displayed in your terminal:</p>
+<p>Once you’re done, you should have something like this displayed in your terminal:</p>
 <p><img src="figs/cd_pwd-vdi.png" alt="cdpwd" /></p>
-<p>Next, let's go into some useful every-day commands: <a href="https://news.opensuse.org/2014/07/01/command-line-tuesdays-part-three/" class="uri">https://news.opensuse.org/2014/07/01/command-line-tuesdays-part-three/</a></p>
+<p>Next, let’s go into some useful every-day commands: <a href="https://news.opensuse.org/2014/07/01/command-line-tuesdays-part-three/" class="uri">https://news.opensuse.org/2014/07/01/command-line-tuesdays-part-three/</a></p>
+<div class="row">
+<div class="alert alert-success">
 <blockquote>
-<p><strong>Question 3</strong>: What is the difference between <code>ls -l</code>, <code>ls -lh</code> and <code>ls -lh --si</code>?</p>
+<p>
+<strong>Question 3</strong>: What is the difference between <code>ls -l</code>, <code>ls -lh</code> and <code>ls -lh –si</code>?
+</p>
 </blockquote>
+</div>
+</div>
 <h2 id="file-manipulation">File manipulation</h2>
-<p>Now let's dive into manipulating files and directories: <a href="https://news.opensuse.org/2014/07/08/command-line-tuesdays-part-four/" class="uri">https://news.opensuse.org/2014/07/08/command-line-tuesdays-part-four/</a></p>
-<p>Now, create a directory called <code>Bash</code> (i.e. a directory that will contain our <em>Bash</em> scripts)</p>
+<p>Now let’s dive into manipulating files and directories: <a href="https://news.opensuse.org/2014/07/08/command-line-tuesdays-part-four/" class="uri">https://news.opensuse.org/2014/07/08/command-line-tuesdays-part-four/</a></p>
+<p>Now, create a directory called <code>Bash</code> (i.e. a directory that will contain our <em>Bash</em> scripts)</p>
 <div class="row">
 <button class="source bash toggle btn btn-xs btn-primary">
 <span class="glyphicon glyphicon-chevron-down"></span> bash source
@@ -968,7 +1023,12 @@ Week 1, Lesson 4: Getting started with Linux, the terminal and Bash scripting
 </div>
 <p>It should now look like this:</p>
 <p><img src="figs/mkdir-vdi.png" alt="mkdir" /></p>
-<p>Now, try out some more commands: - make a directory and remove it (e.g. <code>mkdir namedirectory</code>, <code>rmdir namedirectory</code>). - create an <em>R</em> script via <em>RStudio</em> or <em>RKWard</em>, and then remove it via the terminal using <code>rm filename.R</code>. - create another file and copy it and then remove it, etc.:</p>
+<p>Now, try out some more commands:</p>
+<ul>
+<li>make a directory and remove it (e.g. <code>mkdir namedirectory</code>, <code>rmdir namedirectory</code>).</li>
+<li>create an <em>R</em> script via <em>RStudio</em> or <em>RKWard</em>, and then remove it via the terminal using <code>rm filename.R</code>.</li>
+<li>create another file and copy it and then remove it, etc.:</li>
+</ul>
 <div class="row">
 <button class="source bash toggle btn btn-xs btn-primary">
 <span class="glyphicon glyphicon-chevron-down"></span> bash source
@@ -979,17 +1039,23 @@ rm dest_file</code></pre>
 <ul>
 <li>use <code>ls</code> commands and its options.</li>
 </ul>
-<p><strong>Tip</strong>: Bash has a feature called Tab-completion. If you start writing a command or filename, pressing the <code>Tab</code> key a couple of times will give a list of suggestions for auto-completion. This is super-handy so that you never need to write filenames etc. In addition, you can recall the last commands you entered by using the up arrow key. Lastly, you can always open multiple terminals, even in tabs, by using <em>File</em> → <em>Open Tab</em>.</p>
+<div class="row">
+<div class="alert alert-info">
+<p>
+<strong>Tip</strong>: Bash has a feature called Tab-completion. If you start writing a command or filename, pressing the <code>Tab</code> key a couple of times will give a list of suggestions for auto-completion. This is super-handy so that you never need to write filenames etc. In addition, you can recall the last commands you entered by using the up arrow key. Lastly, you can always open multiple terminals, even in tabs, by using <em>File</em> → <em>Open Tab</em>.
+</p>
+</div>
+</div>
 <h2 id="more-information-about-commands">More information about commands</h2>
-<p>So far we have been using only a few of the functions that the commands offer. You can find a list of them by looking at their manual pages by following the last exercise: <a href="https://news.opensuse.org/2014/07/15/command-line-tuesdays-part-five/" class="uri">https://news.opensuse.org/2014/07/15/command-line-tuesdays-part-five/</a></p>
-<p>Manual pages are text files displayed in a pager program that allows easy scrolling. The default pager is <code>less</code>, which you have already used in the third exercise. You can also look at its manual page using <code>man less</code>. Also try <code>man intro</code>: the &quot;Introduction to user commands&quot;, a well-written, fairly brief introduction to the Linux command line.</p>
+<p>So far we have been using only a few of the functions that the commands offer. You can find a list of them by looking at their manual pages by following the last part of the tutorial: <a href="https://news.opensuse.org/2014/07/15/command-line-tuesdays-part-five/" class="uri">https://news.opensuse.org/2014/07/15/command-line-tuesdays-part-five/</a></p>
+<p>Manual pages are text files displayed in a pager program that allows easy scrolling. The default pager is <code>less</code>, which you have already used in the third exercise. You can also look at its manual page using <code>man less</code>. Also try <code>man intro</code>: the “Introduction to user commands”, a well-written, fairly brief introduction to the Linux command line.</p>
 <div class="row">
 <button class="source bash toggle btn btn-xs btn-primary">
 <span class="glyphicon glyphicon-chevron-down"></span> bash source
 </button>
 <pre style=""><code class="source bash">man intro</code></pre>
 </div>
-<p>Here's a list of most common commands:</p>
+<p>Here’s a list of most common commands:</p>
 <ul>
 <li><code>pwd</code>: show your current working directory</li>
 <li><code>cd</code>: change directory</li>
@@ -998,9 +1064,15 @@ rm dest_file</code></pre>
 <li><code>rm</code> or <code>rm -R</code>: delete files or directories</li>
 <li><code>sudo</code>: running programs as root (administrator/super-user), which may ask for your user pasword</li>
 <li><code>ls</code>: listing files in a directory</li>
-<li><code>cp</code>: copy files e.g. for backing up things or just copying. We will use these command in the scripts below.</li>
+<li><code>cp</code>: copy files e.g. for backing up things or just copying. We will use these command in the scripts below.</li>
 </ul>
-<p>You can also read the <a href="https://help.ubuntu.com/community/UsingTheTerminal">Ubuntu documentation on CLI</a> to learn more, and let us know if you have questions about some commands.</p>
+<div class="row">
+<div class="alert alert-info">
+<p>
+<strong>Optional</strong>: You can also read the <a href="https://help.ubuntu.com/community/UsingTheTerminal">Ubuntu documentation on CLI</a> to learn more, and let us know if you have questions about some commands.
+</p>
+</div>
+</div>
 <h2 id="package-installation-and-management">Package installation and management</h2>
 <p>One of the greatest advantages of Linux distributions over other OSs is the package manager. Even if you never used Linux before, you are probably already using a package manager on your mobile device: The App Store, Google Play Store and Windows Store are all package managers, modelled after the Linux ones. A package manager is a central system for downloading, installing and removing software.</p>
 <p>Each major Linux distribution has its own package manager, which is aware of all packages maintained by the distribution. These packages are tested and are known to work with that particular distribution version, so the package manager is the first place to look for installing additional software. The package manager is typically a command-line program, although some distributions also have GUI interfaces for it.</p>
@@ -1012,10 +1084,10 @@ rm dest_file</code></pre>
 <li><code>sudo apt remove</code>: Uninstall a package</li>
 <li>See <code>man apt</code> for more.</li>
 </ul>
-<p>For instance, if you run <code>apt search chrom</code>, one of the results will be <code>chromium-browser</code>. It's <a href="https://en.wikipedia.org/wiki/Chromium_(web_browser)">Chromium</a>, the open-source version of Google Chrome. You can install it by running <code>sudo apt-get install chromium-browser</code>. Similarly, the Ubuntu package repository contains a lot (but not all) of R packages (they are prefixed with <code>r-cran-</code>) and Python packages (prefixed with <code>python-</code>; the ones prefixed with <code>python3-</code> are for Python 3 which we will not be using this year). If there is a package available in the distribution repository, almost always it is better to use that instead of using a package manager built into the language (<code>install.packages</code> in R and <code>easyinstall</code>/<code>pip</code>/<code>conda</code> in Python).</p>
-<p>The aforementioned commands are specific to Debian and its derivatives (Ubuntu is one). In other distributions, package manager syntax is different, but the result is the same. For instance, in openSUSE the equivalent commands would be <code>zypper search</code>, <code>sudo zypper install</code>, <code>sudo zypper update</code> and <code>sudo zypper remove</code>.</p>
+<p>For instance, if you run <code>apt search chrom</code>, one of the results will be <code>chromium-browser</code>. It’s <a href="https://en.wikipedia.org/wiki/Chromium_(web_browser)">Chromium</a>, the open-source version of Google Chrome. You can install it by running <code>sudo apt install chromium-browser</code>. Similarly, the Ubuntu package repository contains a lot (but not all) of R packages (they are prefixed with <code>r-cran-</code>) and Python packages (prefixed with <code>python3-</code>; the ones prefixed with <code>python-</code> are for Python 2 which we will not be using this year). If there is a package available in the distribution repository, almost always it is better to use that instead of using a package manager built into the language (<code>install.packages</code> in R and <code>easyinstall</code>/<code>pip</code>/<code>conda</code> in Python).</p>
+<p>The aforementioned commands are specific to the Debian fabily of Linux distribution (of whom Ubuntu is a member). In other distributions, package manager syntax is different, but the result is the same. For instance, in openSUSE the equivalent commands would be <code>zypper search</code>, <code>sudo zypper install</code>, <code>sudo zypper update</code> and <code>sudo zypper remove</code>.</p>
 <p>Whenever a package is not included in the distribution repository, one option is to look for additional software sources. Ubuntu allows users to maintain their own packages through a system called Personal Package Archives (PPA). However, these packages are not tested and are not guaranteed to work, or could even cause problems in the system, so you have to be careful. Other distributions also have their own third-party repository systems: openSUSE uses Open Build Service, Fedora uses Copr etc.</p>
-<p>If a package doesn't exist in third party repositories either, there is often the possibility to download the source code of a package and compile it. Often times cross-platform software vendors provide installers for Windows and source code for Linux. However, compiling from source yourself should only be done as the very last resort; in fact, it is often easier and safer to create a package yourself than to try to build it from source!</p>
+<p>If a package doesn’t exist in third party repositories either, there is often the possibility to download the source code of a package and compile it. Often times cross-platform software vendors provide installers for Windows and source code for Linux. However, compiling from source yourself should only be done as the very last resort; in fact, it is often easier and safer to create a package yourself than to try to build it from source!</p>
 <h2 id="starting-r-or-python-from-the-terminal">Starting R or Python from the terminal</h2>
 Starting and stopping R from the terminal (this is the same as the R console you know from <em>RStudio</em>/<em>RKWard</em>):
 <div class="row">
@@ -1036,8 +1108,8 @@ exit()</code></pre>
 </div>
 <h2 id="scripting-in-the-terminal">Scripting in the terminal</h2>
 <h3 id="hello-world-bash-script">Hello, world Bash script</h3>
-<p><em>Bash</em> is primarily a scripting language, so it would be a crime not to talk about scripting. Let's dive straight in with a <em>Bash</em> script. More precisely the infamous &quot;Hello World&quot; script. You can create a bash script by opening your favorite text editor to edit your script and then saving it (typically the <code>.sh</code> file extension is used for your reference, but is not required. In our example, we will be using the <code>.sh</code> extension).</p>
-<p>So let's get started. First, go to the <code>Bash</code> directory you just created. Within this directory create a simple text file and call it <code>HelloWorld.sh</code>, then add the following text and save. You can use the <em>gedit</em> editor, or use <em>RStudio</em> or <em>RKWard</em> as a sort of text editor. In fact, there are even command-line text editors, like <code>nano</code>.</p>
+<p><em>Bash</em> is primarily a scripting language, so it would be a crime not to talk about scripting. Let’s dive straight in with a <em>Bash</em> script. More precisely the infamous “Hello World” script. You can create a bash script by opening your favorite text editor to edit your script and then saving it (typically the <code>.sh</code> file extension is used for your reference, but is not required. In our example, we will be using the <code>.sh</code> extension).</p>
+<p>So let’s get started. First, go to the <code>Bash</code> directory you just created. Within this directory create a simple text file and call it <code>HelloWorld.sh</code>, then add the following text and save. You can use the <em>gedit</em> editor, or use <em>RStudio</em> or <em>RKWard</em> as a sort of text editor. In fact, there are even command-line text editors, like <code>nano</code>.</p>
 <p><img src="figs/rstudioshell-vdi.jpg" alt="execute" /></p>
 <div class="row">
 <button class="source bash toggle btn btn-xs btn-primary">
@@ -1047,12 +1119,25 @@ exit()</code></pre>
 echo "Hello, World"
 </code></pre>
 </div>
-<p>The first line of the script just defines which interpreter to use (and where it is located). NOTE: There is no leading whitespace before #!/bin/bash. That's it, simple as that! To find out where your <code>bash</code> interpreter is located type the following in the terminal (this works also on a Mac terminal!):</p>
+<p>The first line of the script just defines which interpreter to use (and where it is located). That’s it, simple as that!</p>
+<div class="row">
+<div class="alert alert-danger">
+<p>
+<strong>Note</strong>: There is no leading whitespace before <code>#!/bin/bash</code>, and you cannot add any comments before it. This <em>shebang</em> should be the very first thing in the file.
+</p>
+</div>
+</div>
+<p>To find out where your <code>bash</code> interpreter is located type the following in the terminal (this works also on a Mac terminal!):</p>
 <div class="row">
 <button class="source bash toggle btn btn-xs btn-primary">
 <span class="glyphicon glyphicon-chevron-down"></span> bash source
 </button>
-<pre style=""><code class="source bash">which bash</code></pre>
+<pre style=""><code class="source bash">type bash</code></pre>
+<button class="output bash toggle btn btn-xs btn-success">
+<span class="glyphicon glyphicon-chevron-down"></span> bash output
+</button>
+<pre style=""><code class="output bash">## bash is /usr/bin/bash
+</code></pre>
 </div>
 <p>Second, to run a bash script you first have to have the correct file permissions. We do this with <code>chmod</code> (change mode) command in terminal as follows:</p>
 <div class="row">
@@ -1061,7 +1146,13 @@ echo "Hello, World"
 </button>
 <pre style=""><code class="source bash">chmod u+x Bash/HelloWorld.sh  # Gives your user execute permissions</code></pre>
 </div>
-<p>More info about <code>chmod</code> (https://help.ubuntu.com/community/FilePermissions) for your future reference. Note: today is just an introduction to let you know what is possible so that you can find your way easier in the future.</p>
+<div class="row">
+<div class="alert alert-info">
+<p>
+<strong>Optional</strong>: <a href="https://help.ubuntu.com/community/FilePermissions">More info about <code>chmod</code></a> for your future reference. Note: today is just an introduction to let you know what is possible so that you can find your way easier in the future.
+</p>
+</div>
+</div>
 <p>Below is a summary of what we have done in the terminal:</p>
 <div class="row">
 <button class="source bash toggle btn btn-xs btn-primary">
@@ -1078,10 +1169,22 @@ echo "We can now run our first Bash script:"
 </div>
 <p>Hopefully you should have seen it print <code>Hello, World</code> onto your screen. If so well done! That is your first <em>Bash</em> script (see below for a screenshot):</p>
 <p><img src="figs/Scripting-vdi.jpg" alt="BashScript" /></p>
+<div class="row">
+<div class="alert alert-success">
 <blockquote>
-<p><strong>Question 4</strong>: Why do we add <code>./</code> in front of the Bash script?</p>
+<p>
+<strong>Question 4</strong>: Why do we add <code>./</code> in front of the Bash script?
+</p>
 </blockquote>
-<p><strong>Note</strong>: we can also access the Terminal from R using the <code>system()</code> function that can invoke an OS command:</p>
+</div>
+</div>
+<div class="row">
+<div class="alert alert-info">
+<p>
+<strong>Note</strong>: we can also access the Terminal from R using the <code>system()</code> function that can invoke an OS command:
+</p>
+</div>
+</div>
 <div class="row">
 <button class="source R toggle btn btn-xs btn-primary">
 <span class="glyphicon glyphicon-chevron-down"></span> R source
@@ -1103,7 +1206,7 @@ print(system("./HelloWorld.sh", intern = TRUE)) # Execute this command in Bash</
 </button>
 <pre style=""><code class="source bash">var="FOO"</code></pre>
 </div>
-<p><code>var</code> can be anything you want as long as it doesn't begin with a number. &quot;FOO&quot; can be anything you want. To access the information from the variable you need to put a '$' in front of it like this:</p>
+<p><code>var</code> can be anything you want as long as it doesn’t begin with a number. “FOO” can be anything you want. There cannot be any space in between the <code>=</code> sign. To access the information from the variable you need to put a ‘$’ in front of it like this:</p>
 <div class="row">
 <button class="source bash toggle btn btn-xs btn-primary">
 <span class="glyphicon glyphicon-chevron-down"></span> bash source
@@ -1133,13 +1236,25 @@ You can run the script once it is <em>executable</em>:
 </button>
 <pre style=""><code class="source bash">./variables.sh</code></pre>
 </div>
+<div class="row">
+<div class="alert alert-success">
 <blockquote>
-<p><strong>Question 5</strong>: Try it out yourself, and try to do a calculation of e.g. a + b as input variables. Hint: <a href="https://www.shell-tips.com/2010/06/14/performing-math-calculation-in-bash/">Shell-tips</a></p>
+<p>
+<strong>Question 5</strong>: Try it out yourself, and try to do a calculation of e.g. a + b as input variables. Hint: <a href="https://www.shell-tips.com/2010/06/14/performing-math-calculation-in-bash/">Shell-tips</a>
+</p>
 </blockquote>
-<p>If you want to learn more about <em>Bash</em> scripting: https://help.ubuntu.com/community/Beginners/BashScripting</p>
+</div>
+</div>
+<div class="row">
+<div class="alert alert-info">
+<p>
+<strong>Optional</strong>: If you want to learn more about <em>Bash</em> scripting: <a href="https://help.ubuntu.com/community/Beginners/BashScripting" class="uri">https://help.ubuntu.com/community/Beginners/BashScripting</a>
+</p>
+</div>
+</div>
 <h2 id="using-the-gdal-library-from-the-terminal">Using the GDAL library from the terminal</h2>
 <p>We will learn more about GDAL in the later lessons. GDAL is a very powerful and fast processing library written in C/C++ for raster and vector geospatial data formats. Now via the terminal we can access GDAL directly! E.g. we can check out what the current version of GDAL is that is installed on our Linux OS.</p>
-<p>Let's download a file from <a href="https://geoscripting-wur.github.io/IntroToRaster/#raster-objects-manipulations">The intro to raster lesson</a>: Download the <code>gewata.zip</code> file from Github (<a href="https://github.com/GeoScripting-WUR/IntroToRaster/raw/gh-pages/data/gewata.zip">link</a>) and unzip in the <code>data</code> directory. Type the following in the <code>data</code> directory: (Note: You can write a shell script to do the following commands below but first type in the commands via the terminal to understand what is happening.)</p>
+<p>Let’s download a file from <a href="https://geoscripting-wur.github.io/IntroToRaster/#raster-objects-manipulations">The intro to raster lesson</a>: Download the <code>gewata.zip</code> file from Github (<a href="https://github.com/GeoScripting-WUR/IntroToRaster/raw/gh-pages/data/gewata.zip">link</a>) and unzip in the <code>data</code> directory. Type the following in the <code>data</code> directory: (Note: You can write a shell script to do the following commands below but first type in the commands via the terminal to understand what is happening.)</p>
 <div class="row">
 <button class="source bash toggle btn btn-xs btn-primary">
 <span class="glyphicon glyphicon-chevron-down"></span> bash source
@@ -1157,7 +1272,7 @@ gdal-config --version</code></pre>
 ls *.tif
 gdalinfo -nomd -norat -noct LE71700552001036SGS00_SR_Gewata_INT1U.tif</code></pre>
 </div>
-<p>Now let's calculate the NDVI via GDAL terminal by using the <code>gdal_calc.py</code>. See <a href="http://www.gdal.org/gdal_calc.html">GDAL_calc</a> for more information.</p>
+<p>Now let’s calculate the NDVI via GDAL terminal by using the <code>gdal_calc.py</code> script. See <a href="http://www.gdal.org/gdal_calc.html">GDAL_calc</a> for more information.</p>
 <div class="row">
 <button class="source bash toggle btn btn-xs btn-primary">
 <span class="glyphicon glyphicon-chevron-down"></span> bash source
@@ -1171,14 +1286,24 @@ gdal_calc.py -A input.tif --A_band=4 -B input.tif --B_band=3  --outfile=ndvi.tif
 echo "* remove the input temporary file"
 rm input.tif</code></pre>
 </div>
+<div class="row">
+<div class="alert alert-success">
 <blockquote>
-<p><strong>Question 6</strong>: Try to write to calculate the NDVI using the lines above in a nice and short shell script.</p>
+<p>
+<strong>Question 6</strong>: Try to write to calculate the NDVI using the lines above in a nice and short shell script.
+</p>
 </blockquote>
 <ul>
-<li>Hint 1: <code>cd ../data</code> (to move back from the Bash folder and move into the data folder)</li>
-<li>Hint 2: No spaces in file names are allowed and try to use variables e.g. <code>fn=$(ls *.tif)</code></li>
+<li>
+Hint 1: <code>cd ../data</code> (to move back from the Bash folder and move into the data folder)
+</li>
+<li>
+Hint 2: No spaces in file names are allowed and try to use variables e.g. <code>fn=$(ls *.tif)</code>
+</li>
 </ul>
-Let's now check if the range of the NDVI values makes sense, and make a nice script:
+</div>
+</div>
+Let’s now check if the range of the NDVI values makes sense, and make a nice script:
 <div class="row">
 <button class="source bash toggle btn btn-xs btn-primary">
 <span class="glyphicon glyphicon-chevron-down"></span> bash source
@@ -1197,14 +1322,33 @@ gdal_calc.py -A $fn --A_band=4 -B $fn --B_band=3 --outfile=$outfn --calc="(A.ast
 echo "look at some histogram statistics"
 gdalinfo -hist -stats $outfn</code></pre>
 </div>
-<p>More info here on the power of GDAL via the terminal: <a href="http://www.gdal.org/">GDAL_website</a> and <code>gdalinfo</code></p>
-<p>Handy functions are (See the examples at the bottom):</p>
+<div class="row">
+<div class="alert alert-info">
+<p>
+More info here on the power of GDAL via the terminal: <a href="http://www.gdal.org/">GDAL_website</a> and <code>gdalinfo</code>
+</p>
+<p>
+Handy functions are (See the examples at the bottom):
+</p>
 <ul>
-<li><a href="http://www.gdal.org/gdal_translate.html"><code>gdal_translate</code></a></li>
-<li><a href="http://www.gdal.org/gdalwarp.html"><code>gdalwarp</code></a></li>
+<li>
+<a href="http://www.gdal.org/gdal_translate.html"><code>gdal_translate</code></a>
+</li>
+<li>
+<a href="http://www.gdal.org/gdalwarp.html"><code>gdalwarp</code></a>
+</li>
 </ul>
-<p>More info about <em>Bash</em> basics from <a href="https://www.gnu.org/software/bash/manual/bashref.html#Command-Substitution">GNU</a></p>
-<p>Optional: if you are ready and want the learn more about using GDAL from the terminal. See <a href="http://wiki.americaview.org/display/miview/Introduction+to+GDAL">here</a> for another tutorial:</p>
+<p>
+<strong>Optional</strong>:
+</p>
+<p>
+More info about <em>Bash</em> basics from <a href="https://www.gnu.org/software/bash/manual/bashref.html#Command-Substitution">GNU</a>.
+</p>
+<p>
+If you are ready and want the learn more about using GDAL from the terminal, see <a href="http://wiki.americaview.org/display/miview/Introduction+to+GDAL">here</a> for another tutorial.
+</p>
+</div>
+</div>
 <h1 id="finding-help">Finding help</h1>
 <p>Just like with programming, you may find yourself facing some issue while using Linux (software availability, programs or drivers not working as expected, bugs etc.). While during the course you may make use of the Q&amp;A forum, for the future it is useful to know where to find help.</p>
 <h2 id="system-overview">System overview</h2>
@@ -1215,12 +1359,12 @@ gdalinfo -hist -stats $outfn</code></pre>
 <h2 id="how-to-get-help">How to get help</h2>
 <p>Just like with programming issues, a search engine is your first line of getting information. Note, however, that Linux distributions are for the most part quickly-moving targets: instructions written for one version of your distribution might need some changes in the next. So even if you find what seems to be a solution, you need to be critical about whether it does what you want. Checking the date is a good idea: solutions that were good 4 years ago are likely no longer relevant.</p>
 <p>Of special note is that each major Linux distribution maintains a wiki which serves as documentation and a knowledge base for common issues. You should search the wiki first and foremost, since it typically has up-to-date information for your specific distribution. For instance, if you are using Ubuntu, see the <a href="https://help.ubuntu.com/community/CommunityHelpWiki">Ubuntu wiki</a>.</p>
-<p>If you couldn't find the answer, your next step should be to ask the community of the distribution. Typically there are two support channels: IRC for instant messaging, and support forums.</p>
+<p>If you couldn’t find the answer, your next step should be to ask the community of the distribution. Typically there are two support channels: IRC for instant messaging, and support forums.</p>
 <p>IRC (Internet Relay Chat) is used for short and straightforward questions, or questions that require a lot of back-and-forth (debugging, getting diagnostic data etc.). Packagers and software developers alike very often can be found on IRC, and are happy to help with any questions that may pop up. Most of them are on the Freenode IRC server. For instance, to access the IRC chatroom for Ubuntu support, you can use the web interface to <a href="http://webchat.freenode.net?channels=%23ubuntu">chat.freenode.net #ubuntu chatroom</a> (see also <a href="https://community.ubuntu.com/contribute/support/irc/">IRC guidelines and list of chatrooms</a>).</p>
 <p>Each distribution also has a dedicated support forum. Forums are more useful for more complicated questions that are difficult to explain using IRC, or for non-urgent issues. See for instance the <a href="https://ubuntuforums.org/">Ubuntu forums</a>. Ubuntu in particular also has its own questions and answers board called <a href="http://askubuntu.com/">Ask Ubuntu</a>.</p>
 <p>By this point, you should hopefully have found a solution to the problem you are facing. Sometimes, however, you may uncover an actual bug in the software. In the case you do, you should try to report it to a bug tracker. <em>Note</em>: Reporting bugs is quite advanced, and should only be done if you are sure you found a bug. It is, however, an integral part of the open-source development model: a bug that is reported is brought to the attention of the software developer and gets fixed for each and every user of the software. Just like with questions, bugs should first be reported downstream to your distribution, and only reported upstream if asked by downstream developers (or if you are sure that the bug is indeed in the source of the software, rather than the packaging of it). See for instance the <a href="https://help.ubuntu.com/community/ReportingBugs">Ubuntu bug reporting guidelines</a>.</p>
 <h1 id="excercise">Excercise</h1>
-<p>Let's download a file from <a href="https://geoscripting-wur.github.io/IntroToRaster/#raster-objects-manipulations">The intro to raster lesson</a>. Download the <code>gewata.zip</code> file from Github (<a href="https://github.com/GeoScripting-WUR/IntroToRaster/raw/gh-pages/data/gewata.zip">link</a>) and unzip in the data directory.</p>
+<p>Let’s download a file from the intro to raster lesson. Download the <code>gewata.zip</code> file from Github (<a href="https://github.com/GeoScripting-WUR/IntroToRaster/raw/gh-pages/data/gewata.zip">link</a>) and unzip in the data directory.</p>
 <p>Write a shell script that:</p>
 <ul>
 <li>derives NDVI from the landsat <code>*.tif</code> file as <code>NDVI.tif</code></li>
@@ -1230,26 +1374,59 @@ gdalinfo -hist -stats $outfn</code></pre>
 <li>Tip: <code>gdalwarp -t_srs EPSG:4326 $fntemp $fnout</code></li>
 </ul></li>
 </ul>
-<p>Make sure your script is clear and reproducible, and let it be tested on the next day by at least one other team.</p>
+<p>Make sure your script is clear and reproducible, make a new GitLab project according to the same guidelines as yesterday, and upload the script there. Test the script of another team (see the random team selector Shiny app) tomorrow morning and add an issue with your testing results and score according to the rubric.</p>
 <p><em>Do not forget to add a teamname, and members and date of script at the top of your script.</em></p>
 <p><a href="http://www.geos.ed.ac.uk/~smudd/TopoTutorials/html/tutorial_raster_conversion.html">More tips</a></p>
-<h1 id="more-information">More information</h1>
+<div class="row">
+<div class="alert alert-info">
+<h1 id="more-information">
+More information
+</h1>
 <ul>
-<li><a href="https://news.opensuse.org/2014/06/10/command-line-tuesdays-part-one/">Hands-on introduction to bash basics for beginners</a></li>
-<li><a href="http://linuxconfig.org/bash-scripting-tutorial">A great bash scripting tutorial</a></li>
-<li><a href="http://beginlinux.com/twitter/1094-the-beginners-guide-to-the-ubuntu-terminal">An overview of terminal commands</a></li>
-<li><a href="http://www.howtogeek.com/140679/beginner-geek-how-to-start-using-the-linux-terminal/" class="uri">http://www.howtogeek.com/140679/beginner-geek-how-to-start-using-the-linux-terminal/</a></li>
-<li><a href="http://www.howtogeek.com/howto/42980/the-beginners-guide-to-nano-the-linux-command-line-text-editor/" class="uri">http://www.howtogeek.com/howto/42980/the-beginners-guide-to-nano-the-linux-command-line-text-editor/</a></li>
-<li><a href="http://linuxcommand.org/lc3_learning_the_shell.php" class="uri">http://linuxcommand.org/lc3_learning_the_shell.php</a></li>
-<li><a href="http://www.cyberciti.biz/faq/pwd-linux-unix-command-examples/" class="uri">http://www.cyberciti.biz/faq/pwd-linux-unix-command-examples/</a></li>
-<li>For macOS users and introduction to use the terminal on macOS
+<li>
+<a href="https://news.opensuse.org/2014/06/10/command-line-tuesdays-part-one/">Hands-on introduction to bash basics for beginners</a>
+</li>
+<li>
+<a href="http://linuxconfig.org/bash-scripting-tutorial">A great bash scripting tutorial</a>
+</li>
+<li>
+<a href="http://beginlinux.com/twitter/1094-the-beginners-guide-to-the-ubuntu-terminal">An overview of terminal commands</a>
+</li>
+<li>
+<a href="http://www.howtogeek.com/140679/beginner-geek-how-to-start-using-the-linux-terminal/" class="uri">http://www.howtogeek.com/140679/beginner-geek-how-to-start-using-the-linux-terminal/</a>
+</li>
+<li>
+<a href="http://www.howtogeek.com/howto/42980/the-beginners-guide-to-nano-the-linux-command-line-text-editor/" class="uri">http://www.howtogeek.com/howto/42980/the-beginners-guide-to-nano-the-linux-command-line-text-editor/</a>
+</li>
+<li>
+<a href="http://linuxcommand.org/lc3_learning_the_shell.php" class="uri">http://linuxcommand.org/lc3_learning_the_shell.php</a>
+</li>
+<li>
+<a href="http://www.cyberciti.biz/faq/pwd-linux-unix-command-examples/" class="uri">http://www.cyberciti.biz/faq/pwd-linux-unix-command-examples/</a>
+</li>
+<li>
+For macOS users and introduction to use the terminal on macOS
 <ul>
-<li><a href="http://computers.tutsplus.com/tutorials/navigating-the-terminal-a-gentle-introduction--mac-3855" class="uri">http://computers.tutsplus.com/tutorials/navigating-the-terminal-a-gentle-introduction--mac-3855</a></li>
-<li><a href="http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line" class="uri">http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line</a></li>
-<li><a href="https://stackoverflow.com/questions/8051145/is-the-terminal-in-mac-and-linux-the-same">Is the terminal in Mac and Linux the same</a></li>
-</ul></li>
-<li><a href="https://www.youtube.com/watch?v=eWNEcJYnkPQ">Python code Building plug-in</a></li>
-<li><a href="http://www.r-bloggers.com/interactive-r-notebooks-with-jupyter-and-sagemathcloud/">Using Jupyter notebook within OSGEO</a>
+<li>
+<a href="http://computers.tutsplus.com/tutorials/navigating-the-terminal-a-gentle-introduction--mac-3855">http://computers.tutsplus.com/tutorials/navigating-the-terminal-a-gentle-introduction–mac-3855</a>
+</li>
+<li>
+<a href="http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line" class="uri">http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line</a>
+</li>
+<li>
+<a href="https://stackoverflow.com/questions/8051145/is-the-terminal-in-mac-and-linux-the-same">Is the terminal in Mac and Linux the same</a>
+</li>
+</ul>
+</li>
+<li>
+<a href="https://www.youtube.com/watch?v=eWNEcJYnkPQ">Python code Building plug-in</a>
+</li>
+<li>
+<a href="http://www.r-bloggers.com/interactive-r-notebooks-with-jupyter-and-sagemathcloud/">Using Jupyter notebook within OSGEO</a>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -1264,7 +1441,6 @@ Styled with <a href="https://github.com/jimhester/knitrBootstrap">knitrBootstrap
 </div>
 </div>
 <link rel="stylesheet" id="theme" href="https://netdna.bootstrapcdn.com/bootswatch/3.0.0/simplex/bootstrap.min.css" media="screen"></link><link rel="stylesheet" id="highlight" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/7.3/styles/tomorrow-night-bright.min.css" media="screen"></link>
-</div></li>
-</ul>
+</div>
 </body>
 </html>
