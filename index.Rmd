@@ -436,15 +436,16 @@ Each distribution also has a dedicated support forum. Forums are more useful for
 By this point, you should hopefully have found a solution to the problem you are facing. Sometimes, however, you may uncover an actual bug in the software. In the case you do, you should try to report it to a bug tracker. *Note*: Reporting bugs is quite advanced, and should only be done if you are sure you found a bug. It is, however, an integral part of the open-source development model: a bug that is reported is brought to the attention of the software developer and gets fixed for each and every user of the software. Just like with questions, bugs should first be reported downstream to your distribution, and only reported upstream if asked by downstream developers (or if you are sure that the bug is indeed in the source of the software, rather than the packaging of it). See for instance the [Ubuntu bug reporting guidelines](https://help.ubuntu.com/community/ReportingBugs).
 
 # Excercise
-Let's download a file from the intro to raster lesson.
-Download the `gewata.zip` file from Github ([link](https://github.com/GeoScripting-WUR/IntroToRaster/raw/gh-pages/data/gewata.zip)) and unzip in the data directory.
 
-Write a shell script that:
+Write a shell script that processes Landsat data as provided in the Intro to Raster lesson ([link](https://github.com/GeoScripting-WUR/IntroToRaster/raw/gh-pages/data/gewata.zip)). Specifically, the script should:
 
-- derives NDVI from the landsat `*.tif` file as `NDVI.tif`
-- resamples the NDVI tif file to pixels of 60 m
-- *Bonus*: reprojects this resampled file to Lat/long WGS84 (the projection code is: EPSG:4326)
-    - Tip: `gdalwarp -t_srs EPSG:4326 $fntemp $fnout`
+1. Take a URL as an argument. The URL links to a ZIP file containing Landsat bands. So the script should run when called as e.g. `./ProcessLandsat.sh https://github.com/GeoScripting-WUR/IntroToRaster/raw/gh-pages/data/gewata.zip`. The script should download and extract the ZIP file into a subdirectory called `data` for further processing.
+2. Derive NDVI from the Landsat bands, resample it to pixels of 60 m, reproject to WGS84 (EPSG:4326) and put the output into a subdirectory called `output`.
+3. Be reproducible and rerunnable: no use of `cd` and running the script twice still gives correct output. The script leaves only one output file, no intermediate ones.
+
+For bonus points, try to find a way to achieve the second task without *creating* any temporary intermediate files.
+
+*Tips*: make use of Bash variables such as `$1`, utilities like `mkdir`, `wget`, `unzip`, `rm`, `gdalwarp` and pipes (`|`). Check their `man` pages for arguments.
 
 Make sure your script is clear and reproducible, make a new GitLab project according to the same guidelines as yesterday, and upload the script there. Test the script of another team (see the random team selector Shiny app) tomorrow morning and add an issue with your testing results and score according to the rubric.
 

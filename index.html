@@ -870,7 +870,7 @@
 <div id="header">
 <h1 class="title">Week 1, Lesson 4: Getting started with Linux, the terminal and Bash scripting</h1>
 <h2 class="author">Jan Verbesselt and Dainius Masiliunas</h2>
-<h3 class="date">03 January, 2019</h3>
+<h3 class="date">05 January, 2019</h3>
 </div>
 <div id="wrap">
 <div class="container">
@@ -954,7 +954,7 @@ The VDIs are recommended, but ultimately the choice is up to you. In either case
 VirtualBox VM setup
 </h3>
 <p>
-To set up VirtualBox, first find the provided image of OSGeo-Live on the network drive in the PC lab, which should be available to you as <code>W:-33806Live 12.ova</code>. This is a compressed VirtualBox image with RStudio installed. For use on your own PCs, you can copy the file on your PC from the PC lab or download OSGeo-Live from <a href="https://live.osgeo.org/en/quickstart/virtualization_quickstart.html">its website</a>.
+To set up VirtualBox, first find the provided image of OSGeo-Live on the network drive in the PC lab, which should be available to you as <code>W:\Student\GRS-33806\OSGeo Live 12.ova</code>. This is a compressed VirtualBox image with RStudio installed. For use on your own PCs, you can copy the file on your PC from the PC lab or download OSGeo-Live from <a href="https://live.osgeo.org/en/quickstart/virtualization_quickstart.html">its website</a>.
 </p>
 <p>
 Once you have the file, all you need to do is import it in VirtualBox by going to <em>File → Import Appliance</em> and specifying the location of the OVA file. Everything else can be left default.
@@ -1364,16 +1364,14 @@ If you are ready and want the learn more about using GDAL from the terminal, see
 <p>Each distribution also has a dedicated support forum. Forums are more useful for more complicated questions that are difficult to explain using IRC, or for non-urgent issues. See for instance the <a href="https://ubuntuforums.org/">Ubuntu forums</a>. Ubuntu in particular also has its own questions and answers board called <a href="http://askubuntu.com/">Ask Ubuntu</a>.</p>
 <p>By this point, you should hopefully have found a solution to the problem you are facing. Sometimes, however, you may uncover an actual bug in the software. In the case you do, you should try to report it to a bug tracker. <em>Note</em>: Reporting bugs is quite advanced, and should only be done if you are sure you found a bug. It is, however, an integral part of the open-source development model: a bug that is reported is brought to the attention of the software developer and gets fixed for each and every user of the software. Just like with questions, bugs should first be reported downstream to your distribution, and only reported upstream if asked by downstream developers (or if you are sure that the bug is indeed in the source of the software, rather than the packaging of it). See for instance the <a href="https://help.ubuntu.com/community/ReportingBugs">Ubuntu bug reporting guidelines</a>.</p>
 <h1 id="excercise">Excercise</h1>
-<p>Let’s download a file from the intro to raster lesson. Download the <code>gewata.zip</code> file from Github (<a href="https://github.com/GeoScripting-WUR/IntroToRaster/raw/gh-pages/data/gewata.zip">link</a>) and unzip in the data directory.</p>
-<p>Write a shell script that:</p>
-<ul>
-<li>derives NDVI from the landsat <code>*.tif</code> file as <code>NDVI.tif</code></li>
-<li>resamples the NDVI tif file to pixels of 60 m</li>
-<li><em>Bonus</em>: reprojects this resampled file to Lat/long WGS84 (the projection code is: EPSG:4326)
-<ul>
-<li>Tip: <code>gdalwarp -t_srs EPSG:4326 $fntemp $fnout</code></li>
-</ul></li>
-</ul>
+<p>Write a shell script that processes Landsat data as provided in the Intro to Raster lesson (<a href="https://github.com/GeoScripting-WUR/IntroToRaster/raw/gh-pages/data/gewata.zip">link</a>). Specifically, the script should:</p>
+<ol style="list-style-type: decimal">
+<li>Take a URL as an argument. The URL links to a ZIP file containing Landsat bands. So the script should run when called as e.g. <code>./ProcessLandsat.sh https://github.com/GeoScripting-WUR/IntroToRaster/raw/gh-pages/data/gewata.zip</code>. The script should download and extract the ZIP file into a subdirectory called <code>data</code> for further processing.</li>
+<li>Derive NDVI from the Landsat bands, resample it to pixels of 60 m, reproject to WGS84 (EPSG:4326) and put the output into a subdirectory called <code>output</code>.</li>
+<li>Be reproducible and rerunnable: no use of <code>cd</code> and running the script twice still gives correct output. The script leaves only one output file, no intermediate ones.</li>
+</ol>
+<p>For bonus points, try to find a way to achieve the second task without <em>creating</em> any temporary intermediate files.</p>
+<p><em>Tips</em>: make use of Bash variables such as <code>$1</code>, utilities like <code>mkdir</code>, <code>wget</code>, <code>unzip</code>, <code>rm</code>, <code>gdalwarp</code> and pipes (<code>|</code>). Check their <code>man</code> pages for arguments.</p>
 <p>Make sure your script is clear and reproducible, make a new GitLab project according to the same guidelines as yesterday, and upload the script there. Test the script of another team (see the random team selector Shiny app) tomorrow morning and add an issue with your testing results and score according to the rubric.</p>
 <p><em>Do not forget to add a teamname, and members and date of script at the top of your script.</em></p>
 <p><a href="http://www.geos.ed.ac.uk/~smudd/TopoTutorials/html/tutorial_raster_conversion.html">More tips</a></p>
