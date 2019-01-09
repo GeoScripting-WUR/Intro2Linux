@@ -28,21 +28,21 @@ Log into the server by double-clicking the `workspace.wur.nl` icon. Here, you sh
 
 ### MyWorkspace
 
-You can also access the VDI from your web browser without installing a client. For that, go to [MyWorkspace](http://myworkspace.wur.nl), log in with your WUR username (without any prefix) and password, and click `Open` below the `Linux Geoscripting` VDI in the `Catalog` tab (or click on the name, then click `Launch`).
+You can also access the VDI from your web browser without installing a client. For that, go to [Workspace](http://workspace.wur.nl), log in with your WUR username (without any prefix) and password, and click on the `Linux` VDI.
 
 Note, however, that the web version has a few limitations compared to the desktop client. For one, modifier keys (Alt, etc.) are captured by the browser rather than the VDI, and clipboard sharing is more complicated. In addition, launching the VDIs seems to take longer or time out from the web interface at times.
 
 ## Using the Linux VDI
 
-You can use the VDI as a regular Linux desktop machine. From the file manager (Thunar) you should be able to see your network shares mounted ("M" is your personal share, M: drive on Windows; "W" is the read-only university share, W: drive on Windows). Printing to `WURprinter` should work as well (the print jobs should appear on the university's printers).
+You can use the VDI as a regular Linux desktop machine. From the file manager (Nautilus) you should be able to see your network shares mounted ("M" is your personal share, M: drive on Windows; "W" is the read-only university share, W: drive on Windows). If they are empty, restart the VDI from the gear menu. Printing to `WURprinter` should work as well (the print jobs should appear on the university's printers).
 
 Each VDI is personal. You have root access to your VDI, running `sudo` will ask for your WUR password.
 
-If need be, you can connect to your VDI via SSH from inside the WUR network. You can find the name of your VDI if you look at the name in the terminal (it is something akin to `D744009`), or your VDI's IP by running `ip address` in the terminal. Then you can log into it by running `ssh <username>@<vdiname>` or `ssh <username>@<ip>` and entering your password (note: you must be connected to wired internet on campus, wireless does not seem to work). SSH is useful if you need to run expert tasks on the terminal, such as updating all packages on the system. You can also connect to servers (such as Jupyter or RStudio) this way.
+If need be, you can connect to your VDI via SSH from inside the WUR network (that means using a wired connection). You can find the name of your VDI if you look at the name in the terminal (it is something akin to `D744009`), or your VDI's IP by running `ip address` in the terminal. Then you can log into it by running `ssh <username>@<vdiname>` or `ssh <username>@<ip>` and entering your password (**note**: you must be connected to wired internet on campus, wireless does not seem to work). SSH is useful if you need to run expert tasks on the terminal, such as updating all packages on the system. You can also connect to servers (such as Jupyter or RStudio) this way. Similarly, you can use `sftp` to download and upload files this way.
 
 ## Stopping the Linux VDI
 
-The VDIs at the moment are made to be always running. Do not shut them down, otherwise you will not be able to start them back up without contacting IT support! The clean way to terminate a VDI session is to log out. You can do this from the gear menu → *Log Out*, this will stop your session automatically and quit the VMware Horizon client. You can also log out from within the VMware Horizon client by pressing the `Log off` button at the top.
+The VDIs at the moment are made to be always running. **Do not shut them down**, otherwise you will not be able to start them back up without contacting IT support! The clean way to terminate a VDI session is to **log out**. You can do this from the gear menu → *Log Out*, this will stop your session automatically and quit the VMware Horizon client. You can also log out from within the VMware Horizon client by pressing the `Log off` button at the top.
 
 If you wish to leave the VDI running without stopping all programs, you can just close the VMware Horizon client window. The next time you log in, you will be back where you left off, with all programs running.
 
