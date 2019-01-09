@@ -20,6 +20,7 @@ Here is what you will do today:
 
 Time  | Activity
 ------------- | -------------
+Until 11:00 | Review yesterday's exercise answer of the other team
 Morning       |  Self-study: go through the following tutorial, and get confortable with a Linux environment and the terminal
 14:00 to 16:00  | Discussion
 Rest of the afternoon | Do and finalise the exercise
@@ -47,21 +48,21 @@ A Linux environment makes it much easier to install and combine a variety of ope
 
 ## Getting started on Linux
 
-During the course we will work in a Linux environment. For students taking the course in Wageningen University, we provide a **VMware Horizon virtual desktop infrastructure (VDI)** that is managed by the WUR IT department. It is available over the internet for each student in the course and supported by the IT department.
+During the course we will work in a Linux environment. For students taking the course in Wageningen University, we provide a **VMware Horizon virtual desktop infrastructure (VDI)** that is managed by the WUR IT department. It is available over the internet for each student in the course and supported by the IT department. The VMware Horizon VDIs can be accessed through the VMware Horizon client (preinstalled on WUR PCs).
 
-The VMware Horizon VDIs can be accessed through the VMware Horizon client (preinstalled on WUR PCs). **See [this page](vmware_horizon_tutorial.html) for detailed instructions on how to use them.**
+**[See the tutorial on setting up VMWare Horizon on this page.](vmware_horizon_tutorial.html)**
 
 ```{block, type="alert alert-danger"}
-**Notice**: Make sure you have no problems logging into and using the VDI. From here on out, we will try to work from within the VDI.
+**Notice**: Make sure you **read the page linked above** and have no problems logging into and using the VDI. From here on out, we will try to work from within the VDI.
 ```
 
 ```{block, type="alert alert-info"}
-In case the VDI is not sufficient (e.g. for the project week) or you'd like to run Linux on your own hardware, we have two more alternatives:
+**In case you can't get the VDI running successfully** (and **only** in that case, so hopefully you don't need to do this!), we have two more alternatives:
 
 - Local VirtualBox VMs installed on the PCs in the PC labs. These can only be accessed from a specific PC and intended as a fallback is there are problems when using VDIs.
 - Your own hardware: if you know what you are doing, you can install Linux on your own laptops or external hard disks.
 
-The VDIs are recommended, but ultimately the choice is up to you. In either case, the systems need to be set up.
+**The VDIs are recommended**. If you go for one of the alternatives, the systems need to be set up manually.
 
 <!--### SURFsara cloud VM setup
 
@@ -291,13 +292,13 @@ print(system("./HelloWorld.sh", intern = TRUE)) # Execute this command in Bash
 
 Variables basically store information. You set variables like this (you can type this in the terminal). 
 
-```{r, eval=FALSE, engine='bash'}
+```{bash}
 var="FOO"
 ```
 
 `var` can be anything you want as long as it doesn't begin with a number. "FOO" can be anything you want. There cannot be any space in between the `=` sign. To access the information from the variable you need to put a '$' in front of it like this:
 
-```{r, eval=FALSE, engine='bash'}
+```{bash}
 echo $var
 ```
 
@@ -336,7 +337,7 @@ We will learn more about GDAL in the later lessons. GDAL is a very powerful and 
 Let's download a file from [The intro to raster lesson](https://geoscripting-wur.github.io/IntroToRaster/#raster-objects-manipulations):
 Download the `gewata.zip` file from Github ([link](https://github.com/GeoScripting-WUR/IntroToRaster/raw/gh-pages/data/gewata.zip)) and unzip in the `data` directory. Type the following in the `data` directory: (Note: You can write a shell script to do the following commands below but first type in the commands via the terminal to understand what is happening.)
 
-```{r, eval = FALSE, engine='bash'}
+```{bash, eval=FALSE}
 echo "the current GDAL version is:"
 gdal-config --version
 ```
@@ -441,11 +442,13 @@ Write a shell script that processes Landsat data as provided in the Intro to Ras
 
 1. Take a URL as an argument. The URL links to a ZIP file containing Landsat bands. So the script should run when called as e.g. `./ProcessLandsat.sh https://github.com/GeoScripting-WUR/IntroToRaster/raw/gh-pages/data/gewata.zip`. The script should download and extract the ZIP file into a subdirectory called `data` for further processing.
 2. Derive NDVI from the Landsat bands, resample it to pixels of 60 m, reproject to WGS84 (EPSG:4326) and put the output into a subdirectory called `output`.
-3. Be reproducible and rerunnable: no use of `cd` and running the script twice still gives correct output. The script leaves only one output file, no intermediate ones.
+3. Be reproducible and rerunnable: no use of `cd` and running the script twice still gives correct output. The script leaves only one output file, no intermediate ones. If a filename is reused in more than one place, a variable should be used instead of writing the name twice.
 
-For bonus points, try to find a way to achieve the second task without *creating* any temporary intermediate files.
+```{block, type="alert alert-info"}
+**Tips**: make use of Bash variables such as `$1`, utilities like `mkdir`, `wget`, `unzip`, `rm`, `gdalwarp` and `gdal_calc.py`. Check their `man` pages for arguments.
+```
 
-*Tips*: make use of Bash variables such as `$1`, utilities like `mkdir`, `wget`, `unzip`, `rm`, `gdalwarp` and pipes (`|`). Check their `man` pages for arguments.
+For **bonus points**: find a way to resample and reproject the file *without writing a temporary TIFF file to disk*, ideally with a single line of code. **Tips**: `mkfifo` and `|`, or [process substitution](https://en.wikipedia.org/wiki/Process_substitution) and `/proc/self/fd/0` as input file name.
 
 Make sure your script is clear and reproducible, make a new GitLab project according to the same guidelines as yesterday, and upload the script there. Test the script of another team (see the random team selector Shiny app) tomorrow morning and add an issue with your testing results and score according to the rubric.
 

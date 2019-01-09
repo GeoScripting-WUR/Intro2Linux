@@ -870,7 +870,7 @@
 <div id="header">
 <h1 class="title">Week 1, Lesson 4: Getting started with Linux, the terminal and Bash scripting</h1>
 <h2 class="author">Jan Verbesselt and Dainius Masiliunas</h2>
-<h3 class="date">05 January, 2019</h3>
+<h3 class="date">09 January, 2019</h3>
 </div>
 <div id="wrap">
 <div class="container">
@@ -892,14 +892,18 @@
 </thead>
 <tbody>
 <tr class="odd">
+<td>Until 11:00</td>
+<td>Review yesterday’s exercise answer of the other team</td>
+</tr>
+<tr class="even">
 <td>Morning</td>
 <td>Self-study: go through the following tutorial, and get confortable with a Linux environment and the terminal</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>14:00 to 16:00</td>
 <td>Discussion</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Rest of the afternoon</td>
 <td>Do and finalise the exercise</td>
 </tr>
@@ -922,19 +926,19 @@
 <h2 id="why-use-a-linux-distribution">Why use a Linux distribution?</h2>
 <p>A Linux environment makes it much easier to install and combine a variety of open-source software, such as Python modules and GDAL, compared to other operating systems like Windows or macOS. In addition, open-source scientific software is often developed primarily for Linux (since that’s what most supercomputers and servers run!), and so it tends to be more stable and have more features on Linux. Furthermore, at Wageningen University &amp; Research PC labs, ArcGIS and ArcPy are installed on the Windows machines, and this Python version tends to cause conflicts with open-source Python modules and tools (e.g. GDAL, GEOS).</p>
 <h2 id="getting-started-on-linux">Getting started on Linux</h2>
-<p>During the course we will work in a Linux environment. For students taking the course in Wageningen University, we provide a <strong>VMware Horizon virtual desktop infrastructure (VDI)</strong> that is managed by the WUR IT department. It is available over the internet for each student in the course and supported by the IT department.</p>
-<p>The VMware Horizon VDIs can be accessed through the VMware Horizon client (preinstalled on WUR PCs). <strong>See <a href="vmware_horizon_tutorial.html">this page</a> for detailed instructions on how to use them.</strong></p>
+<p>During the course we will work in a Linux environment. For students taking the course in Wageningen University, we provide a <strong>VMware Horizon virtual desktop infrastructure (VDI)</strong> that is managed by the WUR IT department. It is available over the internet for each student in the course and supported by the IT department. The VMware Horizon VDIs can be accessed through the VMware Horizon client (preinstalled on WUR PCs).</p>
+<p><strong><a href="vmware_horizon_tutorial.html">See the tutorial on setting up VMWare Horizon on this page.</a></strong></p>
 <div class="row">
 <div class="alert alert-danger">
 <p>
-<strong>Notice</strong>: Make sure you have no problems logging into and using the VDI. From here on out, we will try to work from within the VDI.
+<strong>Notice</strong>: Make sure you <strong>read the page linked above</strong> and have no problems logging into and using the VDI. From here on out, we will try to work from within the VDI.
 </p>
 </div>
 </div>
 <div class="row">
 <div class="alert alert-info">
 <p>
-In case the VDI is not sufficient (e.g. for the project week) or you’d like to run Linux on your own hardware, we have two more alternatives:
+<strong>In case you can’t get the VDI running successfully</strong> (and <strong>only</strong> in that case, so hopefully you don’t need to do this!), we have two more alternatives:
 </p>
 <ul>
 <li>
@@ -945,7 +949,7 @@ Your own hardware: if you know what you are doing, you can install Linux on your
 </li>
 </ul>
 <p>
-The VDIs are recommended, but ultimately the choice is up to you. In either case, the systems need to be set up.
+<strong>The VDIs are recommended</strong>. If you go for one of the alternatives, the systems need to be set up manually.
 </p>
 <!--### SURFsara cloud VM setup
 
@@ -996,13 +1000,13 @@ If you like, you can install a Linux distribution on your own laptops or externa
 </div>
 </div>
 <p><em>Bash</em> is not only the default shell on Linux, but also macOS, and there are versions of <em>Bash</em> that run on Windows too. It is included with Git for Windows, and in Windows 10 <em>Bash</em> is even included by default with the <a href="https://msdn.microsoft.com/en-us/commandline/wsl/about"><em>Windows Subsystem for Linux</em></a>. However, without the wealth of CLI programs that Linux distributions come with, <em>Bash</em> functionality is fairly limited.</p>
-<p>But enough theory: let’s try using the terminal in practice! Go through this exercise and see what happens: <a href="https://news.opensuse.org/2014/06/10/command-line-tuesdays-part-one/" class="uri">https://news.opensuse.org/2014/06/10/command-line-tuesdays-part-one/</a></p>
+<p>But enough theory: let’s try using the terminal in practice! Go through this exercise and see what happens: <a href="https://news.opensuse.org/2014/06/10/command-line-tuesdays-part-one/">https://news.opensuse.org/2014/06/10/command-line-tuesdays-part-one/</a></p>
 <h2 id="basic-commands">Basic commands</h2>
-<p>Now go through the next exercise to learn how to navigate the file system: <a href="https://news.opensuse.org/2014/06/24/command-line-tuesdays-part-two/" class="uri">https://news.opensuse.org/2014/06/24/command-line-tuesdays-part-two/</a></p>
+<p>Now go through the next exercise to learn how to navigate the file system: <a href="https://news.opensuse.org/2014/06/24/command-line-tuesdays-part-two/">https://news.opensuse.org/2014/06/24/command-line-tuesdays-part-two/</a></p>
 <p>The file system layout image might not display properly, but it is intended to show this: <img src="https://configureinstantly.files.wordpress.com/2011/01/file-system.jpg" alt="Filesystem Hierarchy Standard" /></p>
 <p>Once you’re done, you should have something like this displayed in your terminal:</p>
 <p><img src="figs/cd_pwd-vdi.png" alt="cdpwd" /></p>
-<p>Next, let’s go into some useful every-day commands: <a href="https://news.opensuse.org/2014/07/01/command-line-tuesdays-part-three/" class="uri">https://news.opensuse.org/2014/07/01/command-line-tuesdays-part-three/</a></p>
+<p>Next, let’s go into some useful every-day commands: <a href="https://news.opensuse.org/2014/07/01/command-line-tuesdays-part-three/">https://news.opensuse.org/2014/07/01/command-line-tuesdays-part-three/</a></p>
 <div class="row">
 <div class="alert alert-success">
 <blockquote>
@@ -1013,7 +1017,7 @@ If you like, you can install a Linux distribution on your own laptops or externa
 </div>
 </div>
 <h2 id="file-manipulation">File manipulation</h2>
-<p>Now let’s dive into manipulating files and directories: <a href="https://news.opensuse.org/2014/07/08/command-line-tuesdays-part-four/" class="uri">https://news.opensuse.org/2014/07/08/command-line-tuesdays-part-four/</a></p>
+<p>Now let’s dive into manipulating files and directories: <a href="https://news.opensuse.org/2014/07/08/command-line-tuesdays-part-four/">https://news.opensuse.org/2014/07/08/command-line-tuesdays-part-four/</a></p>
 <p>Now, create a directory called <code>Bash</code> (i.e. a directory that will contain our <em>Bash</em> scripts)</p>
 <div class="row">
 <button class="source bash toggle btn btn-xs btn-primary">
@@ -1025,7 +1029,7 @@ If you like, you can install a Linux distribution on your own laptops or externa
 <p><img src="figs/mkdir-vdi.png" alt="mkdir" /></p>
 <p>Now, try out some more commands:</p>
 <ul>
-<li>make a directory and remove it (e.g. <code>mkdir namedirectory</code>, <code>rmdir namedirectory</code>).</li>
+<li>make a directory and remove it (e.g. <code>mkdir namedirectory</code>, <code>rmdir namedirectory</code>).</li>
 <li>create an <em>R</em> script via <em>RStudio</em> or <em>RKWard</em>, and then remove it via the terminal using <code>rm filename.R</code>.</li>
 <li>create another file and copy it and then remove it, etc.:</li>
 </ul>
@@ -1047,7 +1051,7 @@ rm dest_file</code></pre>
 </div>
 </div>
 <h2 id="more-information-about-commands">More information about commands</h2>
-<p>So far we have been using only a few of the functions that the commands offer. You can find a list of them by looking at their manual pages by following the last part of the tutorial: <a href="https://news.opensuse.org/2014/07/15/command-line-tuesdays-part-five/" class="uri">https://news.opensuse.org/2014/07/15/command-line-tuesdays-part-five/</a></p>
+<p>So far we have been using only a few of the functions that the commands offer. You can find a list of them by looking at their manual pages by following the last part of the tutorial: <a href="https://news.opensuse.org/2014/07/15/command-line-tuesdays-part-five/">https://news.opensuse.org/2014/07/15/command-line-tuesdays-part-five/</a></p>
 <p>Manual pages are text files displayed in a pager program that allows easy scrolling. The default pager is <code>less</code>, which you have already used in the third exercise. You can also look at its manual page using <code>man less</code>. Also try <code>man intro</code>: the “Introduction to user commands”, a well-written, fairly brief introduction to the Linux command line.</p>
 <div class="row">
 <button class="source bash toggle btn btn-xs btn-primary">
@@ -1136,7 +1140,7 @@ echo "Hello, World"
 <button class="output bash toggle btn btn-xs btn-success">
 <span class="glyphicon glyphicon-chevron-down"></span> bash output
 </button>
-<pre style=""><code class="output bash">## bash is /usr/bin/bash
+<pre style=""><code class="output bash">## bash is /bin/bash
 </code></pre>
 </div>
 <p>Second, to run a bash script you first have to have the correct file permissions. We do this with <code>chmod</code> (change mode) command in terminal as follows:</p>
@@ -1213,7 +1217,7 @@ print(system("./HelloWorld.sh", intern = TRUE)) # Execute this command in Bash</
 </button>
 <pre style=""><code class="source bash">echo $var</code></pre>
 </div>
-<p>Now create the following e.g. <code>variables.sh</code> script in the <em>Bash</em> folder and apply the <code>chmod u+x variables.sh</code> command on this script using the terminal.</p>
+<p>Now create the following e.g. <code>variables.sh</code> script in the <em>Bash</em> folder and apply the <code>chmod u+x variables.sh</code> command on this script using the terminal.</p>
 <div class="row">
 <button class="source bash toggle btn btn-xs btn-primary">
 <span class="glyphicon glyphicon-chevron-down"></span> bash source
@@ -1248,7 +1252,7 @@ You can run the script once it is <em>executable</em>:
 <div class="row">
 <div class="alert alert-info">
 <p>
-<strong>Optional</strong>: If you want to learn more about <em>Bash</em> scripting: <a href="https://help.ubuntu.com/community/Beginners/BashScripting" class="uri">https://help.ubuntu.com/community/Beginners/BashScripting</a>
+<strong>Optional</strong>: If you want to learn more about <em>Bash</em> scripting: <a href="https://help.ubuntu.com/community/Beginners/BashScripting">https://help.ubuntu.com/community/Beginners/BashScripting</a>
 </p>
 </div>
 </div>
@@ -1298,7 +1302,7 @@ rm input.tif</code></pre>
 Hint 1: <code>cd ../data</code> (to move back from the Bash folder and move into the data folder)
 </li>
 <li>
-Hint 2: No spaces in file names are allowed and try to use variables e.g. <code>fn=$(ls *.tif)</code>
+Hint 2: No spaces in file names are allowed and try to use variables e.g. <code>fn=$(ls *.tif)</code>
 </li>
 </ul>
 </div>
@@ -1366,12 +1370,18 @@ If you are ready and want the learn more about using GDAL from the terminal, see
 <h1 id="excercise">Excercise</h1>
 <p>Write a shell script that processes Landsat data as provided in the Intro to Raster lesson (<a href="https://github.com/GeoScripting-WUR/IntroToRaster/raw/gh-pages/data/gewata.zip">link</a>). Specifically, the script should:</p>
 <ol style="list-style-type: decimal">
-<li>Take a URL as an argument. The URL links to a ZIP file containing Landsat bands. So the script should run when called as e.g. <code>./ProcessLandsat.sh https://github.com/GeoScripting-WUR/IntroToRaster/raw/gh-pages/data/gewata.zip</code>. The script should download and extract the ZIP file into a subdirectory called <code>data</code> for further processing.</li>
+<li>Take a URL as an argument. The URL links to a ZIP file containing Landsat bands. So the script should run when called as e.g. <code>./ProcessLandsat.sh https://github.com/GeoScripting-WUR/IntroToRaster/raw/gh-pages/data/gewata.zip</code>. The script should download and extract the ZIP file into a subdirectory called <code>data</code> for further processing.</li>
 <li>Derive NDVI from the Landsat bands, resample it to pixels of 60 m, reproject to WGS84 (EPSG:4326) and put the output into a subdirectory called <code>output</code>.</li>
-<li>Be reproducible and rerunnable: no use of <code>cd</code> and running the script twice still gives correct output. The script leaves only one output file, no intermediate ones.</li>
+<li>Be reproducible and rerunnable: no use of <code>cd</code> and running the script twice still gives correct output. The script leaves only one output file, no intermediate ones. If a filename is reused in more than one place, a variable should be used instead of writing the name twice.</li>
 </ol>
-<p>For bonus points, try to find a way to achieve the second task without <em>creating</em> any temporary intermediate files.</p>
-<p><em>Tips</em>: make use of Bash variables such as <code>$1</code>, utilities like <code>mkdir</code>, <code>wget</code>, <code>unzip</code>, <code>rm</code>, <code>gdalwarp</code> and pipes (<code>|</code>). Check their <code>man</code> pages for arguments.</p>
+<div class="row">
+<div class="alert alert-info">
+<p>
+<strong>Tips</strong>: make use of Bash variables such as <code>$1</code>, utilities like <code>mkdir</code>, <code>wget</code>, <code>unzip</code>, <code>rm</code>, <code>gdalwarp</code> and <code>gdal_calc.py</code>. Check their <code>man</code> pages for arguments.
+</p>
+</div>
+</div>
+<p>For <strong>bonus points</strong>: find a way to resample and reproject the file <em>without writing a temporary TIFF file to disk</em>, ideally with a single line of code. <strong>Tips</strong>: <code>mkfifo</code> and <code>|</code>, or <a href="https://en.wikipedia.org/wiki/Process_substitution">process substitution</a> and <code>/proc/self/fd/0</code> as input file name.</p>
 <p>Make sure your script is clear and reproducible, make a new GitLab project according to the same guidelines as yesterday, and upload the script there. Test the script of another team (see the random team selector Shiny app) tomorrow morning and add an issue with your testing results and score according to the rubric.</p>
 <p><em>Do not forget to add a teamname, and members and date of script at the top of your script.</em></p>
 <p><a href="http://www.geos.ed.ac.uk/~smudd/TopoTutorials/html/tutorial_raster_conversion.html">More tips</a></p>
@@ -1391,16 +1401,16 @@ More information
 <a href="http://beginlinux.com/twitter/1094-the-beginners-guide-to-the-ubuntu-terminal">An overview of terminal commands</a>
 </li>
 <li>
-<a href="http://www.howtogeek.com/140679/beginner-geek-how-to-start-using-the-linux-terminal/" class="uri">http://www.howtogeek.com/140679/beginner-geek-how-to-start-using-the-linux-terminal/</a>
+<a href="http://www.howtogeek.com/140679/beginner-geek-how-to-start-using-the-linux-terminal/">http://www.howtogeek.com/140679/beginner-geek-how-to-start-using-the-linux-terminal/</a>
 </li>
 <li>
-<a href="http://www.howtogeek.com/howto/42980/the-beginners-guide-to-nano-the-linux-command-line-text-editor/" class="uri">http://www.howtogeek.com/howto/42980/the-beginners-guide-to-nano-the-linux-command-line-text-editor/</a>
+<a href="http://www.howtogeek.com/howto/42980/the-beginners-guide-to-nano-the-linux-command-line-text-editor/">http://www.howtogeek.com/howto/42980/the-beginners-guide-to-nano-the-linux-command-line-text-editor/</a>
 </li>
 <li>
-<a href="http://linuxcommand.org/lc3_learning_the_shell.php" class="uri">http://linuxcommand.org/lc3_learning_the_shell.php</a>
+<a href="http://linuxcommand.org/lc3_learning_the_shell.php">http://linuxcommand.org/lc3_learning_the_shell.php</a>
 </li>
 <li>
-<a href="http://www.cyberciti.biz/faq/pwd-linux-unix-command-examples/" class="uri">http://www.cyberciti.biz/faq/pwd-linux-unix-command-examples/</a>
+<a href="http://www.cyberciti.biz/faq/pwd-linux-unix-command-examples/">http://www.cyberciti.biz/faq/pwd-linux-unix-command-examples/</a>
 </li>
 <li>
 For macOS users and introduction to use the terminal on macOS
@@ -1409,7 +1419,7 @@ For macOS users and introduction to use the terminal on macOS
 <a href="http://computers.tutsplus.com/tutorials/navigating-the-terminal-a-gentle-introduction--mac-3855">http://computers.tutsplus.com/tutorials/navigating-the-terminal-a-gentle-introduction–mac-3855</a>
 </li>
 <li>
-<a href="http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line" class="uri">http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line</a>
+<a href="http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line">http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line</a>
 </li>
 <li>
 <a href="https://stackoverflow.com/questions/8051145/is-the-terminal-in-mac-and-linux-the-same">Is the terminal in Mac and Linux the same</a>
