@@ -121,7 +121,7 @@ Once you're done, you should have something like this displayed in your terminal
 Next, let's go into some useful every-day commands: [https://news.opensuse.org/2014/07/01/command-line-tuesdays-part-three/](https://news.opensuse.org/2014/07/01/command-line-tuesdays-part-three/)
 
 ```{block, type="alert alert-success"}
-> **Question 3**: What is the difference between `ls -l`, `ls -lh` and `ls -lh --si`?
+> **Question 3**: What is the difference between `ls -l`, `ls -lh` and `ls -lh \-\-si`?
 ```
 
 ## File manipulation
@@ -337,7 +337,7 @@ We will learn more about GDAL in the later lessons. GDAL is a very powerful and 
 Let's download a file from [The intro to raster lesson](https://geoscripting-wur.github.io/IntroToRaster/#raster-objects-manipulations):
 Download the `gewata.zip` file from Github ([link](https://github.com/GeoScripting-WUR/IntroToRaster/raw/gh-pages/data/gewata.zip)) and unzip in the `data` directory. Type the following in the `data` directory: (Note: You can write a shell script to do the following commands below but first type in the commands via the terminal to understand what is happening.)
 
-```{bash, eval=FALSE}
+```{bash}
 echo "the current GDAL version is:"
 gdal-config --version
 ```

@@ -1,9 +1,9 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="author" content="Jan Verbesselt and Dainius Masiliunas" />
   <title>Week 1, Lesson 4: Getting started with Linux, the terminal and Bash scripting</title>
   <style type="text/css">
@@ -12,6 +12,9 @@
       span.underline{text-decoration: underline;}
       div.column{display: inline-block; vertical-align: top; width: 50%;}
   </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <!-- jQuery -->
@@ -867,11 +870,11 @@
   </style>
 </head>
 <body>
-<div id="header">
+<header id="title-block-header">
 <h1 class="title">Week 1, Lesson 4: Getting started with Linux, the terminal and Bash scripting</h1>
-<h2 class="author">Jan Verbesselt and Dainius Masiliunas</h2>
-<h3 class="date">09 January, 2019</h3>
-</div>
+<p class="author">Jan Verbesselt and Dainius Masiliunas</p>
+<p class="date">10 January, 2019</p>
+</header>
 <div id="wrap">
 <div class="container">
 <div class="row row-offcanvas row-offcanvas-right">
@@ -881,8 +884,8 @@
 <p>Good morning! Here is what you will do today:</p>
 <table>
 <colgroup>
-<col width="50%" />
-<col width="50%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -1011,7 +1014,7 @@ If you like, you can install a Linux distribution on your own laptops or externa
 <div class="alert alert-success">
 <blockquote>
 <p>
-<strong>Question 3</strong>: What is the difference between <code>ls -l</code>, <code>ls -lh</code> and <code>ls -lh –si</code>?
+<strong>Question 3</strong>: What is the difference between <code>ls -l</code>, <code>ls -lh</code> and <code>ls -lh --si</code>?
 </p>
 </blockquote>
 </div>
@@ -1265,6 +1268,12 @@ You can run the script once it is <em>executable</em>:
 </button>
 <pre style=""><code class="source bash">echo "the current GDAL version is:"
 gdal-config --version</code></pre>
+<button class="output bash toggle btn btn-xs btn-success">
+<span class="glyphicon glyphicon-chevron-down"></span> bash output
+</button>
+<pre style=""><code class="output bash">## the current GDAL version is:
+## 2.3.2
+</code></pre>
 </div>
 <p>One of the easiest and most useful commands in GDAL is <code>gdalinfo</code>. When given an image as an argument, it retrieves and prints all relevant information that is known about the file. This is especially useful if the image contains additional tag data, as is the case with <code>TIF</code> files.</p>
 <p>Using gdalinfo:</p>
@@ -1369,7 +1378,7 @@ If you are ready and want the learn more about using GDAL from the terminal, see
 <p>By this point, you should hopefully have found a solution to the problem you are facing. Sometimes, however, you may uncover an actual bug in the software. In the case you do, you should try to report it to a bug tracker. <em>Note</em>: Reporting bugs is quite advanced, and should only be done if you are sure you found a bug. It is, however, an integral part of the open-source development model: a bug that is reported is brought to the attention of the software developer and gets fixed for each and every user of the software. Just like with questions, bugs should first be reported downstream to your distribution, and only reported upstream if asked by downstream developers (or if you are sure that the bug is indeed in the source of the software, rather than the packaging of it). See for instance the <a href="https://help.ubuntu.com/community/ReportingBugs">Ubuntu bug reporting guidelines</a>.</p>
 <h1 id="excercise">Excercise</h1>
 <p>Write a shell script that processes Landsat data as provided in the Intro to Raster lesson (<a href="https://github.com/GeoScripting-WUR/IntroToRaster/raw/gh-pages/data/gewata.zip">link</a>). Specifically, the script should:</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Take a URL as an argument. The URL links to a ZIP file containing Landsat bands. So the script should run when called as e.g. <code>./ProcessLandsat.sh https://github.com/GeoScripting-WUR/IntroToRaster/raw/gh-pages/data/gewata.zip</code>. The script should download and extract the ZIP file into a subdirectory called <code>data</code> for further processing.</li>
 <li>Derive NDVI from the Landsat bands, resample it to pixels of 60 m, reproject to WGS84 (EPSG:4326) and put the output into a subdirectory called <code>output</code>.</li>
 <li>Be reproducible and rerunnable: no use of <code>cd</code> and running the script twice still gives correct output. The script leaves only one output file, no intermediate ones. If a filename is reused in more than one place, a variable should be used instead of writing the name twice.</li>
