@@ -10,7 +10,7 @@ Working in a Linux environment, on a cloud computing instance, is one of the lea
 
 ## Starting up a Linux VDI
 
-Each WUR student should have access to one Linux VDI running Ubuntu 16.04 that has 2 cores, 4 GiB RAM and 40 GiB space. These resources are not dynamic; if you feel that you need more, feel free to run Linux on your own devices or on local virtual machines on the university machines. If you should have access to a VDI but don't appear to, please contact the course coordinators and/or the IT help desk.
+Each WUR student should have access to one Linux VDI running Ubuntu 18.04 that has 2 cores, 4 GiB RAM and 40 GiB space. These resources are not dynamic; if you feel that you need more, feel free to run Linux on your own devices or on local virtual machines on the university machines. If you should have access to a VDI but don't appear to, please contact the course coordinators and/or the IT help desk.
 
 The VDIs are always running. There are two ways to log in: via a client program or through a web browser.
 
@@ -24,7 +24,7 @@ If you click the options button in the top right and select `Configure VMware Bl
 
 Log into the server by double-clicking the `workspace.wur.nl` icon. Here, you should see a list of VDIs. Double-click (or right-click and `Launch`) the VDI that is called `Linux Geoscripting`. You should then be automatically logged into the VDI and see the GNOME Flashback desktop.
 
-![Running Ubuntu 16.04 VDI](figs/vmware-horizon-vdi.png)
+![Running Ubuntu 18.04 VDI](figs/vmware-horizon-vdi.png)
 
 ### MyWorkspace
 
