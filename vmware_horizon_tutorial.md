@@ -54,5 +54,9 @@ If you are using the VDI for a long time, you may run into the issue that after 
 
 At the moment of writing, the `M` and `W` network shares sometimes disconnect, you need a restart to make them reappear again.
 
+If you see that when you enter text, a keypress gets repeated several times (e.g. if you type "geoscripting" you get "geeeeoscriiiipting"), it means that your connection is too poor. Either lower the display quality, or connect from a PC that is connected to the wired internet.
+
+If you use the web client (and sometimes the desktop client), you may run into an error about too many desktop sources. This means that you have a session already running (or perhaps the last one didn't terminate cleanly). In this case, right-clicking on the connection and choosing "log out" can solve the problem by logging the other session out.
+
 In case of technical problems with VDI instances themselves (and not the software on them) that you cannot solve yourself, accidental shutdowns, or for catastrophic failures that would require a reset of your VDI to the initial state, you can [write an email to the IT helpdesk](http://www.wur.nl/en/Education-Programmes/Current-Students/ICT-related-questions.htm), mentioning Linux VDI in the email header.
 
