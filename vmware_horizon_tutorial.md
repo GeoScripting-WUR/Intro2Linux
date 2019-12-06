@@ -10,7 +10,7 @@ Working in a Linux environment, on a cloud computing instance, is one of the lea
 
 ## Starting up a Linux VDI
 
-Each WUR student should have access to one Linux VDI running Ubuntu 16.04 that has 2 cores, 4 GiB RAM and 40 GiB space. These resources are not dynamic; if you feel that you need more, feel free to run Linux on your own devices or on local virtual machines on the university machines. If you should have access to a VDI but don't appear to, please contact the course coordinators and/or the IT help desk.
+Each WUR student should have access to one Linux VDI running Ubuntu 18.04 that has 2 cores, 4 GiB RAM and 40 GiB space. These resources are not dynamic; if you feel that you need more, feel free to run Linux on your own devices or on local virtual machines on the university machines. If you should have access to a VDI but don't appear to, please contact the course coordinators and/or the IT help desk.
 
 The VDIs are always running. There are two ways to log in: via a client program or through a web browser.
 
@@ -24,7 +24,7 @@ If you click the options button in the top right and select `Configure VMware Bl
 
 Log into the server by double-clicking the `workspace.wur.nl` icon. Here, you should see a list of VDIs. Double-click (or right-click and `Launch`) the VDI that is called `Linux Geoscripting`. You should then be automatically logged into the VDI and see the GNOME Flashback desktop.
 
-![Running Ubuntu 16.04 VDI](figs/vmware-horizon-vdi.png)
+![Running Ubuntu 18.04 VDI](figs/vmware-horizon-vdi.png)
 
 ### MyWorkspace
 
@@ -53,6 +53,10 @@ In case something goes wrong, you are able to restart the VDI from the client. T
 If you are using the VDI for a long time, you may run into the issue that after logging off, logging in is no longer automatic and asks for your password. This means that your VMWare Horizon session has expired. You can restart the client to refresh the session (or just enter your username and password in the VDI).
 
 At the moment of writing, the `M` and `W` network shares sometimes disconnect, you need a restart to make them reappear again.
+
+If you see that when you enter text, a keypress gets repeated several times (e.g. if you type "geoscripting" you get "geeeeoscriiiipting"), it means that your connection is too poor. Either lower the display quality, or connect from a PC that is connected to the wired internet.
+
+If you use the web client (and sometimes the desktop client), you may run into an error about too many desktop sources. This means that you have a session already running (or perhaps the last one didn't terminate cleanly). In this case, right-clicking on the connection and choosing "log out" can solve the problem by logging the other session out.
 
 In case of technical problems with VDI instances themselves (and not the software on them) that you cannot solve yourself, accidental shutdowns, or for catastrophic failures that would require a reset of your VDI to the initial state, you can [write an email to the IT helpdesk](http://www.wur.nl/en/Education-Programmes/Current-Students/ICT-related-questions.htm), mentioning Linux VDI in the email header.
 
