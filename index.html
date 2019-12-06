@@ -5,8 +5,8 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="author" content="Jan Verbesselt and Dainius Masiliunas" />
-  <title>Week 1, Lesson 4: Getting started with Linux, the terminal and Bash scripting</title>
-  <style type="text/css">
+  <title>Week 1, Lesson 2: Getting started with Linux, the terminal and Bash scripting</title>
+  <style>
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
       span.underline{text-decoration: underline;}
@@ -870,48 +870,25 @@
   </style>
 </head>
 <body>
-<header id="title-block-header">
-<h1 class="title">Week 1, Lesson 4: Getting started with Linux, the terminal and Bash scripting</h1>
-<p class="author">Jan Verbesselt and Dainius Masiliunas</p>
-<p class="date">10 January, 2019</p>
-</header>
 <div id="wrap">
 <div class="container">
 <div class="row row-offcanvas row-offcanvas-right">
 <div class="contents col-xs-12 col-md-10">
 <h1 id="wur-geoscripting"><a href="https://geoscripting-wur.github.io/">WUR Geoscripting</a> <img src="http://www.wur.nl/upload/b43b7095-e452-482a-8969-fed9a50393a8_WUR_RGB_standard.png" alt="WUR logo" style="height: 35px;"/></h1>
-<h1 id="week-1-lesson-4-getting-started-with-linux-the-terminal-and-bash-scripting">Week 1, Lesson 4: Getting started with Linux, the terminal and Bash scripting</h1>
-<p>Good morning! Here is what you will do today:</p>
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Time</th>
-<th>Activity</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Until 11:00</td>
-<td>Review yesterday’s exercise answer of the other team</td>
-</tr>
-<tr class="even">
-<td>Morning</td>
-<td>Self-study: go through the following tutorial, and get confortable with a Linux environment and the terminal</td>
-</tr>
-<tr class="odd">
-<td>14:00 to 16:00</td>
-<td>Discussion</td>
-</tr>
-<tr class="even">
-<td>Rest of the afternoon</td>
-<td>Do and finalise the exercise</td>
-</tr>
-</tbody>
-</table>
+<h1 id="week-1-lesson-2-getting-started-with-linux-the-terminal-and-bash-scripting">Week 1, Lesson 2: Getting started with Linux, the terminal and Bash scripting</h1>
+<!--
+
+Good morning! 
+Here is what you will do today:
+
+Time  | Activity
+------------- | -------------
+Until 11:00 | Review yesterday's exercise answer of the other team
+Morning       |  Self-study: go through the following tutorial, and get confortable with a Linux environment and the terminal
+14:00 to 16:00  | Discussion
+Rest of the afternoon | Do and finalise the exercise
+
+-->
 <h1 id="todays-learning-objectives">Today’s Learning objectives</h1>
 <ul>
 <li>Knowing what Linux is &amp; what you can do with it</li>
@@ -1143,7 +1120,7 @@ echo "Hello, World"
 <button class="output bash toggle btn btn-xs btn-success">
 <span class="glyphicon glyphicon-chevron-down"></span> bash output
 </button>
-<pre style=""><code class="output bash">## bash is /bin/bash
+<pre style=""><code class="output bash">## bash yra /usr/bin/bash
 </code></pre>
 </div>
 <p>Second, to run a bash script you first have to have the correct file permissions. We do this with <code>chmod</code> (change mode) command in terminal as follows:</p>
@@ -1272,7 +1249,7 @@ gdal-config --version</code></pre>
 <span class="glyphicon glyphicon-chevron-down"></span> bash output
 </button>
 <pre style=""><code class="output bash">## the current GDAL version is:
-## 2.3.2
+## 3.0.2
 </code></pre>
 </div>
 <p>One of the easiest and most useful commands in GDAL is <code>gdalinfo</code>. When given an image as an argument, it retrieves and prints all relevant information that is known about the file. This is especially useful if the image contains additional tag data, as is the case with <code>TIF</code> files.</p>
@@ -1376,24 +1353,28 @@ If you are ready and want the learn more about using GDAL from the terminal, see
 <p>IRC (Internet Relay Chat) is used for short and straightforward questions, or questions that require a lot of back-and-forth (debugging, getting diagnostic data etc.). Packagers and software developers alike very often can be found on IRC, and are happy to help with any questions that may pop up. Most of them are on the Freenode IRC server. For instance, to access the IRC chatroom for Ubuntu support, you can use the web interface to <a href="http://webchat.freenode.net?channels=%23ubuntu">chat.freenode.net #ubuntu chatroom</a> (see also <a href="https://community.ubuntu.com/contribute/support/irc/">IRC guidelines and list of chatrooms</a>).</p>
 <p>Each distribution also has a dedicated support forum. Forums are more useful for more complicated questions that are difficult to explain using IRC, or for non-urgent issues. See for instance the <a href="https://ubuntuforums.org/">Ubuntu forums</a>. Ubuntu in particular also has its own questions and answers board called <a href="http://askubuntu.com/">Ask Ubuntu</a>.</p>
 <p>By this point, you should hopefully have found a solution to the problem you are facing. Sometimes, however, you may uncover an actual bug in the software. In the case you do, you should try to report it to a bug tracker. <em>Note</em>: Reporting bugs is quite advanced, and should only be done if you are sure you found a bug. It is, however, an integral part of the open-source development model: a bug that is reported is brought to the attention of the software developer and gets fixed for each and every user of the software. Just like with questions, bugs should first be reported downstream to your distribution, and only reported upstream if asked by downstream developers (or if you are sure that the bug is indeed in the source of the software, rather than the packaging of it). See for instance the <a href="https://help.ubuntu.com/community/ReportingBugs">Ubuntu bug reporting guidelines</a>.</p>
-<h1 id="excercise">Excercise</h1>
-<p>Write a shell script that processes Landsat data as provided in the Intro to Raster lesson (<a href="https://github.com/GeoScripting-WUR/IntroToRaster/raw/gh-pages/data/gewata.zip">link</a>). Specifically, the script should:</p>
-<ol type="1">
-<li>Take a URL as an argument. The URL links to a ZIP file containing Landsat bands. So the script should run when called as e.g. <code>./ProcessLandsat.sh https://github.com/GeoScripting-WUR/IntroToRaster/raw/gh-pages/data/gewata.zip</code>. The script should download and extract the ZIP file into a subdirectory called <code>data</code> for further processing.</li>
-<li>Derive NDVI from the Landsat bands, resample it to pixels of 60 m, reproject to WGS84 (EPSG:4326) and put the output into a subdirectory called <code>output</code>.</li>
-<li>Be reproducible and rerunnable: no use of <code>cd</code> and running the script twice still gives correct output. The script leaves only one output file, no intermediate ones. If a filename is reused in more than one place, a variable should be used instead of writing the name twice.</li>
-</ol>
-<div class="row">
-<div class="alert alert-info">
-<p>
-<strong>Tips</strong>: make use of Bash variables such as <code>$1</code>, utilities like <code>mkdir</code>, <code>wget</code>, <code>unzip</code>, <code>rm</code>, <code>gdalwarp</code> and <code>gdal_calc.py</code>. Check their <code>man</code> pages for arguments.
-</p>
-</div>
-</div>
-<p>For <strong>bonus points</strong>: find a way to resample and reproject the file <em>without writing a temporary TIFF file to disk</em>, ideally with a single line of code. <strong>Tips</strong>: <code>mkfifo</code> and <code>|</code>, or <a href="https://en.wikipedia.org/wiki/Process_substitution">process substitution</a> and <code>/proc/self/fd/0</code> as input file name.</p>
-<p>Make sure your script is clear and reproducible, make a new GitLab project according to the same guidelines as yesterday, and upload the script there. Test the script of another team (see the random team selector Shiny app) tomorrow morning and add an issue with your testing results and score according to the rubric.</p>
-<p><em>Do not forget to add a teamname, and members and date of script at the top of your script.</em></p>
-<p><a href="http://www.geos.ed.ac.uk/~smudd/TopoTutorials/html/tutorial_raster_conversion.html">More tips</a></p>
+<!-- Moved to GitHub
+# Excercise
+
+Write a shell script that processes Landsat data as provided in the Intro to Raster lesson ([link](https://github.com/GeoScripting-WUR/IntroToRaster/raw/gh-pages/data/gewata.zip)). Specifically, the script should:
+
+1. Take a URL as an argument. The URL links to a ZIP file containing Landsat bands. So the script should run when called as e.g. `./ProcessLandsat.sh https://github.com/GeoScripting-WUR/IntroToRaster/raw/gh-pages/data/gewata.zip`. The script should download and extract the ZIP file into a subdirectory called `data` for further processing.
+2. Derive NDVI from the Landsat bands, resample it to pixels of 60 m, reproject to WGS84 (EPSG:4326) and put the output into a subdirectory called `output`.
+3. Be reproducible and rerunnable: no use of `cd` and running the script twice still gives correct output. The script leaves only one output file, no intermediate ones. If a filename is reused in more than one place, a variable should be used instead of writing the name twice.
+
+<div class="row"><div class="alert alert-info">
+<p><strong>Tips</strong>: make use of Bash variables such as <code>$1</code>, utilities like <code>mkdir</code>, <code>wget</code>, <code>unzip</code>, <code>rm</code>, <code>gdalwarp</code> and <code>gdal_calc.py</code>. Check their <code>man</code> pages for arguments.</p>
+</div></div>
+
+For **bonus points**: find a way to resample and reproject the file *without writing a temporary TIFF file to disk*, ideally with a single line of code. **Tips**: `mkfifo` and `|`, or [process substitution](https://en.wikipedia.org/wiki/Process_substitution) and `/proc/self/fd/0` as input file name.
+
+Make sure your script is clear and reproducible, make a new GitLab project according to the same guidelines as yesterday, and upload the script there. Test the script of another team (see the random team selector Shiny app) tomorrow morning and add an issue with your testing results and score according to the rubric.
+
+*Do not forget to add a teamname, and members and date of script at the top of your script.*
+
+[More tips](http://www.geos.ed.ac.uk/~smudd/TopoTutorials/html/tutorial_raster_conversion.html)
+
+-->
 <div class="row">
 <div class="alert alert-info">
 <h1 id="more-information">

@@ -1,7 +1,7 @@
 ---
 author: "Jan Verbesselt and Dainius Masiliunas"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
-title: "Week 1, Lesson 4: Getting started with Linux, the terminal and Bash scripting"
+pagetitle: "Week 1, Lesson 2: Getting started with Linux, the terminal and Bash scripting"
 output:
   knitrBootstrap::bootstrap_document:
     theme: "simplex"
@@ -13,7 +13,9 @@ output:
 
 # [WUR Geoscripting](https://geoscripting-wur.github.io/) <img src="http://www.wur.nl/upload/b43b7095-e452-482a-8969-fed9a50393a8_WUR_RGB_standard.png" alt="WUR logo" style="height: 35px;"/>
 
-# Week 1, Lesson 4: Getting started with Linux, the terminal and Bash scripting
+# Week 1, Lesson 2: Getting started with Linux, the terminal and Bash scripting
+
+<!--
 
 Good morning! 
 Here is what you will do today:
@@ -24,6 +26,8 @@ Until 11:00 | Review yesterday's exercise answer of the other team
 Morning       |  Self-study: go through the following tutorial, and get confortable with a Linux environment and the terminal
 14:00 to 16:00  | Discussion
 Rest of the afternoon | Do and finalise the exercise
+
+-->
 
 # Today's Learning objectives
 
@@ -436,6 +440,7 @@ Each distribution also has a dedicated support forum. Forums are more useful for
 
 By this point, you should hopefully have found a solution to the problem you are facing. Sometimes, however, you may uncover an actual bug in the software. In the case you do, you should try to report it to a bug tracker. *Note*: Reporting bugs is quite advanced, and should only be done if you are sure you found a bug. It is, however, an integral part of the open-source development model: a bug that is reported is brought to the attention of the software developer and gets fixed for each and every user of the software. Just like with questions, bugs should first be reported downstream to your distribution, and only reported upstream if asked by downstream developers (or if you are sure that the bug is indeed in the source of the software, rather than the packaging of it). See for instance the [Ubuntu bug reporting guidelines](https://help.ubuntu.com/community/ReportingBugs).
 
+<!-- Moved to GitHub
 # Excercise
 
 Write a shell script that processes Landsat data as provided in the Intro to Raster lesson ([link](https://github.com/GeoScripting-WUR/IntroToRaster/raw/gh-pages/data/gewata.zip)). Specifically, the script should:
@@ -455,6 +460,8 @@ Make sure your script is clear and reproducible, make a new GitLab project accor
 *Do not forget to add a teamname, and members and date of script at the top of your script.*
 
 [More tips](http://www.geos.ed.ac.uk/~smudd/TopoTutorials/html/tutorial_raster_conversion.html)
+
+-->
 
 ```{block, type="alert alert-info"}
 # More information
