@@ -1,3 +1,16 @@
+---
+pagetitle: Installing Linux on your own computer
+author: "Dainius Masiliūnas"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  knitrBootstrap::bootstrap_document:
+    theme: "simplex"
+    highlight: Tomorrow Night Bright
+    menu: FALSE
+    theme.chooser: TRUE
+    highlight.chooser: TRUE
+---
+
 # Installing Linux on your own computer
 
 In some cases you might want to install and/or run Linux on your own device; maybe you want to work from home having direct access to all your files, maybe you need to run a scientific program that works best on Linux, or maybe there's an old laptop that you'd like to revive, etc. In all cases, it's useful to know how to start.
