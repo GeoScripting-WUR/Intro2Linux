@@ -911,47 +911,34 @@ Rest of the afternoon | Do and finalise the exercise
 <div class="row">
 <div class="alert alert-danger">
 <p>
-<strong>Notice</strong>: Make sure you <strong>read the page linked above</strong> and have no problems logging into and using the VDI. From here on out, we will try to work from within the VDI.
+<strong>Notice</strong>: Make sure you <strong>read the page linked above</strong> and have no problems logging into and using the VDI. From here on out, we will try to work from within the VDI exclusively.
 </p>
 </div>
 </div>
 <div class="row">
 <div class="alert alert-info">
 <p>
-<strong>In case you can’t get the VDI running successfully</strong> (and <strong>only</strong> in that case, so hopefully you don’t need to do this!), we have two more alternatives:
+<strong>In case you can’t get the VDI running successfully</strong> (and <strong>only</strong> in that case, so hopefully you don’t need to do this!), there is one alternative: if you know what you are doing, you can install Linux on your own laptops or external hard disks. See a <a href="installation.html">theoretical overview of running Linux on your own hardware</a> and <a href="../system_setup/index.html">Linux system setup</a>.
 </p>
-<ul>
-<li>
-Local VirtualBox VMs installed on the PCs in the PC labs. These can only be accessed from a specific PC and intended as a fallback is there are problems when using VDIs.
-</li>
-<li>
-Your own hardware: if you know what you are doing, you can install Linux on your own laptops or external hard disks.
-</li>
-</ul>
+<!-- - Local VirtualBox VMs installed on the PCs in the PC labs. These can only be accessed from a specific PC and intended as a fallback is there are problems when using VDIs. -->
 <p>
-<strong>The VDIs are recommended</strong>. If you go for one of the alternatives, the systems need to be set up manually.
+<strong>The VDIs are recommended</strong>. If you go for the alternative, the systems need to be set up manually and we do not have the time and manpower to support every student with this.
 </p>
 <!--### SURFsara cloud VM setup
 
-[See this page for instructions on setting up the SURFsara cloud VMs](surfsara_tutorial.html).-->
-<h3 id="virtualbox-vm-setup">
-VirtualBox VM setup
-</h3>
-<p>
-To set up VirtualBox, first find the provided image of OSGeo-Live on the network drive in the PC lab, which should be available to you as <code>W:\Student\GRS-33806\OSGeo Live 12.ova</code>. This is a compressed VirtualBox image with RStudio installed. For use on your own PCs, you can copy the file on your PC from the PC lab or download OSGeo-Live from <a href="https://live.osgeo.org/en/quickstart/virtualization_quickstart.html">its website</a>.
-</p>
-<p>
-Once you have the file, all you need to do is import it in VirtualBox by going to <em>File → Import Appliance</em> and specifying the location of the OVA file. Everything else can be left default.
-</p>
-<p>
+[See this page for instructions on setting up the SURFsara cloud VMs](surfsara_tutorial.html).
+
+### VirtualBox VM setup
+
+To set up VirtualBox, first find the provided image of OSGeo-Live on the network drive in the PC lab, which should be available to you as `W:\\Student\\GRS-33806\\OSGeo Live 12.ova`. This is a compressed VirtualBox image with RStudio installed. For use on your own PCs, you can copy the file on your PC from the PC lab or download OSGeo-Live from [its website](https://live.osgeo.org/en/quickstart/virtualization_quickstart.html).
+
+Once you have the file, all you need to do is import it in VirtualBox by going to *File → Import Appliance* and specifying the location of the OVA file. Everything else can be left default.
+
 Once importing is complete, you can go to the appliance settings and add a shared folder. That way all files you have in the shared folder will also be visible from the VM. You can see it by running the VM, opening the file manager in it and clicking on the shared folder name on the left side of the window.
-</p>
-<h3 id="installing-linux-on-your-own-hardware">
-Installing Linux on your own hardware
-</h3>
-<p>
-If you like, you can install a Linux distribution on your own laptops or external hard drives. Compared to virtualisation, it is much faster to run a Linux distribution directly. See a <a href="installation.html">theoretical overview of running Linux on your own hardware</a> and <a href="../system_setup/index.html">Linux system setup</a>.
-</p>
+
+### Installing Linux on your own hardware
+
+If you like, you can install a Linux distribution on your own laptops or external hard drives. Compared to virtualisation, it is much faster to run a Linux distribution directly. -->
 </div>
 </div>
 <p>Once you have everything ready, login into your Linux VM, try out RStudio/RKWard, and also open QGIS.</p>

@@ -57,20 +57,19 @@ During the course we will work in a Linux environment. For students taking the c
 **[See the tutorial on setting up VMWare Horizon on this page.](vmware_horizon_tutorial.html)**
 
 ```{block, type="alert alert-danger"}
-**Notice**: Make sure you **read the page linked above** and have no problems logging into and using the VDI. From here on out, we will try to work from within the VDI.
+**Notice**: Make sure you **read the page linked above** and have no problems logging into and using the VDI. From here on out, we will try to work from within the VDI exclusively.
 ```
 
 ```{block, type="alert alert-info"}
-**In case you can't get the VDI running successfully** (and **only** in that case, so hopefully you don't need to do this!), we have two more alternatives:
+**In case you can't get the VDI running successfully** (and **only** in that case, so hopefully you don't need to do this!), there is one alternative: if you know what you are doing, you can install Linux on your own laptops or external hard disks. See a [theoretical overview of running Linux on your own hardware](installation.html) and [Linux system setup](../system_setup/index.html).
 
-- Local VirtualBox VMs installed on the PCs in the PC labs. These can only be accessed from a specific PC and intended as a fallback is there are problems when using VDIs.
-- Your own hardware: if you know what you are doing, you can install Linux on your own laptops or external hard disks.
+<!-- - Local VirtualBox VMs installed on the PCs in the PC labs. These can only be accessed from a specific PC and intended as a fallback is there are problems when using VDIs. -->
 
-**The VDIs are recommended**. If you go for one of the alternatives, the systems need to be set up manually.
+**The VDIs are recommended**. If you go for the alternative, the systems need to be set up manually and we do not have the time and manpower to support every student with this.
 
 <!--### SURFsara cloud VM setup
 
-[See this page for instructions on setting up the SURFsara cloud VMs](surfsara_tutorial.html).-->
+[See this page for instructions on setting up the SURFsara cloud VMs](surfsara_tutorial.html).
 
 ### VirtualBox VM setup
 
@@ -82,7 +81,7 @@ Once importing is complete, you can go to the appliance settings and add a share
 
 ### Installing Linux on your own hardware
 
-If you like, you can install a Linux distribution on your own laptops or external hard drives. Compared to virtualisation, it is much faster to run a Linux distribution directly. See a [theoretical overview of running Linux on your own hardware](installation.html) and [Linux system setup](../system_setup/index.html).
+If you like, you can install a Linux distribution on your own laptops or external hard drives. Compared to virtualisation, it is much faster to run a Linux distribution directly. -->
 ```
 
 Once you have everything ready, login into your Linux VM, try out RStudio/RKWard, and also open QGIS.
