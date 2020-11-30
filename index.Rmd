@@ -13,7 +13,7 @@ output:
 
 # [WUR Geoscripting](https://geoscripting-wur.github.io/) <img src="https://www.wur.nl/upload/5e55a1d9-47c3-4149-9384-26d5147ee2d7_WUR_RGB_standard.png" alt="WUR logo" style="height: 35px;"/>
 
-# Week 1, Lesson 2: Getting started with Linux, the terminal and Bash scripting
+# Week 1, Lesson 2: Getting started with the Linux terminal and Bash scripting
 
 <!--
 
@@ -31,60 +31,9 @@ Rest of the afternoon | Do and finalise the exercise
 
 # Today's Learning objectives
 
-- Knowing what Linux is & what you can do with it 
-- Getting comfortable working within a Linux environment
 - Knowing how to use the *terminal*
     - Running R and Python from the terminal
 - Learn the basics of *Bash* scripting and know how to create a shell script
-
-# Linux?!
-
-*Linux* is a free and open-source operating system kernel. In this course we will be working with a customised *Ubuntu*, which is a popular *Linux distribution*. A Linux distribution is an operating system that is built upon the Linux kernel and includes plenty of handy programs for daily work.
-
-There is a large variety of different Linux distributions. One that is handy for geo-information science work is OSGeo-Live, which is also an Ubuntu-based distribution that has a wide range of free and open-source GIS and Remote sensing tools preinstalled.
-See [this website](http://live.osgeo.org/) for more information.
-
-These tools are also available in other distributions, but they have to be installed manually. A general-use distribution such as *Ubuntu* or *openSUSE* is more suitable for regular day-to-day tasks, since not having the unnecessary tools installed takes less space and makes it work faster. It is also easier to find help for them than for specialised distributions. So in this course we will use a customised Ubuntu distribution with only the tools needed for this course preinstalled.
-
-## Why use a Linux distribution?
-
-A Linux environment makes it much easier to install and combine a variety of open-source software, such as Python modules and GDAL, compared to other operating systems like Windows or macOS. In addition, open-source scientific software is often developed primarily for Linux (since that's what most supercomputers and servers run!), and so it tends to be more stable and have more features on Linux. Furthermore, at Wageningen University & Research PC labs, ArcGIS and ArcPy are installed on the Windows machines, and this Python version tends to cause conflicts with open-source Python modules and tools (e.g. GDAL, GEOS).
-
-## Getting started on Linux
-
-During the course we will work in a Linux environment. For students taking the course in Wageningen University, we provide a **VMware Horizon virtual desktop infrastructure (VDI)** that is managed by the WUR IT department. It is available over the internet for each student in the course and supported by the IT department. The VMware Horizon VDIs can be accessed through the VMware Horizon client (preinstalled on WUR PCs).
-
-**[See the tutorial on setting up VMWare Horizon on this page.](vmware_horizon_tutorial.html)**
-
-```{block, type="alert alert-danger"}
-**Notice**: Make sure you **read the page linked above** and have no problems logging into and using the VDI. From here on out, we will try to work from within the VDI exclusively.
-```
-
-```{block, type="alert alert-info"}
-**In case you can't get the VDI running successfully** (and **only** in that case, so hopefully you don't need to do this!), there is one alternative: if you know what you are doing, you can install Linux on your own laptops or external hard disks. See a [theoretical overview of running Linux on your own hardware](installation.html) and [Linux system setup](../system_setup/index.html).
-
-<!-- - Local VirtualBox VMs installed on the PCs in the PC labs. These can only be accessed from a specific PC and intended as a fallback is there are problems when using VDIs. -->
-
-**The VDIs are recommended**. If you go for the alternative, the systems need to be set up manually and we do not have the time and manpower to support every student with this.
-
-<!--### SURFsara cloud VM setup
-
-[See this page for instructions on setting up the SURFsara cloud VMs](surfsara_tutorial.html).
-
-### VirtualBox VM setup
-
-To set up VirtualBox, first find the provided image of OSGeo-Live on the network drive in the PC lab, which should be available to you as `W:\\Student\\GRS-33806\\OSGeo Live 12.ova`. This is a compressed VirtualBox image with RStudio installed. For use on your own PCs, you can copy the file on your PC from the PC lab or download OSGeo-Live from [its website](https://live.osgeo.org/en/quickstart/virtualization_quickstart.html).
-
-Once you have the file, all you need to do is import it in VirtualBox by going to *File → Import Appliance* and specifying the location of the OVA file. Everything else can be left default.
-
-Once importing is complete, you can go to the appliance settings and add a shared folder. That way all files you have in the shared folder will also be visible from the VM. You can see it by running the VM, opening the file manager in it and clicking on the shared folder name on the left side of the window.
-
-### Installing Linux on your own hardware
-
-If you like, you can install a Linux distribution on your own laptops or external hard drives. Compared to virtualisation, it is much faster to run a Linux distribution directly. -->
-```
-
-Once you have everything ready, login into your Linux VM, try out RStudio/RKWard, and also open QGIS.
 
 # Using the terminal and *Bash*
 
@@ -108,30 +57,187 @@ A *terminal* is just a gateway to the world of CLIs, but through it you interact
 
 *Bash* is not only the default shell on Linux, but also macOS, and there are versions of *Bash* that run on Windows too. It is included with Git for Windows, and in Windows 10 *Bash* is even included by default with the [*Windows Subsystem for Linux*](https://msdn.microsoft.com/en-us/commandline/wsl/about). However, without the wealth of CLI programs that Linux distributions come with, *Bash* functionality is fairly limited.
 
-But enough theory: let's try using the terminal in practice! Go through this exercise and see what happens: [https://news.opensuse.org/2014/06/10/command-line-tuesdays-part-one/](https://news.opensuse.org/2014/06/10/command-line-tuesdays-part-one/)
+But enough theory: let's try using the terminal in practice!
 
-## Basic commands
+## Using the terminal
 
-Now go through the next exercise to learn how to navigate the file system: [https://news.opensuse.org/2014/06/24/command-line-tuesdays-part-two/](https://news.opensuse.org/2014/06/24/command-line-tuesdays-part-two/)
+Now, fire up your terminal. You get a line, stating your user name and the machine’s host name. This is called the shell prompt. It means it’s ready for you to enter a command. Let’s try something random. Type in anything, and press enter.
 
-The file system layout image might not display properly, but it is intended to show this:
+Most likely the system doesn't have the command you typed in! Random doesn't work: you need to remember (or look up) commands to use them!
+
+Now, press the up arrow, and you’ll see the previous command reappear. What’s this sorcery? The up arrow key on your keyboard is for accessing the command history. The terminal saves up to 500 commands you entered, so to not type them over and over, you can look for them with the up/down arrow. The left and right arrows are for moving the cursor within a specific line, so you can edit the text in between. The terminals were designed to work with a keyboard, so you can't use your mouse to move the cursor, but you can use the Home key to go to the beginning of the line, and the End key to go to the end. Now there’s another thing – **Ctrl+V** for pasting text **doesn’t work**. You can set it up as a shortcut somewhere, but it’s usually something else, e.g. Ctrl+Shift+Insert. But you can always paste if you right-click on the terminal, and it usually tells you what is the keyboard shortcut to do so, so that you don't need the mouse every time.
+
+Now, for us not to get the ‘command not found’ slap to the face, let’s try something simple. Type `date`.
+
+```{bash}
+date
+```
+
+There you go. Why bother looking at your built-in calendar in the clock, when you can fire up your terminal and type `date`, and see what day it is! Just kidding, it’s a simple command, the more useful/difficult ones are coming up next. The related command to `date` is `cal` – it will display the current month’s calendar.
+
+You may also try `free`, and it will display the amount of free memory.
+
+```{bash}
+free
+```
+
+Or `df` (standing for "disk free"), to list free space on your drives.
+
+If you’re already in the type-only mood, you can enter the command `exit` to get out of the terminal emulator instead of pressing the "x" button.
+
+## Navigation through the file system
+
+Here’s a diagram of what a linux root filesystem looks like:
+
 ![Filesystem Hierarchy Standard](https://configureinstantly.files.wordpress.com/2011/01/file-system.jpg)
 
-Once you're done, you should have something like this displayed in your terminal:
+For example, as stated in the above picture, your user directory (where you usually store your movies, music, documents etc.) is located in the */home* directory. */home* directory is located under */*. Then you have the */etc* directory, where most of the files for configuration are located.
+
+The next command to look into is `pwd`. `pwd`, or ‘print working directory’, is a very useful command if you think you are lost navigating through the directories. At any given moment, type `pwd`, and voila! What appears is a complete pathway you took to arrive to this directory.
+
+Imagine yourselves walking from room to room inside a massive apartment, losing your way. `pwd` is like the breadcrumb trail leading you to your starting point, so you don’t lose your way inside the directory maze!
+
+Now you know in which directory you’re situated thanks to your usage of the `pwd` command. Now you want to take the next step and move to another directory. Let’s say you have a directory inside your home directory you want to relocate your top secret terminal operation to. For this, you use the `cd` command. `cd`, or ‘change directory’, will change the location of your working directory. How do you use it? Simple, type `cd` and the path to your directory. Let’s say, for example, you want to enter what is on WUR Windows computers known as your "M: drive" (or just a directory called `M`) in your home directory. You type `cd /home/username/M`.
+
+There are also some shortcuts available. If you type only `cd`, without the path following it, your terminal will change your working directory (whatever it may be) to your `/home` directory. Likewise, if you type `cd ~user_name`, it will lead you to the home directory of the specific user you stated.
+
+Try it out yourself. Navigate to a different directory using `cd`, and when there, type `pwd` to see if everything worked as it is supposed to. Once you're done, you should have something like this displayed in your terminal:
 
 ![cdpwd](figs/cd_pwd-vdi.png)
 
-Next, let's go into some useful every-day commands: [https://news.opensuse.org/2014/07/01/command-line-tuesdays-part-three/](https://news.opensuse.org/2014/07/01/command-line-tuesdays-part-three/)
+In the example above (`cd M`), we used what is called a *relative path*. It is a path relative to your current working directory (`pwd` states that it is */home/WUR/username*), whereas typing in `cd /home/WUR/username/M` would be using an *absolute path*. An absolute path is like giving geographic coordinates (e.g. 10°N 5°E), whereas a relative path is like giving directions: "10 km to the north and 5 km to the east from where you are standing". On Linux, absolute paths always start with */*, and relative paths never start with */*.
+
+In terms of scripting, you should *almost never use absolute paths*! This is because absolute paths are for the most part unportable: just because you have a directory called */home/WUR/username/M* does not mean that someone else who runs the code, or indeed you yourself on another computer, would have a directory with that name. Especially if it includes your username! Relative paths are more useful: your script could create a directory called *M* and not have to worry about which user it belongs to. It will be created relative to the working directory, as shown by `pwd`.
+
+Lastly, there are two special "directories" that are present in every directory: `.` and `..`. `.` refers to the directory itself, i.e. *M/.* as well as *M/./.* and *./M* is all the same as *M*. `..` refers to the parent directory: *M/..* is the same as your working directory, as it instructs Bash to look into the directory *M* and then go back out of it again.
+
+## Command options
+
+Now we know how to move from one directory to another, but how do you know what directories there are for you to move between? `ls` is a command used to list files and directories in a given directory. It can be used in various ways. These various ways come with using a form of adding an *option* to our command. To make things clearer; you can simply type `ls`. But, you can also add an option, which will *modify* your command. It can come in useful when you are looking for something specific.
+
+That’s what an option is. And formally we can write it down like this:
+
+```
+command -option argument
+```
+
+*Command* is, well, a command we write in (like `pwd`, `ls` or anything else we have learned by now).
+
+We already stated above the purpose of an *option*. But note that it should be written exactly as it’s in the form; with a *dash* in front of it. So, if the option is `l`, you should put `-l` after the command.
+
+An *argument* is an object upon which the command operates (in this case, it will be directories, as we are learning how to navigate through them).
+
+So, let’s try out `ls`, and use it on the `/etc` directory in the root of the filesystem. This time, without any options.
+
+```{bash, results="hide"}
+ls /etc
+```
+```{bash, echo=FALSE}
+ls /etc | head
+```
+
+There you go, a whole bunch of files. It also sorts them by colours. The blue ones are directories, the white ones are regular files, the green ones are executable files. There are more colours, as they represent different file types.
+
+Next, you can use the same command, but with an option `-l` added. Option `-l` will list the same files and directories, but in a *long format*. In case you need more information:
+
+```{bash, results="hide"}
+ls -l /etc
+```
+```{bash, echo=FALSE}
+ls -l /etc | head
+```
+
+So, using the long format, you see much more information, and some crazy looking signs like `-rw-r–r–` at the beginning of all lines. Actually, here’s a scheme, representing what all of the given information actually means:
+
+![Key to ls -l output](https://news.opensuse.org/wp-content/uploads/2014/06/Screenshot-30.-06.-2014-184829.png)
+
+File Name is the name of the file. Modification time is the last time the file has been modified. Size is the size of the file in bytes. Group is the name of the group that has file permissions along with the owner, and Owner is the user who owns the file.
+
+The most important one is *File Permissions*. That’s the gibberish at the beginning of every line in long format. The first character is the file type. If it’s a `d`, it means the file is actually a directory. If it’s `-`, it means it’s an ordinary file. The next three characters represent the read, write and execution rights of the file’s owner. The next three are the same rights of the group that also has access to the file, and the last three characters represent rights of everyone else trying to use the file.
+
+So for example, if we have a file which in long format displays: `-rw-r--r--`, it means it’s an ordinary file (the first `-`), the owner of the file can read and write the file, but he can’t execute it, as it’s not an executable file (the `rw-` characters after the initial `-`), and the user group and everyone else can only read the file (you can see `r--` sequence repeating twice). If the user group had `rwx` instead of `r--`, it would mean they could read, write and execute the file.
+
+Next option for `ls` is `ls -la ..` - this will list all of the files, as in a usual command, hidden files are not shown. It will list all files in the parent of the working directory in long format.
 
 ```{block, type="alert alert-success"}
 > **Question 3**: What is the difference between `ls -l`, `ls -lh` and `ls -lh \-\-si`?
 ```
 
+## Getting information about files
+
+`less` is a command which will display a text file and let you scroll through it. For example, you’re looking for text file `os-release` in `/etc`. You have succesfully found it there with `ls /etc`, and now you want to read it. You just use `less /etc/os-release`.
+
+How do you control `less`? Easy, with your keyboard!
+
+`less` will display only one page of your text at a time. You can move line by line with the arrow keys. To go forward an entire page, you can press **Page Up**. To go *back* one page, you can use **Page Down**. **>** will take you to the end of the text file, while **<** will take you to the beginning of the text. `/characters` will search for `characters` inside the text (for example, if you write `/suse`, it will search for occurances of `suse` inside your text and mark them). **n** will go to the *next* occurrence of the search term, and **h** will display all your options (h as in help!). You quit less with the letter **q**.
+
+The name `less` is a pun on the word `more`, which is a much more basic tool for displaying a text file and scrolling, because it only allows scrolling down; therefore, *`less` is more than `more`*.
+
+The `file` command will show what kind of file is that you’re looking for, be it ASCII text, a jpg image, a bash script etc. As we performed our exercise with `/etc/os-release`, let’s use it here also.
+
+```{bash}
+file /etc/os-release
+```
+
+There you go, now you know what `os-release` is. Incidentally, it may be either an ASCII file or a link to one! It depends on your Linux distribution (version). If it's a link, try to run the command on the linked file. Now try it out with something else, and see the output.
+
+Next, we have the commands `type` and `which`. Like `file`, they give information on the type, but they operate on commands instead of files. `which` tells you where you can find the executable that is run if you type in a command. Let's try it on the command `file`:
+
+```{bash}
+which file
+```
+
+Now we know that when we run `file`, Bash executes the program `/usr/bin/file`. How about `cd`?
+
+```{bash, error=TRUE}
+which cd
+```
+
+What?! It seems that there is no such executable! This is because it is so common, it's built into Bash itself. `type` is a bit more clever than `which` and tells you whether a command is an executable file, or a command built into Bash itself. Let's see what it says about `cd`:
+
+```{bash}
+type cd
+```
+
+In some cases, you might have both available. Let's take a look at the command `time` that is used to measure how long a command runs for:
+
+```{bash}
+type time
+```
+
+It is also built into Bash itself. But there is another command called `time` that is an actual executable:
+
+```{bash}
+which time
+```
+
+Because the shell prefers builtins compared to executables, when you run `time` you will run the builtin version, rather than the executable version. But you can reach the executable version (which is more feature-rich!) by calling it with its absolute path:
+
+```{bash}
+/usr/bin/time -V
+```
+
+`type` and `which` will come very much in handy once we get to Python, as we will have several Python versions installed. It will help determine which version we have active.
+
 ## File manipulation
 
-Now let's dive into manipulating files and directories: [https://news.opensuse.org/2014/07/08/command-line-tuesdays-part-four/](https://news.opensuse.org/2014/07/08/command-line-tuesdays-part-four/)
+Copying, pasting files, creating directories etc. is probably easier using graphical tools, but, if you’d like to perform more complicated tasks, like copying only *.html* files from one folder to another, and only copying files that don’t exist in the destination directory, CLI just might come in handy. So, before we start with the commands themselves, let’s take a quick stop at *wildcards*. They are a set of special characters that help you pick out a set of files based on some simple rules (which characters appear in a file name, how many characters, upper/lower case characters etc.). Here’s the table:
 
-Now, create a directory called `Bash` (i.e. a directory that will contain our *Bash* scripts)
+![List of wildcards](https://news.opensuse.org/wp-content/uploads/2014/07/Screenshot-08.-07.-2014-125946.png)
+
+And here are a few examples:
+
+![Wildcard usage examples](https://news.opensuse.org/wp-content/uploads/2014/07/Screenshot-08.-07.-2014-125959.png)
+
+If you use a command with an argument containing a filename, you can use wildcards with no problem. Bash will go ahead and *expand* the wildcard into a set of all matching filenames, and the command will actually receive a set of files and not the wildcard string.
+
+`cp` is used to copy files or directories. You can use it pretty easily: navigate to the directory you’d like to copy the files from and to, and simply do `cp file1 file2` - to copy single files, or `cp file1 file2 ... directory` - to copy files from your current working directory to the directory specified.
+
+We can use `mv` to rename a file or directory, or to *move* a file or directory. We can use it this way: `mv filename1 filename2` - if we want to rename *filename1* to *filename2*, or `mv file directory` - if we want to move *file* to *directory*.
+
+The `rm` command removes/deletes files and directories. Usage is pretty straightforward: `rm file` or `rm -r directory`. But, do be careful when using `rm`, as there is no undelete option (the file is erased and doesn't go to the bin), so be extra careful not to inflict unwanted damage to your system!
+
+`mkdir` is used for creating directories. Now, create a directory called `Bash` (i.e. a directory that will contain our *Bash* scripts):
 
 ```{r, eval=FALSE, engine='bash'}
 mkdir Bash
@@ -142,10 +248,10 @@ It should now look like this:
 ![mkdir](figs/mkdir-vdi.png)
 
 
-Now, try out some more commands:
+Now, try out the commands that you learned:
 
-- make a directory and remove it (e.g. `mkdir namedirectory`, `rmdir namedirectory`).
-- create an *R* script via *RStudio* or *RKWard*, and then remove it via the terminal using `rm filename.R`.
+- make a directory and remove it (e.g. `mkdir namedirectory` and `rmdir namedirectory` or `rm -r namedirectory`).
+- create an *R* script via `rstudio` or `rkward`, and then remove it via the terminal using `rm filename.R`.
 - create another file and copy it and then remove it, etc.:
 
 ```{r, eval=FALSE, engine='bash'}
@@ -159,17 +265,29 @@ rm dest_file
 **Tip**: Bash has a feature called Tab-completion. If you start writing a command or filename, pressing the `Tab` key a couple of times will give a list of suggestions for auto-completion. This is super-handy so that you never need to write filenames etc. In addition, you can recall the last commands you entered by using the up arrow key. Lastly, you can always open multiple terminals, even in tabs, by using *File* → *Open Tab*.
 ```
 
-## More information about commands
+## How to find help
 
-So far we have been using only a few of the functions that the commands offer. You can find a list of them by looking at their manual pages by following the last part of the tutorial: [https://news.opensuse.org/2014/07/15/command-line-tuesdays-part-five/](https://news.opensuse.org/2014/07/15/command-line-tuesdays-part-five/)
+Mostly every command has documentation that comes with it. So you’re somewhere doing your CLI thing, no access to the internet so you can’t bug people on the forums or IRC, and you need to find out how to exactly use a command. You can do it two ways. The first is the command `help`. The `help` command works with shell builtins, and not executable files. So you can pick a shell builtin, like `cd` or `time`, and simply type `help cd` or `help time`. You’ll get a helpful page printed out in your terminal, so go ahead and read what they have to offer. Here's another example:
+
+```{bash}
+help help
+```
+
+The help page shows in what ways you can use the command, what options you can use (it’s in square brackets, which means they are optional! Also, if there’s a vertical separator inside the square brackets, it means the options mentioned are mutually exclusive. Don’t use them together!)
+
+`help` works only for the shell builtins. But most executables provide an option `--help`. As far as usage goes, it’s similar to `help`, but you have to type `--help` after the command you want to inspect. For example:
+
+```{bash}
+which --help
+```
+
+However, `--help` is just a convention, which programs are not obliged to follow. Sometimes the option is called `-h`, and sometimes it is not present at all.
+
+To get more information about how to use a command, most executables come with a formal documentation page. Distributions often mandate the inclusion of a manual page for every package, so the manual page is the most useful source of information. You can inspect the manual page using the `man` command. You just enter `man program`, and see what it prints out. Pick any program on your computer, and try it out. For example, let’s try `man which`. You get a file opened, split into categories. It gives you information what the program is, what it does, how you can use it etc., but it doesn’t offer examples, as it’s not a tutorial.
 
 Manual pages are text files displayed in a pager program that allows easy scrolling. The default pager is `less`, which you have already used in the third exercise. You can also look at its manual page using `man less`. Also try `man intro`: the "Introduction to user commands", a well-written, fairly brief introduction to the Linux command line.
 
-```{r, eval=FALSE, engine='bash'}
-man intro
-```
-
-Here's a list of most common commands:
+To recap so far, here's a list of most common commands:
 
 - `pwd`: show your current working directory
 - `cd`: change directory
@@ -192,19 +310,19 @@ Each major Linux distribution has its own package manager, which is aware of all
 
 Ubuntu uses *Aptitude* as the package manager. Here is a short list of the most useful package manager commands on Ubuntu:
 
-- `apt search`: Search for a package
-- `sudo apt install`: Install a package
-- `sudo apt update`: Update one or more packages
-- `sudo apt remove`: Uninstall a package
+- `apt search packagename`: Search for a package called "packagename".
+- `apt list package*`: List all packages starting with "package".
+- `sudo apt install packagename`: Install or update a package. This changes system files and therefore requires administrator privileges (`sudo`).
+- `sudo apt remove packagename`: Uninstall a package.
 - See `man apt` for more.
 
-For instance, if you run `apt search chrom`, one of the results will be `chromium-browser`. It's [Chromium](https://en.wikipedia.org/wiki/Chromium_(web_browser)), the open-source version of Google Chrome. You can install it by running `sudo apt install chromium-browser`. Similarly, the Ubuntu package repository contains a lot (but not all) of R packages (they are prefixed with `r-cran-`) and Python packages (prefixed with `python3-`; the ones prefixed with `python-` are for Python 2 which we will not be using this year). If there is a package available in the distribution repository, almost always it is better to use that instead of using a package manager built into the language (`install.packages` in R and `easyinstall`/`pip`/`conda` in Python).
+For instance, if you run `apt list chrom*`, one of the results will be `chromium-browser`. It's [Chromium](https://en.wikipedia.org/wiki/Chromium_(web_browser)), the open-source version of Google Chrome. You can install it by running `sudo apt install chromium-browser`. Similarly, the Ubuntu package repository contains a lot (but not all) of R packages (they are prefixed with `r-cran-`) and Python packages (prefixed with `python3-`; the ones prefixed with `python-` are for Python 2 which we will not be using this year). If there is a package available in the distribution repository, almost always it is better to use that instead of using a package manager built into the language (`install.packages` in R and `easyinstall`/`pip`/`conda` in Python).
 
-The aforementioned commands are specific to the Debian fabily of Linux distribution (of whom Ubuntu is a member). In other distributions, package manager syntax is different, but the result is the same. For instance, in openSUSE the equivalent commands would be `zypper search`, `sudo zypper install`, `sudo zypper update` and `sudo zypper remove`.
+The aforementioned commands are specific to the Debian fabily of Linux distribution (of whom Ubuntu is a member). In other distributions, package manager syntax is different, but the result is the same. For instance, in openSUSE the equivalent commands would be `zypper search`, `sudo zypper install` and `sudo zypper remove`.
 
 Whenever a package is not included in the distribution repository, one option is to look for additional software sources. Ubuntu allows users to maintain their own packages through a system called Personal Package Archives (PPA). However, these packages are not tested and are not guaranteed to work, or could even cause problems in the system, so you have to be careful. Other distributions also have their own third-party repository systems: openSUSE uses Open Build Service, Fedora uses Copr etc.
 
-If a package doesn't exist in third party repositories either, there is often the possibility to download the source code of a package and compile it. Often times cross-platform software vendors provide installers for Windows and source code for Linux. However, compiling from source yourself should only be done as the very last resort; in fact, it is often easier and safer to create a package yourself than to try to build it from source!
+If a package doesn't exist in third party repositories either, there is often the possibility to download the source code of a package and compile it. It is common for cross-platform software vendors to provide installers for Windows and source code for Linux. However, compiling from source yourself should only be done as the very last resort; in fact, it is often easier and safer to create a package yourself than to try to build it from source!
 
 ## Starting R or Python from the terminal
 
@@ -228,7 +346,7 @@ exit()
 ### Hello, world Bash script 
 *Bash* is primarily a scripting language, so it would be a crime not to talk about scripting. Let's dive straight in with a *Bash* script. More precisely the infamous "Hello World" script. You can create a bash script by opening your favorite text editor to edit your script and then saving it (typically the `.sh` file extension is used for your reference, but is not required. In our example, we will be using the `.sh` extension).
 
-So let's get started. First, go to the `Bash` directory you just created. Within this directory create a simple text file and call it `HelloWorld.sh`, then add the following text and save. You can use the *gedit* editor, or use *RStudio* or *RKWard* as a sort of text editor. In fact, there are even command-line text editors, like `nano`.
+So let's get started. First, go to the `Bash` directory you just created. Within this directory create a simple text file and call it `HelloWorld.sh`, then add the following text and save. You can use the `gedit` editor, or use `rstudio` or `rkward` as a sort of text editor. In fact, `rstudio` makes it rather convenient to edit Bash scripts, exactly the same way as R scripts, including the ability to run commands line by line. It is also worth noting that there are even command-line text editors, like `nano`, which are useful for editing files that require administrative privileges.
 
 ![execute](figs/rstudioshell-vdi.jpg)
 
@@ -282,7 +400,7 @@ Hopefully you should have seen it print `Hello, World` onto your screen. If so w
 ```
 
 ```{block, type="alert alert-info"}
-**Note**: we can also access the Terminal from R using the `system()` function that can invoke an OS command:
+**Note**: we can also run Bash code from R using the `system()` function that can invoke an OS command:
 ```
 
 ```{r, echo=TRUE, message=TRUE}
@@ -290,6 +408,15 @@ Hopefully you should have seen it print `Hello, World` onto your screen. If so w
 setwd("Bash/") # Set the working directory in R
 print(system("./HelloWorld.sh", intern = TRUE)) # Execute this command in Bash
 ```
+
+```{block, type="alert alert-info"}
+**Note**: And vice versa, we can run an R script from the terminal using Bash:
+```
+
+```{bash, eval=FALSE}
+Rscript some-r-script-file.R
+```
+
 
 ### Bash script with a variable
 
@@ -299,7 +426,7 @@ Variables basically store information. You set variables like this (you can type
 var="FOO"
 ```
 
-`var` can be anything you want as long as it doesn't begin with a number. "FOO" can be anything you want. There cannot be any space in between the `=` sign. To access the information from the variable you need to put a '$' in front of it like this:
+`var` can be anything you want as long as it doesn't begin with a number. "FOO" can be anything you want. There **cannot be any space** in between the `=` sign! To access the information from the variable you need to put a '$' in front of it like this:
 
 ```{bash}
 echo $var
@@ -381,12 +508,12 @@ Let's now check if the range of the NDVI values makes sense, and make a nice scr
 ```{r, engine='bash', results='hide', eval =FALSE}
 #!/bin/bash
 echo "teamname"
-echo "14 January 2016"
+echo "14 January 2021"
 echo "Calculate LandSat NDVI"
-cd ../data
-fn=$(ls *.tif)
-echo "The input file: $fn"
-outfn="ndvi.tif"
+mkdir -p data output
+fn=data/*.tif
+echo "The input file(s): $fn"
+outfn=output/ndvi.tif
 echo "The output file: $outfn"
 echo "calculate ndvi"
 gdal_calc.py -A $fn --A_band=4 -B $fn --B_band=3 --outfile=$outfn --calc="(A.astype(float)-B)/(A.astype(float)+B)" --type='Float32'
@@ -406,38 +533,7 @@ Handy functions are (See the examples at the bottom):
 **Optional**:
 
 More info about *Bash* basics from [GNU](https://www.gnu.org/software/bash/manual/bashref.html#Command-Substitution).
-
-If you are ready and want the learn more about using GDAL from the terminal, see [here](http://wiki.americaview.org/display/miview/Introduction+to+GDAL) for another tutorial.
-
 ```
-
-# Finding help
-
-Just like with programming, you may find yourself facing some issue while using Linux (software availability, programs or drivers not working as expected, bugs etc.). While during the course you may make use of the Q&A forum, for the future it is useful to know where to find help.
-
-## System overview
-
-One important aspect to realise about Linux distributions is that they are a volunteer effort. That means that unlike for example Windows, there usually is no tech support number you can call; instead, there are ways to communicate with other users who may know a solution, or indeed with the developers who wrote the software directly. Another important aspect to keep in mind is that a Linux distribution is like an onion: it is made of a whole lot of different layers of software, and identifying which layer is the cause of the problem is quite important. Below is a graph showing some of the most important layers.
-
-![Structure of a Linux distribution, from high-level to low-level.](figs/linuxstructure.png)
-
-Each of these (and many more) are software projects with their own development teams. They are typically open-source, and their developers only provide the source. Distribution maintainers are responsible for taking this source, compiling it into actual programs, testing them, putting them into packages and distributing them to users. A package is a relatively self-contained piece of software for a particular distribution that contains information on what other packages it requires to function properly and packages that it expects, but can work without. Users are only supposed to install distribution-provided packages: anything else is potentially unsafe, since it would mean the software has not received the testing that distribution packages have to go through.
-
-Given all this complexity, issues may be caused by misconfiguration, user error, or actual bugs in software; which in turn may lie in the packaging of software, or software itself (programs or libraries that the programs use). Usually the term *downstream* is used to describe distribution package maintainers, and *upstream* to describe the original developers of the software.
-
-## How to get help
-
-Just like with programming issues, a search engine is your first line of getting information. Note, however, that Linux distributions are for the most part quickly-moving targets: instructions written for one version of your distribution might need some changes in the next. So even if you find what seems to be a solution, you need to be critical about whether it does what you want. Checking the date is a good idea: solutions that were good 4 years ago are likely no longer relevant.
-
-Of special note is that each major Linux distribution maintains a wiki which serves as documentation and a knowledge base for common issues. You should search the wiki first and foremost, since it typically has up-to-date information for your specific distribution. For instance, if you are using Ubuntu, see the [Ubuntu wiki](https://help.ubuntu.com/community/CommunityHelpWiki).
-
-If you couldn't find the answer, your next step should be to ask the community of the distribution. Typically there are two support channels: IRC for instant messaging, and support forums.
-
-IRC (Internet Relay Chat) is used for short and straightforward questions, or questions that require a lot of back-and-forth (debugging, getting diagnostic data etc.). Packagers and software developers alike very often can be found on IRC, and are happy to help with any questions that may pop up. Most of them are on the Freenode IRC server. For instance, to access the IRC chatroom for Ubuntu support, you can use the web interface to [chat.freenode.net #ubuntu chatroom](http://webchat.freenode.net?channels=%23ubuntu) (see also [IRC guidelines and list of chatrooms](https://community.ubuntu.com/contribute/support/irc/)).
-
-Each distribution also has a dedicated support forum. Forums are more useful for more complicated questions that are difficult to explain using IRC, or for non-urgent issues. See for instance the [Ubuntu forums](https://ubuntuforums.org/). Ubuntu in particular also has its own questions and answers board called [Ask Ubuntu](http://askubuntu.com/).
-
-By this point, you should hopefully have found a solution to the problem you are facing. Sometimes, however, you may uncover an actual bug in the software. In the case you do, you should try to report it to a bug tracker. *Note*: Reporting bugs is quite advanced, and should only be done if you are sure you found a bug. It is, however, an integral part of the open-source development model: a bug that is reported is brought to the attention of the software developer and gets fixed for each and every user of the software. Just like with questions, bugs should first be reported downstream to your distribution, and only reported upstream if asked by downstream developers (or if you are sure that the bug is indeed in the source of the software, rather than the packaging of it). See for instance the [Ubuntu bug reporting guidelines](https://help.ubuntu.com/community/ReportingBugs).
 
 <!-- Moved to GitHub
 # Excercise
@@ -476,7 +572,5 @@ Make sure your script is clear and reproducible, make a new GitLab project accor
     - [http://computers.tutsplus.com/tutorials/navigating-the-terminal-a-gentle-introduction--mac-3855](http://computers.tutsplus.com/tutorials/navigating-the-terminal-a-gentle-introduction--mac-3855)
     - [http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line](http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line)
     - [Is the terminal in Mac and Linux the same](https://stackoverflow.com/questions/8051145/is-the-terminal-in-mac-and-linux-the-same)
-- [Python code Building plug-in](https://www.youtube.com/watch?v=eWNEcJYnkPQ)
-- [Using Jupyter notebook within OSGEO](http://www.r-bloggers.com/interactive-r-notebooks-with-jupyter-and-sagemathcloud/)
 ```
 
