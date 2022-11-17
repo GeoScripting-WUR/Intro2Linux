@@ -1,5 +1,5 @@
 ---
-pagetitle: Getting started with WUR VMWare Horizon Linux VDIs
+pagetitle: "Getting started with WUR VMWare Horizon Linux VDIs"
 author: "Dainius Masiliūnas"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 output:
@@ -10,6 +10,11 @@ output:
     theme.chooser: TRUE
     highlight.chooser: TRUE
 ---
+
+<style type="text/css">
+body {max-width: none;}
+a:visited {color: #91170a;}
+</style>
 
 # Getting started with WUR VMWare Horizon Linux VDIs
 
@@ -72,4 +77,3 @@ If you see that when you enter text, a keypress gets repeated several times (e.g
 If you use the web client (and sometimes the desktop client), you may run into an error about too many desktop sources. This means that you have a session already running (or perhaps the last one didn't terminate cleanly). In this case, right-clicking on the connection and choosing "log out" can solve the problem by logging the other session out.
 
 In case of technical problems with VDI instances themselves (and not the software on them) that you cannot solve yourself, accidental shutdowns, or for catastrophic failures that would require a reset of your VDI to the initial state, you can [write an email to the IT helpdesk](http://www.wur.nl/en/Education-Programmes/Current-Students/ICT-related-questions.htm), mentioning Linux VDI in the email header.
-

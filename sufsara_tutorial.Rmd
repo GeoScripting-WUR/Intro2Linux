@@ -1,28 +1,53 @@
-# Getting started with SURFsara cloud
+---
+pagetitle: "Getting started with SURFsara cloud"
+author: "Dainius Masiliūnas"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  knitrBootstrap::bootstrap_document:
+    theme: "simplex"
+    highlight: Tomorrow Night Bright
+    menu: FALSE
+    theme.chooser: TRUE
+    highlight.chooser: TRUE
+---
 
-## Why cloud computing?
+<style type="text/css">
+body {max-width: none;}
+a:visited {color: #91170a;}
+</style>
 
-In the field of geo-information, the amount of available data is staggering. This *Big Data* is often too large to download and too intensive to process on a personal computer. Therefore data providers such as the European Space Agency and research organisations like SURFsara are now offering virtual machines (VM) running on their own cloud infrastructure for scientific purposes, so that this Big Data can be processed faster and more efficiently. These cloud VMs are typically running Linux distributions and have a whole lot of resources (processor cores, RAM, hard disk) available.
+# Getting started with SURFsara cloud (in-browser)
+
+First go to [https://portal.live.surfresearchcloud.nl/](https://portal.live.surfresearchcloud.nl/) and log in using your WUR account. Use this link [TODO](TODO) to ask for access to the *Wageningen University Geoscripting* collaboration. We (the staff) have to accept access to this collaboration, and create a virtual machine (VM) for your group. In the meantime, you can set up your two factor authentication:
+
+## Two factor authentication (2FA)
+
+Navigate to your [profile page](https://portal.live.surfresearchcloud.nl/profile). Click the **Profile options** button, and then on **Reset Time based password**. You should get the following message: "Are you sure you want to reset your password?". Press **Reset**. Follow the instructions to set up 2FA. You will need the 2FA code later for logging into the VM.
+
+## Accessing the VM
+
+Once you have been granted access to the *Wageningen University Geoscripting* collaboration *and* you have set up 2FA, you should be able to access your VM. Navigate back to the [starting page](https://portal.live.surfresearchcloud.nl/), and scroll down the page to the 'Workspaces' section. You should see multiple available workspaces (VMs). Please only make use of the workspace with your group name/number. If a workspace with your group name/number does not exist, please contact the staff.
+
+At the right of every workspace, there should be a (yellow) button that allows access to the workspace. Press that button for the workspace you want to access. A login-page will show up. Enter the following information:
+- Use the standard Session type (Xorg)
+- Your username is your SURF researchcloud username, which is not the same as your WUR username (!). You can find your SURF username in your [profile page](https://portal.live.surfresearchcloud.nl/profile)
+- Your password is the 2FA code
+
+If your VM is coming out of 'sleep mode', and you have to fill in a password to unlock it, you should (again) make use of your 2FA code. Happy coding!
+
+# Optional: accessing the VM from your own machine
+
+The tutorial above allows you to access the VM in-browser. There are however alternatives, for which we provide a tutorial below.
 
 ## Enrol your SSH key
 
-Let's start with SURFsara cloud. First go to [https://ui.hpccloud.surfsara.nl/](https://ui.hpccloud.surfsara.nl/) and log in with the credentials that have been provided to you. Each student has a unique account. Then, click on your username and go to Settings. Click "Update SSH Key" and paste the public key you generated in the previous lesson into the text box, and click the "Update SSH Key" button.
+Navigate to your [SRAM profile page](https://sram.surf.nl/profile). Generate an SSH key on your own machine. Paste this SSH key into the text box, and click the "Save" button. Please refer to online tutorials to find/create an SSH key for your machine, like [this one](https://www.howtogeek.com/762863/how-to-generate-ssh-keys-in-windows-10-and-windows-11/) for Windows.
 
-**Hint**: the easiest way to find it is by running Git GUI, though Help → Show SSH Key. In the PC lab the SSH keys are stored on the *M:* drive, so they are unique to the WUR user account. If you want to access the cloud from your own device, you will need to update the SSH key in your SURFsara account to the one on your device.
-
-## Start a VM
-
-<!--### "Cloud" view-->
-You can start a virtual machine by going to the *VMs* tab and clicking the + button. Select the "Ubuntu 16.04 GeoScripting" template and press "Create" (do not change the size of the disks). Wait a bit (several minutes) until your VM enters the ready state (icon turns green). Note that the page does not update automatically: you need to click the *Refresh* (circling arrows) button in the SURFsara UI (**not** in your browser!) to update the view.
-
-<!--### "User" view
-Next, press "Change view" and set it to "user". From the Dashboard, go to Virtual Resources → Templates, select the "Ubuntu 16.04 GeoScripting" template and press "Clone". Give it a name you like: this will become your very own virtual machine. A *Template* is a set of settings for your virtual machine, including the number of cores, memory and hard disks.
-
-You can run it already by clicking on it and pressing "Instantiate", then confirming the settings by pressing "Instantiate" again. You will see your virtual machine running in the Virtual Resources → Virtual Machines page. -->
+**Hint**: another easy way to find your SSH key is by running Git GUI on your own machine, though Help → Show SSH Key. 
 
 ## Log into the VM
 
-There are two ways to log into your virtual machine: through a graphical interface using the *X2Go Client* software, and through a command line using *Git Bash*. We will mainly use the graphical interface in this course. To do that, launch *X2Go Client* on Windows, and the new session *Session Preferences* window will be opened automatically. Fill in the details as follows:
+There are two ways to log into your virtual machine (aside from the in-browser option): through a graphical interface using the *X2Go Client* software, and through a command line using *Git Bash*. To use the graphical interface, install and launch *X2Go Client* on Windows. After launch, the new session *Session Preferences* window will be opened automatically. Fill in the details as follows:
 
 * Session name: Enter a descriptive name for your VM.
 * Host: The IP address of your VM. It starts with "145.100" and you can see it in the *Virtual Machines* page.
@@ -39,47 +64,27 @@ Press OK, and from here on you can press the bubble on the right-hand side to la
 
 ![VM running through X2go](figs/x2gorunning.PNG)
 
+<!-- Likely all deprecated, and possibly also not relevant
+
 ## Shut down a VM
 
 **Very important: Remember to properly shut down VMs that you are not actively using, as they take up precious resources from the cloud! If you do not, other students might not be able to start their own VMs.**
 
 To properly shut down your VM, first you need to make sure your computer is no longer connected to it. If you have X2Go running, open the X2Go Client window again, and press the *Terminate* button on the lower right part of the main pane. This will gracefully log your user out.
 
-<!--### "Cloud" view-->
-
 Then on the SURFSara website, select your VM, press the *Power off* button and confirm *Send the power off signal*. Wait for the state to become *OFF*, then press the *Delete* button and confirm deletion.
 
 **Important**: Only if your VM is **deleted** (does **not** show up in the *VMs* tab altogether) does it free the resources for other students to use!
 
-<!--### "User" view
-
-Then on the SURFsara website, select your VM, press the garbage can button, and select *Shutdown*. -->
-
 ## Saving changes
 
 If you change something, then restart the VM, you may notice that your changes have been lost. This is because by default VM hard drives are not persistent. You need to clone them and set them as persistent to make the changes stick.
-
-<!--### "Cloud" view-->
 
 To do that, when your VM is in the *OFF* state, press the green floppy disk icon. Give your new template a descriptive name (for example, your name or the name of your group) and choose "Persistent". Wait a while while your changes are saved.
 
 From here on, as long as you start the VM from the template in the *Saved* tab, the changes you do will be saved.
 
 **Important**: Do not make more than one VM persistent, as it might go over the hard disk quota! If you want to start fresh, make sure your previous saved template is deleted first.
-
-<!--### "User" view
-
-To do that, go to the *Virtual Resources* → *Images* page on the SURFsara website. This is a list of hard disks available to your VMs. Select the *Ubuntu 16.04 GeoScripting* image, which is the operating system image, then click "Clone" and name it. Go back to the image listing, selected your cloned OS image, press on the three-dots button and choose "Make persistent".
-
-You now have a persistent clone of the operating system. Now you need to tell the VM to use it. To do that, go to the *Templates* page, select the template and clone it. Select your cloned template and click *Update*. Go to the *Storage* tab and click on your cloned OS image, then click *Update* to confirm changes.
-
-Now when you instantiate your cloned template, it will use the persistent image and allow you to make changes. In case something ever goes wrong with the VM, you can always delete the cloned image and reclone the original image to start fresh.
-
-The OS image only has 10 GiB of space. In case it is not enough, such as for processing large rasters, you can add an additional hard drive to your VM and store your files on it.
-
-To do that, repeat the cloning and template editing process, but this time with the *userdata shared drive* image. When editing your teplate file (you can keep updating the cloned template you already have), instead of replacing Disk 0, press the *Add another disk* button and choose your cloned *User data* image as Disk 1.
-
-The space is then available in the *userdata* directory within your user directory (*/home/ubuntu/userdata*).-->
 
 ## File sharing
 
@@ -101,3 +106,5 @@ To use it, open *Git Bash* again, and enter: `sftp ubuntu@<ip>`. This will give 
 
 * [Workshop on using SURFsara](https://doc.hpccloud.surfsara.nl/VU-20161019/index)
 * [SURFsara documentation](https://doc.hpccloud.surfsara.nl/)
+
+-->

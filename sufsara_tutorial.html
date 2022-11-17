@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
   <meta name="author" content="Dainius Masiliūnas" />
-  <title>Getting started with WUR VMWare Horizon Linux VDIs</title>
+  <title>Getting started with SURFsara cloud</title>
   <style type="text/css">
     html {
       line-height: 1.5;
@@ -1023,140 +1023,130 @@
 body {max-width: none;}
 a:visited {color: #91170a;}
 </style>
-<h1 id="getting-started-with-wur-vmware-horizon-linux-vdis">Getting
-started with WUR VMWare Horizon Linux VDIs</h1>
-<h2 id="cloud-computing">Cloud computing</h2>
-<p>The IT department of Wageningen University offers a remote desktop
-solution, where a virtual desktop environment (VDI; a virtual machine
-with a visual interface) is allocated to a user, who can then access and
-use it from anywhere in the world. Currently this solution is based on
-VMware Horizon virtualisation software. Both Windows and Linux VDIs are
-an option. For this course, each student has access to one Linux VDI for
-the duration of the course.</p>
-<p>There are a number of organisations that offer such virtual machines
-for use in data processing, ranging from specialised satellite imagery
-exploitation platforms to commercial cloud computing hosting companies.
-Usually such virtual machines run a Linux distribution.</p>
-<p>Working in a Linux environment, on a cloud computing instance, is one
-of the learning goals in this course. The VDIs have been prepared and
-tested for this course and come with a number of tools needed for this
-course preinstalled, so it is suggested that you make use of them
-throughout the whole course.</p>
-<h2 id="starting-up-a-linux-vdi">Starting up a Linux VDI</h2>
-<p>Each WUR student should have access to one Linux VDI running Ubuntu
-18.04 that has 2 cores, 4 GiB RAM and 40 GiB space. These resources are
-not dynamic; if you feel that you need more, feel free to run Linux on
-your own devices or on local virtual machines on the university
-machines. If you should have access to a VDI but don’t appear to, please
-contact the course coordinators and/or the IT help desk.</p>
-<p>The VDIs are always running. There are two ways to log in: via a
-client program or through a web browser.</p>
-<h3 id="vmware-horizon-client">VMware Horizon Client</h3>
-<p>On university PCs, the VMware Horizon program is preinstalled, you
-can launch it from the Start menu. On your own computers or tablets, you
-can download the client from <a
-href="https://www.vmware.com/go/viewclients">here</a>. When launched,
-you should see a server named <code>workspace.wur.nl</code> (on your own
-computers, add it manually).</p>
-<p><img src="figs/vmware-horizon-config.png"
-alt="VMware Horizon Windows client" /></p>
-<p>If you click the options button in the top right and select
-<code>Configure VMware Blast</code>, you can choose the quality settings
-of remote connections. The VDIs are running in the local WUR network,
-however, due to the large number of students accessing VDIs at one time,
-bandwidth should be conserved. The default ought to be good enough, but
-in case the response time is too low or you get disconnects, you should
-use the setting <code>Poor</code>. If you need perfectly accurate
-colours (e.g. inspecting rasters) you may deselect <code>H.264</code>
-for that session.</p>
-<p>Log into the server by double-clicking the
-<code>workspace.wur.nl</code> icon. Here, you should see a list of VDIs.
-Double-click (or right-click and <code>Launch</code>) the VDI that is
-called <code>Linux Geoscripting</code>. You should then be automatically
-logged into the VDI and see the GNOME Flashback desktop.</p>
-<p><img src="figs/vmware-horizon-vdi.png"
-alt="Running Ubuntu 18.04 VDI" /></p>
-<h3 id="myworkspace">MyWorkspace</h3>
-<p>You can also access the VDI from your web browser without installing
-a client. For that, go to <a
-href="http://workspace.wur.nl">Workspace</a>, log in with your WUR
-username (without any prefix) and password, and click on the
-<code>Linux</code> VDI.</p>
-<p>Note, however, that the web version has a few limitations compared to
-the desktop client. For one, modifier keys (Alt, etc.) are captured by
-the browser rather than the VDI, and clipboard sharing is more
-complicated. In addition, launching the VDIs seems to take longer or
-time out from the web interface at times.</p>
-<h2 id="using-the-linux-vdi">Using the Linux VDI</h2>
-<p>You can use the VDI as a regular Linux desktop machine. From the file
-manager (Nautilus) you should be able to see your network shares mounted
-(“M” is your personal share, M: drive on Windows; “W” is the read-only
-university share, W: drive on Windows). If they are empty, restart the
-VDI from the gear menu. Printing to <code>WURprinter</code> should work
-as well (the print jobs should appear on the university’s printers).</p>
-<p>Each VDI is personal. You have root access to your VDI, running
-<code>sudo</code> will ask for your WUR password.</p>
-<p>If need be, you can connect to your VDI via SSH from inside the WUR
-network (that means using a wired connection). You can find the name of
-your VDI if you look at the name in the terminal (it is something akin
-to <code>D744009</code>), or your VDI’s IP by running
-<code>ip address</code> in the terminal. Then you can log into it by
-running <code>ssh &lt;username&gt;@&lt;vdiname&gt;</code> or
-<code>ssh &lt;username&gt;@&lt;ip&gt;</code> and entering your password
-(<strong>note</strong>: you must be connected to wired internet on
-campus, wireless does not seem to work). SSH is useful if you need to
-run expert tasks on the terminal, such as updating all packages on the
-system. You can also connect to servers (such as Jupyter or RStudio)
-this way. Similarly, you can use <code>sftp</code> to download and
-upload files this way.</p>
-<h2 id="stopping-the-linux-vdi">Stopping the Linux VDI</h2>
-<p>The VDIs at the moment are made to be always running. <strong>Do not
-shut them down</strong>, otherwise you will not be able to start them
-back up without contacting IT support! The clean way to terminate a VDI
-session is to <strong>log out</strong>. You can do this from the gear
-menu → <em>Log Out</em>, this will stop your session automatically and
-quit the VMware Horizon client. You can also log out from within the
-VMware Horizon client by pressing the <code>Log off</code> button at the
-top.</p>
-<p>If you wish to leave the VDI running without stopping all programs,
-you can just close the VMware Horizon client window. The next time you
-log in, you will be back where you left off, with all programs
-running.</p>
-<h2 id="troubleshooting-issues">Troubleshooting issues</h2>
-<p>In case something goes wrong, you are able to restart the VDI from
-the client. There are two options: <code>Restart</code> and
-<code>Reset</code> (in the desktop client they are in the menu bar and
-in the context menu when you right-click on a VDI; on MyWorkspace they
-are in the sidebar). <code>Restart</code> restarts the VDI gracefully
-(it asks Linux to restart itself). <code>Reset</code> is a forced
-restart, equivalent to cutting the power, which may lead to loss of
-data, so use that only as a last resort. Either way it might take up to
-10 minutes for the restart to finish.</p>
-<p>If you are using the VDI for a long time, you may run into the issue
-that after logging off, logging in is no longer automatic and asks for
-your password. This means that your VMWare Horizon session has expired.
-You can restart the client to refresh the session (or just enter your
-username and password in the VDI).</p>
-<p>At the moment of writing, the <code>M</code> and <code>W</code>
-network shares sometimes disconnect, you need a restart to make them
-reappear again.</p>
-<p>If you see that when you enter text, a keypress gets repeated several
-times (e.g. if you type “geoscripting” you get “geeeeoscriiiipting”), it
-means that your connection is too poor. Either lower the display
-quality, or connect from a PC that is connected to the wired
-internet.</p>
-<p>If you use the web client (and sometimes the desktop client), you may
-run into an error about too many desktop sources. This means that you
-have a session already running (or perhaps the last one didn’t terminate
-cleanly). In this case, right-clicking on the connection and choosing
-“log out” can solve the problem by logging the other session out.</p>
-In case of technical problems with VDI instances themselves (and not the
-software on them) that you cannot solve yourself, accidental shutdowns,
-or for catastrophic failures that would require a reset of your VDI to
-the initial state, you can <a
-href="http://www.wur.nl/en/Education-Programmes/Current-Students/ICT-related-questions.htm">write
-an email to the IT helpdesk</a>, mentioning Linux VDI in the email
-header.
+<h1 id="getting-started-with-surfsara-cloud-in-browser">Getting started
+with SURFsara cloud (in-browser)</h1>
+<p>First go to <a
+href="https://portal.live.surfresearchcloud.nl/">https://portal.live.surfresearchcloud.nl/</a>
+and log in using your WUR account. Use this link <a href="TODO">TODO</a>
+to ask for access to the <em>Wageningen University Geoscripting</em>
+collaboration. We (the staff) have to accept access to this
+collaboration, and create a virtual machine (VM) for your group. In the
+meantime, you can set up your two factor authentication:</p>
+<h2 id="two-factor-authentication-2fa">Two factor authentication
+(2FA)</h2>
+<p>Navigate to your <a
+href="https://portal.live.surfresearchcloud.nl/profile">profile
+page</a>. Click the <strong>Profile options</strong> button, and then on
+<strong>Reset Time based password</strong>. You should get the following
+message: “Are you sure you want to reset your password?”. Press
+<strong>Reset</strong>. Follow the instructions to set up 2FA. You will
+need the 2FA code later for logging into the VM.</p>
+<h2 id="accessing-the-vm">Accessing the VM</h2>
+<p>Once you have been granted access to the <em>Wageningen University
+Geoscripting</em> collaboration <em>and</em> you have set up 2FA, you
+should be able to access your VM. Navigate back to the <a
+href="https://portal.live.surfresearchcloud.nl/">starting page</a>, and
+scroll down the page to the ‘Workspaces’ section. You should see
+multiple available workspaces (VMs). Please only make use of the
+workspace with your group name/number. If a workspace with your group
+name/number does not exist, please contact the staff.</p>
+<p>At the right of every workspace, there should be a (yellow) button
+that allows access to the workspace. Press that button for the workspace
+you want to access. A login-page will show up. Enter the following
+information: - Use the standard Session type (Xorg) - Your username is
+your SURF researchcloud username, which is not the same as your WUR
+username (!). You can find your SURF username in your <a
+href="https://portal.live.surfresearchcloud.nl/profile">profile page</a>
+- Your password is the 2FA code</p>
+<p>If your VM is coming out of ‘sleep mode’, and you have to fill in a
+password to unlock it, you should (again) make use of your 2FA code.
+Happy coding!</p>
+<h1 id="optional-accessing-the-vm-from-your-own-machine">Optional:
+accessing the VM from your own machine</h1>
+<p>The tutorial above allows you to access the VM in-browser. There are
+however alternatives, for which we provide a tutorial below.</p>
+<h2 id="enrol-your-ssh-key">Enrol your SSH key</h2>
+<p>Navigate to your <a href="https://sram.surf.nl/profile">SRAM profile
+page</a>. Generate an SSH key on your own machine. Paste this SSH key
+into the text box, and click the “Save” button. Please refer to online
+tutorials to find/create an SSH key for your machine, like <a
+href="https://www.howtogeek.com/762863/how-to-generate-ssh-keys-in-windows-10-and-windows-11/">this
+one</a> for Windows.</p>
+<p><strong>Hint</strong>: another easy way to find your SSH key is by
+running Git GUI on your own machine, though Help → Show SSH Key.</p>
+<h2 id="log-into-the-vm">Log into the VM</h2>
+<p>There are two ways to log into your virtual machine (aside from the
+in-browser option): through a graphical interface using the <em>X2Go
+Client</em> software, and through a command line using <em>Git
+Bash</em>. To use the graphical interface, install and launch <em>X2Go
+Client</em> on Windows. After launch, the new session <em>Session
+Preferences</em> window will be opened automatically. Fill in the
+details as follows:</p>
+<ul>
+<li>Session name: Enter a descriptive name for your VM.</li>
+<li>Host: The IP address of your VM. It starts with “145.100” and you
+can see it in the <em>Virtual Machines</em> page.</li>
+<li>Login: <em>ubuntu</em></li>
+<li>SSH port: Leave at <em>22</em></li>
+<li>Use RSA/DSA key for ssh connection: The path to the *M:\.ssh_rsa*
+file (<strong>not</strong> <em>id_rsa.pub</em>).</li>
+<li>Session type: <em>XFCE</em></li>
+</ul>
+<p><img src="figs/x2gosettings.PNG" alt="X2Go settings" /></p>
+<p>In addition, in the <em>Connections</em> tab you can set the
+compression method to “4k-png”. This is a lower-colour setting that
+saves bandwith and thus makes the desktop more responsive.</p>
+<p>Press OK, and from here on you can press the bubble on the right-hand
+side to launch the dektop of the virtual machine. You will see a
+<em>Host key verification failed</em> warning; this is expected every
+time you launch a new VM, answer <em>Yes</em>. You might also see a
+warning about shared folders and printers; this is safe to ignore. Turn
+off folder and printer sharing for the message to go away.</p>
+<p><img src="figs/x2gorunning.PNG" alt="VM running through X2go" /></p>
+<!-- Likely all deprecated, and possibly also not relevant
+
+## Shut down a VM
+
+**Very important: Remember to properly shut down VMs that you are not actively using, as they take up precious resources from the cloud! If you do not, other students might not be able to start their own VMs.**
+
+To properly shut down your VM, first you need to make sure your computer is no longer connected to it. If you have X2Go running, open the X2Go Client window again, and press the *Terminate* button on the lower right part of the main pane. This will gracefully log your user out.
+
+Then on the SURFSara website, select your VM, press the *Power off* button and confirm *Send the power off signal*. Wait for the state to become *OFF*, then press the *Delete* button and confirm deletion.
+
+**Important**: Only if your VM is **deleted** (does **not** show up in the *VMs* tab altogether) does it free the resources for other students to use!
+
+## Saving changes
+
+If you change something, then restart the VM, you may notice that your changes have been lost. This is because by default VM hard drives are not persistent. You need to clone them and set them as persistent to make the changes stick.
+
+To do that, when your VM is in the *OFF* state, press the green floppy disk icon. Give your new template a descriptive name (for example, your name or the name of your group) and choose "Persistent". Wait a while while your changes are saved.
+
+From here on, as long as you start the VM from the template in the *Saved* tab, the changes you do will be saved.
+
+**Important**: Do not make more than one VM persistent, as it might go over the hard disk quota! If you want to start fresh, make sure your previous saved template is deleted first.
+
+## File sharing
+
+You might want to transfer files to or from the VM. There are two ways to do so. The more convenient method is to use *Network File System* (NFS) to access the VM drive as if it was a local hard drive. To do that, you need to establish a secure connection to the VM and map the network drive to your PC.
+
+First, start *Git Bash*. This will open a terminal window. In it, enter: `ssh -N -L 2049:localhost:2049 -L 2050:localhost:2050 -L 111:localhost:111 ubuntu@<ip>` where `<ip>` is the IP address of your VM. This will establish a secure SSH connection to the VM on ports 2049, 2050 and 111 (the console getting stuck and seemingly nothing happening is good and expected). You can use this method for other applications and ports as well (such as to access RStudio Server on some VMs). When you are done, to disconnect the secure connection, press Ctrl+C in the Git Bash window, which brings you back to the `$` prompt.
+
+To map the network drive, there are also two options. The GUI option is to open My Computer, press the *Map Network Drive* button, and enter `localhost:/home/ubuntu/userdata` (again, use the IP of your VM). Double-clicking on the drive, you will see a folder with nothing but an inaccesible `lost+found` folder. It is the */home/ubuntu/userdata* directory on the VM, and you can drag and drop files and folders to and from it. To disconnect, right-click on the network drive and click *Disconnect*.
+
+**Note**: If the GUI option has Windows treating files you create as read-only, try mounting the remote drive by using the command line. To do that, run `cmd.exe` (Command Prompt) from the Start menu, then enter `mount -o fileaccess=777 localhost:/home/ubuntu/userdata Z:`. This will make the drive appear in My Computer just like the GUI method did, with all new files being treated as read-write.
+
+![NFS shared drive mapped to drive Z:](figs/filesharing.png)
+
+Another, less complicated but also less convenient method to tranfer files is using the *Secure File Transfter Protocol* (SFTP). It is a command-line program that comes with SSH. You can use it for transferring any file you can access using SSH, so it is not limited to prespecified directories like NFS is. So you can use it to get or send files outside of your *userdata* directory.
+
+To use it, open *Git Bash* again, and enter: `sftp ubuntu@<ip>`. This will give you a prompt in which you can enter commands. Use `get <file>` to download files and `put <file>` to upload them, where `<file>` is the path to the file. You can change the directory you download the files to by using `lcd <path>`, and the directory you download from by using `cd <path>`. Enter `?` for a complete list of commands, `exit` to quit. 
+
+# References
+
+* [Workshop on using SURFsara](https://doc.hpccloud.surfsara.nl/VU-20161019/index)
+* [SURFsara documentation](https://doc.hpccloud.surfsara.nl/)
+
+-->
 </div>
 </div>
 </div>
