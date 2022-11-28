@@ -18,26 +18,27 @@ a:visited {color: #91170a;}
 
 # Getting started with SURFsara cloud (in-browser)
 
-First go to [https://portal.live.surfresearchcloud.nl/](https://portal.live.surfresearchcloud.nl/) and log in using your WUR account. Use this link [TODO](TODO) to ask for access to the *Wageningen University Geoscripting* collaboration. We (the staff) have to accept access to this collaboration, and create a virtual machine (VM) for your group. In the meantime, you can set up your two factor authentication:
+First go to [https://portal.live.surfresearchcloud.nl/](https://portal.live.surfresearchcloud.nl/) and log in using your WUR account. Use [this link](https://sram.surf.nl/registration?collaboration=4873a9a3-15b8-4e10-9dde-a07262a3bdb6) to request access to the *Wageningen University Geoscripting* collaboration. We (the staff) have to accept access to this collaboration, and create a virtual machine (VM) for your group. In the meantime, you can set up your two factor authentication:
 
 ## Two factor authentication (2FA)
 
-Navigate to your [profile page](https://portal.live.surfresearchcloud.nl/profile). Click the **Profile options** button, and then on **Reset Time based password**. You should get the following message: "Are you sure you want to reset your password?". Press **Reset**. Follow the instructions to set up 2FA. You will need the 2FA code later for logging into the VM.
+Navigate to your [profile page](https://portal.live.surfresearchcloud.nl/profile). Click the **Profile options** button, and then on **Reset Time based password**. You should get the following message: *"Are you sure you want to reset your password?"*. Press **Reset**. Follow the instructions to set up 2FA. You will need the 2FA code later for logging into the VM.
 
 ## Accessing the VM
 
 Once you have been granted access to the *Wageningen University Geoscripting* collaboration *and* you have set up 2FA, you should be able to access your VM. Navigate back to the [starting page](https://portal.live.surfresearchcloud.nl/), and scroll down the page to the 'Workspaces' section. You should see multiple available workspaces (VMs). Please only make use of the workspace with your group name/number. If a workspace with your group name/number does not exist, please contact the staff.
 
 At the right of every workspace, there should be a (yellow) button that allows access to the workspace. Press that button for the workspace you want to access. A login-page will show up. Enter the following information:
-- Use the standard Session type (Xorg)
-- Your username is your SURF researchcloud username, which is not the same as your WUR username (!). You can find your SURF username in your [profile page](https://portal.live.surfresearchcloud.nl/profile)
-- Your password is the 2FA code
+
+* Use the standard Session type (Xorg)
+* Your username is your SURF researchcloud username, which is not the same as your WUR username (!). You can find your SURF username in your [profile page](https://portal.live.surfresearchcloud.nl/profile)
+* Your password is the 2FA code
 
 If your VM is coming out of 'sleep mode', and you have to fill in a password to unlock it, you should (again) make use of your 2FA code. Happy coding!
 
 # Optional: accessing the VM from your own machine
 
-The tutorial above allows you to access the VM in-browser. There are however alternatives, for which we provide a tutorial below.
+The tutorial above allows you to access the VM in-browser. There are however alternatives to access the VM directly from your own machine, for which we provide a tutorial below.
 
 ## Enrol your SSH key
 

@@ -214,7 +214,7 @@ Because the shell prefers builtins compared to executables, when you run `time` 
 
 ## File manipulation
 
-Copying, pasting files, creating directories etc. is probably easier using graphical tools, but, if you’d like to perform more complicated tasks, like copying only *.html* files from one folder to another, and only copying files that don’t exist in the destination directory, CLI just might come in handy. So, before we start with the commands themselves, let’s take a quick stop at *wildcards*. They are a set of special characters that help you pick out a set of files based on some simple rules (which characters appear in a file name, how many characters, upper/lower case characters etc.). Here’s the table:
+Copying, pasting files, creating directories etc. is probably easier using graphical tools, but, if you’d like to perform more complicated tasks, like copying only *.html* files from one directory to another, and only copying files that don’t exist in the destination directory, CLI just might come in handy. So, before we start with the commands themselves, let’s take a quick stop at *wildcards*. They are a set of special characters that help you pick out a set of files based on some simple rules (which characters appear in a file name, how many characters, upper/lower case characters etc.). Here’s the table:
 
 ![List of wildcards](https://news.opensuse.org/wp-content/uploads/2014/07/Screenshot-08.-07.-2014-125946.png)
 
@@ -373,7 +373,7 @@ chmod u+x Bash/HelloWorld.sh  # Gives your user execute permissions
 Below is a summary of what we have done in the terminal:
 
 ```{r, eval=FALSE, engine='bash'}
-echo "Go to the Bash folder"
+echo "Go to the Bash directory"
 cd Bash
 echo "Check that the file is there using the ls command:"
 ls
@@ -424,7 +424,7 @@ var="FOO"
 echo $var
 ```
 
-Now create the following e.g. `variables.sh` script in the *Bash* folder and apply the `chmod u+x variables.sh` command on this script using the terminal.
+Now create the following e.g. `variables.sh` script in the *Bash* directory and apply the `chmod u+x variables.sh` command on this script using the terminal.
 
 ```{r, eval=FALSE, engine='bash'}
 #!/bin/bash
@@ -489,7 +489,7 @@ rm input.tif
 ```{block, type="alert alert-success"}
 > **Question 6**: Try to write to calculate the NDVI using the lines above in a nice and short shell script.
 
-- Hint 1: `cd ../data` (to move back from the Bash folder and move into the data folder)
+- Hint 1: `cd ../data` (to move back from the Bash directory and move into the data directory)
 - Hint 2: No spaces in file names are allowed and try to use variables e.g. `fn=$(ls *.tif)`
 
 ```

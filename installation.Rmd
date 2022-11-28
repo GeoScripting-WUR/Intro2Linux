@@ -1,5 +1,5 @@
 ---
-pagetitle: Installing Linux on your own computer
+pagetitle: "Installing Linux on your own computer"
 author: "Dainius Masiliūnas"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 output:
@@ -10,6 +10,11 @@ output:
     theme.chooser: TRUE
     highlight.chooser: TRUE
 ---
+
+<style type="text/css">
+body {max-width: none;}
+a:visited {color: #91170a;}
+</style>
 
 # Installing Linux on your own computer
 
@@ -55,7 +60,7 @@ And that's it! After the installation is finished, remove the USB stick and boot
 
 Distributions are clasified by release model into long term support, regular release and rolling release distributions.
 
-Long term support distributions do major releases several years apart, and the updates for the software are almost exclusively security updates. These distributions are therefore easy to maintain, because updates are infrequest and very unlikely to break anything, and you only need to do a big update every few years. They are favoured by enterprise users, where maintinaing a large number of computers can become a nightmare otherwise. Long term release distributions include Red Hat Enterprise Linux, CentOS, Ubuntu LTS releases, Debian and openSUSE Leap. In comparison, Windows releases (up to Windows 8) can also be considered long term support.
+Long term support distributions do major releases several years apart, and the updates for the software are almost exclusively security updates. These distributions are therefore easy to maintain, because updates are infrequest and very unlikely to break anything, and you only need to do a big update every few years. They are favoured by enterprise users, where maintaining a large number of computers can become a nightmare otherwise. Long term release distributions include Red Hat Enterprise Linux, CentOS, Ubuntu LTS releases, Debian and openSUSE Leap. In comparison, Windows releases (up to Windows 8) can also be considered long term support.
 
 Regular release distributions make a new release several times a year. This allows users to get access to the latest software much faster than long term release distributions, but at a cost of having to update more often, and updates may introduce changes you would not expect. Overall regular releases are a good trade-off between long term support and rolling release distributions. Regular release distributions include the Ubuntu family and Fedora. Windows 10 could also (arguably) be considered to have a regular release model.
 
@@ -77,19 +82,19 @@ The rest of the distributions tend to have a lower number of packages available,
 
 ## Distribution traits
 
-The website [DistroWatch](http://distrowatch.com/) lists the most popular distributions and gives more details about them. As a quick overview, here are the traits of some of the top general-purpose distributions:
+The website [DistroWatch](https://distrowatch.com/) lists the most popular distributions and gives more details about them. As a quick overview, here are the traits of some of the top general-purpose distributions:
 
 * [Ubuntu](https://www.ubuntu.com/): (Probably) most popular, GNOME 3-based, LTS and regular release, corporate (Canonical Ltd.).
-* [Kubuntu](https://www.kubuntu.org/), [Lubuntu](http://lubuntu.me/), [Xubuntu](https://xubuntu.org/): Ubuntu with KDE Plasma 5, LXQt and Xfce, respectively.
+* [Kubuntu](https://www.kubuntu.org/), [Lubuntu](https://lubuntu.me/), [Xubuntu](https://xubuntu.org/): Ubuntu with KDE Plasma 5, LXQt and Xfce, respectively.
 * [OSGeo Live](https://live.osgeo.org/): Lubuntu LTS with almost all available tools related to geo-information preinstalled.
 * [Mint](https://linuxmint.com/): Ubuntu with more preinstalled software, supports Cinnamon and MATE.
 * [Debian](https://www.debian.org/): Long term support, only free software, community-based.
 * [openSUSE](https://www.opensuse.org/): Long term support (Leap) and fast rolling release (Tumbleweed) versions, includes a graphical control panel, based on corporate (SUSE Linux Enterprise).
 * [CentOS](https://www.centos.org/): Very long term support, based on corporate (Red Hat Enterprise Linux).
 * [Fedora](https://getfedora.org/): Regular release, corporate (Red Hat Enterprise Linux) bases on it
-* [Puppy](http://puppylinux.com/): Aimed at old computers specifically, community-based.
-* [Mageia](http://www.mageia.org/): Aimed at beginners and user-friendliness, includes a graphical control panel, community-based.
+* [Puppy](https://puppylinux-woof-ce.github.io/): Aimed at old computers specifically, community-based.
+* [Mageia](https://www.mageia.org/): Aimed at beginners and user-friendliness, includes a graphical control panel, community-based.
 * [Zorin OS](https://zorinos.com/): Aimed at easier migration from Windows to Linux, community-based.
 * [Arch](https://www.archlinux.org/): Aimed at maximum configurability, but requires knowledge to set up (no installer); fast rolling release, community-based.
-* [Antergos](https://antergos.com/), [Manjaro](https://manjaro.org/): Arch-based, but with an installer. Manjaro deviates from Arch more (slower rolling release).
+* [Manjaro](https://manjaro.org/): Arch-based, but with an installer.
 * [Gentoo](https://gentoo.org/): Even more configurability than Arch, the fastest and most secure, but requires building all software from source; slower rolling release, community-based.
