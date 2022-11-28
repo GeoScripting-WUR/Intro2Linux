@@ -450,7 +450,7 @@ You can run the script once it is *executable*:
 **Optional**: If you want to learn more about *Bash* scripting: [https://help.ubuntu.com/community/Beginners/BashScripting](https://help.ubuntu.com/community/Beginners/BashScripting)
 ```
 
-For the next section, let's download a file from the [Intro to raster](https://geoscripting-wur.github.io/IntroToRaster) tutorial. **Manually** download the `gewata.zip` file from Github ([link](https://github.com/GeoScripting-WUR/IntroToRaster/raw/gh-pages/data/gewata.zip)) and unzip in a `data` directory you create. 
+For the next section, let's download a file from the [Intro to raster](https://geoscripting-wur.github.io/IntroToRaster) tutorial. **Manually** download the `gewata.zip` file from Github ([link](https://github.com/GeoScripting-WUR/IntroToRaster/releases/download/tahiti/gewata.zip)) and unzip in a `data` directory you create. 
 
 ## Using the GDAL library from the terminal
 
