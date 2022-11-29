@@ -270,7 +270,7 @@ The help page shows in what ways you can use the command, what options you can u
 
 `help` works only for the shell builtins. But most executables provide an option `--help`. As far as usage goes, it’s similar to `help`, but you have to type `--help` after the command you want to inspect. For example:
 
-```{bash}
+```{bash, eval=FALSE}
 cd --help
 ```
 

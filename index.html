@@ -5,14 +5,160 @@
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
   <meta name="author" content="Jan Verbesselt and Dainius Masiliunas" />
-  <title>Week 1, Lesson 2: Getting started with Linux, the terminal and Bash scripting</title>
+  <title>Tutorial 2: Linux terminal &amp; Bash</title>
   <style type="text/css">
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -869,48 +1015,75 @@
   </style>
 </head>
 <body>
+<title>
+Tutorial 2: Linux terminal &amp; Bash
+</title>
 <div id="wrap">
 <div class="container">
 <div class="row row-offcanvas row-offcanvas-right">
 <div class="contents col-xs-12 col-md-10">
-<h1 id="wur-geoscripting"><a href="https://geoscripting-wur.github.io/">WUR Geoscripting</a> <img src="https://www.wur.nl/upload/5e55a1d9-47c3-4149-9384-26d5147ee2d7_WUR_RGB_standard.png" alt="WUR logo" style="height: 35px;"/></h1>
-<h1 id="week-1-lesson-2-getting-started-with-the-linux-terminal-and-bash-scripting">Week 1, Lesson 2: Getting started with the Linux terminal and Bash scripting</h1>
-<!--
-
-Good morning! 
-Here is what you will do today:
-
-Time  | Activity
-------------- | -------------
-Until 11:00 | Review yesterday's exercise answer of the other team
-Morning       |  Self-study: go through the following tutorial, and get confortable with a Linux environment and the terminal
-14:00 to 16:00  | Discussion
-Rest of the afternoon | Do and finalise the exercise
-
--->
-<h1 id="todays-learning-objectives">Today’s Learning objectives</h1>
+<style type="text/css">
+body {max-width: none;}
+a:visited {color: #91170a;}
+</style>
+<h1 id="wur-geoscripting"><a
+href="https://geoscripting-wur.github.io/">WUR Geoscripting</a>
+<img src="https://www.wur.nl/upload/854757ab-168f-46d7-b415-f8b501eebaa5_WUR_RGB_standard_2021-site.svg" alt="WUR logo" style="height: 35px;"/></h1>
+<h1 id="week-1-tutorial-2-linux-terminal-bash">Week 1, Tutorial 2: Linux
+terminal &amp; Bash</h1>
+<h2 id="learning-objectives">Learning objectives</h2>
 <ul>
 <li>Knowing how to use the <em>terminal</em>
 <ul>
 <li>Running R and Python from the terminal</li>
 </ul></li>
-<li>Learn the basics of <em>Bash</em> scripting and know how to create a shell script</li>
+<li>Learn the basics of <em>Bash</em> scripting and know how to create a
+shell script</li>
 </ul>
-<h1 id="using-the-terminal-and-bash">Using the terminal and <em>Bash</em></h1>
-<p>There are two ways to interact with your operating system: a graphical user interface (GUI), where you point and click, and a command-line interface (CLI), where you type commands to make something happen. GUIs are simpler to use, but CLIs are more powerful and faster for some tasks, once you get used to them.</p>
+<h1 id="using-the-terminal-and-bash">Using the terminal and
+<em>Bash</em></h1>
+<p>There are two ways to interact with your operating system: a
+graphical user interface (GUI), where you point and click, and a
+command-line interface (CLI), where you type commands to make something
+happen. GUIs are simpler to use, but CLIs are more powerful and faster
+for some tasks, once you get used to them.</p>
 <div class="row">
 <div class="alert alert-success">
 <blockquote>
 <p>
-<strong>Question 1</strong>: What are the advantages of using CLI? Can you think of some examples?
+<strong>Question 1</strong>: What are the advantages of using CLI? Can
+you think of some examples?
 </p>
 </blockquote>
 </div>
 </div>
-<p>Most Linux distributions come with a <em>terminal</em>, which is a program you use to run CLI programs. You might know the <em>Command Prompt</em> program on Windows: that is a type of <em>terminal</em>. On Linux, there is a variety of terminal applications to choose from. You can start one on your virtual machine by clicking on <em>Applications</em> → <em>System Tools</em> → <em>Terminal</em>. This will look like:</p>
+<p>Most Linux distributions come with a <em>terminal</em>, which is a
+program you use to run CLI programs. You might know the <em>Command
+Prompt</em> program on Windows: that is a type of <em>terminal</em>. On
+Linux, there is a variety of terminal applications to choose from. You
+can start one on your virtual machine by clicking on
+<em>Applications</em> → <em>System Tools</em> → <em>Terminal</em>. This
+will look like:</p>
 <p><img src="figs/terminal-vdi.png" alt="terminal" /></p>
-<p>A <em>terminal</em> is just a gateway to the world of CLIs, but through it you interact with a particular <em>shell</em> (or <em>command interpreter</em>) which speaks a programming language. The default shell on Linux is <em>Bash</em>, and programs written in the <em>Bash</em> language are called <em>Bash scripts</em>. Much like the <em>R</em> console, you can input commands to <em>Bash</em> line by line through the <em>terminal</em>.</p>
-<p><em>Bash</em> shell scripting, like also <em>R</em> or <em>Python</em>, allows multiple commands to be combined, facilitating automation. A shell script (shell program) is a text file that contains commands that are interpreted by the shell (see below, we will learn how to write a shell script). Each command can be linked in a script to combine several commands by providing the output of one as input to the other. Shell scripts can also contain the control structures common to the majority of programming languages (i.e. variables, logic constructs, looping constructs, functions and comments). The main distinction between shell programs and those written in C, C++, Java (to name but a few) is that shell programs are not compiled for execution, but are readily interpreted by the shell.</p>
+<p>A <em>terminal</em> is just a gateway to the world of CLIs, but
+through it you interact with a particular <em>shell</em> (or <em>command
+interpreter</em>) which speaks a programming language. The default shell
+on Linux is <em>Bash</em>, and programs written in the <em>Bash</em>
+language are called <em>Bash scripts</em>. Much like the <em>R</em>
+console, you can input commands to <em>Bash</em> line by line through
+the <em>terminal</em>.</p>
+<p><em>Bash</em> shell scripting, like also <em>R</em> or
+<em>Python</em>, allows multiple commands to be combined, facilitating
+automation. A shell script (shell program) is a text file that contains
+commands that are interpreted by the shell (see below, we will learn how
+to write a shell script). Each command can be linked in a script to
+combine several commands by providing the output of one as input to the
+other. Shell scripts can also contain the control structures common to
+the majority of programming languages (i.e. variables, logic constructs,
+looping constructs, functions and comments). The main distinction
+between shell programs and those written in C, C++, Java (to name but a
+few) is that shell programs are not compiled for execution, but are
+readily interpreted by the shell.</p>
 <div class="row">
 <div class="alert alert-success">
 <blockquote>
@@ -920,13 +1093,40 @@ Rest of the afternoon | Do and finalise the exercise
 </blockquote>
 </div>
 </div>
-<p><em>Bash</em> is not only the default shell on Linux, but also macOS, and there are versions of <em>Bash</em> that run on Windows too. It is included with Git for Windows, and in Windows 10 <em>Bash</em> is even included by default with the <a href="https://msdn.microsoft.com/en-us/commandline/wsl/about"><em>Windows Subsystem for Linux</em></a>. However, without the wealth of CLI programs that Linux distributions come with, <em>Bash</em> functionality is fairly limited.</p>
+<p><em>Bash</em> is not only the default shell on Linux, but also macOS,
+and there are versions of <em>Bash</em> that run on Windows too. It is
+included with Git for Windows, and in Windows 10 <em>Bash</em> is even
+included by default with the <a
+href="https://msdn.microsoft.com/en-us/commandline/wsl/about"><em>Windows
+Subsystem for Linux</em></a>. However, without the wealth of CLI
+programs that Linux distributions come with, <em>Bash</em> functionality
+is fairly limited.</p>
 <p>But enough theory: let’s try using the terminal in practice!</p>
 <h2 id="using-the-terminal">Using the terminal</h2>
-<p>Now, fire up your terminal. You get a line, stating your user name and the machine’s host name. This is called the shell prompt. It means it’s ready for you to enter a command. Let’s try something random. Type in anything, and press enter.</p>
-<p>Most likely the system doesn’t have the command you typed in! Random doesn’t work: you need to remember (or look up) commands to use them!</p>
-<p>Now, press the up arrow, and you’ll see the previous command reappear. What’s this sorcery? The up arrow key on your keyboard is for accessing the command history. The terminal saves up to 500 commands you entered, so to not type them over and over, you can look for them with the up/down arrow. The left and right arrows are for moving the cursor within a specific line, so you can edit the text in between. The terminals were designed to work with a keyboard, so you can’t use your mouse to move the cursor, but you can use the Home key to go to the beginning of the line, and the End key to go to the end. Now there’s another thing – <strong>Ctrl+V</strong> for pasting text <strong>doesn’t work</strong>. You can set it up as a shortcut somewhere, but it’s usually something else, e.g. Ctrl+Shift+Insert. But you can always paste if you right-click on the terminal, and it usually tells you what is the keyboard shortcut to do so, so that you don’t need the mouse every time.</p>
-<p>Now, for us not to get the ‘command not found’ slap to the face, let’s try something simple. Type <code>date</code>.</p>
+<p>Now, fire up your terminal. You get a line, stating your user name
+and the machine’s host name. This is called the shell prompt. It means
+it’s ready for you to enter a command. Let’s try something random. Type
+in anything, and press enter.</p>
+<p>Most likely the system doesn’t have the command you typed in! Random
+doesn’t work: you need to remember (or look up) commands to use
+them!</p>
+<p>Now, press the up arrow, and you’ll see the previous command
+reappear. What’s this sorcery? The up arrow key on your keyboard is for
+accessing the command history. The terminal saves up to 500 commands you
+entered, so to not type them over and over, you can look for them with
+the up/down arrow. The left and right arrows are for moving the cursor
+within a specific line, so you can edit the text in between. The
+terminals were designed to work with a keyboard, so you can’t use your
+mouse to move the cursor, but you can use the Home key to go to the
+beginning of the line, and the End key to go to the end. Now there’s
+another thing – <strong>Ctrl+V</strong> for pasting text <strong>doesn’t
+work</strong>. You can set it up as a shortcut somewhere, but it’s
+usually something else, e.g. Ctrl+Shift+Insert. But you can always paste
+if you right-click on the terminal, and it usually tells you what is the
+keyboard shortcut to do so, so that you don’t need the mouse every
+time.</p>
+<p>Now, for us not to get the ‘command not found’ slap to the face,
+let’s try something simple. Type <code>date</code>.</p>
 <div class="row">
 <button class="source bash toggle btn btn-xs btn-primary">
 <span class="glyphicon glyphicon-chevron-down"></span> bash source
@@ -935,11 +1135,17 @@ Rest of the afternoon | Do and finalise the exercise
 <button class="output bash toggle btn btn-xs btn-success">
 <span class="glyphicon glyphicon-chevron-down"></span> bash output
 </button>
-<pre style=""><code class="output bash">## Mon 30 Nov 19:35:37 CET 2020
+<pre style=""><code class="output bash">## Mon Nov 28 15:47:40 UTC 2022
 </code></pre>
 </div>
-<p>There you go. Why bother looking at your built-in calendar in the clock, when you can fire up your terminal and type <code>date</code>, and see what day it is! Just kidding, it’s a simple command, the more useful/difficult ones are coming up next. The related command to <code>date</code> is <code>cal</code> – it will display the current month’s calendar.</p>
-<p>You may also try <code>free</code>, and it will display the amount of free memory.</p>
+<p>There you go. Why bother looking at your built-in calendar in the
+clock, when you can fire up your terminal and type <code>date</code>,
+and see what day it is! Just kidding, it’s a simple command, the more
+useful/difficult ones are coming up next. The related command to
+<code>date</code> is <code>cal</code> – it will display the current
+month’s calendar.</p>
+<p>You may also try <code>free</code>, and it will display the amount of
+free memory.</p>
 <div class="row">
 <button class="source bash toggle btn btn-xs btn-primary">
 <span class="glyphicon glyphicon-chevron-down"></span> bash source
@@ -949,33 +1155,109 @@ Rest of the afternoon | Do and finalise the exercise
 <span class="glyphicon glyphicon-chevron-down"></span> bash output
 </button>
 <pre style=""><code class="output bash">##               total        used        free      shared  buff/cache   available
-## Mem:        8030280     5937980      260444      255340     1831856     1585224
-## Swap:       4409340       32256     4377084
+## Mem:       16393460     2574780     2222520       88428    11596160    13395032
+## Swap:             0           0           0
 </code></pre>
 </div>
-<p>Or <code>df</code> (standing for “disk free”), to list free space on your drives.</p>
-<p>If you’re already in the type-only mood, you can enter the command <code>exit</code> to get out of the terminal emulator instead of pressing the “x” button.</p>
-<h2 id="navigation-through-the-file-system">Navigation through the file system</h2>
+<p>Or <code>df</code> (standing for “disk free”), to list free space on
+your drives.</p>
+<p>If you’re already in the type-only mood, you can enter the command
+<code>exit</code> to get out of the terminal emulator instead of
+pressing the “x” button.</p>
+<h2 id="navigation-through-the-file-system">Navigation through the file
+system</h2>
 <p>Here’s a diagram of what a linux root filesystem looks like:</p>
-<p><img src="https://configureinstantly.files.wordpress.com/2011/01/file-system.jpg" alt="Filesystem Hierarchy Standard" /></p>
-<p>For example, as stated in the above picture, your user directory (where you usually store your movies, music, documents etc.) is located in the <em>/home</em> directory. <em>/home</em> directory is located under <em>/</em>. Then you have the <em>/etc</em> directory, where most of the files for configuration are located.</p>
-<p>The next command to look into is <code>pwd</code>. <code>pwd</code>, or ‘print working directory’, is a very useful command if you think you are lost navigating through the directories. At any given moment, type <code>pwd</code>, and voila! What appears is a complete pathway you took to arrive to this directory.</p>
-<p>Imagine yourselves walking from room to room inside a massive apartment, losing your way. <code>pwd</code> is like the breadcrumb trail leading you to your starting point, so you don’t lose your way inside the directory maze!</p>
-<p>Now you know in which directory you’re situated thanks to your usage of the <code>pwd</code> command. Now you want to take the next step and move to another directory. Let’s say you have a directory inside your home directory you want to relocate your top secret terminal operation to. For this, you use the <code>cd</code> command. <code>cd</code>, or ‘change directory’, will change the location of your working directory. How do you use it? Simple, type <code>cd</code> and the path to your directory. Let’s say, for example, you want to enter what is on WUR Windows computers known as your “M: drive” (or just a directory called <code>M</code>) in your home directory. You type <code>cd /home/username/M</code>.</p>
-<p>There are also some shortcuts available. If you type only <code>cd</code>, without the path following it, your terminal will change your working directory (whatever it may be) to your <code>/home</code> directory. Likewise, if you type <code>cd ~user_name</code>, it will lead you to the home directory of the specific user you stated.</p>
-<p>Try it out yourself. Navigate to a different directory using <code>cd</code>, and when there, type <code>pwd</code> to see if everything worked as it is supposed to. Once you’re done, you should have something like this displayed in your terminal:</p>
+<p><img
+src="https://configureinstantly.files.wordpress.com/2011/01/file-system.jpg"
+alt="Filesystem Hierarchy Standard" /></p>
+<p>For example, as stated in the above picture, your user directory
+(where you usually store your movies, music, documents etc.) is located
+in the <em>/home</em> directory. <em>/home</em> directory is located
+under <em>/</em>. Then you have the <em>/etc</em> directory, where most
+of the files for configuration are located.</p>
+<p>The next command to look into is <code>pwd</code>. <code>pwd</code>,
+or ‘print working directory’, is a very useful command if you think you
+are lost navigating through the directories. At any given moment, type
+<code>pwd</code>, and voila! What appears is a complete pathway you took
+to arrive to this directory.</p>
+<p>Imagine yourselves walking from room to room inside a massive
+apartment, losing your way. <code>pwd</code> is like the breadcrumb
+trail leading you to your starting point, so you don’t lose your way
+inside the directory maze!</p>
+<p>Now you know in which directory you’re situated thanks to your usage
+of the <code>pwd</code> command. Now you want to take the next step and
+move to another directory. Let’s say you have a directory inside your
+home directory you want to relocate your top secret terminal operation
+to. For this, you use the <code>cd</code> command. <code>cd</code>, or
+‘change directory’, will change the location of your working directory.
+How do you use it? Simple, type <code>cd</code> and the path to your
+directory. Let’s say, for example, you want to enter what is on WUR
+Windows computers known as your “M: drive” (or just a directory called
+<code>M</code>) in your home directory. You type
+<code>cd /home/username/M</code>.</p>
+<p>There are also some shortcuts available. If you type only
+<code>cd</code>, without the path following it, your terminal will
+change your working directory (whatever it may be) to your
+<code>/home</code> directory. Likewise, if you type
+<code>cd ~user_name</code>, it will lead you to the home directory of
+the specific user you stated.</p>
+<p>Try it out yourself. Navigate to a different directory using
+<code>cd</code>, and when there, type <code>pwd</code> to see if
+everything worked as it is supposed to. Once you’re done, you should
+have something like this displayed in your terminal:</p>
 <p><img src="figs/cd_pwd-vdi.png" alt="cdpwd" /></p>
-<p>In the example above (<code>cd M</code>), we used what is called a <em>relative path</em>. It is a path relative to your current working directory (<code>pwd</code> states that it is <em>/home/WUR/username</em>), whereas typing in <code>cd /home/WUR/username/M</code> would be using an <em>absolute path</em>. An absolute path is like giving geographic coordinates (e.g. 10°N 5°E), whereas a relative path is like giving directions: “10 km to the north and 5 km to the east from where you are standing”. On Linux, absolute paths always start with <em>/</em>, and relative paths never start with <em>/</em>.</p>
-<p>In terms of scripting, you should <em>almost never use absolute paths</em>! This is because absolute paths are for the most part unportable: just because you have a directory called <em>/home/WUR/username/M</em> does not mean that someone else who runs the code, or indeed you yourself on another computer, would have a directory with that name. Especially if it includes your username! Relative paths are more useful: your script could create a directory called <em>M</em> and not have to worry about which user it belongs to. It will be created relative to the working directory, as shown by <code>pwd</code>.</p>
-<p>Lastly, there are two special “directories” that are present in every directory: <code>.</code> and <code>..</code>. <code>.</code> refers to the directory itself, i.e. <em>M/.</em> as well as <em>M/./.</em> and <em>./M</em> is all the same as <em>M</em>. <code>..</code> refers to the parent directory: <em>M/..</em> is the same as your working directory, as it instructs Bash to look into the directory <em>M</em> and then go back out of it again.</p>
+<p>In the example above (<code>cd M</code>), we used what is called a
+<em>relative path</em>. It is a path relative to your current working
+directory (<code>pwd</code> states that it is
+<em>/home/WUR/username</em>), whereas typing in
+<code>cd /home/WUR/username/M</code> would be using an <em>absolute
+path</em>. An absolute path is like giving geographic coordinates
+(e.g. 10°N 5°E), whereas a relative path is like giving directions: “10
+km to the north and 5 km to the east from where you are standing”. On
+Linux, absolute paths always start with <em>/</em>, and relative paths
+never start with <em>/</em>.</p>
+<p>In terms of scripting, you should <em>almost never use absolute
+paths</em>! This is because absolute paths are for the most part
+unportable: just because you have a directory called
+<em>/home/WUR/username/M</em> does not mean that someone else who runs
+the code, or indeed you yourself on another computer, would have a
+directory with that name. Especially if it includes your username!
+Relative paths are more useful: your script could create a directory
+called <em>M</em> and not have to worry about which user it belongs to.
+It will be created relative to the working directory, as shown by
+<code>pwd</code>.</p>
+<p>Lastly, there are two special “directories” that are present in every
+directory: <code>.</code> and <code>..</code>. <code>.</code> refers to
+the directory itself, i.e. <em>M/.</em> as well as <em>M/./.</em> and
+<em>./M</em> is all the same as <em>M</em>. <code>..</code> refers to
+the parent directory: <em>M/..</em> is the same as your working
+directory, as it instructs Bash to look into the directory <em>M</em>
+and then go back out of it again.</p>
 <h2 id="command-options">Command options</h2>
-<p>Now we know how to move from one directory to another, but how do you know what directories there are for you to move between? <code>ls</code> is a command used to list files and directories in a given directory. It can be used in various ways. These various ways come with using a form of adding an <em>option</em> to our command. To make things clearer; you can simply type <code>ls</code>. But, you can also add an option, which will <em>modify</em> your command. It can come in useful when you are looking for something specific.</p>
-<p>That’s what an option is. And formally we can write it down like this:</p>
+<p>Now we know how to move from one directory to another, but how do you
+know what directories there are for you to move between? <code>ls</code>
+is a command used to list files and directories in a given directory. It
+can be used in various ways. These various ways come with using a form
+of adding an <em>option</em> to our command. To make things clearer; you
+can simply type <code>ls</code>. But, you can also add an option, which
+will <em>modify</em> your command. It can come in useful when you are
+looking for something specific.</p>
+<p>That’s what an option is. And formally we can write it down like
+this:</p>
 <pre><code>command -option argument</code></pre>
-<p><em>Command</em> is, well, a command we write in (like <code>pwd</code>, <code>ls</code> or anything else we have learned by now).</p>
-<p>We already stated above the purpose of an <em>option</em>. But note that it should be written exactly as it’s in the form; with a <em>dash</em> in front of it. So, if the option is <code>l</code>, you should put <code>-l</code> after the command.</p>
-<p>An <em>argument</em> is an object upon which the command operates (in this case, it will be directories, as we are learning how to navigate through them).</p>
-<p>So, let’s try out <code>ls</code>, and use it on the <code>/etc</code> directory in the root of the filesystem. This time, without any options.</p>
+<p><em>Command</em> is, well, a command we write in (like
+<code>pwd</code>, <code>ls</code> or anything else we have learned by
+now).</p>
+<p>We already stated above the purpose of an <em>option</em>. But note
+that it should be written exactly as it’s in the form; with a
+<em>dash</em> in front of it. So, if the option is <code>l</code>, you
+should put <code>-l</code> after the command.</p>
+<p>An <em>argument</em> is an object upon which the command operates (in
+this case, it will be directories, as we are learning how to navigate
+through them).</p>
+<p>So, let’s try out <code>ls</code>, and use it on the
+<code>/etc</code> directory in the root of the filesystem. This time,
+without any options.</p>
 <div class="row">
 <button class="source bash toggle btn btn-xs btn-primary">
 <span class="glyphicon glyphicon-chevron-down"></span> bash source
@@ -986,20 +1268,26 @@ Rest of the afternoon | Do and finalise the exercise
 <button class="output bash toggle btn btn-xs btn-success">
 <span class="glyphicon glyphicon-chevron-down"></span> bash output
 </button>
-<pre style=""><code class="output bash">## aclocal_dirlist
-## adjtime
-## aliases
-## aliases.d
+<pre style=""><code class="output bash">## ModemManager
+## NetworkManager
+## ODBCDataSources
+## PackageKit
+## R
+## UPower
+## X11
+## adduser.conf
 ## alsa
-## alsa-pulse.conf
 ## alternatives
-## ansible
-## apache2
-## apparmor
 </code></pre>
 </div>
-<p>There you go, a whole bunch of files. It also sorts them by colours. The blue ones are directories, the white ones are regular files, the green ones are executable files. There are more colours, as they represent different file types.</p>
-<p>Next, you can use the same command, but with an option <code>-l</code> added. Option <code>-l</code> will list the same files and directories, but in a <em>long format</em>. In case you need more information:</p>
+<p>There you go, a whole bunch of files. It also sorts them by colours.
+The blue ones are directories, the white ones are regular files, the
+green ones are executable files. There are more colours, as they
+represent different file types.</p>
+<p>Next, you can use the same command, but with an option
+<code>-l</code> added. Option <code>-l</code> will list the same files
+and directories, but in a <em>long format</em>. In case you need more
+information:</p>
 <div class="row">
 <button class="source bash toggle btn btn-xs btn-primary">
 <span class="glyphicon glyphicon-chevron-down"></span> bash source
@@ -1010,39 +1298,88 @@ Rest of the afternoon | Do and finalise the exercise
 <button class="output bash toggle btn btn-xs btn-success">
 <span class="glyphicon glyphicon-chevron-down"></span> bash output
 </button>
-<pre style=""><code class="output bash">## total 2412
-## -rw-r--r-- 1 root root       25 Jun  8 22:12 aclocal_dirlist
-## -rw-r--r-- 1 root root       16 Jul 31  2015 adjtime
-## -rw-r--r-- 1 root root     2579 Mar  7  2020 aliases
-## drwxr-xr-x 1 root root        0 Mar  7  2020 aliases.d
-## drwxr-xr-x 1 root root       12 Oct 13 23:13 alsa
-## -rw-r--r-- 1 root root      279 Jun  9 13:32 alsa-pulse.conf
-## drwxr-xr-x 1 root root     4912 Nov 20 17:22 alternatives
-## drwxr-xr-x 1 root root       32 Oct  9 10:59 ansible
-## drwxr-xr-x 1 root root      778 Oct 27 23:21 apache2
+<pre style=""><code class="output bash">## total 1288
+## drwxr-xr-x  3 root     root        4096 Nov  2 01:22 ModemManager
+## drwxr-xr-x  7 root     root        4096 Nov  2 01:37 NetworkManager
+## drwxr-xr-x  2 root     root        4096 Jan 14  2019 ODBCDataSources
+## drwxr-xr-x  2 root     root        4096 Nov  2 01:23 PackageKit
+## drwxr-xr-x  2 root     root        4096 Nov  4 14:37 R
+## drwxr-xr-x  2 root     root        4096 Nov  2 01:36 UPower
+## drwxr-xr-x 11 root     root        4096 Nov  2 01:37 X11
+## -rw-r--r--  1 root     root        2987 Nov  4 14:28 adduser.conf
+## drwxr-xr-x  3 root     root        4096 Nov  2 01:30 alsa
 </code></pre>
 </div>
-<p>So, using the long format, you see much more information, and some crazy looking signs like <code>-rw-r–r–</code> at the beginning of all lines. Actually, here’s a scheme, representing what all of the given information actually means:</p>
-<p><img src="https://news.opensuse.org/wp-content/uploads/2014/06/Screenshot-30.-06.-2014-184829.png" alt="Key to ls -l output" /></p>
-<p>File Name is the name of the file. Modification time is the last time the file has been modified. Size is the size of the file in bytes. Group is the name of the group that has file permissions along with the owner, and Owner is the user who owns the file.</p>
-<p>The most important one is <em>File Permissions</em>. That’s the gibberish at the beginning of every line in long format. The first character is the file type. If it’s a <code>d</code>, it means the file is actually a directory. If it’s <code>-</code>, it means it’s an ordinary file. The next three characters represent the read, write and execution rights of the file’s owner. The next three are the same rights of the group that also has access to the file, and the last three characters represent rights of everyone else trying to use the file.</p>
-<p>So for example, if we have a file which in long format displays: <code>-rw-r--r--</code>, it means it’s an ordinary file (the first <code>-</code>), the owner of the file can read and write the file, but he can’t execute it, as it’s not an executable file (the <code>rw-</code> characters after the initial <code>-</code>), and the user group and everyone else can only read the file (you can see <code>r--</code> sequence repeating twice). If the user group had <code>rwx</code> instead of <code>r--</code>, it would mean they could read, write and execute the file.</p>
-<p>Next option for <code>ls</code> is <code>ls -la ..</code> - this will list all of the files, as in a usual command, hidden files are not shown. It will list all files in the parent of the working directory in long format.</p>
+<p>So, using the long format, you see much more information, and some
+crazy looking signs like <code>-rw-r–r–</code> at the beginning of all
+lines. Actually, here’s a scheme, representing what all of the given
+information actually means:</p>
+<p><img
+src="https://news.opensuse.org/wp-content/uploads/2014/06/Screenshot-30.-06.-2014-184829.png"
+alt="Key to ls -l output" /></p>
+<p>File Name is the name of the file. Modification time is the last time
+the file has been modified. Size is the size of the file in bytes. Group
+is the name of the group that has file permissions along with the owner,
+and Owner is the user who owns the file.</p>
+<p>The most important one is <em>File Permissions</em>. That’s the
+gibberish at the beginning of every line in long format. The first
+character is the file type. If it’s a <code>d</code>, it means the file
+is actually a directory. If it’s <code>-</code>, it means it’s an
+ordinary file. The next three characters represent the read, write and
+execution rights of the file’s owner. The next three are the same rights
+of the group that also has access to the file, and the last three
+characters represent rights of everyone else trying to use the file.</p>
+<p>So for example, if we have a file which in long format displays:
+<code>-rw-r--r--</code>, it means it’s an ordinary file (the first
+<code>-</code>), the owner of the file can read and write the file, but
+he can’t execute it, as it’s not an executable file (the
+<code>rw-</code> characters after the initial <code>-</code>), and the
+user group and everyone else can only read the file (you can see
+<code>r--</code> sequence repeating twice). If the user group had
+<code>rwx</code> instead of <code>r--</code>, it would mean they could
+read, write and execute the file.</p>
+<p>Next option for <code>ls</code> is <code>ls -la ..</code> - this will
+list all of the files, as in a usual command, hidden files are not
+shown. It will list all files in the parent of the working directory in
+long format.</p>
 <div class="row">
 <div class="alert alert-success">
 <blockquote>
 <p>
-<strong>Question 3</strong>: What is the difference between <code>ls -l</code>, <code>ls -lh</code> and <code>ls -lh --si</code>?
+<strong>Question 3</strong>: What is the difference between <code>ls
+-l</code>, <code>ls -lh</code> and <code>ls -lh --si</code>?
 </p>
 </blockquote>
 </div>
 </div>
-<h2 id="getting-information-about-files">Getting information about files</h2>
-<p><code>less</code> is a command which will display a text file and let you scroll through it. For example, you’re looking for text file <code>os-release</code> in <code>/etc</code>. You have succesfully found it there with <code>ls /etc</code>, and now you want to read it. You just use <code>less /etc/os-release</code>.</p>
+<h2 id="getting-information-about-files">Getting information about
+files</h2>
+<p><code>less</code> is a command which will display a text file and let
+you scroll through it. For example, you’re looking for text file
+<code>os-release</code> in <code>/etc</code>. You have succesfully found
+it there with <code>ls /etc</code>, and now you want to read it. You
+just use <code>less /etc/os-release</code>.</p>
 <p>How do you control <code>less</code>? Easy, with your keyboard!</p>
-<p><code>less</code> will display only one page of your text at a time. You can move line by line with the arrow keys. To go forward an entire page, you can press <strong>Page Up</strong>. To go <em>back</em> one page, you can use <strong>Page Down</strong>. <strong>&gt;</strong> will take you to the end of the text file, while <strong>&lt;</strong> will take you to the beginning of the text. <code>/characters</code> will search for <code>characters</code> inside the text (for example, if you write <code>/suse</code>, it will search for occurances of <code>suse</code> inside your text and mark them). <strong>n</strong> will go to the <em>next</em> occurrence of the search term, and <strong>h</strong> will display all your options (h as in help!). You quit less with the letter <strong>q</strong>.</p>
-<p>The name <code>less</code> is a pun on the word <code>more</code>, which is a much more basic tool for displaying a text file and scrolling, because it only allows scrolling down; therefore, <em><code>less</code> is more than <code>more</code></em>.</p>
-<p>The <code>file</code> command will show what kind of file is that you’re looking for, be it ASCII text, a jpg image, a bash script etc. As we performed our exercise with <code>/etc/os-release</code>, let’s use it here also.</p>
+<p><code>less</code> will display only one page of your text at a time.
+You can move line by line with the arrow keys. To go forward an entire
+page, you can press <strong>Page Up</strong>. To go <em>back</em> one
+page, you can use <strong>Page Down</strong>. <strong>&gt;</strong> will
+take you to the end of the text file, while <strong>&lt;</strong> will
+take you to the beginning of the text. <code>/characters</code> will
+search for <code>characters</code> inside the text (for example, if you
+write <code>/suse</code>, it will search for occurances of
+<code>suse</code> inside your text and mark them). <strong>n</strong>
+will go to the <em>next</em> occurrence of the search term, and
+<strong>h</strong> will display all your options (h as in help!). You
+quit less with the letter <strong>q</strong>.</p>
+<p>The name <code>less</code> is a pun on the word <code>more</code>,
+which is a much more basic tool for displaying a text file and
+scrolling, because it only allows scrolling down; therefore,
+<em><code>less</code> is more than <code>more</code></em>.</p>
+<p>The <code>file</code> command will show what kind of file is that
+you’re looking for, be it ASCII text, a jpg image, a bash script etc. As
+we performed our exercise with <code>/etc/os-release</code>, let’s use
+it here also.</p>
 <div class="row">
 <button class="source bash toggle btn btn-xs btn-primary">
 <span class="glyphicon glyphicon-chevron-down"></span> bash source
@@ -1054,8 +1391,16 @@ Rest of the afternoon | Do and finalise the exercise
 <pre style=""><code class="output bash">## /etc/os-release: symbolic link to ../usr/lib/os-release
 </code></pre>
 </div>
-<p>There you go, now you know what <code>os-release</code> is. Incidentally, it may be either an ASCII file or a link to one! It depends on your Linux distribution (version). If it’s a link, try to run the command on the linked file. Now try it out with something else, and see the output.</p>
-<p>Next, we have the commands <code>type</code> and <code>which</code>. Like <code>file</code>, they give information on the type, but they operate on commands instead of files. <code>which</code> tells you where you can find the executable that is run if you type in a command. Let’s try it on the command <code>file</code>:</p>
+<p>There you go, now you know what <code>os-release</code> is.
+Incidentally, it may be either an ASCII file or a link to one! It
+depends on your Linux distribution (version). If it’s a link, try to run
+the command on the linked file. Now try it out with something else, and
+see the output.</p>
+<p>Next, we have the commands <code>type</code> and <code>which</code>.
+Like <code>file</code>, they give information on the type, but they
+operate on commands instead of files. <code>which</code> tells you where
+you can find the executable that is run if you type in a command. Let’s
+try it on the command <code>file</code>:</p>
 <div class="row">
 <button class="source bash toggle btn btn-xs btn-primary">
 <span class="glyphicon glyphicon-chevron-down"></span> bash source
@@ -1067,19 +1412,19 @@ Rest of the afternoon | Do and finalise the exercise
 <pre style=""><code class="output bash">## /usr/bin/file
 </code></pre>
 </div>
-<p>Now we know that when we run <code>file</code>, Bash executes the program <code>/usr/bin/file</code>. How about <code>cd</code>?</p>
+<p>Now we know that when we run <code>file</code>, Bash executes the
+program <code>/usr/bin/file</code>. How about <code>cd</code>?</p>
 <div class="row">
 <button class="source bash toggle btn btn-xs btn-primary">
 <span class="glyphicon glyphicon-chevron-down"></span> bash source
 </button>
 <pre style=""><code class="source bash">which cd</code></pre>
-<button class="output bash toggle btn btn-xs btn-success">
-<span class="glyphicon glyphicon-chevron-down"></span> bash output
-</button>
-<pre style=""><code class="output bash">## which: no cd in (/home/dainius/bin:/usr/local/bin:/usr/bin:/bin:/opt/bin:/usr/lib/mit/bin:/usr/lib/mit/sbin)
-</code></pre>
 </div>
-<p>What?! It seems that there is no such executable! This is because it is so common, it’s built into Bash itself. <code>type</code> is a bit more clever than <code>which</code> and tells you whether a command is an executable file, or a command built into Bash itself. Let’s see what it says about <code>cd</code>:</p>
+<p>What?! It seems that there is no such executable! This is because it
+is so common, it’s built into Bash itself. <code>type</code> is a bit
+more clever than <code>which</code> and tells you whether a command is
+an executable file, or a command built into Bash itself. Let’s see what
+it says about <code>cd</code>:</p>
 <div class="row">
 <button class="source bash toggle btn btn-xs btn-primary">
 <span class="glyphicon glyphicon-chevron-down"></span> bash source
@@ -1091,7 +1436,9 @@ Rest of the afternoon | Do and finalise the exercise
 <pre style=""><code class="output bash">## cd is a shell builtin
 </code></pre>
 </div>
-<p>In some cases, you might have both available. Let’s take a look at the command <code>time</code> that is used to measure how long a command runs for:</p>
+<p>In some cases, you might have both available. Let’s take a look at
+the command <code>time</code> that is used to measure how long a command
+runs for:</p>
 <div class="row">
 <button class="source bash toggle btn btn-xs btn-primary">
 <span class="glyphicon glyphicon-chevron-down"></span> bash source
@@ -1103,7 +1450,8 @@ Rest of the afternoon | Do and finalise the exercise
 <pre style=""><code class="output bash">## time is a shell keyword
 </code></pre>
 </div>
-<p>It is also built into Bash itself. But there is another command called <code>time</code> that is an actual executable:</p>
+<p>It is also built into Bash itself. But there is another command
+called <code>time</code> that is an actual executable:</p>
 <div class="row">
 <button class="source bash toggle btn btn-xs btn-primary">
 <span class="glyphicon glyphicon-chevron-down"></span> bash source
@@ -1115,7 +1463,10 @@ Rest of the afternoon | Do and finalise the exercise
 <pre style=""><code class="output bash">## /usr/bin/time
 </code></pre>
 </div>
-<p>Because the shell prefers builtins compared to executables, when you run <code>time</code> you will run the builtin version, rather than the executable version. But you can reach the executable version (which is more feature-rich!) by calling it with its absolute path:</p>
+<p>Because the shell prefers builtins compared to executables, when you
+run <code>time</code> you will run the builtin version, rather than the
+executable version. But you can reach the executable version (which is
+more feature-rich!) by calling it with its absolute path:</p>
 <div class="row">
 <button class="source bash toggle btn btn-xs btn-primary">
 <span class="glyphicon glyphicon-chevron-down"></span> bash source
@@ -1124,26 +1475,54 @@ Rest of the afternoon | Do and finalise the exercise
 <button class="output bash toggle btn btn-xs btn-success">
 <span class="glyphicon glyphicon-chevron-down"></span> bash output
 </button>
-<pre style=""><code class="output bash">## time (GNU Time) 1.9
-## Copyright (C) 2018 Free Software Foundation, Inc.
-## License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>.
-## This is free software: you are free to change and redistribute it.
-## There is NO WARRANTY, to the extent permitted by law.
-## 
-## Written by David Keppel, David MacKenzie, and Assaf Gordon.
+<pre style=""><code class="output bash">## GNU time 1.7
 </code></pre>
 </div>
-<p><code>type</code> and <code>which</code> will come very much in handy once we get to Python, as we will have several Python versions installed. It will help determine which version we have active.</p>
+<p><code>type</code> and <code>which</code> will come very much in handy
+once we get to Python, as we will have several Python versions
+installed. It will help determine which version we have active.</p>
 <h2 id="file-manipulation">File manipulation</h2>
-<p>Copying, pasting files, creating directories etc. is probably easier using graphical tools, but, if you’d like to perform more complicated tasks, like copying only <em>.html</em> files from one folder to another, and only copying files that don’t exist in the destination directory, CLI just might come in handy. So, before we start with the commands themselves, let’s take a quick stop at <em>wildcards</em>. They are a set of special characters that help you pick out a set of files based on some simple rules (which characters appear in a file name, how many characters, upper/lower case characters etc.). Here’s the table:</p>
-<p><img src="https://news.opensuse.org/wp-content/uploads/2014/07/Screenshot-08.-07.-2014-125946.png" alt="List of wildcards" /></p>
+<p>Copying, pasting files, creating directories etc. is probably easier
+using graphical tools, but, if you’d like to perform more complicated
+tasks, like copying only <em>.html</em> files from one directory to
+another, and only copying files that don’t exist in the destination
+directory, CLI just might come in handy. So, before we start with the
+commands themselves, let’s take a quick stop at <em>wildcards</em>. They
+are a set of special characters that help you pick out a set of files
+based on some simple rules (which characters appear in a file name, how
+many characters, upper/lower case characters etc.). Here’s the
+table:</p>
+<p><img
+src="https://news.opensuse.org/wp-content/uploads/2014/07/Screenshot-08.-07.-2014-125946.png"
+alt="List of wildcards" /></p>
 <p>And here are a few examples:</p>
-<p><img src="https://news.opensuse.org/wp-content/uploads/2014/07/Screenshot-08.-07.-2014-125959.png" alt="Wildcard usage examples" /></p>
-<p>If you use a command with an argument containing a filename, you can use wildcards with no problem. Bash will go ahead and <em>expand</em> the wildcard into a set of all matching filenames, and the command will actually receive a set of files and not the wildcard string.</p>
-<p><code>cp</code> is used to copy files or directories. You can use it pretty easily: navigate to the directory you’d like to copy the files from and to, and simply do <code>cp file1 file2</code> - to copy single files, or <code>cp file1 file2 ... directory</code> - to copy files from your current working directory to the directory specified.</p>
-<p>We can use <code>mv</code> to rename a file or directory, or to <em>move</em> a file or directory. We can use it this way: <code>mv filename1 filename2</code> - if we want to rename <em>filename1</em> to <em>filename2</em>, or <code>mv file directory</code> - if we want to move <em>file</em> to <em>directory</em>.</p>
-<p>The <code>rm</code> command removes/deletes files and directories. Usage is pretty straightforward: <code>rm file</code> or <code>rm -r directory</code>. But, do be careful when using <code>rm</code>, as there is no undelete option (the file is erased and doesn’t go to the bin), so be extra careful not to inflict unwanted damage to your system!</p>
-<p><code>mkdir</code> is used for creating directories. Now, create a directory called <code>Bash</code> (i.e. a directory that will contain our <em>Bash</em> scripts):</p>
+<p><img
+src="https://news.opensuse.org/wp-content/uploads/2014/07/Screenshot-08.-07.-2014-125959.png"
+alt="Wildcard usage examples" /></p>
+<p>If you use a command with an argument containing a filename, you can
+use wildcards with no problem. Bash will go ahead and <em>expand</em>
+the wildcard into a set of all matching filenames, and the command will
+actually receive a set of files and not the wildcard string.</p>
+<p><code>cp</code> is used to copy files or directories. You can use it
+pretty easily: navigate to the directory you’d like to copy the files
+from and to, and simply do <code>cp file1 file2</code> - to copy single
+files, or <code>cp file1 file2 ... directory</code> - to copy files from
+your current working directory to the directory specified.</p>
+<p>We can use <code>mv</code> to rename a file or directory, or to
+<em>move</em> a file or directory. We can use it this way:
+<code>mv filename1 filename2</code> - if we want to rename
+<em>filename1</em> to <em>filename2</em>, or
+<code>mv file directory</code> - if we want to move <em>file</em> to
+<em>directory</em>.</p>
+<p>The <code>rm</code> command removes/deletes files and directories.
+Usage is pretty straightforward: <code>rm file</code> or
+<code>rm -r directory</code>. But, do be careful when using
+<code>rm</code>, as there is no undelete option (the file is erased and
+doesn’t go to the bin), so be extra careful not to inflict unwanted
+damage to your system!</p>
+<p><code>mkdir</code> is used for creating directories. Now, create a
+directory called <code>Bash</code> (i.e. a directory that will contain
+our <em>Bash</em> scripts):</p>
 <div class="row">
 <button class="source bash toggle btn btn-xs btn-primary">
 <span class="glyphicon glyphicon-chevron-down"></span> bash source
@@ -1154,8 +1533,13 @@ Rest of the afternoon | Do and finalise the exercise
 <p><img src="figs/mkdir-vdi.png" alt="mkdir" /></p>
 <p>Now, try out the commands that you learned:</p>
 <ul>
-<li>make a directory and remove it (e.g. <code>mkdir namedirectory</code> and <code>rmdir namedirectory</code> or <code>rm -r namedirectory</code>).</li>
-<li>create an <em>R</em> script via <code>rstudio</code> or <code>rkward</code>, and then remove it via the terminal using <code>rm filename.R</code>.</li>
+<li>make a directory and remove it
+(e.g. <code>mkdir namedirectory</code> and
+<code>rmdir namedirectory</code> or
+<code>rm -r namedirectory</code>).</li>
+<li>create an <em>R</em> script via <code>rstudio</code> or
+<code>rkward</code>, and then remove it via the terminal using
+<code>rm filename.R</code>.</li>
 <li>create another file and copy it and then remove it, etc.:</li>
 </ul>
 <div class="row">
@@ -1171,12 +1555,27 @@ rm dest_file</code></pre>
 <div class="row">
 <div class="alert alert-info">
 <p>
-<strong>Tip</strong>: Bash has a feature called Tab-completion. If you start writing a command or filename, pressing the <code>Tab</code> key a couple of times will give a list of suggestions for auto-completion. This is super-handy so that you never need to write filenames etc. In addition, you can recall the last commands you entered by using the up arrow key. Lastly, you can always open multiple terminals, even in tabs, by using <em>File</em> → <em>Open Tab</em>.
+<strong>Tip</strong>: Bash has a feature called Tab-completion. If you
+start writing a command or filename, pressing the <code>Tab</code> key a
+couple of times will give a list of suggestions for auto-completion.
+This is super-handy so that you never need to write filenames etc. In
+addition, you can recall the last commands you entered by using the up
+arrow key. Lastly, you can always open multiple terminals, even in tabs,
+by using <em>File</em> → <em>Open Tab</em>.
 </p>
 </div>
 </div>
 <h2 id="how-to-find-help">How to find help</h2>
-<p>Mostly every command has documentation that comes with it. So you’re somewhere doing your CLI thing, no access to the internet so you can’t bug people on the forums or IRC, and you need to find out how to exactly use a command. You can do it two ways. The first is the command <code>help</code>. The <code>help</code> command works with shell builtins, and not executable files. So you can pick a shell builtin, like <code>cd</code> or <code>time</code>, and simply type <code>help cd</code> or <code>help time</code>. You’ll get a helpful page printed out in your terminal, so go ahead and read what they have to offer. Here’s another example:</p>
+<p>Mostly every command has documentation that comes with it. So you’re
+somewhere doing your CLI thing, no access to the internet so you can’t
+bug people on the forums or IRC, and you need to find out how to exactly
+use a command. You can do it two ways. The first is the command
+<code>help</code>. The <code>help</code> command works with shell
+builtins, and not executable files. So you can pick a shell builtin,
+like <code>cd</code> or <code>time</code>, and simply type
+<code>help cd</code> or <code>help time</code>. You’ll get a helpful
+page printed out in your terminal, so go ahead and read what they have
+to offer. Here’s another example:</p>
 <div class="row">
 <button class="source bash toggle btn btn-xs btn-primary">
 <span class="glyphicon glyphicon-chevron-down"></span> bash source
@@ -1199,92 +1598,150 @@ rm dest_file</code></pre>
 ##          PATTERN
 ##     
 ##     Arguments:
-##       PATTERN    Pattern specifiying a help topic
+##       PATTERN    Pattern specifying a help topic
 ##     
 ##     Exit Status:
 ##     Returns success unless PATTERN is not found or an invalid option is given.
 </code></pre>
 </div>
-<p>The help page shows in what ways you can use the command, what options you can use (it’s in square brackets, which means they are optional! Also, if there’s a vertical separator inside the square brackets, it means the options mentioned are mutually exclusive. Don’t use them together!)</p>
-<p><code>help</code> works only for the shell builtins. But most executables provide an option <code>--help</code>. As far as usage goes, it’s similar to <code>help</code>, but you have to type <code>--help</code> after the command you want to inspect. For example:</p>
+<p>The help page shows in what ways you can use the command, what
+options you can use (it’s in square brackets, which means they are
+optional! Also, if there’s a vertical separator inside the square
+brackets, it means the options mentioned are mutually exclusive. Don’t
+use them together!)</p>
+<p><code>help</code> works only for the shell builtins. But most
+executables provide an option <code>--help</code>. As far as usage goes,
+it’s similar to <code>help</code>, but you have to type
+<code>--help</code> after the command you want to inspect. For
+example:</p>
 <div class="row">
 <button class="source bash toggle btn btn-xs btn-primary">
 <span class="glyphicon glyphicon-chevron-down"></span> bash source
 </button>
-<pre style=""><code class="source bash">which --help</code></pre>
-<button class="output bash toggle btn btn-xs btn-success">
-<span class="glyphicon glyphicon-chevron-down"></span> bash output
-</button>
-<pre style=""><code class="output bash">## Usage: which [options] [--] COMMAND [...]
-## Write the full path of COMMAND(s) to standard output.
-## 
-##   --version, -[vV] Print version and exit successfully.
-##   --help,          Print this help and exit successfully.
-##   --skip-dot       Skip directories in PATH that start with a dot.
-##   --skip-tilde     Skip directories in PATH that start with a tilde.
-##   --show-dot       Don't expand a dot to current directory in output.
-##   --show-tilde     Output a tilde for HOME directory for non-root.
-##   --tty-only       Stop processing options on the right if not on tty.
-##   --all, -a        Print all matches in PATH, not just the first
-##   --read-alias, -i Read list of aliases from stdin.
-##   --skip-alias     Ignore option --read-alias; don't read stdin.
-##   --read-functions Read shell functions from stdin.
-##   --skip-functions Ignore option --read-functions; don't read stdin.
-## 
-## Recommended use is to write the output of (alias; declare -f) to standard
-## input, so that which can show aliases and shell functions. See which(1) for
-## examples.
-## 
-## If the options --read-alias and/or --read-functions are specified then the
-## output can be a full alias or function definition, optionally followed by
-## the full path of each command used inside of those.
-## 
-## Report bugs to <which-bugs@gnu.org>.
-</code></pre>
+<pre style=""><code class="source bash">cd --help</code></pre>
 </div>
-<p>However, <code>--help</code> is just a convention, which programs are not obliged to follow. Sometimes the option is called <code>-h</code>, and sometimes it is not present at all.</p>
-<p>To get more information about how to use a command, most executables come with a formal documentation page. Distributions often mandate the inclusion of a manual page for every package, so the manual page is the most useful source of information. You can inspect the manual page using the <code>man</code> command. You just enter <code>man program</code>, and see what it prints out. Pick any program on your computer, and try it out. For example, let’s try <code>man which</code>. You get a file opened, split into categories. It gives you information what the program is, what it does, how you can use it etc., but it doesn’t offer examples, as it’s not a tutorial.</p>
-<p>Manual pages are text files displayed in a pager program that allows easy scrolling. The default pager is <code>less</code>, which you have already used in the third exercise. You can also look at its manual page using <code>man less</code>. Also try <code>man intro</code>: the “Introduction to user commands”, a well-written, fairly brief introduction to the Linux command line.</p>
+<p>However, <code>--help</code> is just a convention, which programs are
+not obliged to follow. Sometimes the option is called <code>-h</code>,
+and sometimes it is not present at all.</p>
+<p>To get more information about how to use a command, most executables
+come with a formal documentation page. Distributions often mandate the
+inclusion of a manual page for every package, so the manual page is the
+most useful source of information. You can inspect the manual page using
+the <code>man</code> command. You just enter <code>man program</code>,
+and see what it prints out. Pick any program on your computer, and try
+it out. For example, let’s try <code>man which</code>. You get a file
+opened, split into categories. It gives you information what the program
+is, what it does, how you can use it etc., but it doesn’t offer
+examples, as it’s not a tutorial.</p>
+<p>Manual pages are text files displayed in a pager program that allows
+easy scrolling. The default pager is <code>less</code>, which you have
+already used in the third exercise. You can also look at its manual page
+using <code>man less</code>. Also try <code>man intro</code>: the
+“Introduction to user commands”, a well-written, fairly brief
+introduction to the Linux command line.</p>
 <p>To recap so far, here’s a list of most common commands:</p>
 <ul>
 <li><code>pwd</code>: show your current working directory</li>
 <li><code>cd</code>: change directory</li>
 <li><code>cd ..</code>: move up one directory</li>
 <li><code>mkdir</code>: create directory</li>
-<li><code>rm</code> or <code>rm -R</code>: delete files or directories</li>
-<li><code>sudo</code>: running programs as root (administrator/super-user), which may ask for your user pasword</li>
+<li><code>rm</code> or <code>rm -R</code>: delete files or
+directories</li>
+<li><code>sudo</code>: running programs as root
+(administrator/super-user), which may ask for your user pasword</li>
 <li><code>ls</code>: listing files in a directory</li>
-<li><code>cp</code>: copy files e.g. for backing up things or just copying. We will use these command in the scripts below.</li>
+<li><code>cp</code>: copy files e.g. for backing up things or just
+copying. We will use these command in the scripts below.</li>
 </ul>
 <div class="row">
 <div class="alert alert-info">
 <p>
-<strong>Optional</strong>: You can also read the <a href="https://help.ubuntu.com/community/UsingTheTerminal">Ubuntu documentation on CLI</a> to learn more, and let us know if you have questions about some commands.
+<strong>Optional</strong>: You can also read the <a
+href="https://help.ubuntu.com/community/UsingTheTerminal">Ubuntu
+documentation on CLI</a> to learn more, and let us know if you have
+questions about some commands.
 </p>
 </div>
 </div>
+<<<<<<< HEAD
 <h2 id="package-installation-and-management">Package installation and management</h2>
 <p>One of the greatest advantages of Linux distributions over other OSs is the package manager. Even if you never used Linux before, you are probably already using a package manager on your mobile device: The App Store, Google Play Store and Windows Store are all package managers, modeled after the Linux ones. A package manager is a central system for downloading, installing and removing software.</p>
 <p>Each major Linux distribution has its own package manager, which is aware of all packages maintained by the distribution. These packages are tested and are known to work with that particular distribution version, so the package manager is the first place to look for installing additional software. The package manager is typically a command-line program, although some distributions also have GUI interfaces for it.</p>
 <p>Ubuntu uses <em>Aptitude</em> as the package manager. Here is a short list of the most useful package manager commands on Ubuntu:</p>
+=======
+<h2 id="package-installation-and-management">Package installation and
+management</h2>
+<p>One of the greatest advantages of Linux distributions over other OSs
+is the package manager. Even if you never used Linux before, you are
+probably already using a package manager on your mobile device: The App
+Store, Google Play Store and Windows Store are all package managers,
+modeled after the Linux ones. A package manager is a central system for
+downloading, installing and removing software.</p>
+<p>Each major Linux distribution has its own package manager, which is
+aware of all packages maintained by the distribution. These packages are
+tested and are known to work with that particular distribution version,
+so the package manager is the first place to look for installing
+additional software. The package manager is typically a command-line
+program, although some distributions also have GUI interfaces for
+it.</p>
+<p>Ubuntu uses <em>Aptitude</em> as the package manager. Here is a short
+list of the most useful package manager commands on Ubuntu:</p>
+>>>>>>> a28b9f9a187cd0a59513cf89c3bf3255cbaf11dc
 <ul>
-<li><code>apt search packagename</code>: Search for a package called “packagename”.</li>
-<li><code>apt list package*</code>: List all packages starting with “package”.</li>
-<li><code>sudo apt install packagename</code>: Install or update a package. This changes system files and therefore requires administrator privileges (<code>sudo</code>).</li>
+<li><code>apt search packagename</code>: Search for a package called
+“packagename”.</li>
+<li><code>apt list package*</code>: List all packages starting with
+“package”.</li>
+<li><code>sudo apt install packagename</code>: Install or update a
+package. This changes system files and therefore requires administrator
+privileges (<code>sudo</code>).</li>
 <li><code>sudo apt remove packagename</code>: Uninstall a package.</li>
 <li>See <code>man apt</code> for more.</li>
 </ul>
-<p>For instance, if you run <code>apt list chrom*</code>, one of the results will be <code>chromium-browser</code>. It’s <a href="https://en.wikipedia.org/wiki/Chromium_(web_browser)">Chromium</a>, the open-source version of Google Chrome. You can install it by running <code>sudo apt install chromium-browser</code>. Similarly, the Ubuntu package repository contains a lot (but not all) of R packages (they are prefixed with <code>r-cran-</code>) and Python packages (prefixed with <code>python3-</code>; the ones prefixed with <code>python-</code> are for Python 2 which we will not be using this year). If there is a package available in the distribution repository, almost always it is better to use that instead of using a package manager built into the language (<code>install.packages</code> in R and <code>easyinstall</code>/<code>pip</code>/<code>conda</code> in Python).</p>
-<p>The aforementioned commands are specific to the Debian fabily of Linux distribution (of whom Ubuntu is a member). In other distributions, package manager syntax is different, but the result is the same. For instance, in openSUSE the equivalent commands would be <code>zypper search</code>, <code>sudo zypper install</code> and <code>sudo zypper remove</code>.</p>
-<p>Whenever a package is not included in the distribution repository, one option is to look for additional software sources. Ubuntu allows users to maintain their own packages through a system called Personal Package Archives (PPA). However, these packages are not tested and are not guaranteed to work, or could even cause problems in the system, so you have to be careful. Other distributions also have their own third-party repository systems: openSUSE uses Open Build Service, Fedora uses Copr etc.</p>
-<p>If a package doesn’t exist in third party repositories either, there is often the possibility to download the source code of a package and compile it. It is common for cross-platform software vendors to provide installers for Windows and source code for Linux. However, compiling from source yourself should only be done as the very last resort; in fact, it is often easier and safer to create a package yourself than to try to build it from source!</p>
-<h2 id="starting-r-or-python-from-the-terminal">Starting R or Python from the terminal</h2>
-Starting and stopping R from the terminal (this is the same as the R console you know from <em>RStudio</em>/<em>RKWard</em>):
+<p>For instance, if you run <code>apt list chrom*</code>, one of the
+results will be <code>chromium-browser</code>. It’s <a
+href="https://en.wikipedia.org/wiki/Chromium_(web_browser)">Chromium</a>,
+the open-source version of Google Chrome. You can install it by running
+<code>sudo apt install chromium-browser</code>. Similarly, the Ubuntu
+package repository contains a lot (but not all) of R packages (they are
+prefixed with <code>r-cran-</code>) and Python packages (prefixed with
+<code>python3-</code>; the ones prefixed with <code>python-</code> are
+for Python 2 which we will not be using this year). If there is a
+package available in the distribution repository, almost always it is
+better to use that instead of using a package manager built into the
+language (<code>install.packages</code> in R and
+<code>easyinstall</code>/<code>pip</code>/<code>conda</code> in
+Python).</p>
+<p>The aforementioned commands are specific to the Debian fabily of
+Linux distribution (of whom Ubuntu is a member). In other distributions,
+package manager syntax is different, but the result is the same. For
+instance, in openSUSE the equivalent commands would be
+<code>zypper search</code>, <code>sudo zypper install</code> and
+<code>sudo zypper remove</code>.</p>
+<p>Whenever a package is not included in the distribution repository,
+one option is to look for additional software sources. Ubuntu allows
+users to maintain their own packages through a system called Personal
+Package Archives (PPA). However, these packages are not tested and are
+not guaranteed to work, or could even cause problems in the system, so
+you have to be careful. Other distributions also have their own
+third-party repository systems: openSUSE uses Open Build Service, Fedora
+uses Copr etc.</p>
+<p>If a package doesn’t exist in third party repositories either, there
+is often the possibility to download the source code of a package and
+compile it. It is common for cross-platform software vendors to provide
+installers for Windows and source code for Linux. However, compiling
+from source yourself should only be done as the very last resort; in
+fact, it is often easier and safer to create a package yourself than to
+try to build it from source!</p>
+<h2 id="starting-r-or-python-from-the-terminal">Starting R or Python
+from the terminal</h2>
+Starting and stopping R from the terminal (this is the same as the R
+console you know from <em>RStudio</em>/<em>RKWard</em>):
 <div class="row">
 <button class="source bash toggle btn btn-xs btn-primary">
 <span class="glyphicon glyphicon-chevron-down"></span> bash source
 </button>
-<pre style=""><code class="source bash">R ## just type R and then q() to exit
+<pre style=""><code class="source bash">R # just type R and then q() to exit
 q()</code></pre>
 </div>
 <p><img src="figs/RinTerminal-vdi.jpg" alt="RinTerminal" /></p>
@@ -1298,26 +1755,44 @@ exit()</code></pre>
 </div>
 <h2 id="scripting-in-the-terminal">Scripting in the terminal</h2>
 <h3 id="hello-world-bash-script">Hello, world Bash script</h3>
-<p><em>Bash</em> is primarily a scripting language, so it would be a crime not to talk about scripting. Let’s dive straight in with a <em>Bash</em> script. More precisely the infamous “Hello World” script. You can create a bash script by opening your favorite text editor to edit your script and then saving it (typically the <code>.sh</code> file extension is used for your reference, but is not required. In our example, we will be using the <code>.sh</code> extension).</p>
-<p>So let’s get started. First, go to the <code>Bash</code> directory you just created. Within this directory create a simple text file and call it <code>HelloWorld.sh</code>, then add the following text and save. You can use the <code>gedit</code> editor, or use <code>rstudio</code> or <code>rkward</code> as a sort of text editor. In fact, <code>rstudio</code> makes it rather convenient to edit Bash scripts, exactly the same way as R scripts, including the ability to run commands line by line. It is also worth noting that there are even command-line text editors, like <code>nano</code>, which are useful for editing files that require administrative privileges.</p>
+<p><em>Bash</em> is primarily a scripting language, so it would be a
+crime not to talk about scripting. Let’s dive straight in with a
+<em>Bash</em> script. More precisely the infamous “Hello World” script.
+You can create a bash script by opening your favorite text editor to
+edit your script and then saving it (typically the <code>.sh</code> file
+extension is used for your reference, but is not required. In our
+example, we will be using the <code>.sh</code> extension).</p>
+<p>So let’s get started. First, go to the <code>Bash</code> directory
+you just created. Within this directory create a simple text file and
+call it <code>HelloWorld.sh</code>, then add the following text and
+save. You can use the <code>gedit</code> editor, or use
+<code>rstudio</code> or <code>rkward</code> as a sort of text editor. In
+fact, <code>rstudio</code> makes it rather convenient to edit Bash
+scripts, exactly the same way as R scripts, including the ability to run
+commands line by line. It is also worth noting that there are even
+command-line text editors, like <code>nano</code>, which are useful for
+editing files that require administrative privileges.</p>
 <p><img src="figs/rstudioshell-vdi.jpg" alt="execute" /></p>
 <div class="row">
 <button class="source bash toggle btn btn-xs btn-primary">
 <span class="glyphicon glyphicon-chevron-down"></span> bash source
 </button>
 <pre style=""><code class="source bash">#!/bin/bash
-echo "Hello, World"
-</code></pre>
+echo "Hello, World"</code></pre>
 </div>
-<p>The first line of the script just defines which interpreter to use (and where it is located). That’s it, simple as that!</p>
+<p>The first line of the script just defines which interpreter to use
+(and where it is located). That’s it, simple as that!</p>
 <div class="row">
 <div class="alert alert-danger">
 <p>
-<strong>Note</strong>: There is no leading whitespace before <code>#!/bin/bash</code>, and you cannot add any comments before it. This <em>shebang</em> should be the very first thing in the file.
+<strong>Note</strong>: There is no leading whitespace before
+<code>#!/bin/bash</code>, and you cannot add any comments before it.
+This <em>shebang</em> should be the very first thing in the file.
 </p>
 </div>
 </div>
-<p>To find out where your <code>bash</code> interpreter is located type the following in the terminal (this works also on a Mac terminal!):</p>
+<p>To find out where your <code>bash</code> interpreter is located type
+the following in the terminal (this works also on a Mac terminal!):</p>
 <div class="row">
 <button class="source bash toggle btn btn-xs btn-primary">
 <span class="glyphicon glyphicon-chevron-down"></span> bash source
@@ -1326,10 +1801,12 @@ echo "Hello, World"
 <button class="output bash toggle btn btn-xs btn-success">
 <span class="glyphicon glyphicon-chevron-down"></span> bash output
 </button>
-<pre style=""><code class="output bash">## bash is /bin/bash
+<pre style=""><code class="output bash">## bash is /usr/bin/bash
 </code></pre>
 </div>
-<p>Second, to run a bash script you first have to have the correct file permissions. We do this with <code>chmod</code> (change mode) command in terminal as follows:</p>
+<p>Second, to run a bash script you first have to have the correct file
+permissions. We do this with <code>chmod</code> (change mode) command in
+terminal as follows:</p>
 <div class="row">
 <button class="source bash toggle btn btn-xs btn-primary">
 <span class="glyphicon glyphicon-chevron-down"></span> bash source
@@ -1339,7 +1816,11 @@ echo "Hello, World"
 <div class="row">
 <div class="alert alert-info">
 <p>
-<strong>Optional</strong>: <a href="https://help.ubuntu.com/community/FilePermissions">More info about <code>chmod</code></a> for your future reference. Note: today is just an introduction to let you know what is possible so that you can find your way easier in the future.
+<strong>Optional</strong>: <a
+href="https://help.ubuntu.com/community/FilePermissions">More info about
+<code>chmod</code></a> for your future reference. Note: today is just an
+introduction to let you know what is possible so that you can find your
+way easier in the future.
 </p>
 </div>
 </div>
@@ -1348,7 +1829,7 @@ echo "Hello, World"
 <button class="source bash toggle btn btn-xs btn-primary">
 <span class="glyphicon glyphicon-chevron-down"></span> bash source
 </button>
-<pre style=""><code class="source bash">echo "Go to the Bash folder"
+<pre style=""><code class="source bash">echo "Go to the Bash directory"
 cd Bash
 echo "Check that the file is there using the ls command:"
 ls
@@ -1357,13 +1838,16 @@ chmod u+x HelloWorld.sh
 echo "We can now run our first Bash script:"
 ./HelloWorld.sh</code></pre>
 </div>
-<p>Hopefully you should have seen it print <code>Hello, World</code> onto your screen. If so well done! That is your first <em>Bash</em> script (see below for a screenshot):</p>
+<p>Hopefully you should have seen it print <code>Hello, World</code>
+onto your screen. If so well done! That is your first <em>Bash</em>
+script (see below for a screenshot):</p>
 <p><img src="figs/Scripting-vdi.jpg" alt="BashScript" /></p>
 <div class="row">
 <div class="alert alert-success">
 <blockquote>
 <p>
-<strong>Question 4</strong>: Why do we add <code>./</code> in front of the Bash script?
+<strong>Question 4</strong>: Why do we add <code>./</code> in front of
+the Bash script?
 </p>
 </blockquote>
 </div>
@@ -1371,7 +1855,8 @@ echo "We can now run our first Bash script:"
 <div class="row">
 <div class="alert alert-info">
 <p>
-<strong>Note</strong>: we can also run Bash code from R using the <code>system()</code> function that can invoke an OS command:
+<strong>Note</strong>: we can also run Bash code from R using the
+<code>system()</code> function that can invoke an OS command:
 </p>
 </div>
 </div>
@@ -1379,7 +1864,7 @@ echo "We can now run our first Bash script:"
 <button class="source R toggle btn btn-xs btn-primary">
 <span class="glyphicon glyphicon-chevron-down"></span> R source
 </button>
-<pre style=""><code class="source r">## R code
+<pre style=""><code class="source r"># R code
 setwd("Bash/") # Set the working directory in R
 print(system("./HelloWorld.sh", intern = TRUE)) # Execute this command in Bash</code></pre>
 <button class="output R toggle btn btn-xs btn-success">
@@ -1391,7 +1876,8 @@ print(system("./HelloWorld.sh", intern = TRUE)) # Execute this command in Bash</
 <div class="row">
 <div class="alert alert-info">
 <p>
-<strong>Note</strong>: And vice versa, we can run an R script from the terminal using Bash:
+<strong>Note</strong>: And vice versa, we can run an R script from the
+terminal using Bash:
 </p>
 </div>
 </div>
@@ -1402,21 +1888,29 @@ print(system("./HelloWorld.sh", intern = TRUE)) # Execute this command in Bash</
 <pre style=""><code class="source bash">Rscript some-r-script-file.R</code></pre>
 </div>
 <h3 id="bash-script-with-a-variable">Bash script with a variable</h3>
-<p>Variables basically store information. You set variables like this (you can type this in the terminal).</p>
+<p>Variables basically store information. You set variables like this
+(you can type this in the terminal).</p>
 <div class="row">
 <button class="source bash toggle btn btn-xs btn-primary">
 <span class="glyphicon glyphicon-chevron-down"></span> bash source
 </button>
 <pre style=""><code class="source bash">var="FOO"</code></pre>
 </div>
-<p><code>var</code> can be anything you want as long as it doesn’t begin with a number. “FOO” can be anything you want. There <strong>cannot be any space</strong> in between the <code>=</code> sign! To access the information from the variable you need to put a ‘$’ in front of it like this:</p>
+<p><code>var</code> can be anything you want as long as it doesn’t begin
+with a number. “FOO” can be anything you want. There <strong>cannot be
+any space</strong> in between the <code>=</code> sign! To access the
+information from the variable you need to put a ‘$’ in front of it like
+this:</p>
 <div class="row">
 <button class="source bash toggle btn btn-xs btn-primary">
 <span class="glyphicon glyphicon-chevron-down"></span> bash source
 </button>
 <pre style=""><code class="source bash">echo $var</code></pre>
 </div>
-<p>Now create the following e.g. <code>variables.sh</code> script in the <em>Bash</em> folder and apply the <code>chmod u+x variables.sh</code> command on this script using the terminal.</p>
+<p>Now create the following e.g. <code>variables.sh</code> script in the
+<em>Bash</em> directory and apply the
+<code>chmod u+x variables.sh</code> command on this script using the
+terminal.</p>
 <div class="row">
 <button class="source bash toggle btn btn-xs btn-primary">
 <span class="glyphicon glyphicon-chevron-down"></span> bash source
@@ -1428,9 +1922,7 @@ echo "Please enter your name"
 read name
 echo "Please enter your age"
 read age
-echo "Please enter your sex. Male/Female"
-read sex
-echo "So you're a $age year old $sex called $name"</code></pre>
+echo "So you're a $age year old, called $name"</code></pre>
 </div>
 You can run the script once it is <em>executable</em>:
 <div class="row">
@@ -1443,7 +1935,9 @@ You can run the script once it is <em>executable</em>:
 <div class="alert alert-success">
 <blockquote>
 <p>
-<strong>Question 5</strong>: Try it out yourself, and try to do a calculation of e.g. a + b as input variables. Hint: <a href="https://www.shell-tips.com/2010/06/14/performing-math-calculation-in-bash/">Shell-tips</a>
+<strong>Question 5</strong>: Try it out yourself, and try to do a
+calculation of e.g. a + b as input variables. Hint: <a
+href="https://www.shell-tips.com/2010/06/14/performing-math-calculation-in-bash/">Shell-tips</a>
 </p>
 </blockquote>
 </div>
@@ -1451,13 +1945,28 @@ You can run the script once it is <em>executable</em>:
 <div class="row">
 <div class="alert alert-info">
 <p>
-<strong>Optional</strong>: If you want to learn more about <em>Bash</em> scripting: <a href="https://help.ubuntu.com/community/Beginners/BashScripting">https://help.ubuntu.com/community/Beginners/BashScripting</a>
+<strong>Optional</strong>: If you want to learn more about <em>Bash</em>
+scripting: <a
+href="https://help.ubuntu.com/community/Beginners/BashScripting">https://help.ubuntu.com/community/Beginners/BashScripting</a>
 </p>
 </div>
 </div>
-<h2 id="using-the-gdal-library-from-the-terminal">Using the GDAL library from the terminal</h2>
-<p>We will learn more about GDAL in the later lessons. GDAL is a very powerful and fast processing library written in C/C++ for raster and vector geospatial data formats. Now via the terminal we can access GDAL directly! E.g. we can check out what the current version of GDAL is that is installed on our Linux OS.</p>
-<p>Let’s download a file from <a href="https://geoscripting-wur.github.io/IntroToRaster/#raster-objects-manipulations">The intro to raster lesson</a>: Download the <code>gewata.zip</code> file from Github (<a href="https://github.com/GeoScripting-WUR/IntroToRaster/raw/gh-pages/data/gewata.zip">link</a>) and unzip in the <code>data</code> directory. Type the following in the <code>data</code> directory: (Note: You can write a shell script to do the following commands below but first type in the commands via the terminal to understand what is happening.)</p>
+<p>For the next section, let’s download a file from the <a
+href="https://geoscripting-wur.github.io/IntroToRaster">Intro to
+raster</a> tutorial. <strong>Manually</strong> download the
+<code>gewata.zip</code> file from Github (<a
+href="https://github.com/GeoScripting-WUR/IntroToRaster/releases/download/tahiti/gewata.zip">link</a>)
+and unzip in a <code>data</code> directory you create.</p>
+<h2 id="using-the-gdal-library-from-the-terminal">Using the GDAL library
+from the terminal</h2>
+<p>GDAL is a very powerful and fast processing library written in C/C++
+for raster and vector geospatial data formats. Now via the terminal we
+can access GDAL directly! E.g. we can check out what the current version
+of GDAL is that is installed on our Linux OS. We will learn more about
+GDAL in the later tutorials.</p>
+<p>Type the following in the <code>data</code> directory: (Note: You can
+write a shell script to do the following commands below but first type
+in the commands via the terminal to understand what is happening.)</p>
 <div class="row">
 <button class="source bash toggle btn btn-xs btn-primary">
 <span class="glyphicon glyphicon-chevron-down"></span> bash source
@@ -1468,10 +1977,14 @@ gdal-config --version</code></pre>
 <span class="glyphicon glyphicon-chevron-down"></span> bash output
 </button>
 <pre style=""><code class="output bash">## the current GDAL version is:
-## 3.1.4
+## 3.0.4
 </code></pre>
 </div>
-<p>One of the easiest and most useful commands in GDAL is <code>gdalinfo</code>. When given an image as an argument, it retrieves and prints all relevant information that is known about the file. This is especially useful if the image contains additional tag data, as is the case with <code>TIF</code> files.</p>
+<p>One of the easiest and most useful commands in GDAL is
+<code>gdalinfo</code>. When given an image as an argument, it retrieves
+and prints all relevant information that is known about the file. This
+is especially useful if the image contains additional tag data, as is
+the case with <code>TIF</code> files.</p>
 <p>Using gdalinfo:</p>
 <div class="row">
 <button class="source bash toggle btn btn-xs btn-primary">
@@ -1481,7 +1994,10 @@ gdal-config --version</code></pre>
 ls *.tif
 gdalinfo -nomd -norat -noct LE71700552001036SGS00_SR_Gewata_INT1U.tif</code></pre>
 </div>
-<p>Now let’s calculate the NDVI via GDAL terminal by using the <code>gdal_calc.py</code> script. See <a href="http://www.gdal.org/gdal_calc.html">GDAL_calc</a> for more information.</p>
+<p>Now let’s calculate the NDVI via GDAL terminal by using the
+<code>gdal_calc.py</code> script. See <a
+href="http://www.gdal.org/gdal_calc.html">GDAL_calc</a> for more
+information.</p>
 <div class="row">
 <button class="source bash toggle btn btn-xs btn-primary">
 <span class="glyphicon glyphicon-chevron-down"></span> bash source
@@ -1499,20 +2015,24 @@ rm input.tif</code></pre>
 <div class="alert alert-success">
 <blockquote>
 <p>
-<strong>Question 6</strong>: Try to write to calculate the NDVI using the lines above in a nice and short shell script.
+<strong>Question 6</strong>: Try to write to calculate the NDVI using
+the lines above in a nice and short shell script.
 </p>
 </blockquote>
 <ul>
 <li>
-Hint 1: <code>cd ../data</code> (to move back from the Bash folder and move into the data folder)
+Hint 1: <code>cd ../data</code> (to move back from the Bash directory
+and move into the data directory)
 </li>
 <li>
-Hint 2: No spaces in file names are allowed and try to use variables e.g. <code>fn=$(ls *.tif)</code>
+Hint 2: No spaces in file names are allowed and try to use variables
+e.g. <code>fn=$(ls *.tif)</code>
 </li>
 </ul>
 </div>
 </div>
-Let’s now check if the range of the NDVI values makes sense, and make a nice script:
+<p>Let’s now check if the range of the NDVI values makes sense, and make
+a nice script:</p>
 <div class="row">
 <button class="source bash toggle btn btn-xs btn-primary">
 <span class="glyphicon glyphicon-chevron-down"></span> bash source
@@ -1534,93 +2054,58 @@ gdalinfo -hist -stats $outfn</code></pre>
 <div class="row">
 <div class="alert alert-info">
 <p>
-More info here on the power of GDAL via the terminal: <a href="http://www.gdal.org/">GDAL_website</a> and <code>gdalinfo</code>
+More info here on the power of GDAL via the terminal: <a
+href="http://www.gdal.org/">GDAL_website</a> and <code>gdalinfo</code>
 </p>
 <p>
 Handy functions are (See the examples at the bottom):
 </p>
 <ul>
 <li>
-<a href="http://www.gdal.org/gdal_translate.html"><code>gdal_translate</code></a>
+<a
+href="http://www.gdal.org/gdal_translate.html"><code>gdal_translate</code></a>
 </li>
 <li>
-<a href="http://www.gdal.org/gdalwarp.html"><code>gdalwarp</code></a>
+<a
+href="http://www.gdal.org/gdalwarp.html"><code>gdalwarp</code></a>
 </li>
 </ul>
 <p>
 <strong>Optional</strong>:
 </p>
 <p>
-More info about <em>Bash</em> basics from <a href="https://www.gnu.org/software/bash/manual/bashref.html#Command-Substitution">GNU</a>.
+More info about <em>Bash</em> basics from <a
+href="https://www.gnu.org/software/bash/manual/bashref.html#Command-Substitution">GNU</a>.
 </p>
 </div>
 </div>
-<!-- Moved to GitHub
-# Excercise
-
-Write a shell script that processes Landsat data as provided in the Intro to Raster lesson ([link](https://github.com/GeoScripting-WUR/IntroToRaster/raw/gh-pages/data/gewata.zip)). Specifically, the script should:
-
-1. Take a URL as an argument. The URL links to a ZIP file containing Landsat bands. So the script should run when called as e.g. `./ProcessLandsat.sh https://github.com/GeoScripting-WUR/IntroToRaster/raw/gh-pages/data/gewata.zip`. The script should download and extract the ZIP file into a subdirectory called `data` for further processing.
-2. Derive NDVI from the Landsat bands, resample it to pixels of 60 m, reproject to WGS84 (EPSG:4326) and put the output into a subdirectory called `output`.
-3. Be reproducible and rerunnable: no use of `cd` and running the script twice still gives correct output. The script leaves only one output file, no intermediate ones. If a filename is reused in more than one place, a variable should be used instead of writing the name twice.
-
-<div class="row"><div class="alert alert-info">
-<p><strong>Tips</strong>: make use of Bash variables such as <code>$1</code>, utilities like <code>mkdir</code>, <code>wget</code>, <code>unzip</code>, <code>rm</code>, <code>gdalwarp</code> and <code>gdal_calc.py</code>. Check their <code>man</code> pages for arguments.</p>
-</div></div>
-
-For **bonus points**: find a way to resample and reproject the file *without writing a temporary TIFF file to disk*, ideally with a single line of code. **Tips**: `mkfifo` and `|`, or [process substitution](https://en.wikipedia.org/wiki/Process_substitution) and `/proc/self/fd/0` as input file name.
-
-Make sure your script is clear and reproducible, make a new GitLab project according to the same guidelines as yesterday, and upload the script there. Test the script of another team (see the random team selector Shiny app) tomorrow morning and add an issue with your testing results and score according to the rubric.
-
-*Do not forget to add a teamname, and members and date of script at the top of your script.*
-
-[More tips](http://www.geos.ed.ac.uk/~smudd/TopoTutorials/html/tutorial_raster_conversion.html)
-
--->
-<div class="row">
-<div class="alert alert-info">
-<h1 id="more-information">
-More information
-</h1>
+<h1 id="more-information">More information</h1>
 <ul>
-<li>
-<a href="https://news.opensuse.org/2014/06/10/command-line-tuesdays-part-one/">Hands-on introduction to bash basics for beginners</a>
-</li>
-<li>
-<a href="http://linuxconfig.org/bash-scripting-tutorial">A great bash scripting tutorial</a>
-</li>
-<li>
-<a href="http://beginlinux.com/twitter/1094-the-beginners-guide-to-the-ubuntu-terminal">An overview of terminal commands</a>
-</li>
-<li>
-<a href="http://www.howtogeek.com/140679/beginner-geek-how-to-start-using-the-linux-terminal/">http://www.howtogeek.com/140679/beginner-geek-how-to-start-using-the-linux-terminal/</a>
-</li>
-<li>
-<a href="http://www.howtogeek.com/howto/42980/the-beginners-guide-to-nano-the-linux-command-line-text-editor/">http://www.howtogeek.com/howto/42980/the-beginners-guide-to-nano-the-linux-command-line-text-editor/</a>
-</li>
-<li>
-<a href="http://linuxcommand.org/lc3_learning_the_shell.php">http://linuxcommand.org/lc3_learning_the_shell.php</a>
-</li>
-<li>
-<a href="http://www.cyberciti.biz/faq/pwd-linux-unix-command-examples/">http://www.cyberciti.biz/faq/pwd-linux-unix-command-examples/</a>
-</li>
-<li>
-For macOS users and introduction to use the terminal on macOS
+<li><a
+href="https://news.opensuse.org/2014/06/10/command-line-tuesdays-part-one/">Hands-on
+introduction to bash basics for beginners</a></li>
+<li><a href="http://linuxconfig.org/bash-scripting-tutorial">A great
+bash scripting tutorial</a></li>
+<li><a
+href="http://beginlinux.com/twitter/1094-the-beginners-guide-to-the-ubuntu-terminal">An
+overview of terminal commands</a></li>
+<li><a
+href="http://www.howtogeek.com/140679/beginner-geek-how-to-start-using-the-linux-terminal/">http://www.howtogeek.com/140679/beginner-geek-how-to-start-using-the-linux-terminal/</a></li>
+<li><a
+href="http://www.howtogeek.com/howto/42980/the-beginners-guide-to-nano-the-linux-command-line-text-editor/">http://www.howtogeek.com/howto/42980/the-beginners-guide-to-nano-the-linux-command-line-text-editor/</a></li>
+<li><a
+href="http://linuxcommand.org/lc3_learning_the_shell.php">http://linuxcommand.org/lc3_learning_the_shell.php</a></li>
+<li><a
+href="http://www.cyberciti.biz/faq/pwd-linux-unix-command-examples/">http://www.cyberciti.biz/faq/pwd-linux-unix-command-examples/</a></li>
+<li>For macOS users and introduction to use the terminal on macOS
 <ul>
-<li>
-<a href="http://computers.tutsplus.com/tutorials/navigating-the-terminal-a-gentle-introduction--mac-3855">http://computers.tutsplus.com/tutorials/navigating-the-terminal-a-gentle-introduction–mac-3855</a>
-</li>
-<li>
-<a href="http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line">http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line</a>
-</li>
-<li>
-<a href="https://stackoverflow.com/questions/8051145/is-the-terminal-in-mac-and-linux-the-same">Is the terminal in Mac and Linux the same</a>
-</li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
+<li><a
+href="http://computers.tutsplus.com/tutorials/navigating-the-terminal-a-gentle-introduction--mac-3855">http://computers.tutsplus.com/tutorials/navigating-the-terminal-a-gentle-introduction–mac-3855</a></li>
+<li><a
+href="http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line">http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line</a></li>
+<li><a
+href="https://stackoverflow.com/questions/8051145/is-the-terminal-in-mac-and-linux-the-same">Is
+the terminal in Mac and Linux the same</a>
 </div>
 </div>
 </div>
@@ -1630,11 +2115,14 @@ For macOS users and introduction to use the terminal on macOS
 <div id="footer">
 <div class="container">
 <p class="text-muted" id="credit">
-Styled with <a href="https://github.com/jimhester/knitrBootstrap">knitrBootstrap</a>
+Styled with
+<a href="https://github.com/jimhester/knitrBootstrap">knitrBootstrap</a>
 </p>
 </div>
 </div>
 <link rel="stylesheet" id="theme" href="https://netdna.bootstrapcdn.com/bootswatch/3.0.0/simplex/bootstrap.min.css" media="screen"></link><link rel="stylesheet" id="highlight" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/7.3/styles/tomorrow-night-bright.min.css" media="screen"></link>
-</div>
+</div></li>
+</ul></li>
+</ul>
 </body>
 </html>
