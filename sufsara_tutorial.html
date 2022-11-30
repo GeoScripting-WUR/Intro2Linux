@@ -1076,25 +1076,42 @@ top right, and press <strong>Log Out</strong>. Happy coding!</p>
 accessing the VM from your own machine</h1>
 <p>The tutorial above allows you to access the VM in-browser. There are,
 however, alternatives to access the VM directly from your own machine,
-for which we provide a tutorial below.</p>
-<!-- ## Enrol your SSH key -->
-<!-- Navigate to your [SRAM profile page](https://sram.surf.nl/profile). Generate an SSH key on your own machine. Paste your *public* SSH key into the text box, and click the "Save" button. You should never paste the *private* key anywhere (it will also not be accepted if you try). -->
-<!-- Please refer to online tutorials to find/create an SSH key for your machine, like [this one](https://www.howtogeek.com/762863/how-to-generate-ssh-keys-in-windows-10-and-windows-11/) for Windows. -->
-<!-- **Hint**: another easy way to find your SSH key is by running Git GUI on your own machine, through Help → Show SSH Key.  -->
-<h2 id="logging-into-the-vm">Logging into the VM</h2>
-<p>There are two ways to log into your virtual machine (aside from the
-in-browser option). The first option is via the “Remote Desktop” app
-that is built-into Windows, or an RDP client on the other operating
-systems. The second option is through a command line using <em>Git
-Bash</em>.</p>
-<p>To connect to the VM using the <strong>Remote Desktop</strong> app
-(‘Extern Bureaublad’ if you have Dutch language settings), you simply
-need to specify the IP address of the VM to connect (and potentially
-dismiss some warnings about missing certificates). You can find the IP
-address of your VM by pressing the <em>down</em> arrow next to ‘State:
-running’ on <a href="https://portal.live.surfresearchcloud.nl/">this
-page</a>. For the next steps, it is the same as the in-browser
-option.</p>
+for which we provide a tutorial below. There are two main ways to log
+into your virtual machine (aside from the in-browser option).</p>
+<h2 id="option-1-remote-desktop">Option 1: Remote Desktop</h2>
+<p>The first option is via the “Remote Desktop” app that is built-into
+Windows, or an RDP client on the other operating systems. To connect to
+the VM using the <strong>Remote Desktop</strong> app (‘Extern
+Bureaublad’ if you have Dutch language settings), you simply need to
+specify the IP address of the VM to connect (and potentially dismiss
+some warnings about missing certificates). You can find the IP address
+of your VM by pressing the <em>down</em> arrow next to ‘State: running’
+on <a href="https://portal.live.surfresearchcloud.nl/">this page</a>.
+For the next steps, it is the same as the in-browser option.</p>
+<h2 id="option-2-git-bash">Option 2: Git Bash</h2>
+<p>The second option is through a command line using <em>Git Bash</em>
+using an SSH key, which is the most efficient way of connecting. This is
+because <code>ssh</code> allows forwarding ports to your own computer
+and the VMs have server software preinstalled.</p>
+<p>First, you need to enroll your SSH key. Navigate to your <a
+href="https://sram.surf.nl/profile">SRAM profile page</a>. Generate an
+SSH key on your own machine. Paste your <em>public</em> SSH key into the
+text box, and click the “Save” button. You should never paste the
+<em>private</em> key anywhere (it will also not be accepted if you
+try).</p>
+<p>An easy way to find your SSH key is by running Git GUI on your own
+machine. For further details, see <a
+href="http://geoscripting-wur.github.io/RProjectManagement/">tutorial
+1</a>.</p>
+<p>You can now run
+<code>ssh -L8787:localhost:8787 yourusername@yourserver.nl</code> to
+forward the port 8787 to your own computer, then in your own browser
+open http://localhost:8787 and immediately get to RStudio Server. This
+is very efficient, because then you are only sending commands over the
+internet, and not pictures, which is so much smaller. You also then
+don’t have issues with repeated keystrokes etc. and you can even use
+RStudio to upload and download files. The downside is that you need to
+run that one extra command and open a new tab in your browser.</p>
 <h1 id="file-saving-and-sharing">File saving and sharing</h1>
 <p>You might want to transfer files to or from the VM, as there is no
 link to your WUR M drive on SRC. The best way of transferring files
