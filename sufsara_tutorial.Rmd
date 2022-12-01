@@ -1,0 +1,86 @@
+---
+pagetitle: "Getting started with SURF Research cloud"
+author: "Dainius Masiliūnas"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  knitrBootstrap::bootstrap_document:
+    theme: "simplex"
+    highlight: Tomorrow Night Bright
+    menu: FALSE
+    theme.chooser: TRUE
+    highlight.chooser: TRUE
+---
+
+<style type="text/css">
+body {max-width: none;}
+a:visited {color: #91170a;}
+</style>
+
+# Getting started with SURF Research Cloud (in-browser)
+
+First go to [https://portal.live.surfresearchcloud.nl/](https://portal.live.surfresearchcloud.nl/) and log in using your WUR account. Use [this link](https://sram.surf.nl/registration?collaboration=4873a9a3-15b8-4e10-9dde-a07262a3bdb6) to request access to the *Wageningen University Geoscripting* collaboration. We (the staff) have to accept access to this collaboration, and create a virtual machine (VM) for your group. In the meantime, you can set up your two factor authentication:
+
+## Two factor authentication (2FA)
+
+Navigate to your [profile page](https://portal.live.surfresearchcloud.nl/profile). Click the **Profile options** button, and then on **Reset Time based password**. You should get the following message: *"Are you sure you want to reset your password?"*. Press **Reset**. Follow the instructions to set up 2FA. You will need the 2FA code later for logging into the VM.
+
+## Accessing the VM
+
+Once you have been granted access to the *Wageningen University Geoscripting* collaboration *and* you have set up 2FA, you should be able to access your VM. Navigate back to the [starting page](https://portal.live.surfresearchcloud.nl/), and scroll down the page to the 'Workspaces' section. You should see multiple available workspaces (VMs). Please only make use of the workspace with your group name. If a workspace with your group name/number does not exist, please contact the staff.
+
+At the right of every workspace, there should be a (yellow) button that allows access to the workspace. Press that button for the workspace you want to access. A login-page will show up. Enter the following information:
+
+* Use the standard Session type (Xorg)
+* Your username is your SURF Research Cloud username, which is not the same as your WUR username (!). You can find your SURF Research Cloud username in your [profile page](https://portal.live.surfresearchcloud.nl/profile)
+* Your password is the 2FA code
+
+If your VM is coming out of 'sleep mode', and you have to fill in a password to unlock it, you should (again) make use of your 2FA code.
+
+## Logging off from the VM
+
+Note that unless you log off from the VM, all tasks will continue running. You should log off before switching devices, as otherwise the previous session will not get resumed. This is because session matching is done by screen resolution. To log off, press the power button at the top right, and press **Log Out**. Happy coding!
+
+# Optional: accessing the VM from your own machine
+
+The tutorial above allows you to access the VM in-browser. There are, however, alternatives to access the VM directly from your own machine, for which we provide a tutorial below. There are two main ways to log into your virtual machine (aside from the in-browser option).
+
+## Option 1: Remote Desktop
+
+The first option is via the "Remote Desktop" app that is built-into Windows, or an RDP client on the other operating systems. To connect to the VM using the **Remote Desktop** app ('Extern Bureaublad' if you have Dutch language settings), you simply need to specify the IP address of the VM to connect (and potentially dismiss some warnings about missing certificates). You can find the IP address of your VM by pressing the *down* arrow next to 'State: running' on [this page](https://portal.live.surfresearchcloud.nl/). For the next steps, it is the same as the in-browser option.
+
+## Option 2: Git Bash
+
+The second option is through a command line using *Git Bash* using an SSH key, which is the most efficient way of connecting. This is because `ssh` allows forwarding ports to your own computer and the VMs have server software preinstalled.
+
+First, you need to enrol your SSH key. Navigate to your [SRAM profile page](https://sram.surf.nl/profile). Generate an SSH key on your own machine. Paste your *public* SSH key into the text box, and click the "Save" button. You should never paste the *private* key anywhere (it will also not be accepted if you try).
+
+An easy way to find and generate your SSH key is by running Git GUI on your own machine. For further details, see [tutorial 1](http://geoscripting-wur.github.io/RProjectManagement/).
+
+You can now run `ssh -L8787:localhost:8787 yoursurfusername@yoursurfvm.nl` (replace the username and the address with your SURF Research Cloud username and the (IP) address of your VM) to both open a remote connection from your local terminal to the VM to run Bash code, and also to forward the port 8787 from the VM to your own computer. 
+
+Once you are logged into the VM, in your own computer's browser you can open http://localhost:8787 and immediately get to RStudio Server, which is hosted on the VM. You will need to log in to RStudio Server using the 2FA method mentioned above. This option is very efficient, because then you are only sending text commands over the internet, and not pictures, which is so much smaller. You also then don't have issues with repeated keystrokes etc. and you can even use RStudio to upload and download files. The downside is that you need to run that one extra command and open a new tab in your browser.
+
+The same method works for logging into a Jupyter Notebook or Jupyter Lab for working with Python, but they are not installed by default and they use a different port number (by default 8888).
+
+# File saving and sharing
+
+You might want to transfer files to or from the VM, as there is no link to your WUR M drive on SRC. The best way of transferring files (ones that are not already on GitLab, that is) is by using `sftp`, including a graphical client such as WinSCP.
+
+Another (less elegant) solution to secure your files at the end of the course would be to use a file sharing/storing service such as Dropbox or Google Drive for instance.
+
+<!-- First, start *Git Bash*. This will open a terminal window. In it, enter: `ssh -N -L 2049:localhost:2049 -L 2050:localhost:2050 -L 111:localhost:111 ubuntu@<ip>` where `<ip>` is the IP address of your VM. This will establish a secure SSH connection to the VM on ports 2049, 2050 and 111 (the console getting stuck and seemingly nothing happening is good and expected). You can use this method for other applications and ports as well (such as to access RStudio Server on some VMs). When you are done, to disconnect the secure connection, press Ctrl+C in the Git Bash window, which brings you back to the `$` prompt. -->
+
+<!-- To map the network drive, there are also two options. The GUI option is to open My Computer, press the *Map Network Drive* button, and enter `localhost:/home/ubuntu/userdata` (again, use the IP of your VM). Double-clicking on the drive, you will see a folder with nothing but an inaccesible `lost+found` folder. It is the */home/ubuntu/userdata* directory on the VM, and you can drag and drop files and folders to and from it. To disconnect, right-click on the network drive and click *Disconnect*. -->
+
+<!-- **Note**: If the GUI option has Windows treating files you create as read-only, try mounting the remote drive by using the command line. To do that, run `cmd.exe` (Command Prompt) from the Start menu, then enter `mount -o fileaccess=777 localhost:/home/ubuntu/userdata Z:`. This will make the drive appear in My Computer just like the GUI method did, with all new files being treated as read-write. -->
+
+<!-- ![NFS shared drive mapped to drive Z:](figs/filesharing.png) -->
+
+<!-- Another, less complicated but also less convenient method to tranfer files is using the *Secure File Transfter Protocol* (SFTP). It is a command-line program that comes with SSH. You can use it for transferring any file you can access using SSH, so it is not limited to prespecified directories like NFS is. So you can use it to get or send files outside of your *userdata* directory. -->
+
+<!-- To use it, open *Git Bash* again, and enter: `sftp ubuntu@<ip>`. This will give you a prompt in which you can enter commands. Use `get <file>` to download files and `put <file>` to upload them, where `<file>` is the path to the file. You can change the directory you download the files to by using `lcd <path>`, and the directory you download from by using `cd <path>`. Enter `?` for a complete list of commands, `exit` to quit.  -->
+
+<!-- # References -->
+
+<!-- * [Workshop on using SURFsara](https://doc.hpccloud.surfsara.nl/VU-20161019/index) -->
+<!-- * [SURFsara documentation](https://doc.hpccloud.surfsara.nl/) -->

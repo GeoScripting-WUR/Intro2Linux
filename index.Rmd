@@ -1,9 +1,10 @@
 ---
+pagetitle: "Tutorial 2: Linux terminal & Bash"
 author: "Jan Verbesselt and Dainius Masiliunas"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
-pagetitle: "Week 1, Lesson 2: Getting started with Linux, the terminal and Bash scripting"
 output:
   knitrBootstrap::bootstrap_document:
+    title: "Tutorial 2: Linux terminal & Bash"
     theme: "simplex"
     highlight: Tomorrow Night Bright
     menu: FALSE
@@ -11,25 +12,17 @@ output:
     highlight.chooser: TRUE
 ---
 
-# [WUR Geoscripting](https://geoscripting-wur.github.io/) <img src="https://www.wur.nl/upload/5e55a1d9-47c3-4149-9384-26d5147ee2d7_WUR_RGB_standard.png" alt="WUR logo" style="height: 35px;"/>
+<style type="text/css">
+body {max-width: none;}
+a:visited {color: #91170a;}
+</style>
 
-# Week 1, Lesson 2: Getting started with the Linux terminal and Bash scripting
+# [WUR Geoscripting](https://geoscripting-wur.github.io/) <img src="https://www.wur.nl/upload/854757ab-168f-46d7-b415-f8b501eebaa5_WUR_RGB_standard_2021-site.svg" alt="WUR logo" style="height: 35px;"/>
 
-<!--
+# Week 1, Tutorial 2: Linux terminal & Bash
 
-Good morning! 
-Here is what you will do today:
 
-Time  | Activity
-------------- | -------------
-Until 11:00 | Review yesterday's exercise answer of the other team
-Morning       |  Self-study: go through the following tutorial, and get confortable with a Linux environment and the terminal
-14:00 to 16:00  | Discussion
-Rest of the afternoon | Do and finalise the exercise
-
--->
-
-# Today's Learning objectives
+## Learning objectives
 
 - Knowing how to use the *terminal*
     - Running R and Python from the terminal
@@ -221,7 +214,7 @@ Because the shell prefers builtins compared to executables, when you run `time` 
 
 ## File manipulation
 
-Copying, pasting files, creating directories etc. is probably easier using graphical tools, but, if you’d like to perform more complicated tasks, like copying only *.html* files from one folder to another, and only copying files that don’t exist in the destination directory, CLI just might come in handy. So, before we start with the commands themselves, let’s take a quick stop at *wildcards*. They are a set of special characters that help you pick out a set of files based on some simple rules (which characters appear in a file name, how many characters, upper/lower case characters etc.). Here’s the table:
+Copying, pasting files, creating directories etc. is probably easier using graphical tools, but, if you’d like to perform more complicated tasks, like copying only *.html* files from one directory to another, and only copying files that don’t exist in the destination directory, CLI just might come in handy. So, before we start with the commands themselves, let’s take a quick stop at *wildcards*. They are a set of special characters that help you pick out a set of files based on some simple rules (which characters appear in a file name, how many characters, upper/lower case characters etc.). Here’s the table:
 
 ![List of wildcards](https://news.opensuse.org/wp-content/uploads/2014/07/Screenshot-08.-07.-2014-125946.png)
 
@@ -277,8 +270,8 @@ The help page shows in what ways you can use the command, what options you can u
 
 `help` works only for the shell builtins. But most executables provide an option `--help`. As far as usage goes, it’s similar to `help`, but you have to type `--help` after the command you want to inspect. For example:
 
-```{bash}
-which --help
+```{bash, eval=FALSE}
+cd --help
 ```
 
 However, `--help` is just a convention, which programs are not obliged to follow. Sometimes the option is called `-h`, and sometimes it is not present at all.
@@ -328,7 +321,7 @@ If a package doesn't exist in third party repositories either, there is often th
 
 Starting and stopping R from the terminal (this is the same as the R console you know from *RStudio*/*RKWard*):
 ```{r, engine='bash', eval=FALSE}
-R ## just type R and then q() to exit
+R # just type R and then q() to exit
 q()
 ```
 
@@ -353,7 +346,6 @@ So let's get started. First, go to the `Bash` directory you just created. Within
 ```{r, eval=FALSE, engine='bash'}
 #!/bin/bash
 echo "Hello, World"
-
 ```
 
 The first line of the script just defines which interpreter to use (and where it is located). That's it, simple as that!
@@ -381,7 +373,7 @@ chmod u+x Bash/HelloWorld.sh  # Gives your user execute permissions
 Below is a summary of what we have done in the terminal:
 
 ```{r, eval=FALSE, engine='bash'}
-echo "Go to the Bash folder"
+echo "Go to the Bash directory"
 cd Bash
 echo "Check that the file is there using the ls command:"
 ls
@@ -404,7 +396,7 @@ Hopefully you should have seen it print `Hello, World` onto your screen. If so w
 ```
 
 ```{r, echo=TRUE, message=TRUE}
-## R code
+# R code
 setwd("Bash/") # Set the working directory in R
 print(system("./HelloWorld.sh", intern = TRUE)) # Execute this command in Bash
 ```
@@ -432,7 +424,7 @@ var="FOO"
 echo $var
 ```
 
-Now create the following e.g. `variables.sh` script in the *Bash* folder and apply the `chmod u+x variables.sh` command on this script using the terminal.
+Now create the following e.g. `variables.sh` script in the *Bash* directory and apply the `chmod u+x variables.sh` command on this script using the terminal.
 
 ```{r, eval=FALSE, engine='bash'}
 #!/bin/bash
@@ -442,9 +434,7 @@ echo "Please enter your name"
 read name
 echo "Please enter your age"
 read age
-echo "Please enter your sex. Male/Female"
-read sex
-echo "So you're a $age year old $sex called $name"
+echo "So you're a $age year old, called $name"
 ```
 
 You can run the script once it is *executable*:
@@ -460,12 +450,13 @@ You can run the script once it is *executable*:
 **Optional**: If you want to learn more about *Bash* scripting: [https://help.ubuntu.com/community/Beginners/BashScripting](https://help.ubuntu.com/community/Beginners/BashScripting)
 ```
 
+For the next section, let's download a file from the [Intro to raster](https://geoscripting-wur.github.io/IntroToRaster) tutorial. **Manually** download the `gewata.zip` file from Github ([link](https://github.com/GeoScripting-WUR/IntroToRaster/releases/download/tahiti/gewata.zip)) and unzip in a `data` directory you create. 
+
 ## Using the GDAL library from the terminal
 
-We will learn more about GDAL in the later lessons. GDAL is a very powerful and fast processing library written in C/C++ for raster and vector geospatial data formats. Now via the terminal we can access GDAL directly! E.g. we can check out what the current version of GDAL is that is installed on our Linux OS.
+GDAL is a very powerful and fast processing library written in C/C++ for raster and vector geospatial data formats. Now via the terminal we can access GDAL directly! E.g. we can check out what the current version of GDAL is that is installed on our Linux OS. We will learn more about GDAL in the later tutorials.
 
-Let's download a file from [The intro to raster lesson](https://geoscripting-wur.github.io/IntroToRaster/#raster-objects-manipulations):
-Download the `gewata.zip` file from Github ([link](https://github.com/GeoScripting-WUR/IntroToRaster/raw/gh-pages/data/gewata.zip)) and unzip in the `data` directory. Type the following in the `data` directory: (Note: You can write a shell script to do the following commands below but first type in the commands via the terminal to understand what is happening.)
+Type the following in the `data` directory: (Note: You can write a shell script to do the following commands below but first type in the commands via the terminal to understand what is happening.)
 
 ```{bash}
 echo "the current GDAL version is:"
@@ -484,7 +475,6 @@ gdalinfo -nomd -norat -noct LE71700552001036SGS00_SR_Gewata_INT1U.tif
 
 Now let's calculate the NDVI via GDAL terminal by using the `gdal_calc.py` script. See [GDAL_calc](http://www.gdal.org/gdal_calc.html) for more information.
 
-
 ```{r, engine='bash', eval=FALSE}
 cd data
 cp LE71700552001036SGS00_SR_Gewata_INT1U.tif input.tif
@@ -499,13 +489,14 @@ rm input.tif
 ```{block, type="alert alert-success"}
 > **Question 6**: Try to write to calculate the NDVI using the lines above in a nice and short shell script.
 
-- Hint 1: `cd ../data` (to move back from the Bash folder and move into the data folder)
+- Hint 1: `cd ../data` (to move back from the Bash directory and move into the data directory)
 - Hint 2: No spaces in file names are allowed and try to use variables e.g. `fn=$(ls *.tif)`
 
 ```
 
 Let's now check if the range of the NDVI values makes sense, and make a nice script:
-```{r, engine='bash', results='hide', eval =FALSE}
+
+```{r, engine='bash', results='hide', eval=FALSE}
 #!/bin/bash
 echo "teamname"
 echo "14 January 2021"
@@ -535,30 +526,6 @@ Handy functions are (See the examples at the bottom):
 More info about *Bash* basics from [GNU](https://www.gnu.org/software/bash/manual/bashref.html#Command-Substitution).
 ```
 
-<!-- Moved to GitHub
-# Excercise
-
-Write a shell script that processes Landsat data as provided in the Intro to Raster lesson ([link](https://github.com/GeoScripting-WUR/IntroToRaster/raw/gh-pages/data/gewata.zip)). Specifically, the script should:
-
-1. Take a URL as an argument. The URL links to a ZIP file containing Landsat bands. So the script should run when called as e.g. `./ProcessLandsat.sh https://github.com/GeoScripting-WUR/IntroToRaster/raw/gh-pages/data/gewata.zip`. The script should download and extract the ZIP file into a subdirectory called `data` for further processing.
-2. Derive NDVI from the Landsat bands, resample it to pixels of 60 m, reproject to WGS84 (EPSG:4326) and put the output into a subdirectory called `output`.
-3. Be reproducible and rerunnable: no use of `cd` and running the script twice still gives correct output. The script leaves only one output file, no intermediate ones. If a filename is reused in more than one place, a variable should be used instead of writing the name twice.
-
-```{block, type="alert alert-info"}
-**Tips**: make use of Bash variables such as `$1`, utilities like `mkdir`, `wget`, `unzip`, `rm`, `gdalwarp` and `gdal_calc.py`. Check their `man` pages for arguments.
-```
-
-For **bonus points**: find a way to resample and reproject the file *without writing a temporary TIFF file to disk*, ideally with a single line of code. **Tips**: `mkfifo` and `|`, or [process substitution](https://en.wikipedia.org/wiki/Process_substitution) and `/proc/self/fd/0` as input file name.
-
-Make sure your script is clear and reproducible, make a new GitLab project according to the same guidelines as yesterday, and upload the script there. Test the script of another team (see the random team selector Shiny app) tomorrow morning and add an issue with your testing results and score according to the rubric.
-
-*Do not forget to add a teamname, and members and date of script at the top of your script.*
-
-[More tips](http://www.geos.ed.ac.uk/~smudd/TopoTutorials/html/tutorial_raster_conversion.html)
-
--->
-
-```{block, type="alert alert-info"}
 # More information
 
 - [Hands-on introduction to bash basics for beginners](https://news.opensuse.org/2014/06/10/command-line-tuesdays-part-one/)
@@ -572,5 +539,3 @@ Make sure your script is clear and reproducible, make a new GitLab project accor
     - [http://computers.tutsplus.com/tutorials/navigating-the-terminal-a-gentle-introduction--mac-3855](http://computers.tutsplus.com/tutorials/navigating-the-terminal-a-gentle-introduction--mac-3855)
     - [http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line](http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line)
     - [Is the terminal in Mac and Linux the same](https://stackoverflow.com/questions/8051145/is-the-terminal-in-mac-and-linux-the-same)
-```
-
