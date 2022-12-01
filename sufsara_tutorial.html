@@ -1093,25 +1093,34 @@ For the next steps, it is the same as the in-browser option.</p>
 using an SSH key, which is the most efficient way of connecting. This is
 because <code>ssh</code> allows forwarding ports to your own computer
 and the VMs have server software preinstalled.</p>
-<p>First, you need to enroll your SSH key. Navigate to your <a
+<p>First, you need to enrol your SSH key. Navigate to your <a
 href="https://sram.surf.nl/profile">SRAM profile page</a>. Generate an
 SSH key on your own machine. Paste your <em>public</em> SSH key into the
 text box, and click the “Save” button. You should never paste the
 <em>private</em> key anywhere (it will also not be accepted if you
 try).</p>
-<p>An easy way to find your SSH key is by running Git GUI on your own
-machine. For further details, see <a
+<p>An easy way to find and generate your SSH key is by running Git GUI
+on your own machine. For further details, see <a
 href="http://geoscripting-wur.github.io/RProjectManagement/">tutorial
 1</a>.</p>
 <p>You can now run
-<code>ssh -L8787:localhost:8787 yourusername@yourserver.nl</code> to
-forward the port 8787 to your own computer, then in your own browser
-open http://localhost:8787 and immediately get to RStudio Server. This
-is very efficient, because then you are only sending commands over the
-internet, and not pictures, which is so much smaller. You also then
-don’t have issues with repeated keystrokes etc. and you can even use
-RStudio to upload and download files. The downside is that you need to
-run that one extra command and open a new tab in your browser.</p>
+<code>ssh -L8787:localhost:8787 yoursurfusername@yoursurfvm.nl</code>
+(replace the username and the address with your SURF Research Cloud
+username and the (IP) address of your VM) to both open a remote
+connection from your local terminal to the VM to run Bash code, and also
+to forward the port 8787 from the VM to your own computer.</p>
+<p>Once you are logged into the VM, in your own computer’s browser you
+can open http://localhost:8787 and immediately get to RStudio Server,
+which is hosted on the VM. You will need to log in to RStudio Server
+using the 2FA method mentioned above. This option is very efficient,
+because then you are only sending text commands over the internet, and
+not pictures, which is so much smaller. You also then don’t have issues
+with repeated keystrokes etc. and you can even use RStudio to upload and
+download files. The downside is that you need to run that one extra
+command and open a new tab in your browser.</p>
+<p>The same method works for logging into a Jupyter Notebook or Jupyter
+Lab for working with Python, but they are not installed by default and
+they use a different port number (by default 8888).</p>
 <h1 id="file-saving-and-sharing">File saving and sharing</h1>
 <p>You might want to transfer files to or from the VM, as there is no
 link to your WUR M drive on SRC. The best way of transferring files
