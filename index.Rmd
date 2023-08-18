@@ -1,25 +1,31 @@
 ---
-pagetitle: "Tutorial 2: Linux terminal & Bash"
+pagetitle: "Linux terminal & Bash"
 author: "Jan Verbesselt and Dainius Masiliunas"
-date: "`r format(Sys.time(), '%d %B, %Y')`"
+date: "`r format(Sys.time(), '%Y-%m-%d')`"
 output:
-  knitrBootstrap::bootstrap_document:
-    title: "Tutorial 2: Linux terminal & Bash"
-    theme: "simplex"
-    highlight: Tomorrow Night Bright
-    menu: FALSE
-    theme.chooser: TRUE
-    highlight.chooser: TRUE
+  rmdformats::html_clean:
+    highlight: zenburn
 ---
 
-<style type="text/css">
-body {max-width: none;}
-a:visited {color: #91170a;}
-</style>
+```{css, echo=FALSE}
+@import url("https://netdna.bootstrapcdn.com/bootswatch/3.0.0/simplex/bootstrap.min.css");
+.main-container {max-width: none;}
+pre {color: inherit; background-color: inherit;}
+code[class^="sourceCode"]::before {
+  content: attr(class);
+  display: block;
+  text-align: right;
+  font-size: 70%;
+}
+code[class^="sourceCode r"]::before { content: "R Source";}
+code[class^="sourceCode python"]::before { content: "Python Source"; }
+code[class^="sourceCode bash"]::before { content: "Bash Source"; }
+```
 
-# [WUR Geoscripting](https://geoscripting-wur.github.io/) <img src="https://www.wur.nl/upload/854757ab-168f-46d7-b415-f8b501eebaa5_WUR_RGB_standard_2021-site.svg" alt="WUR logo" style="height: 35px;"/>
+<font size="6">[WUR Geoscripting](https://geoscripting-wur.github.io/)</font> <img src="https://www.wur.nl/upload/854757ab-168f-46d7-b415-f8b501eebaa5_WUR_RGB_standard_2021-site.svg" alt="WUR logo" style="height: 35px; margin:inherit;"/>
 
-# Week 1, Tutorial 2: Linux terminal & Bash
+
+# Linux terminal & Bash
 
 
 ## Learning objectives
@@ -528,6 +534,7 @@ More info about *Bash* basics from [GNU](https://www.gnu.org/software/bash/manua
 
 # More information
 
+- For a little command line refresher, you can visit the following site [Ryan's Linux & Bash Tutorial ](https://ryanstutorials.net/linuxtutorial/). Section 1 covers the command line, and [section 2 covers Navigation](https://ryanstutorials.net/linuxtutorial/navigation.php)
 - [Hands-on introduction to bash basics for beginners](https://news.opensuse.org/2014/06/10/command-line-tuesdays-part-one/)
 - [A great bash scripting tutorial](http://linuxconfig.org/bash-scripting-tutorial)
 - [An overview of terminal commands](http://beginlinux.com/twitter/1094-the-beginners-guide-to-the-ubuntu-terminal)
