@@ -346,7 +346,7 @@ exit()
 ### Hello, world Bash script 
 *Bash* is primarily a scripting language, so it would be a crime not to talk about scripting. Let's dive straight in with a *Bash* script. More precisely the infamous "Hello World" script. You can create a bash script by opening your favorite text editor to edit your script and then saving it (typically the `.sh` file extension is used for your reference, but is not required. In our example, we will be using the `.sh` extension).
 
-So let's get started. First, create a simple text file and call it `HelloWorld.sh`, save this in the `Bash` directory you just created, then add the following text and save. You can use the `gedit` editor, or use `rstudio` or `rkward` as a sort of text editor. In fact, `rstudio` makes it rather convenient to edit Bash scripts, exactly the same way as R scripts, including the ability to run commands line by line. It is also worth noting that there are even command-line text editors, like `nano`, which are useful for editing files that require administrative privileges.
+So let's get started. First, create a simple text file and call it `HelloWorld.sh`, save this in the `Bash` directory you just created, and add the following text. You can use the `gedit` editor, or use `rstudio` or `rkward` as a sort of text editor. In fact, `rstudio` makes it rather convenient to edit Bash scripts, exactly the same way as R scripts, including the ability to run commands line by line. It is also worth noting that there are even command-line text editors, like `nano`, which are useful for editing files that require administrative privileges.
 
 ![execute](figs/rstudioshell-vdi.jpg)
 
@@ -544,7 +544,7 @@ More info about *Bash* basics from [GNU](https://www.gnu.org/software/bash/manua
 - [Beginners guide to nano, the linux command line text editor](https://www.howtogeek.com/42980/the-beginners-guide-to-nano-the-linux-command-line-text-editor/)
 - [Learning the shell](http://linuxcommand.org/lc3_learning_the_shell.php)
 - [How to use pwd command in Linux](http://www.cyberciti.biz/faq/pwd-linux-unix-command-examples/)
-- For macOS users and introduction to use the terminal on macOS
+- For macOS users and introduction to use the terminal on macOS:
     - [Navigating the terminal a gentle introduction](http://computers.tutsplus.com/tutorials/navigating-the-terminal-a-gentle-introduction--mac-3855)
-    - [Learn the Mac OS X command line](http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line)
-    - [Is the terminal in Mac and Linux the same](https://stackoverflow.com/questions/8051145/is-the-terminal-in-mac-and-linux-the-same)
+    - [Learn the macOS command line](http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line)
+    - [Is the terminal in macOS and Linux the same](https://stackoverflow.com/questions/8051145/is-the-terminal-in-mac-and-linux-the-same)
