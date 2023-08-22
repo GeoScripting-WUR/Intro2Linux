@@ -457,7 +457,7 @@ You can run the script once it is *executable*:
 **Optional**: If you want to learn more about *Bash* scripting: [https://help.ubuntu.com/community/Beginners/BashScripting](https://help.ubuntu.com/community/Beginners/BashScripting)
 ```
 
-For the next section, let's download a file from the [Intro to raster](https://geoscripting-wur.github.io/IntroToRaster) tutorial. **Manually** download the `gewata.zip` file from Github ([link](https://github.com/GeoScripting-WUR/IntroToRaster/releases/download/tahiti/gewata.zip)) and unzip in a `data` directory you create. Then navigate to this directory in your terminal.
+For the next section, let's download a file from the [Intro to raster](https://geoscripting-wur.github.io/IntroToRaster) tutorial. **Manually** download the `gewata.zip` file from Github ([link](https://github.com/GeoScripting-WUR/IntroToRaster/releases/download/tahiti/gewata.zip)) and unzip in a `data` directory you create, you should have a [.TIF file](https://en.wikipedia.org/wiki/TIFF). Then navigate to this directory in your terminal.
 
 ## Using the GDAL library from the terminal
 
@@ -480,9 +480,9 @@ ls *.tif
 gdalinfo -nomd -norat -noct LE71700552001036SGS00_SR_Gewata_INT1U.tif
 ```
 
-You should now see some information about the raster file, for example the coordinate system, the cell size, and some statistics about the rasters bands.
+You should now see some information about the raster file, for example the coordinate system, the cell size, and some statistics about the raster bands.
 
-Now let's calculate the NDVI via GDAL terminal by using the `gdal_calc.py` script. See [GDAL_calc](http://www.gdal.org/gdal_calc.html) for more information.
+Now let's calculate the [NDVI](https://gisgeography.com/ndvi-normalized-difference-vegetation-index/) via GDAL terminal by using the `gdal_calc.py` script. See [GDAL_calc](http://www.gdal.org/gdal_calc.html) for more information.
 
 ```{r, engine='bash', eval=FALSE}
 cd data

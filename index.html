@@ -7,7 +7,7 @@
 
         <meta name="author" content="Jan Verbesselt and Dainius Masiliunas" />
     
-        <meta name="date" content="2023-08-21" />
+        <meta name="date" content="2023-08-22" />
     
     <title>Linux terminal &amp; Bash</title>
 
@@ -905,7 +905,7 @@ margin-left: 0 !important;
       <!-- html_clean authors -->
          <h4 class="author"><em>Jan Verbesselt and Dainius
 Masiliunas</em></h4>
-            <h4 class="date"><em>2023-08-21</em></h4>
+            <h4 class="date"><em>2023-08-22</em></h4>
       
       
    
@@ -1047,7 +1047,7 @@ time.</p>
 <p>Now, for us not to get the ‘command not found’ slap to the face,
 let’s try something simple. Type <code>date</code>.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">date</span></span></code></pre></div>
-<pre><code>## Mon Aug 21 03:26:55 AM EDT 2023</code></pre>
+<pre><code>## Tue Aug 22 04:45:44 AM EDT 2023</code></pre>
 <p>There you go. Why bother looking at your built-in calendar in the
 clock, when you can fire up your terminal and type <code>date</code>,
 and see what day it is! Just kidding, it’s a simple command, the more
@@ -1058,8 +1058,8 @@ month’s calendar.</p>
 free memory.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">free</span></span></code></pre></div>
 <pre><code>##                total        used        free      shared  buff/cache   available
-## Mem:         5021260     1933308     1174532      140580     1913420     2714068
-## Swap:        9374716           0     9374716</code></pre>
+## Mem:         5021264     2913036      114636      125712     1993592     1740248
+## Swap:        9374716         780     9373936</code></pre>
 <p>Or <code>df</code> (standing for “disk free”), to list free space on
 your drives.</p>
 <p>If you’re already in the type-only mood, you can enter the command
@@ -1691,8 +1691,9 @@ scripting: <a href="https://help.ubuntu.com/community/Beginners/BashScripting">h
 <p>For the next section, let’s download a file from the <a href="https://geoscripting-wur.github.io/IntroToRaster">Intro to
 raster</a> tutorial. <strong>Manually</strong> download the
 <code>gewata.zip</code> file from Github (<a href="https://github.com/GeoScripting-WUR/IntroToRaster/releases/download/tahiti/gewata.zip">link</a>)
-and unzip in a <code>data</code> directory you create. Then navigate to
-this directory in your terminal.</p>
+and unzip in a <code>data</code> directory you create, you should have a
+<a href="https://en.wikipedia.org/wiki/TIFF">.TIF file</a>. Then
+navigate to this directory in your terminal.</p>
 </div>
 </div>
 <div id="using-the-gdal-library-from-the-terminal" class="section level2">
@@ -1720,9 +1721,9 @@ the case with <code>TIF</code> files.</p>
 <span id="cb44-3"><a href="#cb44-3" tabindex="-1"></a><span class="ex">gdalinfo</span> <span class="at">-nomd</span> <span class="at">-norat</span> <span class="at">-noct</span> LE71700552001036SGS00_SR_Gewata_INT1U.tif</span></code></pre></div>
 <p>You should now see some information about the raster file, for
 example the coordinate system, the cell size, and some statistics about
-the rasters bands.</p>
-<p>Now let’s calculate the NDVI via GDAL terminal by using the
-<code>gdal_calc.py</code> script. See <a href="http://www.gdal.org/gdal_calc.html">GDAL_calc</a> for more
+the raster bands.</p>
+<p>Now let’s calculate the <a href="https://gisgeography.com/ndvi-normalized-difference-vegetation-index/">NDVI</a>
+via GDAL terminal by using the <code>gdal_calc.py</code> script. See <a href="http://www.gdal.org/gdal_calc.html">GDAL_calc</a> for more
 information.</p>
 <div class="sourceCode" id="cb45"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb45-1"><a href="#cb45-1" tabindex="-1"></a><span class="bu">cd</span> data</span>
 <span id="cb45-2"><a href="#cb45-2" tabindex="-1"></a><span class="fu">cp</span> LE71700552001036SGS00_SR_Gewata_INT1U.tif input.tif</span>
