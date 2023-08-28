@@ -10,6 +10,7 @@ output:
 ```{css, echo=FALSE}
 @import url("https://netdna.bootstrapcdn.com/bootswatch/3.0.0/simplex/bootstrap.min.css");
 .main-container {max-width: none;}
+div.figcaption {display: none;}
 pre {color: inherit; background-color: inherit;}
 code[class^="sourceCode"]::before {
   content: attr(class);
@@ -92,11 +93,11 @@ Here’s a diagram of what a linux root filesystem looks like:
 
 For example, as stated in the above picture, your user directory (where you usually store your movies, music, documents etc.) is located in the */home* directory. */home* directory is located under */*. Then you have the */etc* directory, where most of the files for configuration are located.
 
-The next command to look into is `pwd`. `pwd`, or ‘print working directory’, is a very useful command if you think you are lost navigating through the directories. At any given moment, type `pwd`, and voila! What appears is a complete pathway you took to arrive to this directory.
+The next command to look into is `pwd`. `pwd`, or ‘print working directory’, is a very useful command if you think you are lost navigating through the directories. At any given moment, type `pwd`, and voila! What appears is a complete pathway you took to arrive to this directory. 
 
-Imagine yourselves walking from room to room inside a massive apartment, losing your way. `pwd` is like the breadcrumb trail leading you to your starting point, so you don’t lose your way inside the directory maze!
+Imagine yourselves walking from room to room inside a massive apartment, losing your way. `pwd` is like the breadcrumb trail leading you to your starting point, so you don’t lose your way inside the directory maze! (Bonus: [How to use pwd command in Linux](http://www.cyberciti.biz/faq/pwd-linux-unix-command-examples/))
 
-Now you know in which directory you’re situated thanks to your usage of the `pwd` command. Now you want to take the next step and move to another directory. Let’s say you have a directory inside your home directory you want to relocate your top secret terminal operation to. For this, you use the `cd` command. `cd`, or ‘change directory’, will change the location of your working directory. How do you use it? Simple, type `cd` and the path to your directory. Let’s say, for example, you want to enter what is on WUR Windows computers known as your "M: drive" (or just a directory called `M`) in your home directory. You type `cd /home/username/M`.
+Now you know in which directory you’re situated thanks to your usage of the `pwd` command. Now you want to take the next step and move to another directory. Let’s say you have a directory inside your home directory you want to relocate your top secret terminal operation to. For this, you use the `cd` command. `cd`, or ‘change directory’, will change the location of your working directory. How do you use it? Simple, type `cd` and the path to your directory. Let’s say, for example, you want to enter what is on WUR Windows computers known as your "M: drive" (or just a directory called `M`) in your home directory. You type `cd /home/username/M`. 
 
 There are also some shortcuts available. If you type only `cd`, without the path following it, your terminal will change your working directory (whatever it may be) to your `/home` directory. Likewise, if you type `cd ~user_name`, it will lead you to the home directory of the specific user you stated.
 
@@ -317,7 +318,7 @@ Ubuntu uses *Aptitude* as the package manager. Here is a short list of the most 
 
 For instance, if you run `apt list chrom*`, one of the results will be `chromium-browser`. It's [Chromium](https://en.wikipedia.org/wiki/Chromium_(web_browser)), the open-source version of Google Chrome. You can install it by running `sudo apt install chromium-browser`. Similarly, the Ubuntu package repository contains a lot (but not all) of R packages (they are prefixed with `r-cran-`) and Python packages (prefixed with `python3-`; the ones prefixed with `python-` are for Python 2 which we will not be using this year). If there is a package available in the distribution repository, almost always it is better to use that instead of using a package manager built into the language (`install.packages` in R and `easyinstall`/`pip`/`conda` in Python).
 
-The aforementioned commands are specific to the Debian fabily of Linux distribution (of whom Ubuntu is a member). In other distributions, package manager syntax is different, but the result is the same. For instance, in openSUSE the equivalent commands would be `zypper search`, `sudo zypper install` and `sudo zypper remove`.
+The aforementioned commands are specific to the Debian family of Linux distribution (of whom Ubuntu is a member). In other distributions, package manager syntax is different, but the result is the same. For instance, in openSUSE the equivalent commands would be `zypper search`, `sudo zypper install` and `sudo zypper remove`.
 
 Whenever a package is not included in the distribution repository, one option is to look for additional software sources. Ubuntu allows users to maintain their own packages through a system called Personal Package Archives (PPA). However, these packages are not tested and are not guaranteed to work, or could even cause problems in the system, so you have to be careful. Other distributions also have their own third-party repository systems: openSUSE uses Open Build Service, Fedora uses Copr etc.
 
@@ -345,7 +346,7 @@ exit()
 ### Hello, world Bash script 
 *Bash* is primarily a scripting language, so it would be a crime not to talk about scripting. Let's dive straight in with a *Bash* script. More precisely the infamous "Hello World" script. You can create a bash script by opening your favorite text editor to edit your script and then saving it (typically the `.sh` file extension is used for your reference, but is not required. In our example, we will be using the `.sh` extension).
 
-So let's get started. First, go to the `Bash` directory you just created. Within this directory create a simple text file and call it `HelloWorld.sh`, then add the following text and save. You can use the `gedit` editor, or use `rstudio` or `rkward` as a sort of text editor. In fact, `rstudio` makes it rather convenient to edit Bash scripts, exactly the same way as R scripts, including the ability to run commands line by line. It is also worth noting that there are even command-line text editors, like `nano`, which are useful for editing files that require administrative privileges.
+So let's get started. First, create a simple text file and call it `HelloWorld.sh`, save this in the `Bash` directory you just created, and add the following text. You can use the `gedit` editor, or use `rstudio` or `rkward` as a sort of text editor. In fact, `rstudio` makes it rather convenient to edit Bash scripts, exactly the same way as R scripts, including the ability to run commands line by line. It is also worth noting that there are even command-line text editors, like `nano`, which are useful for editing files that require administrative privileges.
 
 ![execute](figs/rstudioshell-vdi.jpg)
 
@@ -456,7 +457,7 @@ You can run the script once it is *executable*:
 **Optional**: If you want to learn more about *Bash* scripting: [https://help.ubuntu.com/community/Beginners/BashScripting](https://help.ubuntu.com/community/Beginners/BashScripting)
 ```
 
-For the next section, let's download a file from the [Intro to raster](https://geoscripting-wur.github.io/IntroToRaster) tutorial. **Manually** download the `gewata.zip` file from Github ([link](https://github.com/GeoScripting-WUR/IntroToRaster/releases/download/tahiti/gewata.zip)) and unzip in a `data` directory you create. 
+For the next section, let's download a file from the [Intro to raster](https://geoscripting-wur.github.io/IntroToRaster) tutorial. **Manually** download the `gewata.zip` file from Github ([link](https://github.com/GeoScripting-WUR/IntroToRaster/releases/download/tahiti/gewata.zip)) and unzip in a `data` directory you create, you should have a [.TIF file](https://en.wikipedia.org/wiki/TIFF). Then navigate to this directory in your terminal.
 
 ## Using the GDAL library from the terminal
 
@@ -479,7 +480,9 @@ ls *.tif
 gdalinfo -nomd -norat -noct LE71700552001036SGS00_SR_Gewata_INT1U.tif
 ```
 
-Now let's calculate the NDVI via GDAL terminal by using the `gdal_calc.py` script. See [GDAL_calc](http://www.gdal.org/gdal_calc.html) for more information.
+You should now see some information about the raster file, for example the coordinate system, the cell size, and some statistics about the raster bands.
+
+Now let's calculate the [NDVI](https://gisgeography.com/ndvi-normalized-difference-vegetation-index/) via GDAL terminal by using the `gdal_calc.py` script. See [GDAL_calc](http://www.gdal.org/gdal_calc.html) for more information.
 
 ```{r, engine='bash', eval=FALSE}
 cd data
@@ -505,7 +508,7 @@ Let's now check if the range of the NDVI values makes sense, and make a nice scr
 ```{r, engine='bash', results='hide', eval=FALSE}
 #!/bin/bash
 echo "teamname"
-echo "14 January 2021"
+echo "Current date"
 echo "Calculate LandSat NDVI"
 mkdir -p data output
 fn=data/*.tif
@@ -534,15 +537,14 @@ More info about *Bash* basics from [GNU](https://www.gnu.org/software/bash/manua
 
 # More information
 
-- For a little command line refresher, you can visit the following site [Ryan's Linux & Bash Tutorial ](https://ryanstutorials.net/linuxtutorial/). Section 1 covers the command line, and [section 2 covers Navigation](https://ryanstutorials.net/linuxtutorial/navigation.php)
+- [Ryan's Linux & Bash Tutorial ](https://ryanstutorials.net/linuxtutorial/) goes into more depth but is also very handy to reference, and includes a [cheat sheet](https://ryanstutorials.net/linuxtutorial/cheatsheet.php) with commands. 
 - [Hands-on introduction to bash basics for beginners](https://news.opensuse.org/2014/06/10/command-line-tuesdays-part-one/)
 - [A great bash scripting tutorial](http://linuxconfig.org/bash-scripting-tutorial)
-- [An overview of terminal commands](http://beginlinux.com/twitter/1094-the-beginners-guide-to-the-ubuntu-terminal)
-- [http://www.howtogeek.com/140679/beginner-geek-how-to-start-using-the-linux-terminal/](http://www.howtogeek.com/140679/beginner-geek-how-to-start-using-the-linux-terminal/)
-- [http://www.howtogeek.com/howto/42980/the-beginners-guide-to-nano-the-linux-command-line-text-editor/](http://www.howtogeek.com/howto/42980/the-beginners-guide-to-nano-the-linux-command-line-text-editor/)
-- [http://linuxcommand.org/lc3_learning_the_shell.php](http://linuxcommand.org/lc3_learning_the_shell.php)
-- [http://www.cyberciti.biz/faq/pwd-linux-unix-command-examples/](http://www.cyberciti.biz/faq/pwd-linux-unix-command-examples/)
-- For macOS users and introduction to use the terminal on macOS
-    - [http://computers.tutsplus.com/tutorials/navigating-the-terminal-a-gentle-introduction--mac-3855](http://computers.tutsplus.com/tutorials/navigating-the-terminal-a-gentle-introduction--mac-3855)
-    - [http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line](http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line)
-    - [Is the terminal in Mac and Linux the same](https://stackoverflow.com/questions/8051145/is-the-terminal-in-mac-and-linux-the-same)
+- [Basic terminal usage and installing software](http://www.howtogeek.com/140679/beginner-geek-how-to-start-using-the-linux-terminal/)
+- [Beginners guide to nano, the linux command line text editor](https://www.howtogeek.com/42980/the-beginners-guide-to-nano-the-linux-command-line-text-editor/)
+- [Learning the shell](http://linuxcommand.org/lc3_learning_the_shell.php)
+- [How to use pwd command in Linux](http://www.cyberciti.biz/faq/pwd-linux-unix-command-examples/)
+- For macOS users and introduction to use the terminal on macOS:
+    - [Navigating the terminal a gentle introduction](http://computers.tutsplus.com/tutorials/navigating-the-terminal-a-gentle-introduction--mac-3855)
+    - [Learn the macOS command line](http://blog.teamtreehouse.com/introduction-to-the-mac-os-x-command-line)
+    - [Is the terminal in macOS and Linux the same](https://stackoverflow.com/questions/8051145/is-the-terminal-in-mac-and-linux-the-same)
