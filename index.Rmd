@@ -265,7 +265,20 @@ rm dest_file
 **Tip**: Bash has a feature called Tab-completion. If you start writing a command or filename, pressing the `Tab` key a couple of times will give a list of suggestions for auto-completion. This is super-handy so that you never need to write filenames etc. In addition, you can recall the last commands you entered by using the up arrow key. Lastly, you can always open multiple terminals, even in tabs, by using *File* → *Open Tab*.
 ```
 
+To recap so far, here's a list of most common commands:
+
+- `pwd`: show your current working directory
+- `cd`: change directory
+- `cd ..`: move up one directory
+- `mkdir`: create directory
+- `rm` or `rm -R`: delete files or directories
+- `sudo`: running programs as root (administrator/super-user), which may ask for your user pasword
+- `ls`: listing files in a directory
+- `cp`: copy files e.g. for backing up things or just copying. We will use these command in the scripts below.
+
 ## How to find help
+
+### Documentation and manuals
 
 Mostly every command has documentation that comes with it. So you’re somewhere doing your CLI thing, no access to the internet so you can’t bug people on the forums or IRC, and you need to find out how to exactly use a command. You can do it two ways. The first is the command `help`. The `help` command works with shell builtins, and not executable files. So you can pick a shell builtin, like `cd` or `time`, and simply type `help cd` or `help time`. You’ll get a helpful page printed out in your terminal, so go ahead and read what they have to offer. Here's another example:
 
@@ -287,20 +300,97 @@ To get more information about how to use a command, most executables come with a
 
 Manual pages are text files displayed in a pager program that allows easy scrolling. The default pager is `less`, which you have already used in the third exercise. You can also look at its manual page using `man less`. Also try `man intro`: the "Introduction to user commands", a well-written, fairly brief introduction to the Linux command line.
 
-To recap so far, here's a list of most common commands:
-
-- `pwd`: show your current working directory
-- `cd`: change directory
-- `cd ..`: move up one directory
-- `mkdir`: create directory
-- `rm` or `rm -R`: delete files or directories
-- `sudo`: running programs as root (administrator/super-user), which may ask for your user pasword
-- `ls`: listing files in a directory
-- `cp`: copy files e.g. for backing up things or just copying. We will use these command in the scripts below.
-
 ```{block, type="alert alert-info"}
 **Optional**: You can also read the [Ubuntu documentation on CLI](https://help.ubuntu.com/community/UsingTheTerminal) to learn more, and let us know if you have questions about some commands. 
 ```
+
+### Online resources
+
+Great, now we know how to find help about specific commands! But how do we know *how* and *what* to write in the first place? Even the most experienced programmers run into these questions, so it's important to know how to find answers to them.
+
+## Sources for help
+The most important helper is the R documentation. In the R console, just enter `?functionName` or `help(functionName)` to get the manual page of the function you are interested in.
+
+**Protip**: to get the help page for a reserved keyword, wrap it in backticks `` ` ``. For instance, to learn about how to define a function, you can run `` ?`function` ``. In addition, to cancel input for a running command (e.g. to get out of `?function`), press the `Esc` key.
+
+There are many places where help can be found on the internet. So in case the function or package documentation is not sufficient for what you are trying to achieve, a search engine like Google is your best friend. Most likely by searching the right key words relating to your problem, the search engine will direct you to the archive of the R mailing list, or to some discussions on [Stack Exchange](http://stackexchange.com/). These two are reliable sources of information, and it is quite likely that the problem you are trying to figure out has already been answered before.
+
+However, it may also happen that you discover a *bug* or something that you would qualify as abnormal behavior, or that you really have a question that no one has ever asked (corollary: has never been answered). In that case, you may submit a question to one of the R mailing list. For general R question there is a general [R mailing list](https://stat.ethz.ch/mailman/listinfo/r-help), while the spatial domain has its own mailing list ([R SIG GEO](https://stat.ethz.ch/mailman/listinfo/r-sig-geo)). Geo related questions should be posted to this latter mailing list.
+
+**Note**: these mailing lists have heavy mail traffic, use your mail client efficiently and set filters, otherwise it will quickly bother you.
+
+These mailing lists have a few rules, and it's important to respect them in order to ensure that:
+
+* no one gets offended by your question,
+* people who are able to answer the question are actually willing to do so,
+* you get the best quality answer.
+
+
+So, when posting to the mail list: 
+
+* Be courteous.
+* Provide a brief description of the problem and why you are trying to do that.
+* Provide a reproducible example that illustrate the problem, reproducing the eventual error.
+* Sign with your name and your affiliation.
+* Do not expect an immediate answer (although well presented questions often get answered fairly quickly).
+
+
+## Reproducible examples (reprex)
+
+Indispensable when asking a question to the online community, being able to write a reproducible example has many advantages:
+
+- It may ensure that when you present a problem, people are able to answer your question without guessing what you are trying to do. 
+- Reproducible examples are not only to ask questions; they may help you in your thinking, developing or debugging process when writing your own functions. 
+    - For instance, when developing a function to do a certain type of raster calculation, start by testing it on a small auto-generated RasterLayer object, and not directly on your actual data that might be covering the whole world.
+
+### Example of a reproducible example
+
+Well, one could define a reproducible example by:
+
+- A piece of code that can be executed by anyone who has R, independently of the data present on his machine or any preloaded variables. 
+- The computation time should not exceed a few seconds and if the code automatically downloads data, the data volume should be as small as possible.
+
+*So basically, if you can quickly start a R session on your neighbour's computer while he is on a break, copy-paste the code without making any adjustments and see almost immediately what you want to demonstrate; congratulations, you have created a reproducible example.*
+
+Let's illustrate this by an example.
+I want to perform value replacements of one raster layer, based on the values of another raster layer. (We haven't covered raster analysis in R as part of the course yet, but you will quickly understand that for certain operations rasters are analog to two-dimensional arrays.)
+
+```{r, fig.align='center'}
+## Create two RasterLayer objects of similar extent
+library(raster)
+r <- s <- raster(ncol=50, nrow=50)
+## Fill the raster with values
+r[] <- 1:ncell(r)
+s[] <- 2 * (1:ncell(s))
+s[200:400] <- 150
+s[50:150] <- 151
+## Perform the replacement
+r[s %in% c(150, 151)] <- NA
+## Visualise the result
+plot(r)
+```
+
+Once you have a reproducible example, you can make sure it's reproducible by using the [reprex package](https://www.tidyverse.org/help/). It will double-check for you that your code is reproducible and copy a neatly-formatted reprex into your clipboard, ready for sending it to others!
+
+Useful to know when writing a reproducible example: instead of generating your own small data sets (vectors or RasterLayers, etc) as part of your reproducible example, use some of R *built-in* data-sets. They are part of the main R packages.
+Some popular data sets are: `cars`, `meuse.grid_ll`, `Rlogo`, `iris`, etc. The [auto completion](http://en.wikipedia.org/wiki/Autocomplete) menu of the `data()` function will give you an overview of the data sets available.
+
+```{block, type="alert alert-info"}
+**Protip**: In most script editing environments, including the R console and RStudio, auto-completion can be invoked by pressing the tab key, use it without moderation.
+```
+
+```{r, echo=TRUE, fig.align='center'}
+## Import the variable "cars" in the working environment
+data(cars)
+class(cars)
+## Visualise the first six rows of the variable
+head(cars)
+# The plot function on this type of dataset (class = data.frame, 2 column)
+# automatically generates a scatterplot
+plot(cars)
+```
+
+### ChatGPT and generative AI
 
 ## Package installation and management
 
