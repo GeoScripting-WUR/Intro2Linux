@@ -308,51 +308,74 @@ Manual pages are text files displayed in a pager program that allows easy scroll
 
 Great, now we know how to find help about specific commands! But how do we know *how* and *what* to write in the first place? Even the most experienced programmers run into these questions, so it's important to know how to find answers to them.
 
-## Sources for help
-The most important helper is the R documentation. In the R console, just enter `?functionName` or `help(functionName)` to get the manual page of the function you are interested in.
+There are many places where help can be found on the internet. So in case the documentation is not sufficient for what you are trying to achieve, a search engine like Google is your best friend. Most likely by searching the right key words relating to your problem, the search engine will direct you to online documentation, a tutorial, or to some discussions on [Stack Exchange](https://stackexchange.com/). It is quite likely that the problem you are trying to figure out has already been answered before, and using these resources you should be able to solve your particular problem as well. However, you need to be critical about the information you find on the internet, as it may refer to old versions of the software you are using, or it may provide a workaround but not a real solution to the problem. And, of course, some of the solutions may simply not work for you.
 
-**Protip**: to get the help page for a reserved keyword, wrap it in backticks `` ` ``. For instance, to learn about how to define a function, you can run `` ?`function` ``. In addition, to cancel input for a running command (e.g. to get out of `?function`), press the `Esc` key.
+### ChatGPT and generative AI
 
-There are many places where help can be found on the internet. So in case the function or package documentation is not sufficient for what you are trying to achieve, a search engine like Google is your best friend. Most likely by searching the right key words relating to your problem, the search engine will direct you to the archive of the R mailing list, or to some discussions on [Stack Exchange](http://stackexchange.com/). These two are reliable sources of information, and it is quite likely that the problem you are trying to figure out has already been answered before.
+Another type of online resource that has recently been gaining in popularity is generative AI, such as ChatGPT. Generative AI models can be interacted with by asking it questions, including questions about programming. The AI responds by providing examples of code, explanations about what the code does, and how to run it. Of course, most AI solutions are not limited to code and will also answer questions on history, biology, quantum mechanics, and will even play Dungeons and Dragons with you, including throwing dice.
 
-However, it may also happen that you discover a *bug* or something that you would qualify as abnormal behavior, or that you really have a question that no one has ever asked (corollary: has never been answered). In that case, you may submit a question to one of the R mailing list. For general R question there is a general [R mailing list](https://stat.ethz.ch/mailman/listinfo/r-help), while the spatial domain has its own mailing list ([R SIG GEO](https://stat.ethz.ch/mailman/listinfo/r-sig-geo)). Geo related questions should be posted to this latter mailing list.
+Generative AI models can be a great tool to enhance learning, as they can quickly answer specific questions and give coding suggestions. However, many of the limitations of web search apply to generative AI models as well (in fact, most of these models are something of a smart web search engine, as they are trained on a lot of text found on the internet). Therefore, you need to be very critical of AI-generated answers. The code that the AI generates may seem like it would solve your problem, but it may also do something incorrectly, such as calling functions that are no longer available, or even making them up altogether. Many generative AI solutions, including ChatGPT, are unable to provide references for their statements, and when asked, will make up a list of references and links that do not exist in reality. They may also answer questions completely wrong, but the explanation that they provide usually sounds quite convincing, therefore it may mislead you or make you second-guess yourself. When generative AI models are confronted about a wrong answer, they often insist that it is correct, and the longer you talk with a generative AI, the more it will get facts mixed up with its own previous answers, as it remembers and learns from its own output.
 
-**Note**: these mailing lists have heavy mail traffic, use your mail client efficiently and set filters, otherwise it will quickly bother you.
+Generative AI tools can be chatbots, like ChatGPT, but they can also be tools that suggest code snippets as you write code, such as GitHub Copilot. The AI code suggestions are based on the same models and have the same pitfalls. But in addition, they may suggest code that was taken from software whose license is incompatible with the license of your own code, which could cause copyright issues. Some of the newer code suggestion models are able to provide references to where the code is sourced from, and the license it is under.
 
-These mailing lists have a few rules, and it's important to respect them in order to ensure that:
+Some of the currently active generative AI tools are:
+
+* [ChatGPT](https://chat.openai.com/) - the original chatbot that started the generative AI trend. Made by a team of top AI researchers that formed into a company. It is unable to provide real references of its statements, and is very often extremely overloaded due to its popularity.
+* [Perplexity](https://perplexity.ai/) - an alternative chatbot that is able to provide references for its statements (and you can even pick which ones it uses to give you answers). However, it still gives biased output and may get confused with its own answers.
+* [Bing AI](https://www.bing.com/?/ai) - Microsoft's version of ChatGPT. It can also provide references, but they are more phrased as Bing search terms.
+* [Google Bard](https://bard.google.com/) - Google's version of ChatGPT. Does not provide references, but is less overloaded compared to ChatGPT.
+* [Amazon Codewhisperer](https://aws.amazon.com/codewhisperer/) - code suggestion AI, free to use, but works only with some code editors.
+
+### Question and answer forums
+
+However, it may also happen that you discover a *bug* or something that you would qualify as abnormal behavior, or that you really have a question that no one has ever asked (corollary: has never been answered). In that case, you may submit a question to an appropriate Stack Exchange (e.g. [Unix & Linux for Bash questions](https://unix.stackexchange.com/), or contact the author of the package you are using (often by filing an issue on the package's GitHub page).
+
+Stack Exchange has a few rules, and it's important to respect them in order to ensure that:
 
 * no one gets offended by your question,
 * people who are able to answer the question are actually willing to do so,
 * you get the best quality answer.
 
 
-So, when posting to the mail list: 
+So, when posting to Stack Exchange: 
 
 * Be courteous.
 * Provide a brief description of the problem and why you are trying to do that.
 * Provide a reproducible example that illustrate the problem, reproducing the eventual error.
-* Sign with your name and your affiliation.
 * Do not expect an immediate answer (although well presented questions often get answered fairly quickly).
 
 
-## Reproducible examples (reprex)
+### Reproducible examples (reprex)
 
 Indispensable when asking a question to the online community, being able to write a reproducible example has many advantages:
 
 - It may ensure that when you present a problem, people are able to answer your question without guessing what you are trying to do. 
 - Reproducible examples are not only to ask questions; they may help you in your thinking, developing or debugging process when writing your own functions. 
-    - For instance, when developing a function to do a certain type of raster calculation, start by testing it on a small auto-generated RasterLayer object, and not directly on your actual data that might be covering the whole world.
+    - For instance, when developing a function to do a certain type of raster calculation, start by testing it on a small subset file, and not directly on your actual data that might be covering the whole world.
 
-### Example of a reproducible example
+One could define a reproducible example by:
 
-Well, one could define a reproducible example by:
-
-- A piece of code that can be executed by anyone who has R, independently of the data present on his machine or any preloaded variables. 
+- A piece of code that can be executed by anyone who can run the programming language you are using, independently of the data present on their machine or any preloaded variables. 
 - The computation time should not exceed a few seconds and if the code automatically downloads data, the data volume should be as small as possible.
 
-*So basically, if you can quickly start a R session on your neighbour's computer while he is on a break, copy-paste the code without making any adjustments and see almost immediately what you want to demonstrate; congratulations, you have created a reproducible example.*
+*So basically, if you can quickly start a terminal on your neighbour's computer while he is on a break, copy-paste the code without making any adjustments and see almost immediately what you want to demonstrate; congratulations, you have created a reproducible example.*
 
 Let's illustrate this by an example.
+
+I want to move all directories with Star Wars film subtitles to the directory `../starwars`, but not move any of the Star Trek directories. Here is a piece of code that can recreate my directory structure:
+
+```{bash, eval=FALSE}
+mkdir -p films/{"the phantom menace","attack of the clones","revenge of the sith","a new hope","the empire strikes back","return of the jedi",\
+"the motion picture","the wrath of khan","the search for spock","the voyage home","the final frontier","the undiscovered country","generations","first contact","insurrection","nemesis"} starwars
+cd films
+
+# I tried this, but it did not move the phantom menace, a new hope and the empire strikes back
+mv *\ t* ../starwars
+```
+
+As you can see from this example, the problem is reproduced on any computer that is running Bash, and the changes are restricted to creating two directories, namely, `films` and `starwars`, which are easy to clean up afterwards.
+
+<!--
 I want to perform value replacements of one raster layer, based on the values of another raster layer. (We haven't covered raster analysis in R as part of the course yet, but you will quickly understand that for certain operations rasters are analog to two-dimensional arrays.)
 
 ```{r, fig.align='center'}
@@ -369,6 +392,7 @@ r[s %in% c(150, 151)] <- NA
 ## Visualise the result
 plot(r)
 ```
+
 
 Once you have a reproducible example, you can make sure it's reproducible by using the [reprex package](https://www.tidyverse.org/help/). It will double-check for you that your code is reproducible and copy a neatly-formatted reprex into your clipboard, ready for sending it to others!
 
@@ -389,8 +413,7 @@ head(cars)
 # automatically generates a scatterplot
 plot(cars)
 ```
-
-### ChatGPT and generative AI
+-->
 
 ## Package installation and management
 
