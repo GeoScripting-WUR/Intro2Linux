@@ -375,46 +375,6 @@ mv *\ t* ../starwars
 
 As you can see from this example, the problem is reproduced on any computer that is running Bash, and the changes are restricted to creating two directories, namely, `films` and `starwars`, which are easy to clean up afterwards.
 
-<!--
-I want to perform value replacements of one raster layer, based on the values of another raster layer. (We haven't covered raster analysis in R as part of the course yet, but you will quickly understand that for certain operations rasters are analog to two-dimensional arrays.)
-
-```{r, fig.align='center'}
-## Create two RasterLayer objects of similar extent
-library(raster)
-r <- s <- raster(ncol=50, nrow=50)
-## Fill the raster with values
-r[] <- 1:ncell(r)
-s[] <- 2 * (1:ncell(s))
-s[200:400] <- 150
-s[50:150] <- 151
-## Perform the replacement
-r[s %in% c(150, 151)] <- NA
-## Visualise the result
-plot(r)
-```
-
-
-Once you have a reproducible example, you can make sure it's reproducible by using the [reprex package](https://www.tidyverse.org/help/). It will double-check for you that your code is reproducible and copy a neatly-formatted reprex into your clipboard, ready for sending it to others!
-
-Useful to know when writing a reproducible example: instead of generating your own small data sets (vectors or RasterLayers, etc) as part of your reproducible example, use some of R *built-in* data-sets. They are part of the main R packages.
-Some popular data sets are: `cars`, `meuse.grid_ll`, `Rlogo`, `iris`, etc. The [auto completion](http://en.wikipedia.org/wiki/Autocomplete) menu of the `data()` function will give you an overview of the data sets available.
-
-```{block, type="alert alert-info"}
-**Protip**: In most script editing environments, including the R console and RStudio, auto-completion can be invoked by pressing the tab key, use it without moderation.
-```
-
-```{r, echo=TRUE, fig.align='center'}
-## Import the variable "cars" in the working environment
-data(cars)
-class(cars)
-## Visualise the first six rows of the variable
-head(cars)
-# The plot function on this type of dataset (class = data.frame, 2 column)
-# automatically generates a scatterplot
-plot(cars)
-```
--->
-
 ## Package installation and management
 
 One of the greatest advantages of Linux distributions over other OSs is the package manager. Even if you never used Linux before, you are probably already using a package manager on your mobile device: The App Store, Google Play Store and Windows Store are all package managers, modelled after the Linux ones. A package manager is a central system for downloading, installing and removing software.
