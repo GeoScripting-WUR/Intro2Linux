@@ -69,7 +69,7 @@ Now, press the up arrow, and you’ll see the previous command reappear. What’
 
 Now, for us not to get the ‘command not found’ slap to the face, let’s try something simple. Type `date`.
 
-```{bash}
+```{bash, eval=FALSE}
 date
 ```
 
@@ -77,7 +77,7 @@ There you go. Why bother looking at your built-in calendar in the clock, when yo
 
 You may also try `free`, and it will display the amount of free memory.
 
-```{bash}
+```{bash, eval=FALSE}
 free
 ```
 
@@ -129,10 +129,10 @@ An *argument* is an object upon which the command operates (in this case, it wil
 
 So, let’s try out `ls`, and use it on the `/etc` directory in the root of the filesystem. This time, without any options.
 
-```{bash, results="hide"}
+```{bash, eval=FALSE}
 ls /etc
 ```
-```{bash, echo=FALSE}
+```{bash, eval=FALSE}
 ls /etc | head
 ```
 
@@ -140,10 +140,10 @@ There you go, a whole bunch of files. It also sorts them by colours. The blue on
 
 Next, you can use the same command, but with an option `-l` added. Option `-l` will list the same files and directories, but in a *long format*. In case you need more information:
 
-```{bash, results="hide"}
+```{bash, eval=FALSE}
 ls -l /etc
 ```
-```{bash, echo=FALSE}
+```{bash, eval=FALSE}
 ls -l /etc | head
 ```
 
@@ -175,7 +175,7 @@ The name `less` is a pun on the word `more`, which is a much more basic tool for
 
 The `file` command will show what kind of file is that you’re looking for, be it ASCII text, a jpg image, a bash script etc. As we performed our exercise with `/etc/os-release`, let’s use it here also.
 
-```{bash}
+```{bash, eval=FALSE}
 file /etc/os-release
 ```
 
@@ -183,37 +183,37 @@ There you go, now you know what `os-release` is. Incidentally, it may be either 
 
 Next, we have the commands `type` and `which`. Like `file`, they give information on the type, but they operate on commands instead of files. `which` tells you where you can find the executable that is run if you type in a command. Let's try it on the command `file`:
 
-```{bash}
+```{bash, eval=FALSE}
 which file
 ```
 
 Now we know that when we run `file`, Bash executes the program `/usr/bin/file`. How about `cd`?
 
-```{bash, error=TRUE}
+```{bash, eval=FALSE}
 which cd
 ```
 
 What?! It seems that there is no such executable! This is because it is so common, it's built into Bash itself. `type` is a bit more clever than `which` and tells you whether a command is an executable file, or a command built into Bash itself. Let's see what it says about `cd`:
 
-```{bash}
+```{bash, eval=FALSE}
 type cd
 ```
 
 In some cases, you might have both available. Let's take a look at the command `time` that is used to measure how long a command runs for:
 
-```{bash}
+```{bash, eval=FALSE}
 type time
 ```
 
 It is also built into Bash itself. But there is another command called `time` that is an actual executable:
 
-```{bash}
+```{bash, eval=FALSE}
 which time
 ```
 
 Because the shell prefers builtins compared to executables, when you run `time` you will run the builtin version, rather than the executable version. But you can reach the executable version (which is more feature-rich!) by calling it with its absolute path:
 
-```{bash}
+```{bash, eval=FALSE}
 /usr/bin/time -V
 ```
 
@@ -282,7 +282,7 @@ To recap so far, here's a list of most common commands:
 
 Mostly every command has documentation that comes with it. So you’re somewhere doing your CLI thing, no access to the internet so you can’t bug people on the forums or IRC, and you need to find out how to exactly use a command. You can do it two ways. The first is the command `help`. The `help` command works with shell builtins, and not executable files. So you can pick a shell builtin, like `cd` or `time`, and simply type `help cd` or `help time`. You’ll get a helpful page printed out in your terminal, so go ahead and read what they have to offer. Here's another example:
 
-```{bash}
+```{bash, eval=FALSE}
 help help
 ```
 
@@ -476,13 +476,13 @@ The first line of the script just defines which interpreter to use (and where it
 
 To find out where your `bash` interpreter is located type the following in the terminal (this works also on a Mac terminal!):
 
-```{bash}
+```{bash, eval=FALSE}
 type bash
 ```
 
 Second, to run a bash script you first have to have the correct file permissions. We do this with `chmod` (change mode) command in terminal as follows:
 
-```{r, eval=FALSE, engine='bash'}
+```{bash, eval=FALSE}
 chmod u+x Bash/HelloWorld.sh  # Gives your user execute permissions
 ```
 
@@ -492,7 +492,7 @@ chmod u+x Bash/HelloWorld.sh  # Gives your user execute permissions
 
 Below is a summary of what we have done in the terminal:
 
-```{r, eval=FALSE, engine='bash'}
+```{bash, eval=FALSE}
 echo "Go to the Bash directory"
 cd Bash
 echo "Check that the file is there using the ls command:"
@@ -515,7 +515,7 @@ Hopefully you should have seen it print `Hello, World` onto your screen. If so w
 **Note**: we can also run Bash code from R using the `system()` function that can invoke an OS command:
 ```
 
-```{r, echo=TRUE, message=TRUE}
+```{r, eval=FALSE, message=TRUE}
 # R code
 setwd("Bash/") # Set the working directory in R
 print(system("./HelloWorld.sh", intern = TRUE)) # Execute this command in Bash
@@ -534,13 +534,13 @@ Rscript some-r-script-file.R
 
 Variables basically store information. You set variables like this (you can type this in the terminal). 
 
-```{bash}
+```{bash, eval=FALSE}
 var="FOO"
 ```
 
 `var` can be anything you want as long as it doesn't begin with a number. "FOO" can be anything you want. There **cannot be any space** in between the `=` sign! To access the information from the variable you need to put a '$' in front of it like this:
 
-```{bash}
+```{bash, eval=FALSE}
 echo $var
 ```
 
@@ -578,7 +578,7 @@ GDAL is a very powerful and fast processing library written in C/C++ for raster 
 
 Type the following in the `data` directory: (Note: You can write a shell script to do the following commands below but first type in the commands via the terminal to understand what is happening.)
 
-```{bash}
+```{bash, eval=FALSE}
 echo "the current GDAL version is:"
 gdal-config --version
 ```
