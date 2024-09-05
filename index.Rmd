@@ -589,7 +589,7 @@ rm input.tif
 ```{block, type="alert alert-success"}
 > **Question 6**: Try to write to calculate the NDVI using the lines above in a nice and short shell script.
 
-- Hint 1: `cd ../data` (to move back from the Bash directory and move into the data directory)
+- Hint 1: use `cd ..` to move to the parent directory
 - Hint 2: No spaces in file names are allowed and try to use variables e.g. `fn=$(ls *.tif)`
 
 ```
@@ -601,7 +601,7 @@ Let's now check if the range of the NDVI values makes sense, and make a nice scr
 echo "teamname"
 echo "Current date"
 echo "Calculate LandSat NDVI"
-mkdir -p data output
+mkdir -p output
 fn=data/*.tif
 echo "The input file(s): $fn"
 outfn=output/ndvi.tif
