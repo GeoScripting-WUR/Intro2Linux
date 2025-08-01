@@ -51,7 +51,7 @@ A *terminal* is just a gateway to the world of CLIs, but through it you interact
 *Bash* shell scripting, like also *R* or *Python*, allows multiple commands to be combined, facilitating automation. A shell script (shell program) is a text file that contains commands that are interpreted by the shell (see below, we will learn how to write a shell script). Each command can be linked in a script to combine several commands by providing the output of one as input to the other. Shell scripts can also contain the control structures common to the majority of programming languages (i.e. variables, logic constructs, looping constructs, functions and comments). The main distinction between shell programs and those written in C, C++, Java (to name but a few) is that shell programs are not compiled for execution, but are readily interpreted by the shell.
 
 ```{block, type="alert alert-success"}
-> **Question 2**: What is a shell script?
+> **Question 2**: What is a shell script? What is Bash? And what is terminal?
 ```
 
 *Bash* is not only the default shell on Linux, but also macOS, and there are versions of *Bash* that run on Windows too. It is included with Git for Windows, and in Windows 10 *Bash* is even included by default with the [*Windows Subsystem for Linux*](https://msdn.microsoft.com/en-us/commandline/wsl/about). However, without the wealth of CLI programs that Linux distributions come with, *Bash* functionality is fairly limited.
@@ -159,7 +159,7 @@ So for example, if we have a file which in long format displays: `-rw-r--r--`, i
 Next option for `ls` is `ls -la ..` - this will list all of the files, as in a usual command, hidden files are not shown. It will list all files in the parent of the working directory in long format.
 
 ```{block, type="alert alert-success"}
-> **Question 3**: What is the difference between `ls -l`, `ls -lh` and `ls -lh \-\-si`? *Hint: you can run `man ls` to inspect the meaning of different options* 
+> **Question 3**: What is the difference between `ls -l`, `ls -lh` and `ls -lh \-\-si`? *Hint: try running each command in the terminal and observe the differences in the output. You can also run `man ls` to inspect the meaning of different options.* 
 ```
 
 ## Getting information about files
@@ -247,21 +247,19 @@ It should now look like this:
 ![mkdir](figs/mkdir-vdi.png)
 
 
-Now, try out the commands that you learned:
+Now, try typing the following commands in the terminal, run them, and observe what they do:
 
 - make a directory and remove it (e.g. `mkdir namedirectory` and `rmdir namedirectory` or `rm -r namedirectory`).
-- create an *R* script via `rstudio` or `rkward`, and then remove it via the terminal using `rm filename.R`.
-- create another file and copy it and then remove it, etc.:
+- create an *R* script via `touch` (e.g. `touch filename.R`; you can also use `rstudio` or `rkward` to start R to create *R* script).
+- then copy it (e.g. `cp filename.R newname.R`).
+- then remove it (e.g. `rm newname.R`).
+- use `ls` commands and its options to check content in current directory.
 
-```{r, eval=FALSE, engine='bash'}
-cp source_file dest_file
-rm dest_file
+```{block, type="alert alert-info"}SS
+**Tip**: Bash has a feature called Tab-completion. If you start writing a command or filename, pressing the `Tab` key a couple of times will give a list of suggestions for auto-completion. This is super-handy so that you never need to write filenames etc. In addition, you can recall the last commands you entered by using the up arrow key. Lastly, you can always open multiple terminals, even in tabs, by using *File* → *Open Tab*, or the little sheltered plus mark on the top left corner of terminal.
 ```
-
-- use `ls` commands and its options.
-
-```{block, type="alert alert-info"}
-**Tip**: Bash has a feature called Tab-completion. If you start writing a command or filename, pressing the `Tab` key a couple of times will give a list of suggestions for auto-completion. This is super-handy so that you never need to write filenames etc. In addition, you can recall the last commands you entered by using the up arrow key. Lastly, you can always open multiple terminals, even in tabs, by using *File* → *Open Tab*.
+```{block, type="alert alert-success"}
+> **Question 4**: What command line would you need if you want to move all R files in a directory into its parent directory?
 ```
 
 To recap so far, here's a list of most common commands:
@@ -270,8 +268,9 @@ To recap so far, here's a list of most common commands:
 - `cd`: change directory
 - `cd ..`: move up one directory
 - `mkdir`: create directory
+- `touch`: basic command used to change file timestamps or create an empty file if it doesn't exist
 - `rm` or `rm -R`: delete files or directories
-- `sudo`: running programs as root (administrator/super-user), which may ask for your user pasword
+- `sudo`: running programs as root (administrator/super-user), which may ask for your user password
 - `ls`: listing files in a directory
 - `cp`: copy files e.g. for backing up things or just copying. We will use these command in the scripts below.
 
@@ -394,6 +393,14 @@ Ubuntu uses *Aptitude* as the package manager. Here is a short list of the most 
 
 For instance, if you run `apt list chrom*`, one of the results will be `chromium-browser`. It's [Chromium](https://en.wikipedia.org/wiki/Chromium_(web_browser)), the open-source version of Google Chrome. You can install it by running `sudo apt install chromium-browser`. Similarly, the Ubuntu package repository contains a lot (but not all) of R packages (they are prefixed with `r-cran-`) and Python packages (prefixed with `python3-`; the ones prefixed with `python-` are for Python 2 which is deprecated). If there is a package available in the distribution repository, almost always it is better to use that instead of using a package manager built into the language (`install.packages` in R and `easyinstall`/`pip`/`conda` in Python).
 
+Now, let's install a package from the terminal, which we will later use to create our Bash script:
+
+```{bash, eval=FALSE}
+sudo apt install gedit
+```
+
+You will be prompted to enter your password — this is the same as your login password for the virtual machine. The installation may take a moment but should complete quickly!
+
 The aforementioned commands are specific to the Debian family of Linux distribution (of whom Ubuntu is a member). In other distributions, package manager syntax is different, but the result is the same. For instance, in openSUSE the equivalent commands would be `zypper search`, `sudo zypper install` and `sudo zypper remove`.
 
 Whenever a package is not included in the distribution repository, one option is to look for additional software sources. Ubuntu allows users to maintain their own packages through a system called Personal Package Archives (PPA). However, these packages are not tested and are not guaranteed to work, or could even cause problems in the system, so you have to be careful. Other distributions also have their own third-party repository systems: openSUSE uses Open Build Service, Fedora uses Copr etc.
@@ -419,10 +426,14 @@ exit()
 
 ## Scripting in the terminal
 
+So far, you've been running commands directly in the terminal, one at a time. But what if you want to automate a sequence of commands or reuse them later? That’s where Bash scripts come in — they allow you to store a series of commands in a file and run them all at once, just like a simple program.
+
 ### Hello, world Bash script 
 *Bash* is primarily a scripting language, so it would be a crime not to talk about scripting. Let's dive straight in with a *Bash* script. More precisely the infamous "Hello World" script. You can create a bash script by opening your favorite text editor to edit your script and then saving it (typically the `.sh` file extension is used for your reference, but is not required. In our example, we will be using the `.sh` extension).
 
-So let's get started. First, create a simple text file and call it `HelloWorld.sh`, save this in the `Bash` directory you just created, and add the following text. You can use the `gedit` editor, or use `rstudio` or `rkward` as a sort of text editor. In fact, `rstudio` makes it rather convenient to edit Bash scripts, exactly the same way as R scripts, including the ability to run commands line by line. It is also worth noting that there are even command-line text editors, like `nano`, which are useful for editing files that require administrative privileges.
+So let's get started. First, create a simple text file and call it `HelloWorld.sh`, save this in the `Bash` directory you just created, and add the following text. You can use `gedit` editor we just installed, or use `rstudio` or `rkward` as a sort of text editor. In fact, `rstudio` makes it rather convenient to edit Bash scripts, exactly the same way as R scripts, including the ability to run commands line by line. It is also worth noting that there are even command-line text editors, like `nano`, which are useful for editing files that require administrative privileges. 
+
+Paste this piece of code into an editor you choose and save it:
 
 ![execute](figs/rstudioshell-vdi.jpg)
 
@@ -448,14 +459,15 @@ The first is have to set the correct file permissions.
 We do this with `chmod` (change mode) command in terminal as follows, this needs to be done only once per file:
 
 ```{bash, eval=FALSE}
-chmod u+x Bash/HelloWorld.sh  # Gives your user execute permissions
+ls -l # Check what's the current permissions
+chmod u+x HelloWorld.sh  # Gives your user execute permissions
 ```
 
 ```{block, type="alert alert-info"}
 **Optional**: [More info about `chmod`](https://help.ubuntu.com/community/FilePermissions) for your future reference. Note: today is just an introduction to let you know what is possible so that you can find your way easier in the future.
 ```
 
-In this case, we can then proceed to run the script directly:
+In this case, we can then proceed to run the script directly in the terminal:
 
 ```{bash, eval=FALSE}
 ./HelloWorld.sh
@@ -474,7 +486,7 @@ Below is a summary of what we have done in the terminal:
 echo "Go to the Bash directory"
 cd Bash
 echo "Check that the file is there using the ls command:"
-ls
+ls -l
 echo "Then change the permissions:"
 chmod u+x HelloWorld.sh
 echo "We can now run our first Bash script:"
@@ -486,7 +498,7 @@ Hopefully you should have seen it print `Hello, World` onto your screen. If so w
 ![BashScript](figs/Scripting-vdi.jpg)
 
 ```{block, type="alert alert-success"}
-> **Question 4**: In the first option above, why do we add `./` in front of the Bash script name? What happens if you don't? Why?
+> **Question 5**: In the first option above, why do we add `./` in front of the Bash script name? What happens if you don't? Why?
 ```
 
 ```{block, type="alert alert-info"}
@@ -510,13 +522,13 @@ Rscript some-r-script-file.R
 
 ### Bash script with a variable
 
-Variables basically store information. You set variables like this (you can type this in the terminal). 
+Variables basically store information. You set variables like this (you can type this in the terminal, no space in between!). 
 
 ```{bash, eval=FALSE}
 var="FOO"
 ```
 
-`var` can be anything you want as long as it doesn't begin with a number. "FOO" can be anything you want. There **cannot be any space** in between the `=` sign! To access the information from the variable you need to put a '$' in front of it like this:
+`var` can be anything you want as long as it doesn't begin with a number. "FOO" can be anything you want. There **cannot be any space** in between the `=` sign! To access the information from the variable you need to put a '$' in front of it like this (again, this can be done after following the previous line in script or in terminal):
 
 ```{bash, eval=FALSE}
 echo $var
@@ -541,14 +553,14 @@ You can run the script once it is *executable*:
 ```
 
 ```{block, type="alert alert-success"}
-> **Question 5**: Try it out yourself, and try to do a calculation of e.g. a + b as input variables. Hint: [Shell-tips](https://www.shell-tips.com/2010/06/14/performing-math-calculation-in-bash/)
+> **Question 6**: Try it out yourself, and try to do a calculation of e.g. a + b as input variables. Hint: [Shell-tips](https://www.shell-tips.com/2010/06/14/performing-math-calculation-in-bash/)
 ```
 
 ```{block, type="alert alert-info"}
 **Optional**: If you want to learn more about *Bash* scripting: [https://help.ubuntu.com/community/Beginners/BashScripting](https://help.ubuntu.com/community/Beginners/BashScripting)
 ```
 
-For the next section, let's download a file from the [Intro to raster](https://geoscripting-wur.github.io/IntroToRaster) tutorial. **Manually** download the `gewata.zip` file from Github ([link](https://github.com/GeoScripting-WUR/IntroToRaster/releases/download/tahiti/gewata.zip)) and unzip in a `data` directory you create, you should have a [.TIF file](https://en.wikipedia.org/wiki/TIFF). Then navigate to this directory in your terminal.
+For the next section, let's download a file from the [Intro to raster](https://geoscripting-wur.github.io/IntroToRaster) tutorial. **Manually** download the `gewata.zip` file from Github ([link](https://github.com/GeoScripting-WUR/IntroToRaster/releases/download/tahiti/gewata.zip)). Create a `data` directory and unzip it there, you should have a [.TIF file](https://en.wikipedia.org/wiki/TIFF). Then navigate to this directory in your terminal.
 
 ## Using the GDAL library from the terminal
 
@@ -573,7 +585,7 @@ gdalinfo -nomd -norat -noct LE71700552001036SGS00_SR_Gewata_INT1U.tif
 
 You should now see some information about the raster file, for example the coordinate system, the cell size, and some statistics about the raster bands.
 
-Now let's calculate the [NDVI](https://gisgeography.com/ndvi-normalized-difference-vegetation-index/) via GDAL terminal by using the `gdal_calc.py` script. See [GDAL_calc](http://www.gdal.org/gdal_calc.html) for more information.
+Now let's calculate the [NDVI](https://gisgeography.com/ndvi-normalized-difference-vegetation-index/) by running the following command line by line in terminal. The calculation is done via GDAL command by using the `gdal_calc.py` script. See [GDAL_calc](http://www.gdal.org/gdal_calc.html) for more information.
 
 ```{r, engine='bash', eval=FALSE}
 cd data
@@ -587,14 +599,14 @@ rm input.tif
 ```
 
 ```{block, type="alert alert-success"}
-> **Question 6**: Try to write to calculate the NDVI using the lines above in a nice and short shell script.
+> **Question 7**: Try to write to calculate the NDVI using the lines above in a nice and short shell script.
 
 - Hint 1: use `cd ..` to move to the parent directory
 - Hint 2: No spaces in file names are allowed and try to use variables e.g. `fn=$(ls *.tif)`
 
 ```
 
-Let's now check if the range of the NDVI values makes sense, and make a nice script in a separate file (this will work only if you have one .TIF file in the data directory):
+Let's now check if the range of the NDVI values makes sense, and make a nice script from the following code block in a separate file (this will work only if you have one .TIF file in the data directory, as `fn=$(ls *.tif)` will get you all the tif files in the directory):
 
 ```{r, engine='bash', results='hide', eval=FALSE}
 #!/bin/bash
@@ -602,7 +614,7 @@ echo "teamname"
 echo "Current date"
 echo "Calculate LandSat NDVI"
 mkdir -p output
-fn=data/*.tif
+fn=data/*.tif 
 echo "The input file(s): $fn"
 outfn=output/ndvi.tif
 echo "The output file: $outfn"
