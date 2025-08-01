@@ -414,7 +414,7 @@ So far, you've been running commands directly in the terminal, one at a time. Bu
 ### Hello, world Bash script 
 *Bash* is primarily a scripting language, so it would be a crime not to talk about scripting. Let's dive straight in with a *Bash* script. More precisely the infamous "Hello World" script. You can create a bash script by opening your favorite text editor to edit your script and then saving it (typically the `.sh` file extension is used for your reference, but is not required. In our example, we will be using the `.sh` extension).
 
-So let's get started. First, create a simple text file and call it `HelloWorld.sh`, save this in the `Bash` directory you just created, and add the following text. You can use `gedit` editor we just installed, or use `rstudio` or `rkward` as a sort of text editor. In fact, `rstudio` makes it rather convenient to edit Bash scripts, exactly the same way as R scripts, including the ability to run commands line by line. It is also worth noting that there are even command-line text editors, like `nano`, which are useful for editing files that require administrative privileges. 
+So let's get started. First, create a simple text file and call it `HelloWorld.sh`, save this in the `Bash` directory you just created, and add the following text. While `gedit`, the package we just installed, is used as the main example for editing files, you can also use `rstudio` or `rkward` as an alternative text editor if you prefer. In fact, `rstudio` makes it rather convenient to edit Bash scripts, exactly the same way as R scripts, including the ability to run commands line by line. It is also worth noting that there are even command-line text editors, like `nano`, which are useful for editing files that require administrative privileges. 
 
 Paste this piece of code into an editor you choose and save it:
 
@@ -485,7 +485,7 @@ Hopefully you should have seen it print `Hello, World` onto your screen. If so w
 ```
 
 ```{block, type="alert alert-info"}
-**Note**: we can also run Bash code from R using the `system()` function that can invoke an OS command:
+**Note**: optinally, we can also run Bash code from R using the `system()` function that can invoke an OS command:
 ```
 
 ```{r, eval=FALSE, message=TRUE}
@@ -502,6 +502,9 @@ print(system("./HelloWorld.sh", intern = TRUE)) # Execute this command in Bash
 Rscript some-r-script-file.R
 ```
 
+```{block, type="alert alert-info"}
+**Note**: In this lesson, to keep things simple, we'll use `gedit` and RStudio as text editors to edit scripts, and run them only from the terminal.
+```
 
 ### Bash script with a variable
 
