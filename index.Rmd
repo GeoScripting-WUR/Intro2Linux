@@ -255,7 +255,7 @@ Now, try typing the following commands in the terminal, run them, and observe wh
 - then remove it (e.g. `rm newname.R`).
 - use `ls` commands and its options to check content in current directory.
 
-```{block, type="alert alert-info"}SS
+```{block, type="alert alert-info"}
 **Tip**: Bash has a feature called Tab-completion. If you start writing a command or filename, pressing the `Tab` key a couple of times will give a list of suggestions for auto-completion. This is super-handy so that you never need to write filenames etc. In addition, you can recall the last commands you entered by using the up arrow key. Lastly, you can always open multiple terminals, even in tabs, by using *File* → *Open Tab*, or the little sheltered plus mark on the top left corner of terminal.
 ```
 ```{block, type="alert alert-success"}
@@ -307,9 +307,6 @@ Manual pages are text files displayed in a pager program that allows easy scroll
 Great, now we know how to find help about specific commands! But how do we know *how* and *what* to write in the first place? Even the most experienced programmers run into these questions, so it's important to know how to find answers to them.
 
 There are many places where help can be found on the internet. So in case the documentation is not sufficient for what you are trying to achieve, a search engine like Google is your best friend. Most likely by searching the right key words relating to your problem, the search engine will direct you to online documentation, a tutorial, or to some discussions on [Stack Exchange](https://stackexchange.com/). It is quite likely that the problem you are trying to figure out has already been answered before, and using these resources you should be able to solve your particular problem as well. However, you need to be critical about the information you find on the internet, as it may refer to old versions of the software you are using, or it may provide a workaround but not a real solution to the problem. And, of course, some of the solutions may simply not work for you.
-
-Another increasingly popular category of resources is generative AI — tools that can help generate or explain code. As covered in the previous tutorial, this includes chatbots like ChatGPT, and autocomplete tools like GitHub Copilot. These tools can be helpful, but they should be used thoughtfully and critically.
-
 
 ### Question and answer forums
 
@@ -600,7 +597,7 @@ echo "teamname"
 echo "Current date"
 echo "Calculate LandSat NDVI"
 mkdir -p output
-fn=data/*.tif 
+fn=data/*.tif
 echo "The input file(s): $fn"
 outfn=output/ndvi.tif
 echo "The output file: $outfn"
