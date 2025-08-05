@@ -7,7 +7,7 @@
 
         <meta name="author" content="Jan Verbesselt and Dainius Masiliunas" />
     
-        <meta name="date" content="2025-08-01" />
+        <meta name="date" content="2025-08-05" />
     
     <title>Linux terminal &amp; Bash</title>
 
@@ -905,7 +905,7 @@ margin-left: 0 !important;
       <!-- html_clean authors -->
          <h4 class="author"><em>Jan Verbesselt and Dainius
 Masiliunas</em></h4>
-            <h4 class="date"><em>2025-08-01</em></h4>
+            <h4 class="date"><em>2025-08-05</em></h4>
       
       
    
@@ -1353,7 +1353,18 @@ observe what they do:</p>
 <li>use <code>ls</code> commands and its options to check content in
 current directory.</li>
 </ul>
-<code>{block, type=&quot;alert alert-info&quot;}SS **Tip**: Bash has a feature called Tab-completion. If you start writing a command or filename, pressing the `Tab` key a couple of times will give a list of suggestions for auto-completion. This is super-handy so that you never need to write filenames etc. In addition, you can recall the last commands you entered by using the up arrow key. Lastly, you can always open multiple terminals, even in tabs, by using *File* → *Open Tab*, or the little sheltered plus mark on the top left corner of terminal.</code>
+<div class="alert alert-info">
+<p>
+<strong>Tip</strong>: Bash has a feature called Tab-completion. If you
+start writing a command or filename, pressing the <code>Tab</code> key a
+couple of times will give a list of suggestions for auto-completion.
+This is super-handy so that you never need to write filenames etc. In
+addition, you can recall the last commands you entered by using the up
+arrow key. Lastly, you can always open multiple terminals, even in tabs,
+by using <em>File</em> → <em>Open Tab</em>, or the little sheltered plus
+mark on the top left corner of terminal.
+</p>
+</div>
 <div class="alert alert-success">
 <blockquote>
 <p>
@@ -1451,11 +1462,6 @@ critical about the information you find on the internet, as it may refer
 to old versions of the software you are using, or it may provide a
 workaround but not a real solution to the problem. And, of course, some
 of the solutions may simply not work for you.</p>
-<p>Another increasingly popular category of resources is generative AI —
-tools that can help generate or explain code. As covered in the previous
-tutorial, this includes chatbots like ChatGPT, and autocomplete tools
-like GitHub Copilot. These tools can be helpful, but they should be used
-thoughtfully and critically.</p>
 </div>
 <div id="question-and-answer-forums" class="section level3">
 <h3>Question and answer forums</h3>
@@ -1844,7 +1850,7 @@ directory):</p>
 <span id="cb37-3"><a href="#cb37-3" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;Current date&quot;</span></span>
 <span id="cb37-4"><a href="#cb37-4" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;Calculate LandSat NDVI&quot;</span></span>
 <span id="cb37-5"><a href="#cb37-5" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> output</span>
-<span id="cb37-6"><a href="#cb37-6" tabindex="-1"></a><span class="va">fn</span><span class="op">=</span>data/<span class="pp">*</span>.tif </span>
+<span id="cb37-6"><a href="#cb37-6" tabindex="-1"></a><span class="va">fn</span><span class="op">=</span>data/<span class="pp">*</span>.tif</span>
 <span id="cb37-7"><a href="#cb37-7" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;The input file(s): </span><span class="va">$fn</span><span class="st">&quot;</span></span>
 <span id="cb37-8"><a href="#cb37-8" tabindex="-1"></a><span class="va">outfn</span><span class="op">=</span>output/ndvi.tif</span>
 <span id="cb37-9"><a href="#cb37-9" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;The output file: </span><span class="va">$outfn</span><span class="st">&quot;</span></span>
