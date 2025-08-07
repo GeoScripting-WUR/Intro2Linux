@@ -274,9 +274,7 @@ To recap so far, here's a list of most common commands:
 - `ls`: listing files in a directory
 - `cp`: copy files e.g. for backing up things or just copying. We will use these command in the scripts below.
 
-## How to find help
-
-### Documentation and manuals
+## Find help with documentation and manuals
 
 Mostly every command has documentation that comes with it. So you’re somewhere doing your CLI thing, no access to the internet so you can’t bug people on the forums or IRC, and you need to find out how to exactly use a command. You can do it two ways. The first is the command `help`. The `help` command works with shell builtins, and not executable files. So you can pick a shell builtin, like `cd` or `time`, and simply type `help cd` or `help time`. You’ll get a helpful page printed out in your terminal, so go ahead and read what they have to offer. Here's another example:
 
@@ -302,60 +300,6 @@ Manual pages are text files displayed in a pager program that allows easy scroll
 **Optional**: You can also read the [Ubuntu documentation on CLI](https://help.ubuntu.com/community/UsingTheTerminal) to learn more, and let us know if you have questions about some commands. 
 ```
 
-### Online resources
-
-Great, now we know how to find help about specific commands! But how do we know *how* and *what* to write in the first place? Even the most experienced programmers run into these questions, so it's important to know how to find answers to them.
-
-There are many places where help can be found on the internet. So in case the documentation is not sufficient for what you are trying to achieve, a search engine like Google is your best friend. Most likely by searching the right key words relating to your problem, the search engine will direct you to online documentation, a tutorial, or to some discussions on [Stack Exchange](https://stackexchange.com/). It is quite likely that the problem you are trying to figure out has already been answered before, and using these resources you should be able to solve your particular problem as well. However, you need to be critical about the information you find on the internet, as it may refer to old versions of the software you are using, or it may provide a workaround but not a real solution to the problem. And, of course, some of the solutions may simply not work for you.
-
-### Question and answer forums
-
-However, it may also happen that you discover a *bug* or something that you would qualify as abnormal behavior, or that you really have a question that no one has ever asked (corollary: has never been answered). In that case, you may submit a question to an appropriate Stack Exchange (e.g. [Unix & Linux for Bash questions](https://unix.stackexchange.com/), or contact the author of the package you are using (often by filing an issue on the package's GitHub page).
-
-Stack Exchange has a few rules, and it's important to respect them in order to ensure that:
-
-* no one gets offended by your question,
-* people who are able to answer the question are actually willing to do so,
-* you get the best quality answer.
-
-
-So, when posting to Stack Exchange: 
-
-* Be courteous.
-* Provide a brief description of the problem and why you are trying to do that.
-* Provide a reproducible example that illustrate the problem, reproducing the eventual error.
-* Do not expect an immediate answer (although well presented questions often get answered fairly quickly).
-
-
-### Reproducible examples (reprex)
-
-Indispensable when asking a question to the online community, being able to write a reproducible example has many advantages:
-
-- It may ensure that when you present a problem, people are able to answer your question without guessing what you are trying to do. 
-- Reproducible examples are not only to ask questions; they may help you in your thinking, developing or debugging process when writing your own functions. 
-    - For instance, when developing a function to do a certain type of raster calculation, start by testing it on a small subset file, and not directly on your actual data that might be covering the whole world.
-
-One could define a reproducible example by:
-
-- A piece of code that can be executed by anyone who can run the programming language you are using, independently of the data present on their machine or any preloaded variables. 
-- The computation time should not exceed a few seconds and if the code automatically downloads data, the data volume should be as small as possible.
-
-*So basically, if you can quickly start a terminal on your neighbour's computer while he is on a break, copy-paste the code without making any adjustments and see almost immediately what you want to demonstrate; congratulations, you have created a reproducible example.*
-
-Let's illustrate this by an example.
-
-I want to move all directories with Star Wars film subtitles to the directory `../starwars`, but not move any of the Star Trek directories. Here is a piece of code that can recreate my directory structure:
-
-```{bash, eval=FALSE}
-mkdir -p films/{"the phantom menace","attack of the clones","revenge of the sith","a new hope","the empire strikes back","return of the jedi",\
-"the motion picture","the wrath of khan","the search for spock","the voyage home","the final frontier","the undiscovered country","generations","first contact","insurrection","nemesis"} starwars
-cd films
-
-# I tried this, but it did not move the phantom menace, a new hope and the empire strikes back
-mv *\ t* ../starwars
-```
-
-As you can see from this example, the problem is reproduced on any computer that is running Bash, and the changes are restricted to creating two directories, namely, `films` and `starwars`, which are easy to clean up afterwards.
 
 ## Package installation and management
 
