@@ -1,6 +1,6 @@
 ## Intro2Linux
 
-Lesson 9: Introduction to Linux and using the terminal
+Lesson 2: Introduction to Linux and using the terminal
 * Bash
 * Shell script
 * How to use GDAL from the terminal
