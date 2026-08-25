@@ -23,7 +23,7 @@ code[class^="sourceCode python"]::before { content: "Python Source"; }
 code[class^="sourceCode bash"]::before { content: "Bash Source"; }
 ```
 
-<font size="6">[WUR Geoscripting](https://geoscripting-wur.github.io/)</font> <img src="https://www.wur.nl/upload/854757ab-168f-46d7-b415-f8b501eebaa5_WUR_RGB_standard_2021-site.svg" alt="WUR logo" style="height: 35px; margin:inherit;"/>
+<font size="6">[WUR Geoscripting](https://geoscripting-wur.github.io/)</font> <img src="https://geoscripting-wur.github.io/figs/WUR_RGB_standard_2025.svg" alt="WUR logo" style="height: 50px;"/>
 
 
 # Linux terminal & Bash
@@ -72,7 +72,7 @@ Now, for us not to get the ‘command not found’ slap to the face, let’s try
 date
 ```
 
-There you go. Why bother looking at your built-in calendar in the clock, when you can fire up your terminal and type `date`, and see what day it is! Just kidding, it’s a simple command, the more useful/difficult ones are coming up next. The related command to `date` is `cal` – it will display the current month’s calendar.
+There you go. Why bother looking at your built-in calendar in the clock, when you can fire up your terminal and type `date`, and see what day it is! Just kidding, it’s a simple command, the more useful/difficult ones are coming up next. 
 
 You may also try `free`, and it will display the amount of free memory.
 
@@ -100,7 +100,7 @@ Now you know in which directory you’re situated thanks to your usage of the `p
 
 There are also some shortcuts available. If you type only `cd`, without the path following it, your terminal will change your working directory (whatever it may be) to your `/home` directory. Likewise, if you type `cd ~user_name`, it will lead you to the home directory of the specific user you stated.
 
-Try it out yourself. Navigate to a different directory using `cd`, and when there, type `pwd` to see if everything worked as it is supposed to. Once you're done, you should have something like this displayed in your terminal:
+Try it out yourself. Navigate to a different directory using `cd`, and when there, type `pwd` to see if everything worked as it is supposed to. Once you're done, you should have something like this displayed in your terminal (cd**..** moves you to the parent directory (one level above your current directory), the ~ represents your home directory):
 
 ![cdpwd](figs/cd_pwd.png)
 
@@ -126,13 +126,13 @@ We already stated above the purpose of an *option*. But note that it should be w
 
 An *argument* is an object upon which the command operates (in this case, it will be directories, as we are learning how to navigate through them).
 
-So, let’s try out `ls`, and use it on the `/etc` directory in the root of the filesystem. This time, without any options.
+So, let’s try out `ls`, and use it on the `/etc` directory in the root of the filesystem. This time, without any options (with *head*, we can show only the first 10 lines).
 
 ```{bash, eval=FALSE}
 ls /etc
 ```
 ```{bash, eval=FALSE}
-ls /etc | head
+ls /etc | head 
 ```
 
 There you go, a whole bunch of files. It also sorts them by colours. The blue ones are directories, the white ones are regular files, the green ones are executable files. There are more colours, as they represent different file types.
@@ -355,7 +355,7 @@ So far, you've been running commands directly in the terminal, one at a time. Bu
 ### Hello, world Bash script 
 *Bash* is primarily a scripting language, so it would be a crime not to talk about scripting. Let's dive straight in with a *Bash* script. More precisely the infamous "Hello World" script. You can create a bash script by opening your favorite text editor to edit your script and then saving it (typically the `.sh` file extension is used for your reference, but is not required. In our example, we will be using the `.sh` extension).
 
-So let's get started. First, create a simple text file and call it `HelloWorld.sh`, save this in the `Bash` directory you just created, and add the following text. While `gedit`, the package we just installed, is used as the main example for editing files, you can also use `rstudio` or `rkward` as an alternative text editor if you prefer. In fact, `rstudio` makes it rather convenient to edit Bash scripts, exactly the same way as R scripts, including the ability to run commands line by line. It is also worth noting that there are even command-line text editors, like `nano`, which are useful for editing files that require administrative privileges. 
+So let's get started. First, create a simple text file (e.g. in TextEditor) and call it `HelloWorld.sh`, save this in the `Bash` directory you just created, and add the following text. While `gedit`, the package we just installed, is used as the main example for editing files, you can also use `rstudio` or `rkward` as an alternative text editor if you prefer. In fact, `rstudio` makes it rather convenient to edit Bash scripts, exactly the same way as R scripts, including the ability to run commands line by line. It is also worth noting that there are even command-line text editors, like `nano`, which are useful for editing files that require administrative privileges. 
 
 Paste this piece of code into an editor you choose and save it:
 
@@ -380,7 +380,7 @@ type bash
 
 Second, to run a bash script, you have two options.
 The first is have to set the correct file permissions.
-We do this with `chmod` (change mode) command in terminal as follows, this needs to be done only once per file:
+We do this with `chmod` (change mode) command in terminal as follows, this needs to be done only once per file (you might have to change the directory first):
 
 ```{bash, eval=FALSE}
 ls -l # Check what's the current permissions
@@ -487,7 +487,7 @@ You can run the script once it is *executable*:
 **Optional**: If you want to learn more about *Bash* scripting: [https://help.ubuntu.com/community/Beginners/BashScripting](https://help.ubuntu.com/community/Beginners/BashScripting)
 ```
 
-For the next section, let's download a file from the [Intro to raster](https://geoscripting-wur.github.io/IntroToRaster) tutorial. **Manually** download the `gewata.zip` file from Github ([link](https://github.com/GeoScripting-WUR/IntroToRaster/releases/download/tahiti/gewata.zip)). Create a `data` directory and unzip it there, you should have a [.TIF file](https://en.wikipedia.org/wiki/TIFF). Then navigate to this directory in your terminal.
+For the next section, let's download a file from the [Intro to raster](https://geoscripting-wur.github.io/IntroToRaster) tutorial. **Manually** download the `gewata.zip` file from Github ([link](https://github.com/GeoScripting-WUR/IntroToRaster/releases/download/tahiti/gewata.zip)). Create a directory named `data` and unzip it there, you should have a [.TIF file](https://en.wikipedia.org/wiki/TIFF). Then navigate to this directory in your terminal.
 
 ## Using the GDAL library from the terminal
 
