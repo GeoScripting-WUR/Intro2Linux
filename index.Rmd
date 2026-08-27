@@ -64,7 +64,7 @@ Now, fire up your terminal. You get a line, stating your user name and the machi
 
 Most likely the system doesn't have the command you typed in! Random doesn't work: you need to remember (or look up) commands to use them!
 
-Now, press the up arrow, and you’ll see the previous command reappear. What’s this sorcery? The up arrow key on your keyboard is for accessing the command history. The terminal saves up to 500 commands you entered, so to not type them over and over, you can look for them with the up/down arrow. The left and right arrows are for moving the cursor within a specific line, so you can edit the text in between. The terminals were designed to work with a keyboard, so you can't use your mouse to move the cursor, but you can use the Home key to go to the beginning of the line, and the End key to go to the end. Now there’s another thing – **Ctrl+V** for pasting text **doesn’t work**. You can set it up as a shortcut somewhere, but it’s usually something else, e.g. Ctrl+Shift+Insert. But you can always paste if you right-click on the terminal, and it usually tells you what is the keyboard shortcut to do so, so that you don't need the mouse every time.
+Now, press the up arrow, and you’ll see the previous command reappear. What’s this sorcery? The up arrow key on your keyboard is for accessing the command history. The terminal saves up to 500 commands you entered, so to not type them over and over, you can look for them with the up/down arrow. The left and right arrows are for moving the cursor within a specific line, so you can edit the text in between. The terminals were designed to work with a keyboard, so you can't use your mouse to move the cursor, but you can use the Home key to go to the beginning of the line, and the End key to go to the end. Now there’s another thing – **Ctrl+V** for pasting text **doesn’t work**. You can set it up as a shortcut somewhere, but it’s usually something else, e.g. Ctrl+Shift+V. But you can always paste if you right-click on the terminal, and it usually tells you what is the keyboard shortcut to do so, so that you don't need the mouse every time.
 
 Now, for us not to get the ‘command not found’ slap to the face, let’s try something simple. Type `date`.
 
@@ -72,7 +72,8 @@ Now, for us not to get the ‘command not found’ slap to the face, let’s try
 date
 ```
 
-There you go. Why bother looking at your built-in calendar in the clock, when you can fire up your terminal and type `date`, and see what day it is! Just kidding, it’s a simple command, the more useful/difficult ones are coming up next. The related command to `date` is `cal` – it will display the current month’s calendar.
+There you go. Why bother looking at your built-in calendar in the clock, when you can fire up your terminal and type `date`, and see what day it is! Just kidding, it’s a simple command, the more useful/difficult ones are coming up next.
+<!-- The related command to `date` is `cal` – it will display the current month’s calendar. -->
 
 You may also try `free`, and it will display the amount of free memory.
 
@@ -86,7 +87,7 @@ If you’re already in the type-only mood, you can enter the command `exit` to g
 
 ## Navigation through the file system
 
-Here’s a diagram of what a linux root filesystem looks like:
+Here’s a diagram of what a Linux root filesystem looks like:
 
 ![Filesystem Hierarchy Standard](https://configureinstantly.files.wordpress.com/2011/01/file-system.jpg)
 
@@ -98,7 +99,7 @@ Imagine yourselves walking from room to room inside a massive apartment, losing 
 
 Now you know in which directory you’re situated thanks to your usage of the `pwd` command. Now you want to take the next step and move to another directory. Let’s say you have a directory inside your home directory you want to relocate your top secret terminal operation to. For this, you use the `cd` command. `cd`, or ‘change directory’, will change the location of your working directory. How do you use it? Simple, type `cd` and the path to your directory. Let’s say, for example, you want to enter what is on WUR Windows computers known as your "M: drive" (or just a directory called `M`) in your home directory. You type `cd /home/username/M`. 
 
-There are also some shortcuts available. If you type only `cd`, without the path following it, your terminal will change your working directory (whatever it may be) to your `/home` directory. Likewise, if you type `cd ~user_name`, it will lead you to the home directory of the specific user you stated.
+There are also some shortcuts available. If you type only `cd`, without the path following it, your terminal will change your working directory (whatever it may be) to your `/home/username` directory. Likewise, if you type `cd ~user_name`, it will lead you to the home directory of the specific user you stated.
 
 Try it out yourself. Navigate to a different directory using `cd`, and when there, type `pwd` to see if everything worked as it is supposed to. Once you're done, you should have something like this displayed in your terminal:
 
@@ -146,7 +147,7 @@ ls -l /etc
 ls -l /etc | head
 ```
 
-So, using the long format, you see much more information, and some crazy looking signs like `-rw-r–r–` at the beginning of all lines. Actually, here’s a scheme, representing what all of the given information actually means:
+So, using the long format, you see much more information, and some crazy looking signs like `-rw-r--r--` at the beginning of all lines. Actually, here’s a scheme, representing what all of the given information actually means:
 
 ![Key to ls -l output](https://news.opensuse.org/wp-content/uploads/2014/06/Screenshot-30.-06.-2014-184829.png)
 
@@ -164,7 +165,7 @@ Next option for `ls` is `ls -la ..` - this will list all of the files, as in a u
 
 ## Getting information about files
 
-`less` is a command which will display a text file and let you scroll through it. For example, you’re looking for text file `os-release` in `/etc`. You have succesfully found it there with `ls /etc`, and now you want to read it. You just use `less /etc/os-release`.
+`less` is a command which will display a text file and let you scroll through it. For example, you’re looking for text file `os-release` in `/etc`. You have successfully found it there with `ls /etc`, and now you want to read it. You just use `less /etc/os-release`.
 
 How do you control `less`? Easy, with your keyboard!
 
@@ -256,7 +257,7 @@ Now, try typing the following commands in the terminal, run them, and observe wh
 - use `ls` commands and its options to check content in current directory.
 
 ```{block, type="alert alert-info"}
-**Tip**: Bash has a feature called Tab-completion. If you start writing a command or filename, pressing the `Tab` key a couple of times will give a list of suggestions for auto-completion. This is super-handy so that you never need to write filenames etc. In addition, you can recall the last commands you entered by using the up arrow key. Lastly, you can always open multiple terminals, even in tabs, by using *File* → *Open Tab*, or the little sheltered plus mark on the top left corner of terminal.
+**Tip**: Bash has a feature called Tab-completion. If you start writing a command or filename, pressing the `Tab` key a couple of times will give a list of suggestions for auto-completion. This is super-handy so that you never need to write filenames etc. In addition, you can recall the last commands you entered by using the up arrow key. Lastly, you can always open multiple terminals, even in tabs, by clicking the little sheltered plus mark on the top left corner of terminal.
 ```
 ```{block, type="alert alert-success"}
 > **Question 4**: What command line would you need if you want to move all R files in a directory into its parent directory?
@@ -272,7 +273,7 @@ To recap so far, here's a list of most common commands:
 - `rm` or `rm -R`: delete files or directories
 - `sudo`: running programs as root (administrator/super-user), which may ask for your user password
 - `ls`: listing files in a directory
-- `cp`: copy files e.g. for backing up things or just copying. We will use these command in the scripts below.
+- `cp`: copy files e.g. for backing up things or just copying. We will use these commands in the scripts below.
 
 ## Find help with documentation and manuals
 
@@ -325,7 +326,7 @@ sudo apt install gedit
 
 You will be prompted to enter your password — this is the same as your login password for the virtual machine. The installation may take a moment but should complete quickly!
 
-The aforementioned commands are specific to the Debian family of Linux distribution (of whom Ubuntu is a member). In other distributions, package manager syntax is different, but the result is the same. For instance, in openSUSE the equivalent commands would be `zypper search`, `sudo zypper install` and `sudo zypper remove`.
+The aforementioned commands are specific to the Debian family of Linux distributions (of whom Ubuntu is a member). In other distributions, package manager syntax is different, but the result is the same. For instance, in openSUSE the equivalent commands would be `zypper search`, `sudo zypper install` and `sudo zypper remove`.
 
 Whenever a package is not included in the distribution repository, one option is to look for additional software sources. Ubuntu allows users to maintain their own packages through a system called Personal Package Archives (PPA). However, these packages are not tested and are not guaranteed to work, or could even cause problems in the system, so you have to be careful. Other distributions also have their own third-party repository systems: openSUSE uses Open Build Service, Fedora uses Copr etc.
 
@@ -333,10 +334,10 @@ If a package doesn't exist in third party repositories either, there is often th
 
 ## Starting R or Python from the terminal
 
-Starting and stopping R from the terminal (this is the same as the R console you know from *RStudio*/*RKWard*):
+Starting and stopping R from the terminal (this is the same as the R console you know from *Positron*/*RStudio*/*RKWard*):
 ```{r, engine='bash', eval=FALSE}
 R # just type R and then q() to exit
-q()
+q() # answer whether to save the workspace image (y) or not (n)
 ```
 
 ![RinTerminal](figs/RinTerminal-vdi.jpg)
@@ -355,7 +356,7 @@ So far, you've been running commands directly in the terminal, one at a time. Bu
 ### Hello, world Bash script 
 *Bash* is primarily a scripting language, so it would be a crime not to talk about scripting. Let's dive straight in with a *Bash* script. More precisely the infamous "Hello World" script. You can create a bash script by opening your favorite text editor to edit your script and then saving it (typically the `.sh` file extension is used for your reference, but is not required. In our example, we will be using the `.sh` extension).
 
-So let's get started. First, create a simple text file and call it `HelloWorld.sh`, save this in the `Bash` directory you just created, and add the following text. While `gedit`, the package we just installed, is used as the main example for editing files, you can also use `rstudio` or `rkward` as an alternative text editor if you prefer. In fact, `rstudio` makes it rather convenient to edit Bash scripts, exactly the same way as R scripts, including the ability to run commands line by line. It is also worth noting that there are even command-line text editors, like `nano`, which are useful for editing files that require administrative privileges. 
+So let's get started. First, create a simple text file and call it `HelloWorld.sh`, save this in the `Bash` directory you just created, and add the following text. While `gedit`, the package we just installed, is used as the main example for editing files, you can also use `positron`, `rstudio` or `rkward` as an alternative text editor if you prefer. In fact, `positron` makes it rather convenient to edit Bash scripts, exactly the same way as R scripts, including the ability to run commands line by line (Ctrl+Enter). It is also worth noting that there are even command-line text editors, like `nano`, which are useful for editing files that require administrative privileges. 
 
 Paste this piece of code into an editor you choose and save it:
 
@@ -379,7 +380,7 @@ type bash
 ```
 
 Second, to run a bash script, you have two options.
-The first is have to set the correct file permissions.
+The first is to set the correct file permissions.
 We do this with `chmod` (change mode) command in terminal as follows, this needs to be done only once per file:
 
 ```{bash, eval=FALSE}
@@ -417,7 +418,7 @@ echo "We can now run our first Bash script:"
 ./HelloWorld.sh
 ```
 
-Hopefully you should have seen it print `Hello, World` onto your screen. If so well done! That is your first *Bash* script (see below for a screenshot):
+Hopefully you should have seen it print `Hello, World` onto your screen. If so, well done! That is your first *Bash* script (see below for a screenshot):
 
 ![BashScript](figs/Scripting-vdi.jpg)
 
@@ -426,7 +427,7 @@ Hopefully you should have seen it print `Hello, World` onto your screen. If so w
 ```
 
 ```{block, type="alert alert-info"}
-**Note**: optinally, we can also run Bash code from R using the `system()` function that can invoke an OS command:
+**Note**: optionally, we can also run Bash code from R using the `system()` function that can invoke an OS command:
 ```
 
 ```{r, eval=FALSE, message=TRUE}
@@ -444,7 +445,7 @@ Rscript some-r-script-file.R
 ```
 
 ```{block, type="alert alert-info"}
-**Note**: In this lesson, to keep things simple, we'll use `gedit` and RStudio as text editors to edit scripts, and run them only from the terminal.
+**Note**: In this lesson, to keep things simple, we'll use `gedit` and Positron as text editors to edit scripts, and run them only from the terminal.
 ```
 
 ### Bash script with a variable
@@ -487,7 +488,7 @@ You can run the script once it is *executable*:
 **Optional**: If you want to learn more about *Bash* scripting: [https://help.ubuntu.com/community/Beginners/BashScripting](https://help.ubuntu.com/community/Beginners/BashScripting)
 ```
 
-For the next section, let's download a file from the [Intro to raster](https://geoscripting-wur.github.io/IntroToRaster) tutorial. **Manually** download the `gewata.zip` file from Github ([link](https://github.com/GeoScripting-WUR/IntroToRaster/releases/download/tahiti/gewata.zip)). Create a `data` directory and unzip it there, you should have a [.TIF file](https://en.wikipedia.org/wiki/TIFF). Then navigate to this directory in your terminal.
+For the next section, let's download a file from the [Intro to raster](https://geoscripting-wur.github.io/IntroToRaster) tutorial. **Manually** download the `gewata.zip` file from GitHub ([link](https://github.com/GeoScripting-WUR/IntroToRaster/releases/download/tahiti/gewata.zip)). Create a `data` directory and unzip it there, you should have a [.TIF file](https://en.wikipedia.org/wiki/TIFF). Then navigate to this directory in your terminal.
 
 ## Using the GDAL library from the terminal
 
@@ -497,30 +498,31 @@ Type the following in the `data` directory: (Note: You can write a shell script 
 
 ```{bash, eval=FALSE}
 echo "the current GDAL version is:"
-gdal-config --version
+gdal --version
 ```
 
-One of the easiest and most useful commands in GDAL is `gdalinfo`. When given an image as an argument, it retrieves and prints all relevant information that is known about the file. This is especially useful if the image contains additional tag data, as is the case with `TIF` files.
-
-Using gdalinfo:
+GDAL recently introduced a unified command-line interface, `gdal`, which consolidates many
+separate utilities under one command with subcommands.
+One of the easiest and most useful subcommands for working with raster data is `gdal raster info`. When given an image as an argument, it retrieves and prints all relevant information that is known about the file. This is especially useful if the image contains additional tag data, as is the case with `TIF` files.
 
 ```{r, eval = FALSE, engine='bash'}
 cd data
 ls *.tif
-gdalinfo -nomd -norat -noct LE71700552001036SGS00_SR_Gewata_INT1U.tif
+gdal raster info --no-md --no-ct LE71700552001036SGS00_SR_Gewata_INT1U.tif
 ```
 
 You should now see some information about the raster file, for example the coordinate system, the cell size, and some statistics about the raster bands.
 
-Now let's calculate the [NDVI](https://gisgeography.com/ndvi-normalized-difference-vegetation-index/) by running the following command line by line in terminal. The calculation is done via GDAL command by using the `gdal_calc.py` script. See [GDAL_calc](http://www.gdal.org/gdal_calc.html) for more information.
+Now let's calculate the [NDVI](https://gisgeography.com/ndvi-normalized-difference-vegetation-index/) by running the following command line by line in the terminal. The calculation is done via the subcommand `gdal raster calc`.
+See [gdal raster calc](https://gdal.org/en/stable/programs/gdal_raster_calc.html) for more information.
 
 ```{r, engine='bash', eval=FALSE}
 cd data
 cp LE71700552001036SGS00_SR_Gewata_INT1U.tif input.tif
 echo "* all files in the directory"
 ls
-echo "* now apply gdal_calc: Command line raster calculator with numpy syntax"
-gdal_calc.py -A input.tif --A_band=4 -B input.tif --B_band=3  --outfile=ndvi.tif  --calc="(A.astype(float)-B)/(A.astype(float)+B)" --type='Float32'
+echo "* now calculate NDVI using gdal raster calc"
+gdal raster calc -i A=input.tif --calc="(A[4]-A[3])/(A[4]+A[3])" --datatype Float32 --output ndvi.tif
 echo "* remove the input temporary file"
 rm input.tif
 ```
@@ -533,7 +535,7 @@ rm input.tif
 
 ```
 
-Let's now check if the range of the NDVI values makes sense, and make a nice script from the following code block in a separate file (this will work only if you have one .TIF file in the data directory, as `fn=$(ls *.tif)` will get you all the tif files in the directory):
+Let's now check if the range of the NDVI values makes sense, and make a nice script from the following code block in a separate file (this will work only if you have one .tif file in the data directory, as `fn=$(ls *.tif)` will get you all the tif files in the directory):
 
 ```{r, engine='bash', results='hide', eval=FALSE}
 #!/bin/bash
@@ -541,24 +543,25 @@ echo "teamname"
 echo "Current date"
 echo "Calculate LandSat NDVI"
 mkdir -p output
-fn=data/*.tif
+fn=$(ls data/*.tif)
 echo "The input file(s): $fn"
 outfn=output/ndvi.tif
 echo "The output file: $outfn"
 echo "calculate ndvi"
-gdal_calc.py -A $fn --A_band=4 -B $fn --B_band=3 --outfile=$outfn --calc="(A.astype(float)-B)/(A.astype(float)+B)" --type='Float32'
+gdal raster calc -i A=$fn --calc="(A[4]-A[3])/(A[4]+A[3])" --datatype Float32 --output $outfn
 echo "look at some histogram statistics"
-gdalinfo -hist -stats $outfn
+gdal raster info --stats --hist $outfn
 ```
 
 ```{block, type="alert alert-info"}
 More info here on the power of GDAL via the terminal:
-[GDAL_website](http://www.gdal.org/) and `gdalinfo`
+[GDAL website](https://www.gdal.org/) and the new unified [`gdal`](https://gdal.org/en/stable/programs/gdal.html) command.
 
 Handy functions are (See the examples at the bottom):
 
-- [`gdal_translate`](http://www.gdal.org/gdal_translate.html)
-- [`gdalwarp`](http://www.gdal.org/gdalwarp.html)
+- [`gdal raster info`](https://gdal.org/en/stable/programs/gdal_raster_info.html) — inspect raster metadata (replaces `gdalinfo`)
+- [`gdal raster convert`](https://gdal.org/en/stable/programs/gdal_raster_convert.html) — format/type conversion (replaces `gdal_translate`)
+- [`gdal raster reproject`](https://gdal.org/en/stable/programs/gdal_raster_reproject.html) — reprojection/resampling (replaces `gdalwarp`)
 
 **Optional**:
 
@@ -567,7 +570,7 @@ More info about *Bash* basics from [GNU](https://www.gnu.org/software/bash/manua
 
 # More information
 
-- [Ryan's Linux & Bash Tutorial ](https://ryanstutorials.net/linuxtutorial/) goes into more depth but is also very handy to reference, and includes a [cheat sheet](https://ryanstutorials.net/linuxtutorial/cheatsheet.php) with commands. 
+- [Ryan's Linux & Bash Tutorial](https://ryanstutorials.net/linuxtutorial/) goes into more depth but is also very handy to reference, and includes a [cheat sheet](https://ryanstutorials.net/linuxtutorial/cheatsheet.php) with commands. 
 - [Hands-on introduction to bash basics for beginners](https://news.opensuse.org/2014/06/10/command-line-tuesdays-part-one/)
 - [A great bash scripting tutorial](http://linuxconfig.org/bash-scripting-tutorial)
 - [Basic terminal usage and installing software](http://www.howtogeek.com/140679/beginner-geek-how-to-start-using-the-linux-terminal/)
