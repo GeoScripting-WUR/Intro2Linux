@@ -23,7 +23,7 @@ code[class^="sourceCode python"]::before { content: "Python Source"; }
 code[class^="sourceCode bash"]::before { content: "Bash Source"; }
 ```
 
-<font size="6">[WUR Geoscripting](https://geoscripting-wur.github.io/)</font> <img src="https://www.wur.nl/upload/854757ab-168f-46d7-b415-f8b501eebaa5_WUR_RGB_standard_2021-site.svg" alt="WUR logo" style="height: 35px; margin:inherit;"/>
+<font size="6">[WUR Geoscripting](https://geoscripting-wur.github.io/)</font> <img src="https://geoscripting-wur.github.io/figs/WUR_RGB_standard_2025.svg" alt="WUR logo" style="height: 50px;"/>
 
 
 # Linux terminal & Bash
@@ -101,7 +101,7 @@ Now you know in which directory you’re situated thanks to your usage of the `p
 
 There are also some shortcuts available. If you type only `cd`, without the path following it, your terminal will change your working directory (whatever it may be) to your `/home/username` directory. Likewise, if you type `cd ~user_name`, it will lead you to the home directory of the specific user you stated.
 
-Try it out yourself. Navigate to a different directory using `cd`, and when there, type `pwd` to see if everything worked as it is supposed to. Once you're done, you should have something like this displayed in your terminal:
+Try it out yourself. Navigate to a different directory using `cd`, and when there, type `pwd` to see if everything worked as it is supposed to. Once you're done, you should have something like this displayed in your terminal (`cd ..` moves you to the parent directory (one level above your current directory), the ~ represents your home directory):
 
 ![cdpwd](figs/cd_pwd.png)
 
@@ -132,6 +132,11 @@ So, let’s try out `ls`, and use it on the `/etc` directory in the root of the 
 ```{bash, eval=FALSE}
 ls /etc
 ```
+
+Additionally, you can provide the output of a command to another command using the pipe
+operator `|`. In the following, we use the command `head` to only print the first 10
+lines of the output:
+
 ```{bash, eval=FALSE}
 ls /etc | head
 ```
@@ -356,9 +361,10 @@ So far, you've been running commands directly in the terminal, one at a time. Bu
 ### Hello, world Bash script 
 *Bash* is primarily a scripting language, so it would be a crime not to talk about scripting. Let's dive straight in with a *Bash* script. More precisely the infamous "Hello World" script. You can create a bash script by opening your favorite text editor to edit your script and then saving it (typically the `.sh` file extension is used for your reference, but is not required. In our example, we will be using the `.sh` extension).
 
-So let's get started. First, create a simple text file and call it `HelloWorld.sh`, save this in the `Bash` directory you just created, and add the following text. While `gedit`, the package we just installed, is used as the main example for editing files, you can also use `positron`, `rstudio` or `rkward` as an alternative text editor if you prefer. In fact, `positron` makes it rather convenient to edit Bash scripts, exactly the same way as R scripts, including the ability to run commands line by line (Ctrl+Enter). It is also worth noting that there are even command-line text editors, like `nano`, which are useful for editing files that require administrative privileges. 
+So let's get started. First, create a simple text file. While `gedit`, the package we just installed, is used as the main example for editing files, you can also use `positron`, `rstudio` or `rkward` as an alternative text editor if you prefer. In fact, `positron` makes it rather convenient to edit Bash scripts, exactly the same way as R and Python scripts, including the ability to run commands line by line (Ctrl+Enter). It is also worth noting that there are even command-line text editors, like `nano`, which are useful for editing files that require administrative privileges.
 
-Paste this piece of code into an editor you choose and save it:
+Call the new file `HelloWorld.sh`, save this in the `Bash` directory you just created.
+Paste the following piece of code into an editor you choose and save it:
 
 ![execute](figs/rstudioshell-vdi.jpg)
 
@@ -381,7 +387,7 @@ type bash
 
 Second, to run a bash script, you have two options.
 The first is to set the correct file permissions.
-We do this with `chmod` (change mode) command in terminal as follows, this needs to be done only once per file:
+We do this with the `chmod` (change mode) command in the terminal as follows, which needs to be done only once per file (you might have to change the directory first, or specify the file's relative path):
 
 ```{bash, eval=FALSE}
 ls -l # Check what's the current permissions
@@ -488,7 +494,7 @@ You can run the script once it is *executable*:
 **Optional**: If you want to learn more about *Bash* scripting: [https://help.ubuntu.com/community/Beginners/BashScripting](https://help.ubuntu.com/community/Beginners/BashScripting)
 ```
 
-For the next section, let's download a file from the [Intro to raster](https://geoscripting-wur.github.io/IntroToRaster) tutorial. **Manually** download the `gewata.zip` file from GitHub ([link](https://github.com/GeoScripting-WUR/IntroToRaster/releases/download/tahiti/gewata.zip)). Create a `data` directory and unzip it there, you should have a [.TIF file](https://en.wikipedia.org/wiki/TIFF). Then navigate to this directory in your terminal.
+For the next section, let's download a file from the [Intro to raster](https://geoscripting-wur.github.io/IntroToRaster) tutorial. **Manually** download the `gewata.zip` file from GitHub ([link](https://github.com/GeoScripting-WUR/IntroToRaster/releases/download/tahiti/gewata.zip)). Create a directory named `data` and unzip it there, you should have a [.TIF file](https://en.wikipedia.org/wiki/TIFF). Then navigate to this directory in your terminal.
 
 ## Using the GDAL library from the terminal
 
